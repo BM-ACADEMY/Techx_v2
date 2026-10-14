@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 20% 97%; /* #F7F5F1 */
+    --foreground: 222 22% 10%; /* #14171F */
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 22% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 22% 10%;
+
+    --primary: 216 61% 22%; /* BM Navy #16325C */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 18% 91%; /* Ground alt */
+    --secondary-foreground: 216 61% 22%;
+
+    --muted: 36 12% 90%;
+    --muted-foreground: 220 14% 34%; /* #4A5262 */
+
+    --accent: 14 74% 45%; /* Terracotta #C8451F */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 37 17% 86%; /* #E2DED7 */
+    --input: 37 17% 86%;
+    --ring: 216 61% 22%;
+
+    --radius: 0.65rem;
+  }
+
+  .dark {
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 40% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 40% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 213 94% 68%;
+    --primary-foreground: 222 47% 7%;
+
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 20 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 32% 18%;
+    --input: 217 32% 18%;
+    --ring: 213 94% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased selection:bg-bm-orange/20 selection:text-bm-navy;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+/* Custom scrollbar and glass effects */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #EDE9E1;
+}
+::-webkit-scrollbar-thumb {
+  background: #C4BEB4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A09A8F;
+}
+
+.glass-nav {
+  background: rgba(247, 245, 241, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.subtle-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(22, 50, 92, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(22, 50, 92, 0.04) 1px, transparent 1px);
+}
