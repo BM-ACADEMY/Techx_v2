@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Public+Sans:wght@300;400;500;600;700&family=DejaVu+Sans+Mono&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,6 +6,31 @@
 
 @layer base {
   :root {
+    /* theme.json Core Semantic Colors */
+    --color-ground: #F7F5F1;
+    --color-ground-alt: #EDE9E1;
+    --color-surface: #FFFFFF;
+    --color-ink: #14171F;
+    --color-ink-muted: #4A5262;
+    --color-ink-faint: #6B7386;
+    --color-line: #E2DED7;
+    --color-line-soft: #EDE9E1;
+    --color-brand: #16325C;
+    --color-brand-deep: #0F2542;
+    --color-brand-soft: #B9C8DF;
+    --color-accent-price: #C8451F;
+    --color-accent-price-text: #B03A18;
+    --color-accent-warm: #E8834F;
+    --color-action: #1E7A4D;
+    --color-action-hover: #17603C;
+    --color-wash-warm: #FBF1EC;
+    --color-wash-warm-line: #F0D9CE;
+    --color-wash-cool: #F7F9FC;
+    --color-success: #17603C;
+    --color-warning: #B3560B;
+    --color-danger: #B3261E;
+
+    /* shadcn/ui mapped tokens */
     --background: 40 20% 97%; /* #F7F5F1 */
     --foreground: 222 22% 10%; /* #14171F */
 
@@ -35,6 +60,13 @@
     --ring: 216 61% 22%;
 
     --radius: 0.65rem;
+
+    /* Motion Tokens */
+    --motion-duration-instant: 80ms;
+    --motion-duration-fast: 160ms;
+    --motion-duration-base: 240ms;
+    --motion-duration-slow: 400ms;
+    --motion-duration-slower: 640ms;
   }
 
   .dark {
@@ -74,9 +106,11 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased selection:bg-bm-orange/20 selection:text-bm-navy;
+    background-color: var(--color-ground);
+    color: var(--color-ink);
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight;
+    @apply font-display tracking-tight text-bm-navy-deep;
   }
 }
 
@@ -96,7 +130,7 @@
 }
 
 .glass-nav {
-  background: rgba(247, 245, 241, 0.88);
+  background: rgba(247, 245, 241, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }

@@ -1,0 +1,25 @@
+{
+  "_comment": "Pattern for every nested page. Generate at build time from the URL path — never hand-write these or they will drift. Example shown for /services/seo/.",
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bmtechx.in/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://bmtechx.in/services/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "SEO Services in Pondicherry",
+      "item": "https://bmtechx.in/services/seo/"
+    }
+  ]
+}

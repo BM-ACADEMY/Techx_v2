@@ -54,10 +54,20 @@ export default {
           "navy-soft": "#B9C8DF",
           orange: "#E8834F",
           terracotta: "#C8451F",
+          "price-text": "#B03A18",
           green: "#1E7A4D",
           "green-hover": "#17603C",
           ground: "#F7F5F1",
           "ground-alt": "#EDE9E1",
+          surface: "#FFFFFF",
+          ink: "#14171F",
+          "ink-muted": "#4A5262",
+          "ink-faint": "#6B7386",
+          line: "#E2DED7",
+          "line-soft": "#EDE9E1",
+          "wash-warm": "#FBF1EC",
+          "wash-warm-line": "#F0D9CE",
+          "wash-cool": "#F7F9FC",
         }
       },
       borderRadius: {
@@ -68,6 +78,7 @@ export default {
       fontFamily: {
         display: ["'Bricolage Grotesque'", "system-ui", "sans-serif"],
         body: ["'Public Sans'", "system-ui", "sans-serif"],
+        mono: ["'DejaVu Sans Mono'", "ui-monospace", "monospace"],
       },
       keyframes: {
         "accordion-down": {
