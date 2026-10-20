@@ -53,19 +53,19 @@ export function StickyMobileCTA({ pageSrc, defaultIntent }: StickyMobileCTAProps
 
   return (
     <div
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-bm-line shadow-2xl px-4 py-2.5 animate-in slide-in-from-bottom duration-300"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#08090D]/95 backdrop-blur-md border-t border-[#232636] shadow-[0_-5px_25px_rgba(0,0,0,0.8)] px-4 py-2.5 animate-in slide-in-from-bottom duration-300"
       role="complementary"
       aria-label="Quick WhatsApp Action Bar"
     >
       <div className="flex items-center justify-between gap-3 max-w-md mx-auto">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
+          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
           <div className="text-left">
-            <p className="text-xs font-bold text-bm-navy-deep flex items-center gap-1">
-              <Sparkles className="w-3 h-3 text-bm-orange" />
+            <p className="text-xs font-bold text-white flex items-center gap-1 font-display">
+              <Sparkles className="w-3 h-3 text-[#FFE600]" />
               Need pricing details?
             </p>
-            <p className="text-[10px] text-bm-ink-faint">Direct WhatsApp reply &lt; 15 mins</p>
+            <p className="text-[10px] text-[#94A3B8]">Direct WhatsApp reply &lt; 15 mins</p>
           </div>
         </div>
 
@@ -76,12 +76,12 @@ export function StickyMobileCTA({ pageSrc, defaultIntent }: StickyMobileCTAProps
             label="Chat"
             size="sm"
             variant="sticky"
-            className="py-2 px-3 text-xs font-bold shadow-md"
+            className="py-2 px-3 text-xs font-extrabold shadow-md bg-[#10B981] hover:bg-[#059669] text-white rounded-xl"
           />
 
           <button
             onClick={() => setIsDismissed(true)}
-            className="p-1 rounded-full text-bm-ink-faint hover:text-bm-ink hover:bg-bm-ground-alt"
+            className="p-1.5 rounded-full text-[#94A3B8] hover:text-white hover:bg-[#1A1D2B]"
             aria-label="Dismiss sticky bar"
           >
             <X className="w-4 h-4" />

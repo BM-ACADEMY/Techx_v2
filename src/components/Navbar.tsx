@@ -1,14 +1,15 @@
 import { useState, useEffect, useRef, type FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MessageSquare, Menu, X, ArrowUpRight, Sparkles, ChevronDown } from 'lucide-react';
+import { MessageSquare, Menu, X, ArrowUpRight, Sparkles, ChevronDown, Lock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getSiteConfig } from '@/data/dataLayer';
 
 interface NavbarProps {
   onOpenQuote: (service?: string) => void;
+  onOpenClientPortal?: () => void;
 }
 
-export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
+export const Navbar: FC<NavbarProps> = ({ onOpenQuote, onOpenClientPortal }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
@@ -64,42 +65,36 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#F7F5F1]/95 backdrop-blur-md shadow-sm border-b border-border py-3'
-          : 'bg-[#F7F5F1]/80 backdrop-blur-sm py-4'
+          ? 'bg-[#08090D]/95 backdrop-blur-md shadow-2xl border-b border-[#232636] py-3'
+          : 'bg-[#08090D]/80 backdrop-blur-sm border-b border-[#232636]/40 py-4'
       }`}
       role="banner"
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Brand Logo */}
-        <Link to="/" className="flex items-center gap-2 group" aria-label="BM TechX Home">
-          <div className="w-9 h-9 rounded-xl bg-bm-navy flex items-center justify-center text-white font-display font-extrabold text-lg shadow-sm group-hover:scale-105 transition-transform">
-            <span>X</span>
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-1.5 leading-none">
-              <span className="font-display font-extrabold text-xl text-bm-navy tracking-tight">
-                {site.brand.name}
-              </span>
-              <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-bm-navy/10 text-bm-navy">
-                v2.0
-              </span>
-            </div>
-            <span className="text-[10px] text-muted-foreground font-medium mt-0.5">
-              Tamil Nadu & Pondy
+        {/* Brand Official Logo */}
+        <Link to="/" className="flex items-center gap-3 group" aria-label="BM TechX Home">
+          <img
+            src="/logo.png"
+            alt="BM TechX Official Logo"
+            className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+          />
+          <div className="hidden sm:flex flex-col">
+            <span className="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-wider bg-[#FFE600]/10 text-[#FFE600] border border-[#FFE600]/30 w-fit">
+              v2.0 · Tamil Nadu
             </span>
           </div>
         </Link>
 
         {/* Desktop Nav Links */}
         <nav
-          className="hidden md:flex items-center gap-6 text-sm font-medium text-foreground/80"
+          className="hidden md:flex items-center gap-6 text-sm font-medium text-[#CBD5E1]"
           role="navigation"
           aria-label="Main Navigation"
         >
           <Link
             to="/"
-            className={`hover:text-bm-navy transition-colors py-1 ${
-              location.pathname === '/' ? 'text-bm-navy font-bold border-b-2 border-bm-orange' : ''
+            className={`hover:text-[#FFE600] transition-colors py-1 ${
+              location.pathname === '/' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Home
@@ -116,9 +111,9 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
               onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
               aria-expanded={servicesDropdownOpen}
               aria-haspopup="true"
-              className={`hover:text-bm-navy transition-colors py-1 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-bm-navy/20 rounded-md px-1.5 ${
+              className={`hover:text-[#FFE600] transition-colors py-1 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30 rounded-md px-1.5 ${
                 location.pathname.startsWith('/services') || location.pathname.startsWith('/industries')
-                  ? 'text-bm-navy font-bold'
+                  ? 'text-[#FFE600] font-bold'
                   : ''
               }`}
             >
@@ -127,7 +122,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
             {servicesDropdownOpen && (
               <div
-                className="absolute top-full left-0 w-64 bg-white border border-bm-line rounded-xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                className="absolute top-full left-0 w-64 bg-[#12141D] border border-[#232636] rounded-2xl shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                 role="menu"
                 aria-label="Services Submenu"
               >
@@ -136,7 +131,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
                     key={item.href}
                     to={item.href}
                     role="menuitem"
-                    className="block px-4 py-2 text-xs font-medium text-bm-ink hover:bg-bm-wash-cool hover:text-bm-navy transition-colors focus:bg-bm-wash-cool focus:outline-none"
+                    className="block px-4 py-2 text-xs font-medium text-[#CBD5E1] hover:bg-[#1A1D2B] hover:text-[#FFE600] transition-colors focus:bg-[#1A1D2B] focus:outline-none"
                   >
                     {item.label}
                   </Link>
@@ -147,8 +142,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
           <Link
             to="/pricing"
-            className={`hover:text-bm-navy transition-colors py-1 ${
-              location.pathname === '/pricing' ? 'text-bm-navy font-bold border-b-2 border-bm-orange' : ''
+            className={`hover:text-[#FFE600] transition-colors py-1 ${
+              location.pathname === '/pricing' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Pricing
@@ -156,8 +151,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
           <Link
             to="/work"
-            className={`hover:text-bm-navy transition-colors py-1 ${
-              location.pathname === '/work' ? 'text-bm-navy font-bold border-b-2 border-bm-orange' : ''
+            className={`hover:text-[#FFE600] transition-colors py-1 ${
+              location.pathname === '/work' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Our Work
@@ -165,8 +160,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
           <Link
             to="/about"
-            className={`hover:text-bm-navy transition-colors py-1 ${
-              location.pathname === '/about' ? 'text-bm-navy font-bold border-b-2 border-bm-orange' : ''
+            className={`hover:text-[#FFE600] transition-colors py-1 ${
+              location.pathname === '/about' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             About
@@ -174,8 +169,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
           <Link
             to="/blog"
-            className={`hover:text-bm-navy transition-colors py-1 ${
-              location.pathname === '/blog' ? 'text-bm-navy font-bold border-b-2 border-bm-orange' : ''
+            className={`hover:text-[#FFE600] transition-colors py-1 ${
+              location.pathname === '/blog' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Blog
@@ -183,8 +178,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
           <Link
             to="/contact"
-            className={`hover:text-bm-navy transition-colors py-1 ${
-              location.pathname === '/contact' ? 'text-bm-navy font-bold border-b-2 border-bm-orange' : ''
+            className={`hover:text-[#FFE600] transition-colors py-1 ${
+              location.pathname === '/contact' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Contact
@@ -193,9 +188,21 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
         {/* Quick CTA Actions */}
         <div className="hidden lg:flex items-center gap-3">
+          {/* Client Portal Button */}
+          {onOpenClientPortal && (
+            <button
+              onClick={onOpenClientPortal}
+              className="flex items-center gap-1.5 text-xs font-bold text-[#CBD5E1] hover:text-[#FFE600] px-3 py-2 rounded-xl border border-[#232636] hover:border-[#FFE600]/40 bg-[#12141D] transition-all focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30"
+              aria-label="Open Client Portal"
+            >
+              <Lock className="w-3.5 h-3.5 text-[#FFE600]" />
+              <span>Client Login</span>
+            </button>
+          )}
+
           <button
             onClick={openWhatsApp}
-            className="flex items-center gap-1.5 text-xs font-semibold text-[#1E7A4D] hover:text-[#17603C] px-3 py-2 rounded-lg hover:bg-emerald-50 transition-colors focus:ring-2 focus:ring-emerald-400 focus:outline-none"
+            className="flex items-center gap-1.5 text-xs font-semibold text-[#10B981] hover:text-[#059669] px-3 py-2 rounded-xl hover:bg-[#10B981]/10 transition-colors focus:ring-2 focus:ring-[#10B981]/30 focus:outline-none"
             aria-label="Contact BM TechX on WhatsApp"
           >
             <MessageSquare className="w-3.5 h-3.5" />
@@ -206,60 +213,73 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
             onClick={() => onOpenQuote()}
             variant="default"
             size="default"
-            className="text-xs font-semibold shadow-sm gap-1.5 bg-bm-navy hover:bg-bm-navy-deep text-white"
+            className="text-xs font-extrabold shadow-lg gap-1.5 bg-[#FFE600] hover:bg-[#FFD000] text-black shadow-[0_0_20px_rgba(255,230,0,0.25)] rounded-xl"
           >
-            <Sparkles className="w-3.5 h-3.5 text-orange-300" />
+            <Sparkles className="w-3.5 h-3.5 text-black" />
             Get Instant Quote
             <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
           </Button>
         </div>
 
         {/* Mobile Menu Hamburger */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2.5 rounded-lg hover:bg-bm-ground-alt text-bm-ink focus:outline-none focus:ring-2 focus:ring-bm-navy/30"
-          aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
-          aria-expanded={mobileMenuOpen}
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          {onOpenClientPortal && (
+            <button
+              onClick={onOpenClientPortal}
+              className="p-2 rounded-xl border border-[#232636] bg-[#12141D] text-[#FFE600] text-xs font-bold flex items-center gap-1"
+              aria-label="Client Login"
+            >
+              <Lock className="w-3.5 h-3.5" />
+              <span>Portal</span>
+            </button>
+          )}
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2.5 rounded-xl border border-[#232636] bg-[#12141D] hover:bg-[#1A1D2B] text-white focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30"
+            aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6 text-[#FFE600]" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden bg-white border-b border-bm-line px-4 pt-3 pb-6 space-y-3 shadow-lg animate-in slide-in-from-top-2 duration-150"
+          className="md:hidden bg-[#08090D] border-b border-[#232636] px-4 pt-3 pb-6 space-y-3 shadow-2xl animate-in slide-in-from-top-2 duration-150"
           role="dialog"
           aria-label="Mobile Navigation Menu"
         >
-          <Link to="/" className="block py-2 text-sm font-bold text-bm-navy border-b border-bm-line/50">
+          <Link to="/" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
             Home
           </Link>
-          <div className="py-2 border-b border-bm-line/50 space-y-1.5">
-            <p className="text-xs font-bold uppercase text-bm-ink-faint">Services</p>
+          <div className="py-2 border-b border-[#232636] space-y-1.5">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-[#FFE600]">Services</p>
             {services.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="block pl-2 py-2 text-xs text-bm-ink hover:text-bm-navy font-medium"
+                className="block pl-2 py-2 text-xs text-[#CBD5E1] hover:text-[#FFE600] font-medium"
               >
                 {item.label}
               </Link>
             ))}
           </div>
-          <Link to="/pricing" className="block py-2 text-sm font-bold text-bm-navy border-b border-bm-line/50">
+          <Link to="/pricing" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
             Pricing Plans (from ₹2,999)
           </Link>
-          <Link to="/work" className="block py-2 text-sm font-bold text-bm-navy border-b border-bm-line/50">
+          <Link to="/work" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
             Our Work / Case Studies
           </Link>
-          <Link to="/about" className="block py-2 text-sm font-bold text-bm-navy border-b border-bm-line/50">
+          <Link to="/about" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
             About BM TechX
           </Link>
-          <Link to="/blog" className="block py-2 text-sm font-bold text-bm-navy border-b border-bm-line/50">
+          <Link to="/blog" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
             Blog & Guides
           </Link>
-          <Link to="/contact" className="block py-2 text-sm font-bold text-bm-navy border-b border-bm-line/50">
+          <Link to="/contact" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
             Contact & WhatsApp
           </Link>
 
@@ -268,7 +288,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
               setMobileMenuOpen(false);
               onOpenQuote();
             }}
-            className="w-full bg-bm-navy hover:bg-bm-navy-deep text-white font-bold py-3.5 mt-2"
+            className="w-full bg-[#FFE600] hover:bg-[#FFD000] text-black font-extrabold py-3.5 mt-2 rounded-xl shadow-[0_0_20px_rgba(255,230,0,0.25)]"
           >
             Get Instant Quote
           </Button>

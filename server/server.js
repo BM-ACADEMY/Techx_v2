@@ -11,9 +11,36 @@ const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/bmtechx';
 const N8N_WEBHOOK_URL = process.env.N8N_WEBHOOK_URL || '';
 
+// Single-hop permanent 301 redirects for legacy URLs
+const LEGACY_REDIRECT_MAP = {
+  '/index.html': '/',
+  '/pricing.html': '/pricing',
+  '/services.html': '/services',
+  '/about.html': '/about',
+  '/contact.html': '/contact',
+  '/blog/seo-services-pondicherry.html': '/services/seo',
+  '/services/ecommerce': '/services/ecommerce-website',
+};
+
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// SEO Redirect Middleware: Single-hop 301 redirects for legacy URLs and canonical host
+app.use((req, res, next) => {
+  const host = req.get('host') || '';
+  if (host.startsWith('www.')) {
+    const cleanHost = host.replace(/^www\./, '');
+    return res.redirect(301, `https://${cleanHost}${req.originalUrl}`);
+  }
+
+  const cleanPath = req.path.toLowerCase();
+  if (LEGACY_REDIRECT_MAP[cleanPath]) {
+    return res.redirect(301, LEGACY_REDIRECT_MAP[cleanPath]);
+  }
+
+  next();
+});
 
 // MongoDB connection
 mongoose

@@ -22,6 +22,7 @@ export function ContactPage() {
   const [formState, setFormState] = useState({
     name: '',
     phone: '',
+    email: '',
     business_name: '',
     service_interested: 'web-multi',
     notes: '',
@@ -175,6 +176,7 @@ export function ContactPage() {
     setFormState({
       name: '',
       phone: '',
+      email: '',
       business_name: '',
       service_interested: 'web-multi',
       notes: '',
@@ -494,6 +496,7 @@ export function ContactPage() {
                 </label>
                 <Input
                   required
+                  autoComplete="name"
                   placeholder="e.g. Ramesh Kumar"
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -510,6 +513,7 @@ export function ContactPage() {
                   <Input
                     required
                     type="tel"
+                    autoComplete="tel"
                     placeholder="e.g. 98765 43210"
                     value={formState.phone}
                     onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
@@ -522,15 +526,31 @@ export function ContactPage() {
 
                 <div>
                   <label className="block text-xs font-bold text-bm-navy-deep uppercase tracking-wider mb-1.5">
-                    What You Sell / Business Name
+                    Email Address (Optional)
                   </label>
                   <Input
-                    placeholder="e.g. Dental Clinic, Real Estate, Retail"
-                    value={formState.business_name}
-                    onChange={(e) => setFormState({ ...formState, business_name: e.target.value })}
+                    type="email"
+                    autoComplete="email"
+                    placeholder="e.g. ramesh@example.com"
+                    value={formState.email}
+                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                     className="rounded-xl bg-bm-wash-cool/50 border-bm-line focus:bg-white text-sm"
                   />
                 </div>
+              </div>
+
+              {/* Field 4: Business Name */}
+              <div>
+                <label className="block text-xs font-bold text-bm-navy-deep uppercase tracking-wider mb-1.5">
+                  What You Sell / Business Name
+                </label>
+                <Input
+                  autoComplete="organization"
+                  placeholder="e.g. Dental Clinic, Real Estate, Retail"
+                  value={formState.business_name}
+                  onChange={(e) => setFormState({ ...formState, business_name: e.target.value })}
+                  className="rounded-xl bg-bm-wash-cool/50 border-bm-line focus:bg-white text-sm"
+                />
               </div>
 
               {/* Field 4: Service Interested */}

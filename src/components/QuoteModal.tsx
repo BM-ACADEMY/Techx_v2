@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { X, Send, CheckCircle2, MessageSquare, PhoneCall } from 'lucide-react'
+import { X, Send, CheckCircle2, MessageSquare, PhoneCall, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -58,14 +58,14 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
       <div 
-        className="relative w-full max-w-lg bg-surface bg-white dark:bg-card rounded-2xl shadow-2xl border border-border p-6 md:p-8 overflow-hidden text-foreground"
+        className="relative w-full max-w-lg bg-[#0D0F17] rounded-3xl shadow-2xl border border-[#232636] p-6 md:p-8 overflow-hidden text-white"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={resetAndClose}
-          className="absolute top-5 right-5 p-2 rounded-full text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-xl text-[#94A3B8] hover:bg-[#1A1D2B] hover:text-white transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -73,39 +73,39 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
         {submitted ? (
           <div className="text-center py-8 space-y-4">
-            <div className="w-16 h-16 bg-emerald-100 text-[#17603C] rounded-full flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
               <CheckCircle2 className="w-10 h-10" />
             </div>
-            <h3 className="text-2xl font-bold font-display text-bm-navy">
+            <h3 className="text-2xl font-bold font-display text-white">
               Redirecting to WhatsApp...
             </h3>
-            <p className="text-sm text-muted-foreground max-w-sm mx-auto">
-              Thank you, <strong>{name}</strong>! Your inquiry details are pre-formatted for instant priority discussion with our engineering team.
+            <p className="text-sm text-[#94A3B8] max-w-sm mx-auto">
+              Thank you, <strong className="text-white">{name}</strong>! Your inquiry details are pre-formatted for instant priority discussion with our engineering team.
             </p>
             <div className="pt-4 flex flex-col gap-2">
-              <Button onClick={resetAndClose} variant="default" className="w-full">
+              <Button onClick={resetAndClose} className="w-full bg-[#FFE600] text-black font-extrabold hover:bg-[#FFD000] py-3 rounded-xl shadow-lg">
                 Close
               </Button>
             </div>
           </div>
         ) : (
           <div>
-            <div className="mb-6">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-bm-navy/5 text-bm-navy text-xs font-semibold mb-2">
-                <span className="w-2 h-2 rounded-full bg-[#1E7A4D] animate-ping" />
+            <div className="mb-6 space-y-1">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFE600]/10 border border-[#FFE600]/30 text-[#FFE600] text-xs font-bold mb-1">
+                <Sparkles className="w-3.5 h-3.5 text-[#FFE600]" />
                 Guaranteed Fixed-Price Quote
               </div>
-              <h2 className="text-2xl font-bold font-display text-bm-navy">
+              <h2 className="text-2xl sm:text-3xl font-extrabold font-display text-white">
                 Start Your Project
               </h2>
-              <p className="text-sm text-muted-foreground mt-1">
+              <p className="text-xs sm:text-sm text-[#94A3B8]">
                 Share your requirements. Get a transparent quote & sprint timeline in minutes.
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#94A3B8] mb-1.5">
                   Your Full Name *
                 </label>
                 <Input
@@ -113,12 +113,13 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   placeholder="e.g. Arun Kumar"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  className="bg-[#12141D] border-[#232636] text-white focus:border-[#FFE600] focus:ring-[#FFE600]/20 rounded-xl"
                 />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#94A3B8] mb-1.5">
                     WhatsApp Phone *
                   </label>
                   <Input
@@ -127,28 +128,30 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                     placeholder="e.g. 98765 43210"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
+                    className="bg-[#12141D] border-[#232636] text-white focus:border-[#FFE600] focus:ring-[#FFE600]/20 rounded-xl"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#94A3B8] mb-1.5">
                     Business / Brand Name
                   </label>
                   <Input
                     placeholder="e.g. Pondy Organics"
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
+                    className="bg-[#12141D] border-[#232636] text-white focus:border-[#FFE600] focus:ring-[#FFE600]/20 rounded-xl"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#94A3B8] mb-1.5">
                   Select Desired Service
                 </label>
                 <select
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full h-10 px-3 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="w-full h-11 px-3 rounded-xl border border-[#232636] bg-[#12141D] text-white text-sm focus:outline-none focus:border-[#FFE600] focus:ring-2 focus:ring-[#FFE600]/20"
                 >
                   <option value="Single-Page Website (₹2,999 / 48h)">Single-Page Website (₹2,999 / 48h)</option>
                   <option value="Multi-Page Website (₹4,999)">Multi-Page Website (₹4,999)</option>
@@ -162,7 +165,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-[#94A3B8] mb-1.5">
                   Brief Project Requirements (Optional)
                 </label>
                 <Textarea
@@ -170,27 +173,27 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   rows={3}
+                  className="bg-[#12141D] border-[#232636] text-white focus:border-[#FFE600] focus:ring-[#FFE600]/20 rounded-xl"
                 />
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              <div className="pt-2">
                 <Button
                   type="submit"
-                  variant="action"
                   size="lg"
-                  className="w-full flex-1 justify-center gap-2"
+                  className="w-full justify-center gap-2 bg-[#FFE600] hover:bg-[#FFD000] text-black font-extrabold py-3.5 rounded-xl shadow-[0_0_20px_rgba(255,230,0,0.25)]"
                 >
                   <Send className="w-4 h-4" />
                   Send Quote Request on WhatsApp
                 </Button>
               </div>
 
-              <div className="flex items-center justify-center gap-4 text-xs text-muted-foreground pt-1">
+              <div className="flex items-center justify-center gap-4 text-xs text-[#94A3B8] pt-1">
                 <span className="flex items-center gap-1">
-                  <MessageSquare className="w-3.5 h-3.5 text-[#1E7A4D]" /> Quick 10-Min WhatsApp Response
+                  <MessageSquare className="w-3.5 h-3.5 text-emerald-400" /> Quick 10-Min WhatsApp Response
                 </span>
                 <span className="flex items-center gap-1">
-                  <PhoneCall className="w-3.5 h-3.5 text-bm-navy" /> Call: {SITE_CONFIG.phones.callsDisplay}
+                  <PhoneCall className="w-3.5 h-3.5 text-[#FFE600]" /> Call: {SITE_CONFIG.phones.callsDisplay}
                 </span>
               </div>
             </form>
@@ -200,3 +203,5 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
     </div>
   )
 }
+
+export default QuoteModal;

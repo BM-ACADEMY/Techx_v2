@@ -25,7 +25,7 @@ export function PriceCard({
 
   if (!plan) {
     return (
-      <div className="p-6 border border-dashed border-red-300 rounded-2xl bg-red-50 text-red-700 text-xs font-mono">
+      <div className="p-6 border border-dashed border-red-500/50 rounded-2xl bg-red-950/20 text-red-400 text-xs font-mono">
         Error: Plan ID "{id}" not found in pricing.json
       </div>
     );
@@ -45,30 +45,31 @@ export function PriceCard({
   return (
     <div
       className={cn(
-        'bg-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-200 relative',
+        'bg-[#12141D] rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative',
         isRecommended
-          ? 'border-2 border-bm-navy shadow-xl scale-[1.02] z-10'
-          : 'border border-bm-line shadow-sm hover:border-bm-navy/40 hover:shadow-md',
+          ? 'border-2 border-[#FFE600] shadow-[0_0_35px_rgba(255,230,0,0.18)] scale-[1.02] z-10'
+          : 'border border-[#232636] hover:border-[#FFE600]/50 hover:shadow-[0_0_30px_rgba(255,230,0,0.1)]',
         className
       )}
     >
       {isRecommended && (
-        <div className="absolute -top-3.5 left-6 bg-bm-navy text-white text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-          Recommended Choice
+        <div className="absolute -top-3.5 left-6 bg-[#FFE600] text-black text-[11px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-1.5">
+          <Zap className="w-3 h-3 fill-black text-black" />
+          <span>Recommended Choice</span>
         </div>
       )}
 
       <div className="space-y-4">
         {/* Plan Header */}
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-bm-ink-faint">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">
             {plan.name}
           </span>
           <div className="flex items-baseline gap-1.5 mt-1">
-            <span className="text-4xl sm:text-5xl font-black text-bm-navy-deep tracking-tight">
+            <span className="text-4xl sm:text-5xl font-black text-[#FFE600] tracking-tight font-display">
               {formatPrice(plan.price)}
             </span>
-            <span className="text-xs font-bold text-bm-ink-faint">
+            <span className="text-xs font-bold text-[#94A3B8]">
               {'period' in plan && plan.period ? `/${plan.period}` : ''} (+ 18% GST)
             </span>
           </div>
@@ -77,19 +78,19 @@ export function PriceCard({
         {/* SLA or Keyword Badge */}
         <div>
           {isOneTime && (plan as OneTimePlan).delivery && (
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-lg">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-xl">
               {(plan as OneTimePlan).delivery.includes('48') ? (
-                <Zap className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600" />
+                <Zap className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
               ) : (
-                <Clock className="w-3.5 h-3.5 text-emerald-600" />
+                <Clock className="w-3.5 h-3.5 text-emerald-400" />
               )}
               <span>Live in {(plan as OneTimePlan).delivery}</span>
             </div>
           )}
 
           {!isOneTime && (plan as MonthlyPlan).keywords && (
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-bm-navy bg-bm-wash-cool border border-bm-brand-soft px-3 py-1 rounded-lg">
-              <Target className="w-3.5 h-3.5 text-bm-orange" />
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFE600] bg-[#FFE600]/10 border border-[#FFE600]/30 px-3 py-1 rounded-xl">
+              <Target className="w-3.5 h-3.5 text-[#FFE600]" />
               <span>{(plan as MonthlyPlan).keywords} Target Keywords</span>
             </div>
           )}
@@ -97,15 +98,15 @@ export function PriceCard({
 
         {/* Inclusions */}
         {plan.includes && plan.includes.length > 0 && (
-          <div className="pt-4 border-t border-bm-line/60">
-            <p className="text-xs font-bold uppercase tracking-wider text-bm-ink-faint mb-2.5">
+          <div className="pt-4 border-t border-[#232636]">
+            <p className="text-xs font-bold uppercase tracking-wider text-[#94A3B8] mb-2.5">
               What's Included:
             </p>
-            <ul className="space-y-2 text-xs sm:text-sm text-bm-ink">
+            <ul className="space-y-2 text-xs sm:text-sm text-[#CBD5E1]">
               {plan.includes.map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                  <span>{item}</span>
+                  <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <span className="text-white/90">{item}</span>
                 </li>
               ))}
             </ul>
@@ -114,14 +115,14 @@ export function PriceCard({
 
         {/* Exclusions */}
         {plan.excludes && plan.excludes.length > 0 && (
-          <div className="pt-3 border-t border-bm-line/40">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-bm-ink-faint mb-1.5">
+          <div className="pt-3 border-t border-[#232636]/60">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-[#94A3B8] mb-1.5">
               Excludes:
             </p>
-            <ul className="space-y-1 text-xs text-bm-ink-faint">
+            <ul className="space-y-1 text-xs text-[#94A3B8]">
               {plan.excludes.map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <X className="w-3.5 h-3.5 text-bm-terracotta shrink-0 mt-0.5" />
+                  <X className="w-3.5 h-3.5 text-red-400 shrink-0 mt-0.5" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -131,14 +132,14 @@ export function PriceCard({
 
         {/* Renewal Notes */}
         {isOneTime && (plan as OneTimePlan).renewal && (
-          <div className="p-3 rounded-xl bg-bm-ground-alt/70 border border-bm-line text-xs text-bm-ink-muted flex items-start gap-2">
-            <RefreshCw className="w-3.5 h-3.5 text-bm-navy shrink-0 mt-0.5" />
+          <div className="p-3 rounded-2xl bg-[#08090D] border border-[#232636] text-xs text-[#94A3B8] flex items-start gap-2">
+            <RefreshCw className="w-3.5 h-3.5 text-[#FFE600] shrink-0 mt-0.5" />
             <div>
-              <span className="font-bold text-bm-navy">Renewal Policy: </span>
+              <span className="font-bold text-white">Renewal Policy: </span>
               {(plan as OneTimePlan).renewal.amount === 0 ? (
-                <span className="text-emerald-700 font-bold">No yearly renewal fee.</span>
+                <span className="text-emerald-400 font-bold">No yearly renewal fee.</span>
               ) : (
-                <span>
+                <span className="text-[#CBD5E1]">
                   {formatPrice((plan as OneTimePlan).renewal.amount)} / {(plan as OneTimePlan).renewal.period}{' '}
                   ({(plan as OneTimePlan).renewal.covers || 'Domain + Cloud Server'})
                 </span>
@@ -149,13 +150,18 @@ export function PriceCard({
       </div>
 
       {/* Action CTA */}
-      <div className="pt-6 mt-6 border-t border-bm-line/60">
+      <div className="pt-6 mt-6 border-t border-[#232636]">
         <WhatsAppCTA
           src={sourceTag}
           intent={intent}
           label={ctaLabel || `Order ${plan.name}`}
           variant={isRecommended ? 'primary' : 'secondary'}
-          className="w-full py-4 text-sm"
+          className={cn(
+            'w-full py-3.5 text-sm rounded-xl font-extrabold',
+            isRecommended
+              ? 'bg-[#FFE600] text-black hover:bg-[#FFD000] shadow-[0_0_20px_rgba(255,230,0,0.25)]'
+              : 'bg-[#181B27] text-white hover:bg-[#232636] border border-[#232636]'
+          )}
           onClick={() => onSelect && onSelect(plan)}
         />
       </div>

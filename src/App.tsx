@@ -1,32 +1,47 @@
-import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { MessageSquare } from 'lucide-react';
+import { useState, lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { MessageSquare, Loader2 } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { TrustFooter } from '@/components/TrustFooter';
 import { QuoteModal } from '@/components/QuoteModal';
+import { ClientPortalModal } from '@/components/ClientPortalModal';
 import { ScrollToTop } from '@/components/ScrollToTop';
 import { StickyMobileCTA } from '@/components/StickyMobileCTA';
 import { SITE_CONFIG } from '@/data/siteData';
 
-// Pages
+// Direct import for HomePage to maximize initial LCP speed
 import { HomePage } from '@/pages/HomePage';
-import { ServicesPage } from '@/pages/ServicesPage';
-import { WebsiteDevPage } from '@/pages/WebsiteDevPage';
-import { EcommercePage } from '@/pages/EcommercePage';
-import { SeoPage } from '@/pages/SeoPage';
-import { MetaAdsPage } from '@/pages/MetaAdsPage';
-import { SocialMediaPage } from '@/pages/SocialMediaPage';
-import { WhatsAppAutomationPage } from '@/pages/WhatsAppAutomationPage';
-import { PricingPage } from '@/pages/PricingPage';
-import { AboutPage } from '@/pages/AboutPage';
-import { ContactPage } from '@/pages/ContactPage';
-import { RealEstatePage } from '@/pages/RealEstatePage';
-import { WorkPage } from '@/pages/WorkPage';
-import { BlogPage } from '@/pages/BlogPage';
-import { NotFoundPage } from '@/pages/NotFoundPage';
+
+// Lazy-loaded secondary pages for optimal code-splitting (T9.1 & T9.4)
+const ServicesPage = lazy(() => import('@/pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
+const WebsiteDevPage = lazy(() => import('@/pages/WebsiteDevPage').then(m => ({ default: m.WebsiteDevPage })));
+const EcommercePage = lazy(() => import('@/pages/EcommercePage').then(m => ({ default: m.EcommercePage })));
+const SeoPage = lazy(() => import('@/pages/SeoPage').then(m => ({ default: m.SeoPage })));
+const MetaAdsPage = lazy(() => import('@/pages/MetaAdsPage').then(m => ({ default: m.MetaAdsPage })));
+const SocialMediaPage = lazy(() => import('@/pages/SocialMediaPage').then(m => ({ default: m.SocialMediaPage })));
+const WhatsAppAutomationPage = lazy(() => import('@/pages/WhatsAppAutomationPage').then(m => ({ default: m.WhatsAppAutomationPage })));
+const PricingPage = lazy(() => import('@/pages/PricingPage').then(m => ({ default: m.PricingPage })));
+const AboutPage = lazy(() => import('@/pages/AboutPage').then(m => ({ default: m.AboutPage })));
+const ContactPage = lazy(() => import('@/pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const RealEstatePage = lazy(() => import('@/pages/RealEstatePage').then(m => ({ default: m.RealEstatePage })));
+const WorkPage = lazy(() => import('@/pages/WorkPage').then(m => ({ default: m.WorkPage })));
+const BlogPage = lazy(() => import('@/pages/BlogPage').then(m => ({ default: m.BlogPage })));
+const NotFoundPage = lazy(() => import('@/pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
+
+function RouteFallback() {
+  return (
+    <div className="min-h-[50vh] flex items-center justify-center p-8 bg-[#08090D]">
+      <div className="flex items-center gap-3 text-white font-bold text-sm bg-[#12141D] border border-[#232636] px-5 py-3 rounded-2xl shadow-xl">
+        <Loader2 className="w-5 h-5 animate-spin text-[#FFE600]" />
+        <span>Loading BM TechX Engine...</span>
+      </div>
+    </div>
+  );
+}
 
 export function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false);
+  const [isClientPortalOpen, setIsClientPortalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('Multi-Page Website (₹4,999)');
 
   const handleOpenQuote = (service?: string) => {
@@ -46,29 +61,44 @@ export function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <div className="min-h-screen bg-[#F7F5F1] text-[#14171F] flex flex-col selection:bg-bm-orange/20 selection:text-bm-navy font-body antialiased">
+      <div className="min-h-screen bg-[#08090D] text-[#F8FAFC] flex flex-col selection:bg-[#FFE600] selection:text-black font-body antialiased">
         {/* Sitewide Sticky Header */}
-        <Navbar onOpenQuote={handleOpenQuote} />
+        <Navbar
+          onOpenQuote={handleOpenQuote}
+          onOpenClientPortal={() => setIsClientPortalOpen(true)}
+        />
 
         {/* Dynamic Route Content */}
         <main className="flex-1 pt-20">
-          <Routes>
-            <Route path="/" element={<HomePage onOpenQuote={handleOpenQuote} />} />
-            <Route path="/services" element={<ServicesPage onOpenQuote={handleOpenQuote} />} />
-            <Route path="/services/website-development" element={<WebsiteDevPage onOpenQuote={handleOpenQuote} />} />
-            <Route path="/services/ecommerce-website" element={<EcommercePage />} />
-            <Route path="/services/seo" element={<SeoPage />} />
-            <Route path="/services/meta-ads" element={<MetaAdsPage />} />
-            <Route path="/services/social-media-marketing" element={<SocialMediaPage />} />
-            <Route path="/services/whatsapp-automation" element={<WhatsAppAutomationPage />} />
-            <Route path="/pricing" element={<PricingPage onOpenQuote={handleOpenQuote} />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/industries/real-estate" element={<RealEstatePage />} />
-            <Route path="/work" element={<WorkPage onOpenQuote={handleOpenQuote} />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="*" element={<NotFoundPage />} />
-          </Routes>
+          <Suspense fallback={<RouteFallback />}>
+            <Routes>
+              <Route path="/" element={<HomePage onOpenQuote={handleOpenQuote} />} />
+              <Route path="/services" element={<ServicesPage onOpenQuote={handleOpenQuote} />} />
+              <Route path="/services/website-development" element={<WebsiteDevPage onOpenQuote={handleOpenQuote} />} />
+              <Route path="/services/ecommerce-website" element={<EcommercePage />} />
+              <Route path="/services/seo" element={<SeoPage />} />
+              <Route path="/services/meta-ads" element={<MetaAdsPage />} />
+              <Route path="/services/social-media-marketing" element={<SocialMediaPage />} />
+              <Route path="/services/whatsapp-automation" element={<WhatsAppAutomationPage />} />
+              <Route path="/pricing" element={<PricingPage onOpenQuote={handleOpenQuote} />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/industries/real-estate" element={<RealEstatePage />} />
+              <Route path="/work" element={<WorkPage onOpenQuote={handleOpenQuote} />} />
+              <Route path="/blog" element={<BlogPage />} />
+
+              {/* Legacy 301 Client-Side Single-Hop Redirects */}
+              <Route path="/index.html" element={<Navigate to="/" replace />} />
+              <Route path="/pricing.html" element={<Navigate to="/pricing" replace />} />
+              <Route path="/services.html" element={<Navigate to="/services" replace />} />
+              <Route path="/about.html" element={<Navigate to="/about" replace />} />
+              <Route path="/contact.html" element={<Navigate to="/contact" replace />} />
+              <Route path="/services/ecommerce" element={<Navigate to="/services/ecommerce-website" replace />} />
+              <Route path="/blog/seo-services-pondicherry.html" element={<Navigate to="/services/seo" replace />} />
+
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
         </main>
 
         {/* Sitewide Trust Footer */}
@@ -81,17 +111,23 @@ export function App() {
           initialService={selectedService}
         />
 
+        {/* Global Client Command Center & Dashboard Modal */}
+        <ClientPortalModal
+          isOpen={isClientPortalOpen}
+          onClose={() => setIsClientPortalOpen(false)}
+        />
+
         {/* Floating WhatsApp Action Button */}
         <button
           onClick={handleFloatingWhatsApp}
-          className="fixed bottom-6 right-6 z-40 bg-[#1E7A4D] hover:bg-[#17603C] text-white p-3.5 sm:px-4 sm:py-3 rounded-full shadow-2xl flex items-center gap-2.5 transition-all duration-300 hover:scale-105 group active:scale-95"
+          className="fixed bottom-6 right-6 z-40 bg-[#10B981] hover:bg-[#059669] text-white p-3.5 sm:px-4 sm:py-3 rounded-full shadow-[0_0_25px_rgba(16,185,129,0.3)] flex items-center gap-2.5 transition-all duration-300 hover:scale-105 group active:scale-95"
           aria-label="Direct WhatsApp Consultation"
         >
           <span className="relative flex h-3 w-3">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-200 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
           </span>
-          <MessageSquare className="w-5 h-5" />
+          <MessageSquare className="w-5 h-5 text-white" />
           <span className="hidden sm:inline text-xs font-bold tracking-wide">
             Chat on WhatsApp
           </span>
