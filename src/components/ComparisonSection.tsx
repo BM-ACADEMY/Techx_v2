@@ -73,9 +73,9 @@ export const ComparisonSection: FC = () => {
           </div>
 
           <div className="divide-y divide-border">
-            {comparisonRows.map((row, idx) => (
+            {comparisonRows.map((row) => (
               <div
-                key={idx}
+                key={row.metric}
                 className="grid grid-cols-12 p-4 sm:p-6 items-center text-xs sm:text-sm hover:bg-gray-50/80 transition-colors"
               >
                 <div className="col-span-5 sm:col-span-4 font-bold text-bm-navy pr-2">

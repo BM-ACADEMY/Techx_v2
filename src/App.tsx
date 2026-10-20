@@ -10,24 +10,23 @@ import { ProofSection } from '@/components/ProofSection'
 import { FaqSection } from '@/components/FaqSection'
 import { Footer } from '@/components/Footer'
 import { QuoteModal } from '@/components/QuoteModal'
-import { SITE_CONFIG } from '@/data/siteData'
+import { DEFAULT_SERVICE } from '@/data/siteData'
+import { openWhatsApp } from '@/lib/whatsapp'
 
 export function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false)
-  const [selectedService, setSelectedService] = useState('Multi-Page Website (₹4,999)')
+  const [selectedService, setSelectedService] = useState(DEFAULT_SERVICE)
 
   const handleOpenQuote = (service?: string) => {
-    if (service) {
-      setSelectedService(service)
-    }
+    // Always reset, so a card-specific label does not stick to later generic opens
+    setSelectedService(service ?? DEFAULT_SERVICE)
     setIsQuoteOpen(true)
   }
 
   const handleFloatingWhatsApp = () => {
-    const text = encodeURIComponent(
+    openWhatsApp(
       `Hello BM TechX team! I'm on your website and would like an instant consultation.\n[src:floating-whatsapp-button]`
     )
-    window.open(`https://wa.me/${SITE_CONFIG.phones.whatsapp}?text=${text}`, '_blank')
   }
 
   return (
@@ -60,7 +59,8 @@ export function App() {
       <button
         onClick={handleFloatingWhatsApp}
         className="fixed bottom-6 right-6 z-40 bg-[#1E7A4D] hover:bg-[#17603C] text-white p-3.5 sm:px-4 sm:py-3 rounded-full shadow-2xl flex items-center gap-2.5 transition-all duration-300 hover:scale-105 group active:scale-95"
-        aria-label="Direct WhatsApp Consultation"
+        aria-label="Chat on WhatsApp"
+        type="button"
       >
         <span className="relative flex h-3 w-3">
           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-200 opacity-75"></span>

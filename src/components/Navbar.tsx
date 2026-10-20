@@ -2,6 +2,7 @@ import { useState, useEffect, type FC } from 'react'
 import { MessageSquare, Menu, X, ArrowUpRight, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { SITE_CONFIG } from '@/data/siteData'
+import { openWhatsApp as openWhatsAppChat } from '@/lib/whatsapp'
 
 interface NavbarProps {
   onOpenQuote: (service?: string) => void
@@ -15,7 +16,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20)
     }
-    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -29,10 +31,9 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
   ]
 
   const openWhatsApp = () => {
-    const text = encodeURIComponent(
+    openWhatsAppChat(
       `Hello BM TechX team! I'm browsing your website and would like to discuss my project requirements.\n[src:navbar-direct]`
     )
-    window.open(`https://wa.me/${SITE_CONFIG.phones.whatsapp}?text=${text}`, '_blank')
   }
 
   return (
@@ -84,7 +85,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
             className="flex items-center gap-1.5 text-xs font-semibold text-[#1E7A4D] hover:text-[#17603C] px-3 py-2 rounded-lg hover:bg-emerald-50 transition-colors"
           >
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>+91 94038 92971</span>
+            <span>{SITE_CONFIG.phones.whatsappDisplay}</span>
           </button>
 
           <Button
@@ -114,6 +115,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-lg text-foreground hover:bg-muted"
             aria-label="Toggle navigation"
+            aria-expanded={mobileMenuOpen}
+            type="button"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -122,7 +125,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-border shadow-xl px-4 pt-4 pb-6 space-y-4 animate-in slide-in-from-top-4 duration-200">
+        <div className="md:hidden bg-white border-b border-border shadow-xl px-4 pt-4 pb-6 space-y-4 animate-slide-down">
           <div className="flex flex-col space-y-2 text-base font-medium">
             {navLinks.map((link) => (
               <a
@@ -155,7 +158,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
               className="w-full justify-center gap-2"
             >
               <MessageSquare className="w-4 h-4" />
-              WhatsApp Us: +91 94038 92971
+              WhatsApp Us: {SITE_CONFIG.phones.whatsappDisplay}
             </Button>
           </div>
         </div>

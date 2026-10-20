@@ -69,7 +69,18 @@ export default {
         display: ["'Bricolage Grotesque'", "system-ui", "sans-serif"],
         body: ["'Public Sans'", "system-ui", "sans-serif"],
       },
+      boxShadow: {
+        xs: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      },
       keyframes: {
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "slide-down": {
+          from: { opacity: "0", transform: "translateY(-12px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -84,6 +95,8 @@ export default {
         },
       },
       animation: {
+        "fade-in": "fade-in 0.2s ease-out",
+        "slide-down": "slide-down 0.2s ease-out",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "pulse-subtle": "pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",

@@ -3,7 +3,8 @@ import { Calculator, Check, ArrowRight, Clock, ShieldCheck, Sparkles } from 'luc
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { SITE_CONFIG } from '@/data/siteData'
+import { CUSTOM_APP_PRICE, GST_RATE, formatINR, getPlan } from '@/data/siteData'
+import { openWhatsApp } from '@/lib/whatsapp'
 
 interface BaseOption {
   id: string
@@ -25,28 +26,28 @@ const BASE_OPTIONS: BaseOption[] = [
   {
     id: 'single',
     name: 'Single-Page Sprint',
-    price: 2999,
+    price: getPlan('web-single').price,
     days: 2,
     description: 'High-converting one-page site ready in 48 hours.'
   },
   {
     id: 'multi',
     name: 'Multi-Page Business',
-    price: 4999,
+    price: getPlan('web-multi').price,
     days: 6,
     description: 'Full 5-8 page corporate presence with SEO setup.'
   },
   {
     id: 'ecommerce',
     name: 'Online eCommerce Store',
-    price: 9999,
+    price: getPlan('store').price,
     days: 9,
     description: 'Full store with payment gateway and WhatsApp alerts.'
   },
   {
     id: 'portal',
     name: 'Custom Web Application',
-    price: 18999,
+    price: CUSTOM_APP_PRICE,
     days: 14,
     description: 'Bespoke dashboards, student/job portals, or booking systems.'
   }
@@ -90,6 +91,13 @@ const ADDONS: AddonOption[] = [
   }
 ]
 
+const onActivate = (action: () => void) => (e: React.KeyboardEvent) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault()
+    action()
+  }
+}
+
 export const ProjectCalculator: React.FC = () => {
   const [selectedBase, setSelectedBase] = useState<string>('multi')
   const [selectedAddons, setSelectedAddons] = useState<string[]>(['whatsapp-bot', 'seo-pack'])
@@ -121,16 +129,14 @@ export const ProjectCalculator: React.FC = () => {
       .filter(Boolean)
       .join(', ')
 
-    const text = encodeURIComponent(
+    openWhatsApp(
       `Hello BM TechX! I configured an instant quote on your website:\n\n` +
-      `• Base Plan: ${baseItem.name} (₹${baseItem.price.toLocaleString('en-IN')})\n` +
+      `• Base Plan: ${baseItem.name} (${formatINR(baseItem.price)})\n` +
       `• Add-ons: ${addonNames || 'None'}\n` +
-      `• Estimated Total: ₹${totalPrice.toLocaleString('en-IN')} + GST\n` +
+      `• Estimated Total: ${formatINR(totalPrice)} + GST\n` +
       `• Target Delivery: ~${totalDays} working days\n\n` +
       `Can we discuss and kick off our project sprint?\n[src:interactive-calculator]`
     )
-
-    window.open(`https://wa.me/${SITE_CONFIG.phones.whatsapp}?text=${text}`, '_blank')
   }
 
   return (
@@ -156,14 +162,18 @@ export const ProjectCalculator: React.FC = () => {
               <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
                 <span>1. Select Platform Foundation</span>
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div role="radiogroup" aria-label="Platform foundation" className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {BASE_OPTIONS.map((opt) => {
                   const isSelected = selectedBase === opt.id
                   return (
                     <div
                       key={opt.id}
+                      role="radio"
+                      aria-checked={isSelected}
+                      tabIndex={0}
                       onClick={() => setSelectedBase(opt.id)}
-                      className={`cursor-pointer p-4 rounded-xl border transition-all text-left ${
+                      onKeyDown={onActivate(() => setSelectedBase(opt.id))}
+                      className={`cursor-pointer p-4 rounded-xl border transition-all text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-bm-navy ${
                         isSelected
                           ? 'border-bm-navy bg-white shadow-md ring-2 ring-bm-navy/10'
                           : 'border-border bg-white/70 hover:bg-white hover:border-gray-400'
@@ -172,7 +182,7 @@ export const ProjectCalculator: React.FC = () => {
                       <div className="flex justify-between items-start">
                         <span className="font-bold text-sm text-bm-navy">{opt.name}</span>
                         <span className="text-xs font-semibold px-2 py-0.5 rounded bg-bm-navy/5 text-bm-navy">
-                          ₹{opt.price.toLocaleString('en-IN')}
+                          {formatINR(opt.price)}
                         </span>
                       </div>
                       <p className="text-xs text-muted-foreground mt-1.5">{opt.description}</p>
@@ -189,14 +199,18 @@ export const ProjectCalculator: React.FC = () => {
               <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-3 flex items-center gap-2">
                 <span>2. Choose Optional Growth Add-ons</span>
               </h3>
-              <div className="space-y-2.5">
+              <div role="group" aria-label="Optional add-ons" className="space-y-2.5">
                 {ADDONS.map((addon) => {
                   const isChecked = selectedAddons.includes(addon.id)
                   return (
                     <div
                       key={addon.id}
+                      role="checkbox"
+                      aria-checked={isChecked}
+                      tabIndex={0}
                       onClick={() => toggleAddon(addon.id)}
-                      className={`cursor-pointer p-3.5 rounded-xl border flex items-center justify-between transition-all ${
+                      onKeyDown={onActivate(() => toggleAddon(addon.id))}
+                      className={`cursor-pointer p-3.5 rounded-xl border flex items-center justify-between transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600 ${
                         isChecked
                           ? 'border-emerald-600 bg-emerald-50/50 shadow-sm'
                           : 'border-border bg-white/70 hover:bg-white'
@@ -217,7 +231,7 @@ export const ProjectCalculator: React.FC = () => {
                       </div>
                       <div className="text-right">
                         <div className="text-xs font-bold text-bm-navy">
-                          +₹{addon.price.toLocaleString('en-IN')}
+                          +{formatINR(addon.price)}
                         </div>
                       </div>
                     </div>
@@ -229,7 +243,7 @@ export const ProjectCalculator: React.FC = () => {
 
           {/* Real-time Summary Card */}
           <div className="lg:col-span-5 sticky top-24">
-            <Card className="border-2 border-bm-navy/20 bg-white shadow-xl overflow-hidden rounded-2xl">
+            <Card aria-live="polite" className="border-2 border-bm-navy/20 bg-white shadow-xl overflow-hidden rounded-2xl">
               <div className="bg-bm-navy text-white p-5">
                 <div className="flex items-center justify-between">
                   <span className="text-xs uppercase tracking-wider text-bm-navy-soft font-semibold">
@@ -241,9 +255,9 @@ export const ProjectCalculator: React.FC = () => {
                 </div>
                 <div className="mt-3 flex items-baseline gap-2">
                   <span className="text-4xl font-extrabold font-display">
-                    ₹{totalPrice.toLocaleString('en-IN')}
+                    {formatINR(totalPrice)}
                   </span>
-                  <span className="text-xs text-bm-navy-soft">+ 18% GST</span>
+                  <span className="text-xs text-bm-navy-soft">+ {GST_RATE}% GST</span>
                 </div>
                 <div className="mt-1 text-xs text-bm-navy-soft flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-orange-300" />

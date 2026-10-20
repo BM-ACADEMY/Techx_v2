@@ -45,7 +45,13 @@ export const SITE_CONFIG = {
   address: "78 Lenin Street, Kosapalayam, Puducherry 605013",
   operatingHours: "Mon – Sat: 10:00 AM – 7:00 PM IST",
   serviceAreas: ["Puducherry", "Chennai", "Cuddalore", "Villupuram", "Madurai", "Trichy", "Coimbatore"],
+  // Public site URL used for canonical/OG/sitemap. Confirm before launch.
+  url: "https://bmtechx.in",
 }
+
+export const GST_RATE = 18
+
+export const formatINR = (amount: number): string => `₹${amount.toLocaleString('en-IN')}`
 
 export const ONE_TIME_PLANS: PricingPlan[] = [
   {
@@ -273,3 +279,31 @@ export const FAQS = [
     a: "Every button on your website embeds an invisible tracking tag. When a customer taps 'Chat on WhatsApp', it opens their WhatsApp with their exact service interest pre-filled. If you choose our Automation tier, an automated assistant qualifies them instantly within 10 seconds, even at 2 AM."
   }
 ]
+
+/** Price of the custom web application base in the calculator (not a published plan card). */
+export const CUSTOM_APP_PRICE = 18999
+
+export const CUSTOM_SERVICE_OPTIONS = [
+  "Custom Web Application / Enterprise Software",
+] as const
+
+const planLabel = (plan: PricingPlan): string =>
+  `${plan.name} (${formatINR(plan.price)}${plan.period ? `/${plan.period === 'month' ? 'mo' : plan.period}` : ''})`
+
+/** Labels for the quote form dropdown, generated from the plans so prices never drift. */
+export const SERVICE_OPTIONS: string[] = [
+  ...ONE_TIME_PLANS.map(planLabel),
+  ...MONTHLY_PLANS.map(planLabel),
+  ...CUSTOM_SERVICE_OPTIONS,
+]
+
+const recommendedOneTime = ONE_TIME_PLANS.find((p) => p.recommended) ?? ONE_TIME_PLANS[0]
+export const DEFAULT_SERVICE = planLabel(recommendedOneTime)
+
+export const getPlan = (id: string): PricingPlan => {
+  const plan = [...ONE_TIME_PLANS, ...MONTHLY_PLANS].find((p) => p.id === id)
+  if (!plan) throw new Error(`Unknown plan id: ${id}`)
+  return plan
+}
+
+export const planOptionLabel = planLabel
