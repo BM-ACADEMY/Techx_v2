@@ -102,7 +102,7 @@ export const Hero: FC<HeroProps> = ({ onOpenQuote }) => {
                   <Zap className="w-5 h-5 fill-current" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-base text-bm-navy">Engineering Difference</h3>
+                  <h2 className="font-bold text-base text-bm-navy">Engineering Difference</h2>
                   <p className="text-xs text-muted-foreground">BM TechX Custom Code vs Standard Agency</p>
                 </div>
               </div>

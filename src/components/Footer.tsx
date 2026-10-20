@@ -2,7 +2,11 @@ import type { FC } from 'react'
 import { MapPin, Phone, MessageSquare, Mail, Clock, ShieldCheck } from 'lucide-react'
 import { SITE_CONFIG } from '@/data/siteData'
 
-export const Footer: FC = () => {
+interface FooterProps {
+  onOpenPrivacy?: () => void
+}
+
+export const Footer: FC<FooterProps> = ({ onOpenPrivacy }) => {
   return (
     <footer className="bg-bm-navy-deep text-white pt-16 pb-12 border-t border-bm-navy">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
@@ -98,8 +102,8 @@ export const Footer: FC = () => {
                   {SITE_CONFIG.email}
                 </a>
               </div>
-              <div className="flex items-center gap-2 text-muted-foreground text-[11px] pt-1">
-                <Clock className="w-3.5 h-3.5 text-gray-400 shrink-0" />
+              <div className="flex items-center gap-2 text-gray-300 text-xs pt-1">
+                <Clock className="w-3.5 h-3.5 text-gray-300 shrink-0" />
                 <span>{SITE_CONFIG.operatingHours}</span>
               </div>
             </div>
@@ -111,11 +115,19 @@ export const Footer: FC = () => {
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
             <span>
-              © {new Date().getFullYear()} BM TechX · A unit of Afra Ventures Private Limited. All rights reserved.
+              © {new Date().getFullYear()} BM TechX · A unit of Afra Ventures Private Limited.
             </span>
           </div>
-          <div className="flex items-center gap-4 text-xs text-gray-400">
-            <span>Built with React + Vite + Tailwind + shadcn/ui</span>
+          <div className="flex items-center gap-4 text-xs text-gray-300">
+            {onOpenPrivacy && (
+              <button
+                type="button"
+                onClick={onOpenPrivacy}
+                className="hover:text-white underline underline-offset-2 transition-colors cursor-pointer"
+              >
+                Privacy Policy
+              </button>
+            )}
             <span>·</span>
             <span>99+ PageSpeed Engineered</span>
           </div>

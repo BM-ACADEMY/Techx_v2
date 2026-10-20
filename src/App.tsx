@@ -10,11 +10,13 @@ import { ProofSection } from '@/components/ProofSection'
 import { FaqSection } from '@/components/FaqSection'
 import { Footer } from '@/components/Footer'
 import { QuoteModal } from '@/components/QuoteModal'
+import { PrivacyPolicyModal } from '@/components/PrivacyPolicyModal'
 import { DEFAULT_SERVICE } from '@/data/siteData'
 import { openWhatsApp } from '@/lib/whatsapp'
 
 export function App() {
   const [isQuoteOpen, setIsQuoteOpen] = useState(false)
+  const [isPrivacyOpen, setIsPrivacyOpen] = useState(false)
   const [selectedService, setSelectedService] = useState(DEFAULT_SERVICE)
 
   const handleOpenQuote = (service?: string) => {
@@ -46,13 +48,19 @@ export function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenPrivacy={() => setIsPrivacyOpen(true)} />
 
-      {/* Interactive Modal */}
+      {/* Interactive Quote Modal */}
       <QuoteModal
         isOpen={isQuoteOpen}
         onClose={() => setIsQuoteOpen(false)}
         initialService={selectedService}
+      />
+
+      {/* Privacy Policy Modal */}
+      <PrivacyPolicyModal
+        isOpen={isPrivacyOpen}
+        onClose={() => setIsPrivacyOpen(false)}
       />
 
       {/* Floating Sticky WhatsApp Button */}

@@ -78,9 +78,9 @@ export const FaqSection: React.FC = () => {
         {/* Quick Help Card */}
         <div className="mt-12 bg-gradient-to-r from-bm-navy to-bm-navy-deep text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="text-xl font-bold font-display">
+            <h3 className="text-xl font-bold font-display">
               Have a custom requirement or question?
-            </h4>
+            </h3>
             <p className="text-xs sm:text-sm text-bm-navy-soft">
               Speak directly with our engineering founders on WhatsApp. No sales pressure.
             </p>
