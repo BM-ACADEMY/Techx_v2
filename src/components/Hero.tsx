@@ -1,18 +1,21 @@
 import type { FC } from 'react'
 import { ArrowRight, Zap, CheckCircle2, Shield, MessageSquare } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { SITE_CONFIG } from '@/data/siteData'
+import { ONE_TIME_PLANS, formatINR, getPlan, planOptionLabel } from '@/data/siteData'
+import { openWhatsApp as openWhatsAppChat } from '@/lib/whatsapp'
 
 interface HeroProps {
   onOpenQuote: (service?: string) => void
 }
 
 export const Hero: FC<HeroProps> = ({ onOpenQuote }) => {
+  const startingPrice = formatINR(ONE_TIME_PLANS[0].price)
+  const popularService = planOptionLabel(getPlan('web-multi'))
+
   const openWhatsApp = () => {
-    const text = encodeURIComponent(
+    openWhatsAppChat(
       `Hello BM TechX team! I'm interested in starting a website project with 48h turnaround.\n[src:hero-cta]`
     )
-    window.open(`https://wa.me/${SITE_CONFIG.phones.whatsapp}?text=${text}`, '_blank')
   }
 
   return (
@@ -42,19 +45,21 @@ export const Hero: FC<HeroProps> = ({ onOpenQuote }) => {
 
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0">
               We engineer custom-coded websites and eCommerce stores from{' '}
-              <strong className="text-foreground font-semibold">₹2,999</strong>. Includes domain, high-speed cloud hosting, and on-page SEO. No fragile plugins, no slow page weights, and no surprise developer invoices.
+              <strong className="text-foreground font-semibold">{startingPrice}</strong>. Includes domain, high-speed cloud hosting, and on-page SEO. No fragile plugins, no slow page weights, and no surprise developer invoices.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
               <Button
-                onClick={() => onOpenQuote()}
+                asChild
                 variant="default"
                 size="lg"
                 className="w-full sm:w-auto text-sm font-semibold shadow-lg hover:shadow-xl transition-all"
               >
-                <span>View Fixed Pricing (from ₹2,999)</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
+                <a href="#pricing">
+                  <span>View Fixed Pricing (from {startingPrice})</span>
+                  <ArrowRight className="w-4 h-4 ml-1" />
+                </a>
               </Button>
 
               <Button
@@ -97,7 +102,7 @@ export const Hero: FC<HeroProps> = ({ onOpenQuote }) => {
                   <Zap className="w-5 h-5 fill-current" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-base text-bm-navy">Engineering Difference</h3>
+                  <h2 className="font-bold text-base text-bm-navy">Engineering Difference</h2>
                   <p className="text-xs text-muted-foreground">BM TechX Custom Code vs Standard Agency</p>
                 </div>
               </div>
@@ -157,7 +162,8 @@ export const Hero: FC<HeroProps> = ({ onOpenQuote }) => {
                   <span>Tested on Jio / Airtel 4G</span>
                 </div>
                 <button
-                  onClick={() => onOpenQuote('Multi-Page Website (₹4,999)')}
+                  type="button"
+                  onClick={() => onOpenQuote(popularService)}
                   className="font-bold text-bm-navy hover:text-bm-orange flex items-center gap-1 group"
                 >
                   Order High-Speed Site
@@ -172,7 +178,7 @@ export const Hero: FC<HeroProps> = ({ onOpenQuote }) => {
         <div className="mt-14 pt-8 border-t border-border/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="p-3">
             <div className="text-3xl sm:text-4xl font-extrabold font-display text-bm-navy">
-              ₹2,999
+              {startingPrice}
             </div>
             <div className="text-xs text-muted-foreground font-medium mt-1">
               Starting Website Price

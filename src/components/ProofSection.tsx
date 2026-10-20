@@ -35,6 +35,8 @@ export const ProofSection: FC<ProofSectionProps> = ({ onOpenQuote }) => {
             return (
               <button
                 key={cs.id}
+                type="button"
+                aria-pressed={isSelected}
                 onClick={() => setActiveTab(cs.id)}
                 className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                   isSelected
@@ -89,9 +91,9 @@ export const ProofSection: FC<ProofSectionProps> = ({ onOpenQuote }) => {
                   Engineered Tech Stack:
                 </span>
                 <div className="flex flex-wrap gap-1.5">
-                  {activeCase.tech.map((t, idx) => (
+                  {activeCase.tech.map((t) => (
                     <span
-                      key={idx}
+                      key={t}
                       className="px-2.5 py-1 rounded-md text-xs font-semibold bg-white border border-border text-foreground/80"
                     >
                       {t}

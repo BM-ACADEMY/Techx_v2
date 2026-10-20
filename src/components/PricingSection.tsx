@@ -3,7 +3,8 @@ import { Check, X, ShieldCheck, Sparkles, MessageSquare } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { ONE_TIME_PLANS, MONTHLY_PLANS, SITE_CONFIG, type PricingPlan } from '@/data/siteData'
+import { ONE_TIME_PLANS, MONTHLY_PLANS, GST_RATE, formatINR, planOptionLabel, type PricingPlan } from '@/data/siteData'
+import { openWhatsApp } from '@/lib/whatsapp'
 
 interface PricingSectionProps {
   onOpenQuote: (service?: string) => void
@@ -15,10 +16,9 @@ export const PricingSection: FC<PricingSectionProps> = ({ onOpenQuote }) => {
   const plans = tab === 'onetime' ? ONE_TIME_PLANS : MONTHLY_PLANS
 
   const openWhatsAppForPlan = (plan: PricingPlan) => {
-    const text = encodeURIComponent(
-      `Hello BM TechX team! I'd like to book the "${plan.name}" plan for ₹${plan.price.toLocaleString('en-IN')}${plan.period ? `/${plan.period}` : ''}.\n[src:pricing-card-${plan.id}]`
+    openWhatsApp(
+      `Hello BM TechX team! I'd like to book the "${plan.name}" plan for ${formatINR(plan.price)}${plan.period ? `/${plan.period}` : ''}.\n[src:pricing-card-${plan.id}]`
     )
-    window.open(`https://wa.me/${SITE_CONFIG.phones.whatsapp}?text=${text}`, '_blank')
   }
 
   return (
@@ -37,8 +37,10 @@ export const PricingSection: FC<PricingSectionProps> = ({ onOpenQuote }) => {
           </p>
 
           {/* Tab Switcher */}
-          <div className="inline-flex p-1.5 rounded-2xl bg-white border border-border shadow-xs mt-8">
+          <div className="inline-flex p-1.5 rounded-2xl bg-white border border-border shadow-sm mt-8">
             <button
+              type="button"
+              aria-pressed={tab === 'onetime'}
               onClick={() => setTab('onetime')}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 tab === 'onetime'
@@ -49,6 +51,8 @@ export const PricingSection: FC<PricingSectionProps> = ({ onOpenQuote }) => {
               One-Time Web Projects
             </button>
             <button
+              type="button"
+              aria-pressed={tab === 'monthly'}
               onClick={() => setTab('monthly')}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
                 tab === 'monthly'
@@ -94,7 +98,7 @@ export const PricingSection: FC<PricingSectionProps> = ({ onOpenQuote }) => {
                     <div className="my-3">
                       <div className="flex items-baseline gap-1">
                         <span className="text-4xl font-extrabold font-display text-bm-navy">
-                          ₹{plan.price.toLocaleString('en-IN')}
+                          {formatINR(plan.price)}
                         </span>
                         {plan.period && (
                           <span className="text-sm font-semibold text-muted-foreground">
@@ -103,7 +107,7 @@ export const PricingSection: FC<PricingSectionProps> = ({ onOpenQuote }) => {
                         )}
                       </div>
                       <div className="text-[11px] text-muted-foreground mt-0.5">
-                        Excluding 18% GST · Delivered in {plan.delivery || 'ongoing sprint'}
+                        Excluding {GST_RATE}% GST · Delivered in {plan.delivery || 'ongoing sprint'}
                       </div>
                     </div>
 
@@ -117,8 +121,8 @@ export const PricingSection: FC<PricingSectionProps> = ({ onOpenQuote }) => {
                       <div className="text-xs font-bold text-bm-navy uppercase tracking-wider">
                         Included in this sprint:
                       </div>
-                      {plan.includes.map((item, idx) => (
-                        <div key={idx} className="flex items-start gap-2 text-xs text-foreground/85">
+                      {plan.includes.map((item) => (
+                        <div key={item} className="flex items-start gap-2 text-xs text-foreground/85">
                           <Check className="w-3.5 h-3.5 text-[#1E7A4D] shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </div>
@@ -130,8 +134,8 @@ export const PricingSection: FC<PricingSectionProps> = ({ onOpenQuote }) => {
                         <div className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider">
                           Excluded (can be quoted separately):
                         </div>
-                        {plan.excludes.map((item, idx) => (
-                          <div key={idx} className="flex items-start gap-2 text-[11px] text-muted-foreground">
+                        {plan.excludes.map((item) => (
+                          <div key={item} className="flex items-start gap-2 text-[11px] text-muted-foreground">
                             <X className="w-3 h-3 text-red-500 shrink-0 mt-0.5" />
                             <span>{item}</span>
                           </div>
@@ -143,7 +147,7 @@ export const PricingSection: FC<PricingSectionProps> = ({ onOpenQuote }) => {
                       <div className="pt-2 border-t border-border/80 text-[11px] text-muted-foreground bg-gray-50 p-2.5 rounded-lg">
                         <strong>Year 2 renewal:</strong>{' '}
                         {plan.renewal.amount > 0 ? (
-                          <span>₹{plan.renewal.amount.toLocaleString('en-IN')}/{plan.renewal.period} ({plan.renewal.note})</span>
+                          <span>{formatINR(plan.renewal.amount)}/{plan.renewal.period} ({plan.renewal.note})</span>
                         ) : (
                           <span className="text-emerald-700 font-semibold">{plan.renewal.note}</span>
                         )}
@@ -164,7 +168,8 @@ export const PricingSection: FC<PricingSectionProps> = ({ onOpenQuote }) => {
                   </Button>
 
                   <button
-                    onClick={() => onOpenQuote(`${plan.name} (₹${plan.price})`)}
+                    type="button"
+                    onClick={() => onOpenQuote(planOptionLabel(plan))}
                     className="text-xs text-muted-foreground hover:text-bm-navy font-medium py-1 transition-colors"
                   >
                     Or request written quotation form →

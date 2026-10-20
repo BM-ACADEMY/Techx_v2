@@ -11,26 +11,41 @@ import {
   Sparkles 
 } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+import { Badge, type BadgeProps } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { CUSTOM_SERVICE_OPTIONS, formatINR, getPlan, planOptionLabel } from '@/data/siteData'
 
 interface ServicesSectionProps {
   onOpenQuote: (service?: string) => void
 }
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuote }) => {
-  const services = [
+  const price = (id: string) => formatINR(getPlan(id).price)
+
+  const services: Array<{
+    icon: typeof Globe
+    id: string
+    planId: string
+    title: string
+    badge: string
+    badgeColor: NonNullable<BadgeProps['variant']>
+    pricing: string
+    delivery: string
+    description: string
+    highlights: string[]
+  }> = [
     {
       icon: Globe,
       id: "web-dev",
+      planId: "web-single",
       title: "Custom Website Development",
       badge: "48h Sprint",
       badgeColor: "success",
-      pricing: "From ₹2,999",
+      pricing: `From ${price("web-single")}`,
       delivery: "48 hrs – 7 days",
       description: "Engineered in React/Vite. Loads in under 1 second, outranking heavy WordPress sites on Google Core Web Vitals.",
       highlights: [
-        "Single-page (₹2,999) & Multi-page (₹4,999)",
+        `Single-page (${price("web-single")}) & Multi-page (${price("web-multi")})`,
         "Domain and fast cloud hosting included (Year 1)",
         "Mobile-first responsive architecture",
         "Direct WhatsApp and enquiry forms with source tracking",
@@ -40,10 +55,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuote })
     {
       icon: ShoppingCart,
       id: "ecommerce",
+      planId: "store",
       title: "Direct-to-Consumer eCommerce",
       badge: "0% Commission",
       badgeColor: "warm",
-      pricing: "Fixed ₹9,999",
+      pricing: `Fixed ${price("store")}`,
       delivery: "7–10 working days",
       description: "Your independent online store with razor-fast checkout, payment gateway, and automatic WhatsApp order dispatches.",
       highlights: [
@@ -57,10 +73,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuote })
     {
       icon: Search,
       id: "seo",
+      planId: "seo-starter",
       title: "Local & Regional SEO Sprints",
       badge: "Google #1 Focus",
       badgeColor: "brand",
-      pricing: "From ₹4,999/mo",
+      pricing: `From ${price("seo-starter")}/mo`,
       delivery: "Monthly Retainer",
       description: "Systematic technical audit, Google Business Profile dominance, and local citations designed to capture high-intent buyers.",
       highlights: [
@@ -74,10 +91,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuote })
     {
       icon: TrendingUp,
       id: "meta-ads",
+      planId: "meta-growth",
       title: "Meta Ads & Lead Funnels",
       badge: "High ROAS",
       badgeColor: "warm",
-      pricing: "₹7,499/mo",
+      pricing: `${price("meta-growth")}/mo`,
       delivery: "Weekly Optimization",
       description: "High-converting Instagram and Facebook lead campaigns designed for regional South Indian audiences.",
       highlights: [
@@ -91,10 +109,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuote })
     {
       icon: Bot,
       id: "whatsapp-automation",
+      planId: "whatsapp-auto",
       title: "WhatsApp Sales Autopilot",
       badge: "24/7 Lead Capture",
       badgeColor: "success",
-      pricing: "₹3,999/mo",
+      pricing: `${price("whatsapp-auto")}/mo`,
       delivery: "Instant Setup",
       description: "Automate your lead qualification and catalogue sharing. Respond to customers within 10 seconds, day or night.",
       highlights: [
@@ -138,7 +157,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuote })
                         <Icon className="w-6 h-6" />
                       </div>
                       <Badge
-                        variant={svc.badgeColor as any}
+                        variant={svc.badgeColor}
                         className="text-xs font-semibold"
                       >
                         {svc.badge}
@@ -163,8 +182,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuote })
 
                   <CardContent className="p-6 pt-0">
                     <div className="pt-3 border-t border-dashed border-border/80 space-y-2.5">
-                      {svc.highlights.map((item, i) => (
-                        <div key={i} className="flex items-start gap-2.5 text-xs text-foreground/80">
+                      {svc.highlights.map((item) => (
+                        <div key={item} className="flex items-start gap-2.5 text-xs text-foreground/80">
                           <Check className="w-4 h-4 text-[#1E7A4D] shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </div>
@@ -175,7 +194,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuote })
 
                 <CardFooter className="p-6 pt-0">
                   <Button
-                    onClick={() => onOpenQuote(`${svc.title} (${svc.pricing})`)}
+                    onClick={() => onOpenQuote(planOptionLabel(getPlan(svc.planId)))}
                     variant="outline"
                     className="w-full justify-between group-hover:bg-bm-navy group-hover:text-white transition-colors"
                   >
@@ -215,7 +234,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onOpenQuote })
 
             <div className="pt-6">
               <Button
-                onClick={() => onOpenQuote('Custom SaaS / Enterprise Portal')}
+                onClick={() => onOpenQuote(CUSTOM_SERVICE_OPTIONS[0])}
                 variant="accent"
                 className="w-full justify-center gap-2 font-semibold"
               >

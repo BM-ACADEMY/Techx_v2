@@ -10,7 +10,6 @@
     "paths": {
       "@/*": ["./src/*"]
     },
-    "resolveJsonModule": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",

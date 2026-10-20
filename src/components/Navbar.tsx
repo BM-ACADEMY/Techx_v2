@@ -1,301 +1,168 @@
-import { useState, useEffect, useRef, type FC } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { MessageSquare, Menu, X, ArrowUpRight, Sparkles, ChevronDown, Lock } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { getSiteConfig } from '@/data/dataLayer';
+import { useState, useEffect, type FC } from 'react'
+import { MessageSquare, Menu, X, ArrowUpRight, Sparkles } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { SITE_CONFIG } from '@/data/siteData'
+import { openWhatsApp as openWhatsAppChat } from '@/lib/whatsapp'
 
 interface NavbarProps {
-  onOpenQuote: (service?: string) => void;
-  onOpenClientPortal?: () => void;
+  onOpenQuote: (service?: string) => void
 }
 
-export const Navbar: FC<NavbarProps> = ({ onOpenQuote, onOpenClientPortal }) => {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const location = useLocation();
-  const site = getSiteConfig();
+export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
+  const [scrolled, setScrolled] = useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+      setScrolled(window.scrollY > 20)
+    }
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
-  // Handle escape key to close menus
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setServicesDropdownOpen(false);
-        setMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  // Close menus on route change
-  useEffect(() => {
-    setMobileMenuOpen(false);
-    setServicesDropdownOpen(false);
-  }, [location.pathname]);
+  const navLinks = [
+    { label: 'Services', href: '#services' },
+    { label: 'Pricing Plans', href: '#pricing' },
+    { label: 'Speed Proof', href: '#proof' },
+    { label: 'Cost Calculator', href: '#calculator' },
+    { label: 'Why Custom Code', href: '#comparison' },
+    { label: 'FAQs', href: '#faqs' },
+  ]
 
   const openWhatsApp = () => {
-    const text = encodeURIComponent(
+    openWhatsAppChat(
       `Hello BM TechX team! I'm browsing your website and would like to discuss my project requirements.\n[src:navbar-direct]`
-    );
-    window.open(`https://wa.me/${site.contact.whatsapp.number_e164}?text=${text}`, '_blank');
-  };
-
-  const services = [
-    { label: 'All Services Overview', href: '/services' },
-    { label: 'Website Development (₹2,999)', href: '/services/website-development' },
-    { label: 'eCommerce Store (₹9,999)', href: '/services/ecommerce-website' },
-    { label: 'SEO Retainers (From ₹4,999/mo)', href: '/services/seo' },
-    { label: 'Meta & Facebook Ads (₹4,999/mo)', href: '/services/meta-ads' },
-    { label: 'Social Media Management (₹6,999/mo)', href: '/services/social-media-marketing' },
-    { label: 'WhatsApp Automation (LeadOS)', href: '/services/whatsapp-automation' },
-    { label: 'Real Estate Marketing', href: '/industries/real-estate' },
-  ];
+    )
+  }
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#08090D]/95 backdrop-blur-md shadow-2xl border-b border-[#232636] py-3'
-          : 'bg-[#08090D]/80 backdrop-blur-sm border-b border-[#232636]/40 py-4'
+          ? 'bg-[#F7F5F1]/90 backdrop-blur-md shadow-sm border-b border-border py-3'
+          : 'bg-transparent py-4 sm:py-5'
       }`}
-      role="banner"
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Brand Official Logo */}
-        <Link to="/" className="flex items-center gap-3 group" aria-label="BM TechX Home">
-          <img
-            src="/logo.png"
-            alt="BM TechX Official Logo"
-            className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
-          />
-          <div className="hidden sm:flex flex-col">
-            <span className="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-wider bg-[#FFE600]/10 text-[#FFE600] border border-[#FFE600]/30 w-fit">
-              v2.0 · Tamil Nadu
+        {/* Brand Logo */}
+        <a href="#" className="flex items-center gap-2 group">
+          <div className="w-9 h-9 rounded-xl bg-bm-navy flex items-center justify-center text-white font-display font-extrabold text-lg shadow-sm group-hover:scale-105 transition-transform">
+            <span>X</span>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex items-center gap-1.5 leading-none">
+              <span className="font-display font-extrabold text-xl text-bm-navy tracking-tight">
+                BM Tech<span className="text-bm-orange">X</span>
+              </span>
+              <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-bm-navy/10 text-bm-navy">
+                v2.0
+              </span>
+            </div>
+            <span className="text-[10px] text-muted-foreground font-medium mt-0.5">
+              Tamil Nadu & Pondy
             </span>
           </div>
-        </Link>
+        </a>
 
         {/* Desktop Nav Links */}
-        <nav
-          className="hidden md:flex items-center gap-6 text-sm font-medium text-[#CBD5E1]"
-          role="navigation"
-          aria-label="Main Navigation"
-        >
-          <Link
-            to="/"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
-            }`}
-          >
-            Home
-          </Link>
-
-          {/* Accessible Services Dropdown */}
-          <div
-            ref={dropdownRef}
-            className="relative"
-            onMouseEnter={() => setServicesDropdownOpen(true)}
-            onMouseLeave={() => setServicesDropdownOpen(false)}
-          >
-            <button
-              onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-              aria-expanded={servicesDropdownOpen}
-              aria-haspopup="true"
-              className={`hover:text-[#FFE600] transition-colors py-1 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30 rounded-md px-1.5 ${
-                location.pathname.startsWith('/services') || location.pathname.startsWith('/industries')
-                  ? 'text-[#FFE600] font-bold'
-                  : ''
-              }`}
+        <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-foreground/80">
+          {navLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className="hover:text-bm-navy transition-colors py-1 relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-bm-orange hover:after:w-full after:transition-all"
             >
-              Services <ChevronDown className={`w-3.5 h-3.5 opacity-60 transition-transform ${servicesDropdownOpen ? 'rotate-180' : ''}`} />
-            </button>
-
-            {servicesDropdownOpen && (
-              <div
-                className="absolute top-full left-0 w-64 bg-[#12141D] border border-[#232636] rounded-2xl shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
-                role="menu"
-                aria-label="Services Submenu"
-              >
-                {services.map((item) => (
-                  <Link
-                    key={item.href}
-                    to={item.href}
-                    role="menuitem"
-                    className="block px-4 py-2 text-xs font-medium text-[#CBD5E1] hover:bg-[#1A1D2B] hover:text-[#FFE600] transition-colors focus:bg-[#1A1D2B] focus:outline-none"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <Link
-            to="/pricing"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/pricing' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
-            }`}
-          >
-            Pricing
-          </Link>
-
-          <Link
-            to="/work"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/work' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
-            }`}
-          >
-            Our Work
-          </Link>
-
-          <Link
-            to="/about"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/about' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
-            }`}
-          >
-            About
-          </Link>
-
-          <Link
-            to="/blog"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/blog' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
-            }`}
-          >
-            Blog
-          </Link>
-
-          <Link
-            to="/contact"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/contact' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
-            }`}
-          >
-            Contact
-          </Link>
+              {link.label}
+            </a>
+          ))}
         </nav>
 
         {/* Quick CTA Actions */}
         <div className="hidden lg:flex items-center gap-3">
-          {/* Client Portal Button */}
-          {onOpenClientPortal && (
-            <button
-              onClick={onOpenClientPortal}
-              className="flex items-center gap-1.5 text-xs font-bold text-[#CBD5E1] hover:text-[#FFE600] px-3 py-2 rounded-xl border border-[#232636] hover:border-[#FFE600]/40 bg-[#12141D] transition-all focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30"
-              aria-label="Open Client Portal"
-            >
-              <Lock className="w-3.5 h-3.5 text-[#FFE600]" />
-              <span>Client Login</span>
-            </button>
-          )}
-
           <button
             onClick={openWhatsApp}
-            className="flex items-center gap-1.5 text-xs font-semibold text-[#10B981] hover:text-[#059669] px-3 py-2 rounded-xl hover:bg-[#10B981]/10 transition-colors focus:ring-2 focus:ring-[#10B981]/30 focus:outline-none"
-            aria-label="Contact BM TechX on WhatsApp"
+            className="flex items-center gap-1.5 text-xs font-semibold text-[#1E7A4D] hover:text-[#17603C] px-3 py-2 rounded-lg hover:bg-emerald-50 transition-colors"
           >
             <MessageSquare className="w-3.5 h-3.5" />
-            <span>{site.contact.whatsapp.display}</span>
+            <span>{SITE_CONFIG.phones.whatsappDisplay}</span>
           </button>
 
           <Button
             onClick={() => onOpenQuote()}
             variant="default"
             size="default"
-            className="text-xs font-extrabold shadow-lg gap-1.5 bg-[#FFE600] hover:bg-[#FFD000] text-black shadow-[0_0_20px_rgba(255,230,0,0.25)] rounded-xl"
+            className="text-xs font-semibold shadow-sm gap-1.5"
           >
-            <Sparkles className="w-3.5 h-3.5 text-black" />
+            <Sparkles className="w-3.5 h-3.5 text-orange-300" />
             Get Instant Quote
             <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
           </Button>
         </div>
 
-        {/* Mobile Menu Hamburger */}
+        {/* Mobile Menu Button */}
         <div className="flex items-center gap-2 md:hidden">
-          {onOpenClientPortal && (
-            <button
-              onClick={onOpenClientPortal}
-              className="p-2 rounded-xl border border-[#232636] bg-[#12141D] text-[#FFE600] text-xs font-bold flex items-center gap-1"
-              aria-label="Client Login"
-            >
-              <Lock className="w-3.5 h-3.5" />
-              <span>Portal</span>
-            </button>
-          )}
+          <Button
+            onClick={() => onOpenQuote()}
+            size="sm"
+            variant="action"
+            className="text-xs px-2.5 h-8 font-semibold"
+          >
+            Quote
+          </Button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-xl border border-[#232636] bg-[#12141D] hover:bg-[#1A1D2B] text-white focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30"
-            aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+            className="p-2 rounded-lg text-foreground hover:bg-muted"
+            aria-label="Toggle navigation"
             aria-expanded={mobileMenuOpen}
+            type="button"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-[#FFE600]" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div
-          className="md:hidden bg-[#08090D] border-b border-[#232636] px-4 pt-3 pb-6 space-y-3 shadow-2xl animate-in slide-in-from-top-2 duration-150"
-          role="dialog"
-          aria-label="Mobile Navigation Menu"
-        >
-          <Link to="/" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
-            Home
-          </Link>
-          <div className="py-2 border-b border-[#232636] space-y-1.5">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-[#FFE600]">Services</p>
-            {services.map((item) => (
-              <Link
-                key={item.href}
-                to={item.href}
-                className="block pl-2 py-2 text-xs text-[#CBD5E1] hover:text-[#FFE600] font-medium"
+        <div className="md:hidden bg-white border-b border-border shadow-xl px-4 pt-4 pb-6 space-y-4 animate-slide-down">
+          <div className="flex flex-col space-y-2 text-base font-medium">
+            {navLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 px-3 rounded-lg hover:bg-secondary text-foreground"
               >
-                {item.label}
-              </Link>
+                {link.label}
+              </a>
             ))}
           </div>
-          <Link to="/pricing" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
-            Pricing Plans (from ₹2,999)
-          </Link>
-          <Link to="/work" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
-            Our Work / Case Studies
-          </Link>
-          <Link to="/about" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
-            About BM TechX
-          </Link>
-          <Link to="/blog" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
-            Blog & Guides
-          </Link>
-          <Link to="/contact" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
-            Contact & WhatsApp
-          </Link>
 
-          <Button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              onOpenQuote();
-            }}
-            className="w-full bg-[#FFE600] hover:bg-[#FFD000] text-black font-extrabold py-3.5 mt-2 rounded-xl shadow-[0_0_20px_rgba(255,230,0,0.25)]"
-          >
-            Get Instant Quote
-          </Button>
+          <div className="pt-2 border-t border-border flex flex-col gap-2.5">
+            <Button
+              onClick={() => {
+                setMobileMenuOpen(false)
+                onOpenQuote()
+              }}
+              className="w-full justify-center"
+            >
+              Get Instant Quote
+            </Button>
+            <Button
+              onClick={() => {
+                setMobileMenuOpen(false)
+                openWhatsApp()
+              }}
+              variant="action"
+              className="w-full justify-center gap-2"
+            >
+              <MessageSquare className="w-4 h-4" />
+              WhatsApp Us: {SITE_CONFIG.phones.whatsappDisplay}
+            </Button>
+          </div>
         </div>
       )}
     </header>
-  );
-};
-
-export default Navbar;
+  )
+}
