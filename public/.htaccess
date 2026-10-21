@@ -1,0 +1,61 @@
+# BM TechX on Hostinger (Apache / LiteSpeed). Upload this file with the build.
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /index.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# 1. Always HTTPS and always the non-www address (matches our canonical URLs)
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^ https://bmtechx.in%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://bmtechx.in%{REQUEST_URI} [L,R=301]
+
+# 2. Old .html pages to the new pages (permanent). THE_REQUEST makes these
+#    apply only to what the visitor asked for, never to our own internal rewrite.
+RewriteCond %{THE_REQUEST} \s/+index\.html[\s?]
+RewriteRule ^index\.html$ / [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+about\.html[\s?]
+RewriteRule ^about\.html$ /about/ [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+contact\.html[\s?]
+RewriteRule ^contact\.html$ /contact/ [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+pricing\.html[\s?]
+RewriteRule ^pricing\.html$ /pricing/ [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+(seo|local|small|onpage|offpage|competitor|technical)\.html[\s?]
+RewriteRule ^(seo|local|small|onpage|offpage|competitor|technical)\.html$ /services/seo/ [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+webdesign\.html[\s?]
+RewriteRule ^webdesign\.html$ /services/website-development/ [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+(socialmedia|smo|facebook|instagram|youtube|pinterest|linkedin|twitter)\.html[\s?]
+RewriteRule ^(socialmedia|smo|facebook|instagram|youtube|pinterest|linkedin|twitter)\.html$ /services/social-media-marketing/ [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+(googleads|googlesearch)\.html[\s?]
+RewriteRule ^(googleads|googlesearch)\.html$ /services/meta-ads/ [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+blog/seo-services-pondicherry\.html[\s?]
+RewriteRule ^blog/seo-services-pondicherry\.html$ /services/seo/ [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+blog/[^\s]+\.html[\s?]
+RewriteRule ^blog/.+\.html$ /blog/ [L,R=301]
+RewriteCond %{THE_REQUEST} \s/+[^/\s]+\.html[\s?]
+RewriteRule ^[^/]+\.html$ /services/ [L,R=301]
+
+# 3. Folders that are not pages
+RewriteRule ^(locations|industries)/?$ /services/ [L,R=301]
+
+# 4. Any other path that is not a real file or folder: serve the app (it shows its own 404)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_headers.c>
+<FilesMatch "\.(js|css|woff2?|png|jpe?g|webp|svg|ico)$">
+Header set Cache-Control "public, max-age=31536000, immutable"
+</FilesMatch>
+<FilesMatch "\.(html|xml|txt)$">
+Header set Cache-Control "no-cache"
+</FilesMatch>
+</IfModule>
