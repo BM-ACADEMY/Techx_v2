@@ -1,0 +1,65 @@
+# bmtechx.in — robots.txt
+# Deploy to https://bmtechx.in/robots.txt
+#
+# CRITICAL: a permissive robots.txt is NOT enough. bmtechx.in currently refuses
+# non-Google crawlers at the edge — check the CDN / bot-management rules too.
+# Acceptance test: from outside your network, fetch 10 sampled URLs with a
+# non-Google user agent. All 10 must return 200.
+
+# --- Search engines ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- AI search & answer engines ---
+# These are the crawlers that decide whether you appear in ChatGPT, Perplexity,
+# Gemini and Claude answers. Blocking them costs visibility and buys nothing.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# --- Common Crawl: Kamar's call. Feeds many downstream models. ---
+# Uncomment ONE of the two blocks below.
+User-agent: CCBot
+Allow: /
+# User-agent: CCBot
+# Disallow: /
+
+# --- SEO tools: you need to audit your own site, and prospects evaluate you ---
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+User-agent: Screaming Frog SEO Spider
+Allow: /
+
+# --- Everything else ---
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /staging/
+Disallow: /*?utm_
+Disallow: /thank-you/
+
+Sitemap: https://bmtechx.in/sitemap.xml

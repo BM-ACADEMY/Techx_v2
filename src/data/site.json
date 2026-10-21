@@ -1,0 +1,94 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH for entity, NAP and contact details. Nothing in this kit hardcodes these values — every page, schema file and automation reads from here. Change once, changes everywhere.",
+  "_action_required": "NAP_PHONE and NAP_ADDRESS are marked PENDING. Kamar must lock one address and one phone number before launch. See Website Rebuild Plan, section 7.",
+
+  "brand": {
+    "name": "BM TechX",
+    "tagline": "Fixed-price digital growth for Tamil Nadu businesses",
+    "domain": "https://bmtechx.in",
+    "description_30w": "BM TechX is a Puducherry digital growth agency building custom-coded websites, online stores, SEO, Meta ads and WhatsApp automation for Tamil Nadu businesses at published fixed prices."
+  },
+
+  "entity": {
+    "legal_name": "Afra Ventures Private Limited",
+    "cin": "U62011PY2026PTC009819",
+    "incorporated": "2026-09-12",
+    "registered_address": {
+      "street": "78 Lenin Street, Kosapalayam",
+      "locality": "Puducherry",
+      "region": "Puducherry",
+      "postal_code": "605013",
+      "country": "IN"
+    },
+    "gstin": "34ABGCA7083D1ZS"
+  },
+
+  "nap": {
+    "_status": "PENDING DECISION — this exact string goes on the website footer, Google Business Profile, Bing Places, every directory, every invoice and every social bio. Character for character.",
+    "_options": [
+      "78 Lenin Street, Kosapalayam, Puducherry 605013 (registered office)",
+      "Kuyavarpalayam, Puducherry (working office — confirm full address)"
+    ],
+    "name": "BM TechX",
+    "address_line": "PENDING",
+    "phone": "PENDING"
+  },
+
+  "contact": {
+    "whatsapp": {
+      "number_e164": "919403892971",
+      "display": "+91 94038 92971",
+      "_note": "Master KB standardises outbound on this number for all brands. Used in every wa.me CTA link."
+    },
+    "calls": {
+      "number_e164": "919944940051",
+      "display": "+91 99449 40051",
+      "_note": "Currently shown on bmtechx.in. Whichever number becomes NAP must be consistent everywhere; the other is labelled as a secondary line."
+    },
+    "email": "admin@bmtechx.in",
+    "hours": {
+      "mon_fri": "10:00-19:00",
+      "sat": "10:00-19:00",
+      "sun": "closed",
+      "timezone": "Asia/Kolkata"
+    }
+  },
+
+  "service_area": [
+    "Puducherry",
+    "Cuddalore",
+    "Villupuram",
+    "Chennai",
+    "Madurai",
+    "Tiruchirappalli",
+    "Namakkal"
+  ],
+
+  "profiles": {
+    "_note": "Every URL here goes into Organization.sameAs. Add as they are claimed; remove none.",
+    "google_business": "PENDING",
+    "linkedin": "PENDING",
+    "instagram": "PENDING",
+    "facebook": "PENDING",
+    "justdial": "PENDING",
+    "sulekha": "https://www.sulekha.com/",
+    "refrens": "https://www.refrens.com/abm-groups",
+    "clutch": "PENDING",
+    "goodfirms": "PENDING"
+  },
+
+  "team": [
+    { "name": "Kamar", "role": "Founder — strategy, closing, approvals", "bio_page": "/about/#kamar" },
+    { "name": "Karthika", "role": "SEO & operations", "bio_page": "/about/#karthika" },
+    { "name": "Imran", "role": "Content & design", "bio_page": "/about/#imran" },
+    { "name": "Babila", "role": "Social media & Meta ads", "bio_page": "/about/#babila" }
+  ],
+
+  "policy": {
+    "gst_note": "All prices exclude 18% GST unless stated.",
+    "commitment": "3-month minimum on all monthly plans.",
+    "upfront": "Discount for full upfront payment. Part-payment allowed under stated norms.",
+    "ad_spend": "Ad spend is always billed separately from management fees.",
+    "shoots": "Shoots outside Puducherry are priced on requirement. Mobile shoots and camera shoots are priced separately."
+  }
+}

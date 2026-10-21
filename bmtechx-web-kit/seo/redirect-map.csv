@@ -1,0 +1,19 @@
+old_url,new_url,type,notes
+https://bmtechx.in/index.html,https://bmtechx.in/,301,Canonical root
+https://www.bmtechx.in/*,https://bmtechx.in/$1,301,Single canonical host — non-www
+http://bmtechx.in/*,https://bmtechx.in/$1,301,Force HTTPS
+http://www.bmtechx.in/*,https://bmtechx.in/$1,301,Force HTTPS + non-www in ONE hop — do not chain
+https://bmtechx.in/pricing.html,https://bmtechx.in/pricing/,301,Highest-value legacy URL. Verify manually after deploy.
+https://bmtechx.in/services.html,https://bmtechx.in/services/,301,
+https://bmtechx.in/about.html,https://bmtechx.in/about/,301,
+https://bmtechx.in/contact.html,https://bmtechx.in/contact/,301,
+https://bmtechx.in/blog/seo-services-pondicherry.html,https://bmtechx.in/blog/seo-services-pondicherry/,301,Currently ranking. Handle with care — verify rankings hold for 4 weeks after.
+https://portfolio-of.bmtechx.in/,https://bmtechx.in/work/,301,"Subdomain consolidation. Ranks with a better title than the root today — redirect, do not noindex."
+https://portfolio-of.bmtechx.in/*,https://bmtechx.in/work/,301,"Catch-all. Map individual projects to /work/<slug>/ where one exists; only fall back to /work/ otherwise."
+,,,
+_INSTRUCTIONS,,,
+"1. Every redirect is ONE hop. Test with curl -sIL and count the 301s — more than one means fix it.",,,
+"2. Crawl the live site BEFORE the rebuild and export every indexed URL. This file covers the known ones; the crawl will find more.",,,
+"3. After deploy, re-crawl and confirm zero 404s on previously indexed URLs.",,,
+"4. Keep redirects in place permanently. Removing them in six months throws away the signal you paid for.",,,
+"5. Submit the new sitemap in Search Console on deploy day and use the Removals / URL Inspection tools to speed re-indexing of the top 10 pages.",,,

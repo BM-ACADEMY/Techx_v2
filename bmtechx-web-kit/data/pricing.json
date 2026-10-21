@@ -1,0 +1,199 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH for every price. The website reads this file. The WhatsApp automation reads this file. They can never disagree. Change a price here and nowhere else.",
+  "_rule": "The autopilot may quote ANY price in this file and NO price outside it. Anything not listed here routes to a human. See autopilot/guardrails.json.",
+  "currency": "INR",
+  "gst_percent": 18,
+  "prices_exclude_gst": true,
+  "last_updated": "2026-09-18",
+
+  "one_time": [
+    {
+      "id": "web-single",
+      "name": "Single-page website",
+      "price": 2999,
+      "delivery": "48 working hours",
+      "includes": [
+        "One-page custom-coded website",
+        "Domain for year 1",
+        "Server/hosting for year 1",
+        "Mobile responsive",
+        "Enquiry form + WhatsApp button",
+        "Basic on-page SEO setup"
+      ],
+      "excludes": [
+        "Content writing beyond what you supply",
+        "Photography",
+        "Payment gateway",
+        "User logins or accounts"
+      ],
+      "renewal": { "amount": 1999, "period": "year", "from_year": 2, "covers": "Domain + server" },
+      "page": "/services/website-development/"
+    },
+    {
+      "id": "web-multi",
+      "name": "Multi-page website",
+      "price": 4999,
+      "delivery": "5-7 working days",
+      "includes": [
+        "Multi-page custom-coded website",
+        "Domain + server for year 1",
+        "Mobile responsive",
+        "Enquiry forms + WhatsApp button",
+        "On-page SEO setup",
+        "Google Business Profile link-up"
+      ],
+      "excludes": ["Content writing beyond what you supply", "Photography", "Payment gateway"],
+      "renewal": { "amount": 1999, "period": "year", "from_year": 2, "covers": "Domain + server" },
+      "page": "/services/website-development/"
+    },
+    {
+      "id": "store",
+      "name": "Online store",
+      "price": 9999,
+      "delivery": "7-10 working days",
+      "includes": [
+        "Unlimited products",
+        "Payment gateway integration",
+        "Order management",
+        "Mobile responsive",
+        "WhatsApp order alerts",
+        "On-page SEO setup"
+      ],
+      "excludes": ["Product photography", "Product data entry beyond the first 20 items", "Ad spend"],
+      "renewal": { "amount": 0, "period": "year", "note": "No yearly renewal fee." },
+      "page": "/services/ecommerce-website/"
+    }
+  ],
+
+  "monthly": [
+    {
+      "id": "seo-starter",
+      "name": "SEO — Starter",
+      "price": 4999,
+      "period": "month",
+      "keywords": 5,
+      "includes": [
+        "24-point technical audit at onboarding",
+        "2 pages optimised per month",
+        "1 blog article per month (700-900 words)",
+        "4 Google Business Profile posts",
+        "Review engine setup",
+        "5 citations per month for the first 3 months",
+        "Monthly PDF report"
+      ],
+      "excludes": ["Link building", "AI visibility tracking", "Competitor tracking"],
+      "page": "/services/seo/"
+    },
+    {
+      "id": "seo-growth",
+      "name": "SEO — Growth",
+      "price": 8999,
+      "period": "month",
+      "keywords": 10,
+      "recommended": true,
+      "includes": [
+        "Everything in Starter",
+        "4 pages optimised per month",
+        "2 blog articles per month (1,000-1,200 words)",
+        "8 Google Business Profile posts",
+        "Managed review engine",
+        "10 citations per month",
+        "2 link and mention outreach targets per month",
+        "Full schema implementation",
+        "2 competitors tracked",
+        "Monthly report + review call"
+      ],
+      "page": "/services/seo/"
+    },
+    {
+      "id": "seo-business",
+      "name": "SEO — Business",
+      "price": 14999,
+      "period": "month",
+      "keywords": 20,
+      "_pricing_note": "FLAGGED FOR REVIEW: at 26-30 delivery hours this tier returns ~Rs 536 per hour against Rs 714 at Starter. See SEO Playbook section 10. Recommended action: raise to 19999 or trim scope to ~21 hours. Do not change this value without Kamar's decision.",
+      "includes": [
+        "Everything in Growth",
+        "8 pages optimised per month",
+        "4 pieces of content per month",
+        "Full Google Business Profile management",
+        "15 citations per month",
+        "4-6 link and mention outreach targets per month",
+        "Maintained schema",
+        "AI visibility panel — 20 prompts checked monthly",
+        "4 competitors tracked",
+        "Quarterly conversion recommendations",
+        "Quarterly re-audit",
+        "Monthly report + fortnightly calls"
+      ],
+      "page": "/services/seo/"
+    },
+    {
+      "id": "meta-ads",
+      "name": "Meta Ads management",
+      "price": 4999,
+      "period": "month",
+      "includes": [
+        "Campaign setup and management",
+        "Creative direction",
+        "Audience building and testing",
+        "Lead delivery to WhatsApp",
+        "Monthly report"
+      ],
+      "excludes": ["Ad spend — always billed separately", "Video production"],
+      "page": "/services/meta-ads/"
+    },
+    {
+      "id": "smm-starter",
+      "name": "Social media management — Starter",
+      "price": 6999,
+      "period": "month",
+      "page": "/services/social-media-marketing/"
+    },
+    {
+      "id": "smm-growth",
+      "name": "Social media management — Growth",
+      "price": 8999,
+      "period": "month",
+      "page": "/services/social-media-marketing/"
+    },
+    {
+      "id": "smm-business",
+      "name": "Social media management — Business",
+      "price": 14999,
+      "period": "month",
+      "page": "/services/social-media-marketing/"
+    },
+    {
+      "id": "combo",
+      "name": "Combo packages",
+      "price_from": 9999,
+      "period": "month",
+      "note": "Website + ads, or SEO + social. Built to requirement from the components above.",
+      "page": "/pricing/"
+    }
+  ],
+
+  "quote_only": [
+    {
+      "id": "whatsapp-automation",
+      "name": "WhatsApp automation (LeadOS)",
+      "note": "Scoped per business. Pricing shared after a scope call.",
+      "page": "/services/whatsapp-automation/",
+      "autopilot": "ROUTE_TO_HUMAN"
+    },
+    {
+      "id": "custom-build",
+      "name": "Custom software build",
+      "note": "Booking systems, portals, internal tools. Quoted after discovery.",
+      "page": "/work/",
+      "autopilot": "ROUTE_TO_HUMAN"
+    },
+    {
+      "id": "shoot",
+      "name": "Photo & video shoot",
+      "note": "Mobile shoots and camera shoots priced separately. Outside Puducherry priced on requirement.",
+      "autopilot": "ROUTE_TO_HUMAN"
+    }
+  ]
+}

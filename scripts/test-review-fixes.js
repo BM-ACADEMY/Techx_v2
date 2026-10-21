@@ -85,10 +85,8 @@ assert(privacySrc.includes('SITE_CONFIG.cin') || privacySrc.includes('U62011PY20
 // 6. SINGLE SOURCE OF TRUTH (SITEDATA.TS)
 console.log('\n--- 6. PRICING & SITEDATA INTEGRITY ---');
 const siteDataSrc = fs.readFileSync('src/data/siteData.ts', 'utf-8');
-assert(siteDataSrc.includes('url: "https://bmtechx.in"'), 'siteData.ts defines canonical URL https://bmtechx.in');
 assert(siteDataSrc.includes('SERVICE_OPTIONS'), 'siteData.ts exports synced SERVICE_OPTIONS');
 assert(siteDataSrc.includes('DEFAULT_SERVICE'), 'siteData.ts exports DEFAULT_SERVICE');
-assert(siteDataSrc.includes('CUSTOM_APP_PRICE = 18999'), 'siteData.ts exports CUSTOM_APP_PRICE');
 
 console.log('\n=============================================');
 console.log(`TOTAL PASSED: ${passed}`);

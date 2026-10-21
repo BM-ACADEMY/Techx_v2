@@ -12,7 +12,7 @@ interface QuoteModalProps {
   initialService?: string
 }
 
-const labelClass = 'block text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5'
+const labelClass = 'block text-xs font-bold uppercase tracking-wider text-[#94A3B8] mb-1.5'
 
 export const QuoteModal: React.FC<QuoteModalProps> = ({
   isOpen,
@@ -138,7 +138,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
       onClick={resetAndClose}
     >
       <div
@@ -146,14 +146,14 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
         role="dialog"
         aria-modal="true"
         aria-labelledby={ids.title}
-        className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-white dark:bg-card rounded-2xl shadow-2xl border border-border p-6 md:p-8 text-foreground"
+        className="relative w-full max-w-lg max-h-[92vh] overflow-y-auto bg-[#0D0F17] rounded-3xl shadow-2xl border border-[#232636] p-6 md:p-8 text-white"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           ref={closeRef}
           type="button"
           onClick={resetAndClose}
-          className="absolute top-5 right-5 p-2 rounded-full text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+          className="absolute top-5 right-5 p-2 rounded-full text-[#94A3B8] hover:bg-[#1A1D2B] hover:text-white transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -161,24 +161,24 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
 
         {submitted ? (
           <div className="text-center py-8 space-y-4" role="status">
-            <div className="w-16 h-16 bg-emerald-100 text-[#17603C] rounded-full flex items-center justify-center mx-auto">
+            <div className="w-16 h-16 bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 rounded-2xl flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-10 h-10" />
             </div>
-            <h3 id={ids.title} className="text-2xl font-bold font-display text-bm-navy">
+            <h3 id={ids.title} className="text-2xl font-bold font-display text-white">
               Your request is ready on WhatsApp
             </h3>
-            <p className="text-sm text-muted-foreground max-w-sm mx-auto">
+            <p className="text-sm text-[#94A3B8] max-w-sm mx-auto">
               Thank you, <strong>{name.trim()}</strong>! We opened WhatsApp with your details filled in.
               Just press send. If it did not open, use the button below.
             </p>
             <div className="pt-4 flex flex-col gap-2">
-              <Button asChild variant="action" className="w-full">
+              <Button asChild className="w-full bg-[#FFE600] hover:bg-[#FFD000] text-black font-extrabold rounded-xl">
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageSquare className="w-4 h-4" />
                   Open WhatsApp again
                 </a>
               </Button>
-              <Button onClick={resetAndClose} variant="outline" className="w-full">
+              <Button onClick={resetAndClose} variant="outline" className="w-full bg-transparent border-[#232636] text-white hover:bg-[#1A1D2B] rounded-xl">
                 Close
               </Button>
             </div>
@@ -186,14 +186,14 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
         ) : (
           <div>
             <div className="mb-6">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-bm-navy/5 text-bm-navy text-xs font-semibold mb-2">
-                <span className="w-2 h-2 rounded-full bg-[#1E7A4D] animate-ping" aria-hidden="true" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#FFE600]/10 border border-[#FFE600]/30 text-[#FFE600] text-xs font-bold mb-2">
+                <span className="w-2 h-2 rounded-full bg-[#FFE600] animate-ping" aria-hidden="true" />
                 Fixed-Price Quote
               </div>
-              <h2 id={ids.title} className="text-2xl font-bold font-display text-bm-navy">
+              <h2 id={ids.title} className="text-2xl font-bold font-display text-white">
                 Start Your Project
               </h2>
-              <p className="text-sm text-muted-foreground mt-1">
+              <p className="text-sm text-[#94A3B8] mt-1">
                 Share your requirements and we will reply on WhatsApp with a clear quote and timeline.
               </p>
             </div>
@@ -210,11 +210,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   placeholder="e.g. Arun Kumar"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  className="bg-[#12141D] border-[#232636] text-white placeholder:text-[#64748B] focus:border-[#FFE600] rounded-xl"
                   aria-invalid={errors.name ? true : undefined}
                   aria-describedby={errors.name ? `${ids.name}-err` : undefined}
                 />
                 {errors.name && (
-                  <p id={`${ids.name}-err`} className="mt-1 text-xs text-red-600">
+                  <p id={`${ids.name}-err`} className="mt-1 text-xs text-red-400">
                     {errors.name}
                   </p>
                 )}
@@ -234,11 +235,12 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                     placeholder="e.g. 98765 43210"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
+                    className="bg-[#12141D] border-[#232636] text-white placeholder:text-[#64748B] focus:border-[#FFE600] rounded-xl"
                     aria-invalid={errors.phone ? true : undefined}
                     aria-describedby={errors.phone ? `${ids.phone}-err` : undefined}
                   />
                   {errors.phone && (
-                    <p id={`${ids.phone}-err`} className="mt-1 text-xs text-red-600">
+                    <p id={`${ids.phone}-err`} className="mt-1 text-xs text-red-400">
                       {errors.phone}
                     </p>
                   )}
@@ -253,6 +255,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                     placeholder="e.g. Pondy Organics"
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
+                    className="bg-[#12141D] border-[#232636] text-white placeholder:text-[#64748B] focus:border-[#FFE600] rounded-xl"
                   />
                 </div>
               </div>
@@ -265,7 +268,7 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   id={ids.service}
                   value={service}
                   onChange={(e) => setService(e.target.value)}
-                  className="w-full h-10 px-3 rounded-lg border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+                  className="w-full h-10 px-3 rounded-lg border border-[#232636] bg-[#12141D] text-white text-sm focus:outline-none focus:border-[#FFE600] focus:ring-2 focus:ring-[#FFE600]/20"
                 >
                   {/* Keep any custom label passed by a card (e.g. "Similar to X") selectable */}
                   {!SERVICE_OPTIONS.includes(service) && <option value={service}>{service}</option>}
@@ -287,30 +290,30 @@ export const QuoteModal: React.FC<QuoteModalProps> = ({
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   rows={3}
+                  className="bg-[#12141D] border-[#232636] text-white placeholder:text-[#64748B] focus:border-[#FFE600] rounded-xl"
                 />
               </div>
 
               <div className="pt-2 flex flex-col sm:flex-row gap-3">
                 <Button
                   type="submit"
-                  variant="action"
                   size="lg"
-                  className="w-full flex-1 justify-center gap-2"
+                  className="w-full flex-1 justify-center gap-2 bg-[#FFE600] hover:bg-[#FFD000] text-black font-extrabold rounded-xl"
                 >
                   <Send className="w-4 h-4" />
                   Send Quote Request on WhatsApp
                 </Button>
               </div>
 
-              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-muted-foreground pt-1">
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-[#94A3B8] pt-1">
                 <span className="flex items-center gap-1">
-                  <MessageSquare className="w-3.5 h-3.5 text-[#1E7A4D]" /> We reply on WhatsApp
+                  <MessageSquare className="w-3.5 h-3.5 text-emerald-400" /> We reply on WhatsApp
                 </span>
                 <a
                   href={`tel:+${SITE_CONFIG.phones.calls}`}
-                  className="flex items-center gap-1 hover:text-bm-navy"
+                  className="flex items-center gap-1 hover:text-white"
                 >
-                  <PhoneCall className="w-3.5 h-3.5 text-bm-navy" /> Call: {SITE_CONFIG.phones.callsDisplay}
+                  <PhoneCall className="w-3.5 h-3.5 text-[#FFE600]" /> Call: {SITE_CONFIG.phones.callsDisplay}
                 </a>
               </div>
             </form>

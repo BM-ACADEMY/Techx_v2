@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bmtechx.in/schemas/lead-payload.json",
+  "title": "BM TechX lead payload",
+  "description": "ONE payload shape for every lead source across every brand — website forms, WhatsApp, Meta lead ads, missed calls. The n8n Lead Integrator accepts only this shape. A consistent payload is what makes deduplication, routing and reporting possible; a different shape per source is why the current build's dedup fails.",
+  "type": "object",
+  "required": ["lead_id", "received_at", "source", "brand", "contact"],
+  "additionalProperties": false,
+
+  "properties": {
+    "lead_id": {
+      "type": "string",
+      "description": "UUID generated at intake, before anything else runs."
+    },
+    "received_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 with offset, e.g. 2026-09-18T14:32:00+05:30"
+    },
+
+    "source": {
+      "type": "object",
+      "required": ["channel"],
+      "properties": {
+        "channel": {
+          "type": "string",
+          "enum": ["website_form", "whatsapp", "meta_lead_ad", "missed_call", "gbp", "instagram", "referral", "manual"]
+        },
+        "src_tag": {
+          "type": "string",
+          "description": "The [src:...] tag from the CTA link, e.g. 'offer-9999'. See autopilot/cta-links.md. When present, the automation SKIPS brand detection and service qualification."
+        },
+        "landing_page": { "type": "string", "description": "Path only, e.g. /services/seo/" },
+        "referrer": { "type": "string" },
+        "utm": {
+          "type": "object",
+          "properties": {
+            "source": { "type": "string" },
+            "medium": { "type": "string" },
+            "campaign": { "type": "string" },
+            "content": { "type": "string" },
+            "term": { "type": "string" }
+          }
+        },
+        "device": { "type": "string", "enum": ["mobile", "desktop", "tablet", "unknown"] }
+      }
+    },
+
+    "brand": {
+      "type": "string",
+      "description": "Detected ONCE and sticky thereafter. Derived from src_tag when available.",
+      "enum": ["bm-techx", "npp", "the-plot-one", "bm-academy", "coretalents", "travellersneed", "dadas-kitchen", "velai-vaaippu", "educonsultants", "unknown"]
+    },
+
+    "contact": {
+      "type": "object",
+      "required": ["phone"],
+      "properties": {
+        "name": { "type": "string" },
+        "phone": {
+          "type": "string",
+          "pattern": "^91[0-9]{10}$",
+          "description": "E.164 without the plus. NORMALISE AT INTAKE — this field is the deduplication key across ALL brands. Inconsistent formatting here is why duplicate leads get created."
+        },
+        "email": { "type": "string" },
+        "city": { "type": "string" },
+        "language": { "type": "string", "enum": ["en", "ta", "unknown"], "default": "unknown" }
+      }
+    },
+
+    "qualification": {
+      "type": "object",
+      "description": "Fields are written as they arrive and NEVER re-asked once set. See guardrails.json field_persistence.",
+      "properties": {
+        "business_type": { "type": "string" },
+        "service_interest": {
+          "type": "string",
+          "description": "Must match an id in data/pricing.json, or 'unknown'."
+        },
+        "budget_band": { "type": "string", "enum": ["under-5k", "5k-15k", "15k-50k", "50k-plus", "unknown"] },
+        "timeline": { "type": "string", "enum": ["immediate", "this-month", "this-quarter", "researching", "unknown"] },
+        "existing_website": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+
+    "scoring": {
+      "type": "object",
+      "properties": {
+        "score": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "tier": { "type": "string", "enum": ["hot", "warm", "cold"] },
+        "reason": { "type": "string", "description": "Why this score — must be human-readable for debugging." }
+      }
+    },
+
+    "routing": {
+      "type": "object",
+      "properties": {
+        "assigned_to": { "type": "string" },
+        "route": { "type": "string", "enum": ["AUTOPILOT", "ROUTE_TO_HUMAN"] },
+        "route_reason": {
+          "type": "string",
+          "description": "Which guardrails.json rule triggered a human route. Required whenever route is ROUTE_TO_HUMAN."
+        }
+      }
+    },
+
+    "state": {
+      "type": "object",
+      "properties": {
+        "stage": {
+          "type": "string",
+          "enum": ["captured", "identified", "qualified", "quoted", "demo_booked", "closed_won", "closed_lost", "nurture"]
+        },
+        "follow_ups_sent": { "type": "integer", "minimum": 0, "maximum": 3 },
+        "last_contact_at": { "type": "string", "format": "date-time" },
+        "opted_out": { "type": "boolean", "default": false }
+      }
+    },
+
+    "dedupe": {
+      "type": "object",
+      "properties": {
+        "is_duplicate": { "type": "boolean" },
+        "matched_lead_id": { "type": "string" },
+        "is_existing_client": {
+          "type": "boolean",
+          "description": "Checked across ALL brands. A repeat client must never be greeted as a stranger — this is a live failure in the current build."
+        }
+      }
+    }
+  }
+}

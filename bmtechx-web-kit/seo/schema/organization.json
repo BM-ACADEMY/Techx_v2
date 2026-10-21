@@ -1,0 +1,50 @@
+{
+  "_comment": "Sitewide. Inject in <head> on every page. Values marked PENDING come from data/site.json — the build must read them from there, not from this file's literals.",
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://bmtechx.in/#organization",
+  "name": "BM TechX",
+  "legalName": "Afra Ventures Private Limited",
+  "url": "https://bmtechx.in",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://bmtechx.in/assets/logo.png",
+    "width": 512,
+    "height": 512
+  },
+  "description": "BM TechX is a Puducherry digital growth agency building custom-coded websites, online stores, SEO, Meta ads and WhatsApp automation for Tamil Nadu businesses at published fixed prices.",
+  "foundingDate": "2026-09-12",
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "CIN",
+      "value": "U62011PY2026PTC009819"
+    }
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "PENDING — from data/site.json nap.address_line",
+    "addressLocality": "Puducherry",
+    "addressRegion": "Puducherry",
+    "postalCode": "605013",
+    "addressCountry": "IN"
+  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+91-94038-92971",
+      "contactType": "sales",
+      "areaServed": "IN",
+      "availableLanguage": ["en", "ta"]
+    }
+  ],
+  "sameAs": [
+    "PENDING — add every claimed profile URL from data/site.json profiles{}",
+    "https://www.refrens.com/abm-groups"
+  ],
+  "founder": {
+    "@type": "Person",
+    "name": "Kamarudeen B",
+    "jobTitle": "Founder"
+  }
+}

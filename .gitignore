@@ -29,3 +29,6 @@ dist-ssr
 
 # Lighthouse audit reports
 lighthouse*.json
+
+# Patch files
+*.patch

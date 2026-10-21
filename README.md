@@ -74,19 +74,6 @@ npm run preview
 
 ---
 
-## 📥 Lead Capture (optional)
-
-The quote form always opens WhatsApp with the enquiry pre-filled. To also store every lead
-(so none are lost if WhatsApp is not opened), copy `.env.example` to `.env` and set
-`VITE_LEAD_ENDPOINT` to a URL that accepts a JSON `POST` (for example a Google Apps Script
-web app that appends a row to a Sheet). Fields sent: `name`, `phone`, `business`, `service`,
-`notes`, `source`, `submittedAt`.
-
-Prices, plan names and the quote-form dropdown all come from `src/data/siteData.ts`; change a
-price there and every section updates.
-
----
-
 ## 🌿 Git Branches & Deployment
 
 - **`sharmi`**: Feature development branch.
@@ -98,5 +85,5 @@ price there and every section updates.
 
 - **WhatsApp Hotline**: [+91 94038 92971](https://wa.me/919403892971)
 - **Direct Calls**: +91 99449 40051
-- **Email**: teamkamarweb@gmail.com
+- **Email**: admin@bmtechx.in
 - **Operating Hours**: Monday – Saturday: 10:00 AM – 7:00 PM IST

@@ -1,4 +1,55 @@
+# bmtechx.in — robots.txt
+# Deploy to https://bmtechx.in/robots.txt
+
+# --- Search engines ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- AI search & answer engines ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# --- Common Crawl ---
+User-agent: CCBot
+Allow: /
+
+# --- SEO tools ---
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot
+Allow: /
+
+User-agent: Screaming Frog SEO Spider
+Allow: /
+
+# --- Everything else ---
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /staging/
+Disallow: /*?utm_
+Disallow: /thank-you/
 
 Sitemap: https://bmtechx.in/sitemap.xml
