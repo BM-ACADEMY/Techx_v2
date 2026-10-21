@@ -19,8 +19,12 @@ export const openWhatsApp = (message?: string): void => {
  * web app URL (or any endpoint that accepts a JSON POST) to store every lead.
  * Returns true if a request was sent; never throws.
  */
+const DEFAULT_LEAD_ENDPOINT =
+  'https://script.google.com/macros/s/AKfycbymJUvwGtNdO4AfINxNGrwiVvoLcJiUCTYxeNuzAyPQ7sAhfMPJSch31og7YxbQ8rk/exec'
+
 export const sendLead = (lead: Record<string, string>): boolean => {
-  const endpoint = import.meta.env.VITE_LEAD_ENDPOINT as string | undefined
+  const endpoint =
+    (import.meta.env.VITE_LEAD_ENDPOINT as string | undefined) || DEFAULT_LEAD_ENDPOINT
   if (!endpoint) return false
   try {
     void fetch(endpoint, {
