@@ -58,29 +58,29 @@ export function ProofBlock({ id, variant = 'inline', className, onSelect }: Proo
     return (
       <div
         className={cn(
-          'bg-[#12141D] rounded-3xl border border-[#232636] p-6 sm:p-8 shadow-xl space-y-4',
+          'bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-sm space-y-4',
           className
         )}
       >
-        <div className="flex items-center justify-between text-xs font-bold text-[#94A3B8] uppercase tracking-wider">
+        <div className="flex items-center justify-between text-xs font-bold text-slate-500 uppercase tracking-wider">
           <span>{item.label || 'Performance Growth Comparison'}</span>
-          {item.period && <span className="text-[#FFE600]">{item.period}</span>}
+          {item.period && <span className="text-black font-extrabold bg-[#FFE600] px-2 py-0.5 rounded">{item.period}</span>}
         </div>
         <div className="grid grid-cols-2 gap-4 pt-2">
-          <div className="p-4 rounded-2xl bg-[#08090D] border border-[#232636]">
-            <p className="text-[11px] font-bold text-[#94A3B8] uppercase">Before</p>
-            <p className="text-2xl sm:text-3xl font-black text-white/60 mt-1 font-display">
+          <div className="p-4 rounded-2xl bg-[#F8F9FA] border border-[#E2E8F0]">
+            <p className="text-[11px] font-bold text-slate-500 uppercase">Before</p>
+            <p className="text-2xl sm:text-3xl font-black text-slate-400 mt-1 font-display">
               {item.before || 'Baseline'}
             </p>
           </div>
-          <div className="p-4 rounded-2xl bg-[#FFE600]/10 border border-[#FFE600]/40 shadow-[0_0_20px_rgba(255,230,0,0.1)]">
-            <p className="text-[11px] font-bold text-[#FFE600] uppercase">After BM TechX</p>
-            <p className="text-2xl sm:text-3xl font-black text-[#FFE600] mt-1 font-display">
+          <div className="p-4 rounded-2xl bg-[#FFE600]/20 border border-[#FFE600]/60 shadow-sm">
+            <p className="text-[11px] font-bold text-black uppercase">After BM TechX</p>
+            <p className="text-2xl sm:text-3xl font-black text-[#0A0B0E] mt-1 font-display">
               {item.after || item.value || '+240%'}
             </p>
           </div>
         </div>
-        {item.detail && <p className="text-xs text-[#CBD5E1]">{item.detail}</p>}
+        {item.detail && <p className="text-xs text-slate-600">{item.detail}</p>}
       </div>
     );
   }
@@ -90,20 +90,20 @@ export function ProofBlock({ id, variant = 'inline', className, onSelect }: Proo
     return (
       <div
         className={cn(
-          'bg-[#12141D] rounded-3xl border border-[#232636] p-6 sm:p-8 shadow-xl space-y-4 relative overflow-hidden',
+          'bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-sm space-y-4 relative overflow-hidden',
           className
         )}
       >
-        <Quote className="w-12 h-12 text-[#FFE600]/10 absolute -top-2 -right-2 rotate-180" />
-        <p className="text-sm sm:text-base text-white italic leading-relaxed relative z-10">
+        <Quote className="w-12 h-12 text-[#FFE600]/40 absolute -top-2 -right-2 rotate-180" />
+        <p className="text-sm sm:text-base text-slate-800 italic leading-relaxed relative z-10">
           "{item.quote || item.detail}"
         </p>
-        <div className="pt-3 border-t border-[#232636] flex items-center justify-between">
+        <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between">
           <div>
-            <p className="text-sm font-bold text-white font-display">{item.person || 'Verified Client'}</p>
-            <p className="text-xs text-[#94A3B8]">{item.role ? `${item.role}, ` : ''}{item.business}</p>
+            <p className="text-sm font-bold text-[#0A0B0E] font-display">{item.person || 'Verified Client'}</p>
+            <p className="text-xs text-slate-500">{item.role ? `${item.role}, ` : ''}{item.business}</p>
           </div>
-          <ShieldCheck className="w-5 h-5 text-emerald-400" />
+          <ShieldCheck className="w-5 h-5 text-emerald-600" />
         </div>
       </div>
     );
@@ -114,18 +114,18 @@ export function ProofBlock({ id, variant = 'inline', className, onSelect }: Proo
     return (
       <div
         className={cn(
-          'bg-[#12141D] p-6 rounded-3xl border border-[#232636] shadow-xl flex items-start gap-4',
+          'bg-white p-6 rounded-3xl border border-[#E2E8F0] shadow-sm flex items-start gap-4',
           className
         )}
       >
-        <div className="w-10 h-10 rounded-xl bg-[#08090D] text-emerald-400 flex items-center justify-center shrink-0 border border-[#232636]">
+        <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200">
           <ShieldCheck className="w-6 h-6" />
         </div>
         <div className="space-y-1">
-          <p className="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">{item.label}</p>
-          <p className="text-lg font-bold text-white font-display">{item.value}</p>
-          {item.detail && <p className="text-xs text-[#CBD5E1]">{item.detail}</p>}
-          {item.note && <p className="text-[11px] text-[#94A3B8] italic">{item.note}</p>}
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-500">{item.label}</p>
+          <p className="text-lg font-bold text-[#0A0B0E] font-display">{item.value}</p>
+          {item.detail && <p className="text-xs text-slate-600">{item.detail}</p>}
+          {item.note && <p className="text-[11px] text-slate-500 italic">{item.note}</p>}
         </div>
       </div>
     );
@@ -136,18 +136,18 @@ export function ProofBlock({ id, variant = 'inline', className, onSelect }: Proo
     return (
       <div
         className={cn(
-          'inline-flex items-center gap-3 bg-[#12141D] px-4 py-2.5 rounded-2xl border border-[#232636] shadow-md',
+          'inline-flex items-center gap-3 bg-white px-4 py-2.5 rounded-2xl border border-[#E2E8F0] shadow-sm',
           className
         )}
       >
-        <div className="flex items-center text-amber-400">
+        <div className="flex items-center text-amber-500">
           {[...Array(5)].map((_, i) => (
             <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
           ))}
         </div>
-        <div className="text-xs font-bold text-white">
+        <div className="text-xs font-bold text-[#0A0B0E]">
           <span>{item.value || '5.0 ★'}</span>
-          <span className="text-[#94A3B8] font-normal ml-1">({item.label || 'Google Reviews'})</span>
+          <span className="text-slate-500 font-normal ml-1">({item.label || 'Google Reviews'})</span>
         </div>
       </div>
     );
@@ -158,16 +158,16 @@ export function ProofBlock({ id, variant = 'inline', className, onSelect }: Proo
     return (
       <div
         className={cn(
-          'bg-[#12141D] rounded-3xl border border-[#232636] overflow-hidden shadow-xl group hover:border-[#FFE600]/40 transition-all',
+          'bg-white rounded-3xl border border-[#E2E8F0] overflow-hidden shadow-sm group hover:border-black/30 transition-all',
           className
         )}
       >
-        <div className="h-44 bg-[#08090D] border-b border-[#232636] flex items-center justify-center text-[#94A3B8] text-xs">
-          <ExternalLink className="w-6 h-6 text-[#94A3B8] group-hover:text-[#FFE600] transition-colors" />
+        <div className="h-44 bg-[#F8F9FA] border-b border-[#E2E8F0] flex items-center justify-center text-slate-400 text-xs">
+          <ExternalLink className="w-6 h-6 text-slate-400 group-hover:text-black transition-colors" />
         </div>
         <div className="p-4 space-y-1">
-          <p className="text-sm font-bold text-white font-display">{item.label || 'Client Work Sample'}</p>
-          {item.detail && <p className="text-xs text-[#CBD5E1]">{item.detail}</p>}
+          <p className="text-sm font-bold text-[#0A0B0E] font-display">{item.label || 'Client Work Sample'}</p>
+          {item.detail && <p className="text-xs text-slate-600">{item.detail}</p>}
         </div>
       </div>
     );
@@ -175,10 +175,10 @@ export function ProofBlock({ id, variant = 'inline', className, onSelect }: Proo
 
   // Fallback generic proof card
   return (
-    <div className={cn('bg-[#12141D] p-6 rounded-3xl border border-[#232636] shadow-xl', className)}>
-      <p className="text-xs font-bold text-[#94A3B8] uppercase">{item.label}</p>
-      <p className="text-xl font-bold text-white mt-1 font-display">{item.value}</p>
-      {item.detail && <p className="text-xs text-[#CBD5E1] mt-1">{item.detail}</p>}
+    <div className={cn('bg-white p-6 rounded-3xl border border-[#E2E8F0] shadow-sm', className)}>
+      <p className="text-xs font-bold text-slate-500 uppercase">{item.label}</p>
+      <p className="text-xl font-bold text-[#0A0B0E] mt-1 font-display">{item.value}</p>
+      {item.detail && <p className="text-xs text-slate-600 mt-1">{item.detail}</p>}
     </div>
   );
 }

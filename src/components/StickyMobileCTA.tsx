@@ -53,7 +53,7 @@ export function StickyMobileCTA({ pageSrc, defaultIntent }: StickyMobileCTAProps
 
   return (
     <div
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#08090D]/95 backdrop-blur-md border-t border-[#232636] shadow-[0_-5px_25px_rgba(0,0,0,0.8)] px-4 py-2.5 animate-in slide-in-from-bottom duration-300"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-[#0A0B0E]/95 backdrop-blur-md border-t border-[#FFE600]/30 shadow-2xl px-4 py-2.5 animate-in slide-in-from-bottom duration-300"
       role="complementary"
       aria-label="Quick WhatsApp Action Bar"
     >

@@ -32,8 +32,8 @@ const NotFoundPage = lazy(() => import('@/pages/NotFoundPage').then(m => ({ defa
 
 function RouteFallback() {
   return (
-    <div className="min-h-[50vh] flex items-center justify-center p-8 bg-[#08090D]">
-      <div className="flex items-center gap-3 text-white font-bold text-sm bg-[#12141D] border border-[#232636] px-5 py-3 rounded-2xl shadow-xl">
+    <div className="min-h-[50vh] flex items-center justify-center p-8 bg-[#F8F9FA]">
+      <div className="flex items-center gap-3 text-[#0A0B0E] font-bold text-sm bg-white border border-[#E2E8F0] px-5 py-3 rounded-2xl shadow-xl">
         <Loader2 className="w-5 h-5 animate-spin text-[#FFE600]" />
         <span>Loading BM TechX Engine...</span>
       </div>
@@ -62,7 +62,7 @@ export function App() {
     <BrowserRouter>
       <ScrollToTop />
       <RouteSeo />
-      <div className="min-h-screen bg-[#08090D] text-[#F8FAFC] flex flex-col selection:bg-[#FFE600] selection:text-black font-body antialiased">
+      <div className="min-h-screen bg-[#F8F9FA] text-[#0A0B0E] flex flex-col selection:bg-[#FFE600] selection:text-black font-body antialiased">
         {/* Sitewide Sticky Header */}
         <Navbar onOpenQuote={handleOpenQuote} />
 

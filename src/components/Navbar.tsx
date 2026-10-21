@@ -64,8 +64,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#08090D]/95 backdrop-blur-md shadow-2xl border-b border-[#232636] py-3'
-          : 'bg-[#08090D]/80 backdrop-blur-sm border-b border-[#232636]/40 py-4'
+          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E2E8F0] py-3'
+          : 'bg-[#F8F9FA]/85 backdrop-blur-sm border-b border-[#E2E8F0]/70 py-4'
       }`}
       role="banner"
     >
@@ -78,7 +78,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
             className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
           />
           <div className="hidden sm:flex flex-col">
-            <span className="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-wider bg-[#FFE600]/10 text-[#FFE600] border border-[#FFE600]/30 w-fit">
+            <span className="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-wider bg-black text-[#FFE600] border border-black w-fit">
               v2.0 · Tamil Nadu
             </span>
           </div>
@@ -86,14 +86,14 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
         {/* Desktop Nav Links */}
         <nav
-          className="hidden md:flex items-center gap-6 text-sm font-medium text-[#CBD5E1]"
+          className="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700"
           role="navigation"
           aria-label="Main Navigation"
         >
           <Link
             to="/"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
+            className={`hover:text-black transition-colors py-1 ${
+              location.pathname === '/' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Home
@@ -110,9 +110,9 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
               onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
               aria-expanded={servicesDropdownOpen}
               aria-haspopup="true"
-              className={`hover:text-[#FFE600] transition-colors py-1 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30 rounded-md px-1.5 ${
+              className={`hover:text-black transition-colors py-1 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30 rounded-md px-1.5 ${
                 location.pathname.startsWith('/services') || location.pathname.startsWith('/industries')
-                  ? 'text-[#FFE600] font-bold'
+                  ? 'text-black font-extrabold'
                   : ''
               }`}
             >
@@ -121,7 +121,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
             {servicesDropdownOpen && (
               <div
-                className="absolute top-full left-0 w-64 bg-[#12141D] border border-[#232636] rounded-2xl shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                className="absolute top-full left-0 w-64 bg-white border border-[#E2E8F0] rounded-2xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                 role="menu"
                 aria-label="Services Submenu"
               >
@@ -130,7 +130,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
                     key={item.href}
                     to={item.href}
                     role="menuitem"
-                    className="block px-4 py-2 text-xs font-medium text-[#CBD5E1] hover:bg-[#1A1D2B] hover:text-[#FFE600] transition-colors focus:bg-[#1A1D2B] focus:outline-none"
+                    className="block px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-[#F8F9FA] hover:text-black transition-colors focus:bg-[#F8F9FA] focus:outline-none"
                   >
                     {item.label}
                   </Link>
@@ -141,8 +141,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
           <Link
             to="/pricing"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/pricing' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
+            className={`hover:text-black transition-colors py-1 ${
+              location.pathname === '/pricing' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Pricing
@@ -150,8 +150,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
           <Link
             to="/work"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/work' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
+            className={`hover:text-black transition-colors py-1 ${
+              location.pathname === '/work' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Our Work
@@ -159,8 +159,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
           <Link
             to="/about"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/about' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
+            className={`hover:text-black transition-colors py-1 ${
+              location.pathname === '/about' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             About
@@ -168,8 +168,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
           <Link
             to="/blog"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/blog' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
+            className={`hover:text-black transition-colors py-1 ${
+              location.pathname === '/blog' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Blog
@@ -177,8 +177,8 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
           <Link
             to="/contact"
-            className={`hover:text-[#FFE600] transition-colors py-1 ${
-              location.pathname === '/contact' ? 'text-[#FFE600] font-bold border-b-2 border-[#FFE600]' : ''
+            className={`hover:text-black transition-colors py-1 ${
+              location.pathname === '/contact' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Contact
@@ -189,7 +189,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
         <div className="hidden lg:flex items-center gap-3">
           <button
             onClick={openWhatsApp}
-            className="flex items-center gap-1.5 text-xs font-semibold text-[#10B981] hover:text-[#059669] px-3 py-2 rounded-xl hover:bg-[#10B981]/10 transition-colors focus:ring-2 focus:ring-[#10B981]/30 focus:outline-none"
+            className="flex items-center gap-1.5 text-xs font-semibold text-[#10B981] hover:text-[#059669] px-3 py-2 rounded-xl hover:bg-emerald-50 transition-colors focus:ring-2 focus:ring-[#10B981]/30 focus:outline-none"
             aria-label="Contact BM TechX on WhatsApp"
           >
             <MessageSquare className="w-3.5 h-3.5" />
@@ -200,7 +200,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
             onClick={() => onOpenQuote()}
             variant="default"
             size="default"
-            className="text-xs font-extrabold shadow-lg gap-1.5 bg-[#FFE600] hover:bg-[#FFD000] text-black shadow-[0_0_20px_rgba(255,230,0,0.25)] rounded-xl"
+            className="text-xs font-extrabold shadow-md gap-1.5 bg-[#FFE600] hover:bg-[#FFD000] text-black rounded-xl border border-black/10"
           >
             <Sparkles className="w-3.5 h-3.5 text-black" />
             Get Instant Quote
@@ -212,11 +212,11 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
         <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-xl border border-[#232636] bg-[#12141D] hover:bg-[#1A1D2B] text-white focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30"
+            className="p-2.5 rounded-xl border border-[#E2E8F0] bg-white hover:bg-[#F8F9FA] text-black focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30 shadow-sm"
             aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
             aria-expanded={mobileMenuOpen}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6 text-[#FFE600]" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-6 h-6 text-black" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -224,38 +224,38 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden bg-[#08090D] border-b border-[#232636] px-4 pt-3 pb-6 space-y-3 shadow-2xl animate-in slide-in-from-top-2 duration-150"
+          className="md:hidden bg-white border-b border-[#E2E8F0] px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-150"
           role="dialog"
           aria-label="Mobile Navigation Menu"
         >
-          <Link to="/" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
+          <Link to="/" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             Home
           </Link>
-          <div className="py-2 border-b border-[#232636] space-y-1.5">
-            <p className="text-[10px] font-bold uppercase tracking-wider text-[#FFE600]">Services</p>
+          <div className="py-2 border-b border-[#F1F5F9] space-y-1.5">
+            <p className="text-[10px] font-bold uppercase tracking-wider text-black bg-[#FFE600]/30 px-2 py-0.5 rounded w-fit">Services</p>
             {services.map((item) => (
               <Link
                 key={item.href}
                 to={item.href}
-                className="block pl-2 py-2 text-xs text-[#CBD5E1] hover:text-[#FFE600] font-medium"
+                className="block pl-2 py-2 text-xs text-slate-700 hover:text-black font-semibold"
               >
                 {item.label}
               </Link>
             ))}
           </div>
-          <Link to="/pricing" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
+          <Link to="/pricing" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             Pricing Plans (from ₹2,999)
           </Link>
-          <Link to="/work" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
+          <Link to="/work" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             Our Work / Case Studies
           </Link>
-          <Link to="/about" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
+          <Link to="/about" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             About BM TechX
           </Link>
-          <Link to="/blog" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
+          <Link to="/blog" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             Blog & Guides
           </Link>
-          <Link to="/contact" className="block py-2 text-sm font-bold text-white border-b border-[#232636]">
+          <Link to="/contact" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             Contact & WhatsApp
           </Link>
 
@@ -264,7 +264,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
               setMobileMenuOpen(false);
               onOpenQuote();
             }}
-            className="w-full bg-[#FFE600] hover:bg-[#FFD000] text-black font-extrabold py-3.5 mt-2 rounded-xl shadow-[0_0_20px_rgba(255,230,0,0.25)]"
+            className="w-full bg-[#FFE600] hover:bg-[#FFD000] text-black font-extrabold py-3.5 mt-2 rounded-xl shadow-md border border-black/10"
           >
             Get Instant Quote
           </Button>

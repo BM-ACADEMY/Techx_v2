@@ -66,14 +66,14 @@ export function FAQ({
   return (
     <section className={cn('max-w-4xl mx-auto py-12 px-4', className)} aria-label="Frequently Asked Questions">
       <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-        <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#FFE600] bg-[#FFE600]/10 border border-[#FFE600]/30 px-3.5 py-1 rounded-full">
-          <HelpCircle className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-black bg-[#FFE600]/25 border border-[#FFE600]/60 px-3.5 py-1 rounded-full">
+          <HelpCircle className="w-3.5 h-3.5 text-black" />
           <span>Transparent FAQ</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-white font-display tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0A0B0E] font-display tracking-tight">
           {title}
         </h2>
-        {subtitle && <p className="text-sm sm:text-base text-[#94A3B8]">{subtitle}</p>}
+        {subtitle && <p className="text-sm sm:text-base text-slate-600">{subtitle}</p>}
       </div>
 
       <div className="space-y-3">
@@ -88,8 +88,8 @@ export function FAQ({
               className={cn(
                 'rounded-2xl border transition-all duration-300 overflow-hidden',
                 isOpen
-                  ? 'border-[#FFE600]/60 bg-[#12141D] shadow-[0_0_25px_rgba(255,230,0,0.1)]'
-                  : 'border-[#232636] bg-[#0E1017] hover:border-[#FFE600]/30 hover:bg-[#12141D]'
+                  ? 'border-[#FFE600] bg-white shadow-md ring-2 ring-[#FFE600]/20'
+                  : 'border-[#E2E8F0] bg-white hover:border-black/20 shadow-sm'
               )}
             >
               <button
@@ -99,13 +99,13 @@ export function FAQ({
                 onClick={() => toggleItem(index)}
                 className="w-full py-5 px-6 text-left flex items-center justify-between gap-4 focus:outline-none focus:ring-2 focus:ring-[#FFE600]/40 select-none"
               >
-                <span className="text-base sm:text-lg font-bold text-white leading-snug">
+                <span className="text-base sm:text-lg font-bold text-[#0A0B0E] leading-snug">
                   {item.q}
                 </span>
                 <div
                   className={cn(
                     'w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200',
-                    isOpen ? 'bg-[#FFE600] text-black rotate-180 shadow-md' : 'bg-[#181B27] text-[#94A3B8]'
+                    isOpen ? 'bg-[#FFE600] text-black rotate-180 shadow-sm' : 'bg-[#F8F9FA] text-slate-700'
                   )}
                 >
                   <ChevronDown className="w-4 h-4" />
@@ -117,7 +117,7 @@ export function FAQ({
                   id={answerId}
                   role="region"
                   aria-labelledby={questionId}
-                  className="px-6 pb-6 text-sm text-[#CBD5E1] leading-relaxed border-t border-[#232636] pt-4 animate-in fade-in duration-200"
+                  className="px-6 pb-6 text-sm text-slate-700 leading-relaxed border-t border-[#F1F5F9] pt-4 animate-in fade-in duration-200"
                 >
                   {item.a}
                 </div>

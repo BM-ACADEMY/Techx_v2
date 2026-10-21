@@ -45,15 +45,15 @@ export function PriceCard({
   return (
     <div
       className={cn(
-        'bg-[#12141D] rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative',
+        'bg-white rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 relative shadow-sm',
         isRecommended
-          ? 'border-2 border-[#FFE600] shadow-[0_0_35px_rgba(255,230,0,0.18)] scale-[1.02] z-10'
-          : 'border border-[#232636] hover:border-[#FFE600]/50 hover:shadow-[0_0_30px_rgba(255,230,0,0.1)]',
+          ? 'border-2 border-[#FFE600] shadow-xl scale-[1.02] z-10 ring-4 ring-[#FFE600]/20'
+          : 'border border-[#E2E8F0] hover:border-black/30 hover:shadow-md',
         className
       )}
     >
       {isRecommended && (
-        <div className="absolute -top-3.5 left-6 bg-[#FFE600] text-black text-[11px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-1.5">
+        <div className="absolute -top-3.5 left-6 bg-[#FFE600] text-black text-[11px] font-extrabold px-3.5 py-1 rounded-full uppercase tracking-wider shadow-md flex items-center gap-1.5 border border-black/10">
           <Zap className="w-3 h-3 fill-black text-black" />
           <span>Recommended Choice</span>
         </div>
@@ -62,14 +62,14 @@ export function PriceCard({
       <div className="space-y-4">
         {/* Plan Header */}
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-[#94A3B8]">
+          <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
             {plan.name}
           </span>
           <div className="flex items-baseline gap-1.5 mt-1">
-            <span className="text-4xl sm:text-5xl font-black text-[#FFE600] tracking-tight font-display">
+            <span className="text-4xl sm:text-5xl font-black text-[#0A0B0E] tracking-tight font-display">
               {formatPrice(plan.price)}
             </span>
-            <span className="text-xs font-bold text-[#94A3B8]">
+            <span className="text-xs font-bold text-slate-500">
               {'period' in plan && plan.period ? `/${plan.period}` : ''} (+ 18% GST)
             </span>
           </div>
@@ -78,19 +78,19 @@ export function PriceCard({
         {/* SLA or Keyword Badge */}
         <div>
           {isOneTime && (plan as OneTimePlan).delivery && (
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-xl">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-xl">
               {(plan as OneTimePlan).delivery.includes('48') ? (
-                <Zap className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400" />
+                <Zap className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600" />
               ) : (
-                <Clock className="w-3.5 h-3.5 text-emerald-400" />
+                <Clock className="w-3.5 h-3.5 text-emerald-600" />
               )}
               <span>Live in {(plan as OneTimePlan).delivery}</span>
             </div>
           )}
 
           {!isOneTime && (plan as MonthlyPlan).keywords && (
-            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FFE600] bg-[#FFE600]/10 border border-[#FFE600]/30 px-3 py-1 rounded-xl">
-              <Target className="w-3.5 h-3.5 text-[#FFE600]" />
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-black bg-[#FFE600]/25 border border-[#FFE600]/60 px-3 py-1 rounded-xl">
+              <Target className="w-3.5 h-3.5 text-black" />
               <span>{(plan as MonthlyPlan).keywords} Target Keywords</span>
             </div>
           )}
@@ -98,15 +98,15 @@ export function PriceCard({
 
         {/* Inclusions */}
         {plan.includes && plan.includes.length > 0 && (
-          <div className="pt-4 border-t border-[#232636]">
-            <p className="text-xs font-bold uppercase tracking-wider text-[#94A3B8] mb-2.5">
+          <div className="pt-4 border-t border-[#F1F5F9]">
+            <p className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2.5">
               What's Included:
             </p>
-            <ul className="space-y-2 text-xs sm:text-sm text-[#CBD5E1]">
+            <ul className="space-y-2 text-xs sm:text-sm text-slate-700">
               {plan.includes.map((item) => (
                 <li key={item} className="flex items-start gap-2">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <span className="text-white/90">{item}</span>
+                  <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                  <span className="text-slate-800 font-medium">{item}</span>
                 </li>
               ))}
             </ul>
@@ -115,11 +115,11 @@ export function PriceCard({
 
         {/* Exclusions */}
         {plan.excludes && plan.excludes.length > 0 && (
-          <div className="pt-3 border-t border-[#232636]/60">
-            <p className="text-[11px] font-bold uppercase tracking-wider text-[#94A3B8] mb-1.5">
+          <div className="pt-3 border-t border-[#F1F5F9]">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
               Excludes:
             </p>
-            <ul className="space-y-1 text-xs text-[#94A3B8]">
+            <ul className="space-y-1 text-xs text-slate-400">
               {plan.excludes.map((item) => (
                 <li key={item} className="flex items-start gap-2">
                   <X className="w-3.5 h-3.5 text-red-400 shrink-0 mt-0.5" />
@@ -132,14 +132,14 @@ export function PriceCard({
 
         {/* Renewal Notes */}
         {isOneTime && (plan as OneTimePlan).renewal && (
-          <div className="p-3 rounded-2xl bg-[#08090D] border border-[#232636] text-xs text-[#94A3B8] flex items-start gap-2">
-            <RefreshCw className="w-3.5 h-3.5 text-[#FFE600] shrink-0 mt-0.5" />
+          <div className="p-3 rounded-2xl bg-[#F8F9FA] border border-[#E2E8F0] text-xs text-slate-600 flex items-start gap-2">
+            <RefreshCw className="w-3.5 h-3.5 text-black shrink-0 mt-0.5" />
             <div>
-              <span className="font-bold text-white">Renewal Policy: </span>
+              <span className="font-bold text-slate-900">Renewal Policy: </span>
               {(plan as OneTimePlan).renewal.amount === 0 ? (
-                <span className="text-emerald-400 font-bold">No yearly renewal fee.</span>
+                <span className="text-emerald-700 font-bold">No yearly renewal fee.</span>
               ) : (
-                <span className="text-[#CBD5E1]">
+                <span className="text-slate-700">
                   {formatPrice((plan as OneTimePlan).renewal.amount)} / {(plan as OneTimePlan).renewal.period}{' '}
                   ({(plan as OneTimePlan).renewal.covers || 'Domain + Cloud Server'})
                 </span>
@@ -150,17 +150,17 @@ export function PriceCard({
       </div>
 
       {/* Action CTA */}
-      <div className="pt-6 mt-6 border-t border-[#232636]">
+      <div className="pt-6 mt-6 border-t border-[#F1F5F9]">
         <WhatsAppCTA
           src={sourceTag}
           intent={intent}
           label={ctaLabel || `Order ${plan.name}`}
           variant={isRecommended ? 'primary' : 'secondary'}
           className={cn(
-            'w-full py-3.5 text-sm rounded-xl font-extrabold',
+            'w-full py-3.5 text-sm rounded-xl font-extrabold transition-all',
             isRecommended
-              ? 'bg-[#FFE600] text-black hover:bg-[#FFD000] shadow-[0_0_20px_rgba(255,230,0,0.25)]'
-              : 'bg-[#181B27] text-white hover:bg-[#232636] border border-[#232636]'
+              ? 'bg-[#FFE600] text-black hover:bg-[#FFD000] shadow-md border border-black/10'
+              : 'bg-[#0A0B0E] text-white hover:bg-neutral-800 border border-black'
           )}
           onClick={() => onSelect && onSelect(plan)}
         />

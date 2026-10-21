@@ -33,11 +33,15 @@ export function ResultStrip({ id, items: directItems, variant = 'inline', classN
     );
   }
 
+  const isDarkFeature = variant === 'feature';
+
   const variantStyles = {
-    inline: 'bg-[#12141D] border border-[#232636] py-6 px-6 sm:px-8 rounded-3xl shadow-xl',
-    feature: 'bg-[#161926] border border-[#FFE600]/30 text-white py-8 px-6 sm:px-12 rounded-3xl shadow-[0_0_35px_rgba(255,230,0,0.12)]',
-    compact: 'bg-[#0E1017] border border-[#232636] py-4 px-4 rounded-2xl',
+    inline: 'bg-white border border-[#E2E8F0] py-6 px-6 sm:px-8 rounded-3xl shadow-sm',
+    feature: 'bg-[#0A0B0E] border border-black text-white py-8 px-6 sm:px-12 rounded-3xl shadow-xl',
+    compact: 'bg-[#F8F9FA] border border-[#E2E8F0] py-4 px-4 rounded-2xl',
   };
+
+  const divideStyle = isDarkFeature ? 'divide-white/15' : 'divide-[#E2E8F0]';
 
   return (
     <div className={cn(variantStyles[variant], className)}>
@@ -45,22 +49,31 @@ export function ResultStrip({ id, items: directItems, variant = 'inline', classN
         className={cn(
           'grid gap-6 sm:gap-8 items-center text-center',
           displayItems.length === 2
-            ? 'grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x divide-[#232636]'
+            ? `grid-cols-1 sm:grid-cols-2 divide-y sm:divide-y-0 sm:divide-x ${divideStyle}`
             : displayItems.length === 3
-            ? 'grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-[#232636]'
-            : 'grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-[#232636]'
+            ? `grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x ${divideStyle}`
+            : `grid-cols-1 sm:grid-cols-2 md:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x ${divideStyle}`
         )}
       >
         {displayItems.map((item, index) => (
           <div key={index} className={cn('space-y-1', index > 0 ? 'pt-4 sm:pt-0 sm:pl-6' : '')}>
-            <div className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight font-display text-[#FFE600]">
+            <div className={cn(
+              'text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight font-display',
+              isDarkFeature ? 'text-[#FFE600]' : 'text-[#0A0B0E]'
+            )}>
               {item.value}
             </div>
-            <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-white">
+            <p className={cn(
+              'text-xs sm:text-sm font-bold uppercase tracking-wider',
+              isDarkFeature ? 'text-white' : 'text-[#0A0B0E]'
+            )}>
               {item.label}
             </p>
             {item.context && (
-              <p className="text-[11px] leading-tight text-[#94A3B8]">
+              <p className={cn(
+                'text-[11px] leading-tight',
+                isDarkFeature ? 'text-[#94A3B8]' : 'text-slate-500'
+              )}>
                 {item.context}
               </p>
             )}
