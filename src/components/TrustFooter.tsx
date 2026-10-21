@@ -58,6 +58,9 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
               <li><Link to="/services/meta-ads" className="hover:text-[#FFE600] transition-colors">Meta Ads Engine</Link></li>
               <li><Link to="/services/whatsapp-automation" className="hover:text-[#FFE600] transition-colors">WhatsApp Automation</Link></li>
               <li><Link to="/industries/real-estate" className="hover:text-[#FFE600] transition-colors">Real Estate Marketing</Link></li>
+              <li><Link to="/industries/clinics" className="hover:text-[#FFE600] transition-colors">Clinic Websites</Link></li>
+              <li><Link to="/industries/schools" className="hover:text-[#FFE600] transition-colors">School Websites</Link></li>
+              <li><Link to="/industries/restaurants" className="hover:text-[#FFE600] transition-colors">Restaurant & Shop Websites</Link></li>
             </ul>
           </div>
 
@@ -70,7 +73,11 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
               {site.service_area.map((area) => (
                 <li key={area} className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FFE600]" />
-                  <span>{area}</span>
+                  {['puducherry','cuddalore','villupuram','chennai','madurai','tiruchirappalli','namakkal'].includes(area.toLowerCase()) ? (
+                    <Link to={`/locations/${area.toLowerCase()}`} className="hover:text-[#FFE600] transition-colors">{area}</Link>
+                  ) : (
+                    <span>{area}</span>
+                  )}
                 </li>
               ))}
             </ul>

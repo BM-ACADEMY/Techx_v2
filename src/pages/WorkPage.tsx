@@ -12,6 +12,7 @@ import {
   Hotel,
   ShieldCheck,
   Search,
+  Megaphone,
 } from 'lucide-react';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 
@@ -20,7 +21,7 @@ interface WorkPageProps {
 }
 
 export function WorkPage({ onOpenQuote }: WorkPageProps) {
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'real-estate' | 'seo' | 'custom'>('all');
+  const [selectedCategory, setSelectedCategory] = useState<'all' | 'real-estate' | 'seo' | 'social' | 'custom'>('all');
 
   // SEO Metadata & Schema Injection
   useEffect(() => {
@@ -94,6 +95,57 @@ export function WorkPage({ onOpenQuote }: WorkPageProps) {
 
   const caseStudies = [
     {
+      id: 'npp-instagram',
+      category: 'social',
+      title: 'Instagram Growth for a Real Estate Page',
+      clientName: 'Namma Pondy Properties (our own brand)',
+      sector: 'Real Estate',
+      city: 'Puducherry',
+      service: 'Instagram content and reels',
+      headlineNumber: '508,256',
+      headlineUnit: 'views in 30 days (26 Jun to 25 Jul 2026)',
+      cplTarget: '82.3% of views came from non-followers',
+      summary:
+        'We run the Instagram page of our own real estate brand using mobile-shot property reels. Instagram Insights for the period show 189,515 accounts reached and 13,261 interactions. Figures are read from Instagram Insights and the screenshot is available on request.',
+      icon: Megaphone,
+      href: '/services/social-media-marketing/',
+      confidentialityNote: 'Source: Instagram Insights, 26 Jun to 25 Jul 2026. This is our own page, not a client page.',
+    },
+    {
+      id: 'velai-vaaippu-smm',
+      category: 'social',
+      title: 'Social Media Management for a Job Platform',
+      clientName: 'Velai Vaaippu',
+      sector: 'Jobs and Careers',
+      city: 'Tamil Nadu',
+      service: 'Instagram management',
+      headlineNumber: '22K+',
+      headlineUnit: 'Instagram followers (Oct 2026)',
+      cplTarget: 'Job-opening reels and student content',
+      summary:
+        'We manage the Instagram page for Velai Vaaippu, a job platform for job seekers, companies and colleges. The page publishes job openings and career content for a Tamil Nadu audience.',
+      icon: Megaphone,
+      href: '/services/social-media-marketing/',
+      confidentialityNote: 'Follower count as shown on the public Instagram page in October 2026.',
+    },
+    {
+      id: 'raahath-dental-gbp',
+      category: 'seo',
+      title: 'Google Business Profile for a Dental Clinic',
+      clientName: 'Raahath Dental Care and Implant Centre',
+      sector: 'Dental Clinic',
+      city: 'Kottakuppam',
+      service: 'Google Business Profile Growth plan',
+      headlineNumber: '8 Oct 2026',
+      headlineUnit: 'work started · results being recorded',
+      cplTarget: 'Calls, directions and website clicks',
+      summary:
+        'We began optimising the clinic Google Business Profile on 8 October 2026. We recorded the starting numbers (calls, direction requests, website clicks) and will publish the comparison here once there are enough weeks of data to be meaningful.',
+      icon: Search,
+      href: '/services/seo/',
+      confidentialityNote: 'Published with the clinic permission. No result is claimed yet.',
+    },
+    {
       id: 'real-estate-multi-city',
       category: 'real-estate',
       title: 'Real Estate Lead Generation across Three Districts',
@@ -135,8 +187,8 @@ export function WorkPage({ onOpenQuote }: WorkPageProps) {
       sector: 'Hospitality',
       city: 'Puducherry',
       service: 'Custom Web Application & Booking Engine',
-      headlineNumber: '0%',
-      headlineUnit: 'OTA Commission Saved',
+      headlineNumber: '24',
+      headlineUnit: 'client review items delivered',
       cplTarget: 'Direct Payment Gateway',
       summary:
         'A dedicated booking platform designed to bypass 18–25% OTA commissions. Built and refined through a 24-item client review protocol, with Razorpay integration and instant WhatsApp reservation confirmations.',
@@ -217,7 +269,17 @@ export function WorkPage({ onOpenQuote }: WorkPageProps) {
                 : 'bg-white border border-bm-line text-bm-ink hover:border-bm-brand-soft'
             }`}
           >
-            Hospitality & Villa SEO
+            Local SEO
+          </button>
+          <button
+            onClick={() => setSelectedCategory('social')}
+            className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
+              selectedCategory === 'social'
+                ? 'bg-bm-navy text-white shadow-sm'
+                : 'bg-white border border-bm-line text-bm-ink hover:border-bm-brand-soft'
+            }`}
+          >
+            Social Media
           </button>
           <button
             onClick={() => setSelectedCategory('custom')}
@@ -236,7 +298,7 @@ export function WorkPage({ onOpenQuote }: WorkPageProps) {
       {/* BLOCK 2 — CASE STUDY CARDS GRID                           */}
       {/* ========================================================= */}
       <section className="space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
           {filteredStudies.map((study) => {
             const Icon = study.icon;
             return (

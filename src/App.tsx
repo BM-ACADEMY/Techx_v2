@@ -28,6 +28,9 @@ const ContactPage = lazy(() => import('@/pages/ContactPage').then(m => ({ defaul
 const RealEstatePage = lazy(() => import('@/pages/RealEstatePage').then(m => ({ default: m.RealEstatePage })));
 const WorkPage = lazy(() => import('@/pages/WorkPage').then(m => ({ default: m.WorkPage })));
 const BlogPage = lazy(() => import('@/pages/BlogPage').then(m => ({ default: m.BlogPage })));
+const LocationPage = lazy(() => import('@/pages/LocationPage').then(m => ({ default: m.LocationPage })));
+const BlogPostPage = lazy(() => import('@/pages/BlogPostPage').then(m => ({ default: m.BlogPostPage })));
+const IndustryPage = lazy(() => import('@/pages/IndustryPage').then(m => ({ default: m.IndustryPage })));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 
 function RouteFallback() {
@@ -84,6 +87,9 @@ export function App() {
               <Route path="/industries/real-estate" element={<RealEstatePage />} />
               <Route path="/work" element={<WorkPage onOpenQuote={handleOpenQuote} />} />
               <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<BlogPostPage />} />
+              <Route path="/industries/:slug" element={<IndustryPage />} />
+              <Route path="/locations/:slug" element={<LocationPage />} />
 
               {/* Legacy 301 Client-Side Single-Hop Redirects */}
               <Route path="/index.html" element={<Navigate to="/" replace />} />

@@ -58,6 +58,9 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
     { label: 'Social Media Management (₹6,999/mo)', href: '/services/social-media-marketing' },
     { label: 'WhatsApp Automation (LeadOS)', href: '/services/whatsapp-automation' },
     { label: 'Real Estate Marketing', href: '/industries/real-estate' },
+    { label: 'Clinic Websites', href: '/industries/clinics' },
+    { label: 'School Websites', href: '/industries/schools' },
+    { label: 'Restaurant & Shop Websites', href: '/industries/restaurants' },
   ];
 
   return (

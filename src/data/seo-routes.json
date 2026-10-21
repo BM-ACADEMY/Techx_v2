@@ -68,5 +68,80 @@
     "path": "/contact",
     "title": "Contact BM TechX | Pondicherry Digital Agency",
     "description": "Message BM TechX on WhatsApp for a written scope and price before you pay. Based at Kosapalayam, Puducherry. Open Monday to Saturday, 10 AM to 7 PM."
+  },
+  {
+    "path": "/locations/puducherry",
+    "title": "Website Development & Digital Marketing in Puducherry | BM TechX",
+    "description": "Websites from ₹2,999, online stores, local SEO, Meta Ads and WhatsApp automation from a Puducherry team. Published prices, written scope, office in Kosapalayam."
+  },
+  {
+    "path": "/locations/cuddalore",
+    "title": "Website & Digital Marketing for Cuddalore Businesses | BM TechX",
+    "description": "Websites, online stores, local SEO and WhatsApp lead systems for Cuddalore businesses. Published prices and a written scope before you pay."
+  },
+  {
+    "path": "/locations/villupuram",
+    "title": "Website, SEO & Ads for Villupuram Businesses | BM TechX",
+    "description": "Websites, stores, local SEO and Meta Ads for Villupuram, Tindivanam and Gingee businesses. Published prices, Tamil content supported, written scope first."
+  },
+  {
+    "path": "/locations/chennai",
+    "title": "Website Development & Digital Marketing for Chennai | BM TechX",
+    "description": "Custom websites, stores, SEO, Meta Ads and WhatsApp automation for Chennai businesses, delivered remotely from Puducherry at published fixed prices."
+  },
+  {
+    "path": "/industries/clinics",
+    "title": "Website for a Clinic in Puducherry | BM TechX",
+    "description": "Clinic websites with doctors, timings, map and WhatsApp booking, from ₹2,999. Factual wording, your own domain, published prices."
+  },
+  {
+    "path": "/industries/schools",
+    "title": "Website for a School or Coaching Centre | BM TechX",
+    "description": "School and coaching centre websites with courses, fees, admission steps and enquiry by WhatsApp. Tamil and English, published prices."
+  },
+  {
+    "path": "/industries/restaurants",
+    "title": "Website for a Restaurant, Bakery or Shop | BM TechX",
+    "description": "Menu, prices, timings and one-tap WhatsApp ordering for restaurants and shops in Puducherry. Online store available, no commission."
+  },
+  {
+    "path": "/blog/website-cost-puducherry",
+    "title": "Website Cost in Puducherry (Published Prices) | BM TechX",
+    "description": "What a business website costs in Puducherry and Tamil Nadu: single page, multi-page and online store, what is included, and what to ask about renewals."
+  },
+  {
+    "path": "/blog/wordpress-vs-custom-code",
+    "title": "WordPress vs Custom Code for Small Business | BM TechX",
+    "description": "WordPress or a custom-coded website? Where each one wins for a small business in India: cost, speed, editing, security and long-term ownership."
+  },
+  {
+    "path": "/blog/get-customers-from-google-maps",
+    "title": "How to Get Customers From Google Maps | BM TechX",
+    "description": "Set up and improve your Google Business Profile so nearby customers can find, call and visit you. Steps, mistakes to avoid and how to ask for real reviews."
+  },
+  {
+    "path": "/blog/whatsapp-business-setup-checklist",
+    "title": "WhatsApp Business Setup Checklist for India | BM TechX",
+    "description": "A step-by-step checklist to set up WhatsApp Business properly: profile, catalogue, quick replies, labels, away messages and a click-to-chat link."
+  },
+  {
+    "path": "/blog/website-checklist-clinic-school-shop",
+    "title": "Website Checklist: Clinic, School or Shop | BM TechX",
+    "description": "What a clinic, school or shop website must include: contact details, timings, services, fees, map, WhatsApp and the pages people actually look for."
+  },
+  {
+    "path": "/locations/madurai",
+    "title": "Website Development & Digital Marketing in Madurai | BM TechX",
+    "description": "Websites, online stores, local SEO, Meta Ads and WhatsApp lead systems for Madurai businesses. Published prices, written scope first."
+  },
+  {
+    "path": "/locations/tiruchirappalli",
+    "title": "Website & Digital Marketing in Trichy | BM TechX",
+    "description": "Websites, stores, local SEO and Meta Ads for Tiruchirappalli (Trichy) businesses. Published prices, remote delivery from Puducherry."
+  },
+  {
+    "path": "/locations/namakkal",
+    "title": "Website & Digital Marketing in Namakkal | BM TechX",
+    "description": "Websites, online stores, local SEO and WhatsApp lead systems for Namakkal, Rasipuram and Tiruchengode businesses at published prices."
   }
 ]
