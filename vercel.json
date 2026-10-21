@@ -1,4 +1,136 @@
 {
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about/",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact/",
+      "permanent": true
+    },
+    {
+      "source": "/pricing.html",
+      "destination": "/pricing/",
+      "permanent": true
+    },
+    {
+      "source": "/seo.html",
+      "destination": "/services/seo/",
+      "permanent": true
+    },
+    {
+      "source": "/local.html",
+      "destination": "/services/seo/",
+      "permanent": true
+    },
+    {
+      "source": "/small.html",
+      "destination": "/services/seo/",
+      "permanent": true
+    },
+    {
+      "source": "/onpage.html",
+      "destination": "/services/seo/",
+      "permanent": true
+    },
+    {
+      "source": "/offpage.html",
+      "destination": "/services/seo/",
+      "permanent": true
+    },
+    {
+      "source": "/competitor.html",
+      "destination": "/services/seo/",
+      "permanent": true
+    },
+    {
+      "source": "/technical.html",
+      "destination": "/services/seo/",
+      "permanent": true
+    },
+    {
+      "source": "/webdesign.html",
+      "destination": "/services/website-development/",
+      "permanent": true
+    },
+    {
+      "source": "/socialmedia.html",
+      "destination": "/services/social-media-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/smo.html",
+      "destination": "/services/social-media-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/facebook.html",
+      "destination": "/services/social-media-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/instagram.html",
+      "destination": "/services/social-media-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/youtube.html",
+      "destination": "/services/social-media-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/pinterest.html",
+      "destination": "/services/social-media-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin.html",
+      "destination": "/services/social-media-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/twitter.html",
+      "destination": "/services/social-media-marketing/",
+      "permanent": true
+    },
+    {
+      "source": "/googleads.html",
+      "destination": "/services/meta-ads/",
+      "permanent": true
+    },
+    {
+      "source": "/googlesearch.html",
+      "destination": "/services/meta-ads/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/seo-services-pondicherry.html",
+      "destination": "/services/seo/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/Blog.html",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:slug.html",
+      "destination": "/blog/",
+      "permanent": true
+    },
+    {
+      "source": "/:slug.html",
+      "destination": "/services/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
