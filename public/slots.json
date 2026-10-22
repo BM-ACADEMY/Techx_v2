@@ -1,7 +1,9 @@
 {
   "enabled": false,
+  "mode": "message",
+  "text": "Now onboarding new businesses for November. Message us to see if we are a fit.",
   "month": "2026-11",
   "total": 15,
   "left": 15,
-  "note": "Edit this file directly on the server (no rebuild needed). Set enabled to true, month to the current month as YYYY-MM, total to the number of new clients you can really take this month, and left to the number still open. If month is not the current month, the banner hides itself, so it can never show stale numbers. Only put numbers here that are true."
+  "note": "mode message shows the text only, with no counts (use this when you can take many clients). mode count shows 'X of N slots left', use only with true numbers. enabled true to show. If month is not the current month (YYYY-MM) the banner hides itself."
 }
