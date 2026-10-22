@@ -1,6 +1,6 @@
 import { Check, X, Zap, Clock, Target, RefreshCw } from 'lucide-react';
 import { getPlanById, formatPrice } from '@/data/dataLayer';
-import type { OneTimePlan, MonthlyPlan } from '@/data/dataLayer';
+import type { OneTimePlan, MonthlyPlan, ExtraPlan } from '@/data/dataLayer';
 import { WhatsAppCTA } from './WhatsAppCTA';
 import { cn } from '@/lib/utils';
 
@@ -10,7 +10,7 @@ export interface PriceCardProps {
   highlight?: boolean;
   ctaTag?: string;
   ctaLabel?: string;
-  onSelect?: (plan: OneTimePlan | MonthlyPlan) => void;
+  onSelect?: (plan: OneTimePlan | MonthlyPlan | ExtraPlan) => void;
 }
 
 export function PriceCard({
