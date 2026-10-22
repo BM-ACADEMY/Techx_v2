@@ -4,8 +4,7 @@
   "currency": "INR",
   "gst_percent": 18,
   "prices_exclude_gst": true,
-  "last_updated": "2026-09-18",
-
+  "last_updated": "2026-10-22",
   "one_time": [
     {
       "id": "web-single",
@@ -26,7 +25,12 @@
         "Payment gateway",
         "User logins or accounts"
       ],
-      "renewal": { "amount": 1999, "period": "year", "from_year": 2, "covers": "Domain + server" },
+      "renewal": {
+        "amount": 1999,
+        "period": "year",
+        "from_year": 2,
+        "covers": "Domain + server"
+      },
       "page": "/services/website-development/"
     },
     {
@@ -42,8 +46,17 @@
         "On-page SEO setup",
         "Google Business Profile link-up"
       ],
-      "excludes": ["Content writing beyond what you supply", "Photography", "Payment gateway"],
-      "renewal": { "amount": 1999, "period": "year", "from_year": 2, "covers": "Domain + server" },
+      "excludes": [
+        "Content writing beyond what you supply",
+        "Photography",
+        "Payment gateway"
+      ],
+      "renewal": {
+        "amount": 1999,
+        "period": "year",
+        "from_year": 2,
+        "covers": "Domain + server"
+      },
       "page": "/services/website-development/"
     },
     {
@@ -59,74 +72,76 @@
         "WhatsApp order alerts",
         "On-page SEO setup"
       ],
-      "excludes": ["Product photography", "Product data entry beyond the first 20 items", "Ad spend"],
-      "renewal": { "amount": 0, "period": "year", "note": "No yearly renewal fee." },
+      "excludes": [
+        "Product photography",
+        "Product data entry beyond the first 20 items",
+        "Ad spend"
+      ],
+      "renewal": {
+        "amount": 0,
+        "period": "year",
+        "note": "No yearly renewal fee."
+      },
       "page": "/services/ecommerce-website/"
     }
   ],
-
   "monthly": [
     {
       "id": "seo-starter",
-      "name": "SEO — Starter",
-      "price": 4999,
+      "name": "Google Maps SEO — Starter",
+      "price": 2999,
       "period": "month",
-      "keywords": 5,
       "includes": [
-        "24-point technical audit at onboarding",
-        "2 pages optimised per month",
-        "1 blog article per month (700-900 words)",
-        "4 Google Business Profile posts",
-        "Review engine setup",
-        "5 citations per month for the first 3 months",
-        "Monthly PDF report"
+        "Profile optimization",
+        "Services and description setup",
+        "4 Google posts/month",
+        "Basic keyword optimization",
+        "Trust signals: photos, hours, attributes"
       ],
-      "excludes": ["Link building", "AI visibility tracking", "Competitor tracking"],
-      "page": "/services/seo/"
+      "page": "/services/seo/",
+      "upfront_3_months": {
+        "price": 7999,
+        "save": 998,
+        "setup_free": true
+      }
     },
     {
       "id": "seo-growth",
-      "name": "SEO — Growth",
-      "price": 8999,
+      "name": "Google Maps SEO — Growth",
+      "price": 4999,
       "period": "month",
-      "keywords": 10,
       "recommended": true,
       "includes": [
         "Everything in Starter",
-        "4 pages optimised per month",
-        "2 blog articles per month (1,000-1,200 words)",
-        "8 Google Business Profile posts",
-        "Managed review engine",
-        "10 citations per month",
-        "2 link and mention outreach targets per month",
-        "Full schema implementation",
-        "2 competitors tracked",
-        "Monthly report + review call"
+        "8 Google posts/month",
+        "Review growth strategy",
+        "Competitor analysis",
+        "Q&A and local keyword optimization"
       ],
-      "page": "/services/seo/"
+      "page": "/services/seo/",
+      "upfront_3_months": {
+        "price": 13499,
+        "save": 1498,
+        "setup_free": true
+      }
     },
     {
       "id": "seo-business",
-      "name": "SEO — Business",
-      "price": 14999,
+      "name": "Google Maps SEO — Business",
+      "price": 8999,
       "period": "month",
-      "keywords": 20,
-      "_pricing_note": "FLAGGED FOR REVIEW: at 26-30 delivery hours this tier returns ~Rs 536 per hour against Rs 714 at Starter. See SEO Playbook section 10. Recommended action: raise to 19999 or trim scope to ~21 hours. Do not change this value without Kamar's decision.",
       "includes": [
         "Everything in Growth",
-        "8 pages optimised per month",
-        "4 pieces of content per month",
-        "Full Google Business Profile management",
-        "15 citations per month",
-        "4-6 link and mention outreach targets per month",
-        "Maintained schema",
-        "AI visibility panel — 20 prompts checked monthly",
-        "4 competitors tracked",
-        "Quarterly conversion recommendations",
-        "Quarterly re-audit",
-        "Monthly report + fortnightly calls"
+        "Citation building",
+        "Advanced local SEO",
+        "Weekly optimization"
       ],
-      "page": "/services/seo/"
+      "page": "/services/seo/",
+      "upfront_3_months": {
+        "price": 24299,
+        "save": 2698,
+        "setup_free": true
+      }
     },
     {
       "id": "meta-ads",
@@ -140,29 +155,77 @@
         "Lead delivery to WhatsApp",
         "Monthly report"
       ],
-      "excludes": ["Ad spend — always billed separately", "Video production"],
+      "excludes": [
+        "Ad spend — always billed separately",
+        "Video production"
+      ],
       "page": "/services/meta-ads/"
     },
     {
       "id": "smm-starter",
-      "name": "Social media management — Starter",
-      "price": 6999,
+      "name": "Instagram management — Starter",
+      "price": 7999,
       "period": "month",
-      "page": "/services/social-media-marketing/"
+      "page": "/services/social-media-marketing/",
+      "upfront_3_months": {
+        "price": 21599,
+        "save": 2398,
+        "setup_free": true
+      },
+      "includes": [
+        "6 Reels/month, edited from your footage (we give you a shooting guide and scripts)",
+        "4 carousel posts",
+        "12 Stories",
+        "Captions, hooks and hashtag research",
+        "Profile optimization: bio, highlights, links",
+        "Comment replies, Mon–Sat",
+        "Monthly performance report"
+      ]
     },
     {
       "id": "smm-growth",
-      "name": "Social media management — Growth",
-      "price": 8999,
+      "name": "Instagram management — Growth",
+      "price": 12999,
       "period": "month",
-      "page": "/services/social-media-marketing/"
+      "page": "/services/social-media-marketing/",
+      "upfront_3_months": {
+        "price": 35099,
+        "save": 3898,
+        "setup_free": true
+      },
+      "includes": [
+        "10 Reels/month, including 1 mobile shoot by our team",
+        "6 carousel posts",
+        "20 Stories: polls, offers, behind-the-scenes",
+        "Reel scripts with strong first-3-second hooks",
+        "Trial Reels tested on new audiences",
+        "Comment and DM replies, enquiries forwarded to your WhatsApp",
+        "1 collaboration post/month with a local partner",
+        "Monthly content plan and report"
+      ],
+      "recommended": true
     },
     {
       "id": "smm-business",
-      "name": "Social media management — Business",
-      "price": 14999,
+      "name": "Instagram management — Business",
+      "price": 19999,
       "period": "month",
-      "page": "/services/social-media-marketing/"
+      "page": "/services/social-media-marketing/",
+      "upfront_3_months": {
+        "price": 53999,
+        "save": 5998,
+        "setup_free": true
+      },
+      "includes": [
+        "15 Reels/month, including 2 mobile shoots",
+        "8 carousel posts",
+        "30 Stories",
+        "Full inbox management and monthly lead log",
+        "Posting in relevant local Facebook Groups",
+        "Boost management (ad spend separate)",
+        "Google Maps SEO Starter included, worth ₹2,999/month",
+        "Monthly strategy call and priority delivery"
+      ]
     },
     {
       "id": "combo",
@@ -173,7 +236,6 @@
       "page": "/pricing/"
     }
   ],
-
   "quote_only": [
     {
       "id": "whatsapp-automation",

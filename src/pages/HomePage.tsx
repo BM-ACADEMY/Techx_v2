@@ -336,15 +336,15 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
                 </span>
                 <div className="flex items-baseline gap-1">
                   <span className="text-3xl sm:text-4xl font-black text-[#0A0B0E] font-display">
-                    ₹4,999
+                    ₹2,999
                   </span>
                   <span className="text-xs text-slate-500 font-semibold">/month</span>
                 </div>
                 <p className="text-xs font-bold text-black bg-[#FFE600]/25 border border-[#FFE600]/60 px-2.5 py-1 rounded-lg inline-block">
-                  🎯 From 5 Target Keywords
+                  📍 Google Maps SEO
                 </p>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Get found when people search for what you sell. Real deliverables and honest timelines.
+                  Get found on Google Maps when people nearby search for what you sell. Real deliverables and honest timelines.
                 </p>
               </div>
 
@@ -499,10 +499,10 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
                 Be found when people search for what you sell
               </h3>
               <p className="text-xs text-cyan-800 font-bold bg-cyan-50 px-2 py-0.5 rounded w-fit">
-                Monthly SEO from ₹4,999. Real deliverables.
+                Google Maps SEO from ₹2,999. Real deliverables.
               </p>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Local map pack rankings, technical audits, Google Business Profile management, and honest timelines.
+                Google Business Profile optimisation, posts, review growth and honest timelines.
               </p>
             </div>
             <Link
@@ -549,7 +549,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
                 Stop worrying about what to post
               </h3>
               <p className="text-xs text-indigo-800 font-bold bg-indigo-50 px-2 py-0.5 rounded w-fit">
-                From ₹6,999/month. We report enquiries, not likes.
+                Instagram management from ₹7,999/month. We report enquiries, not likes.
               </p>
               <p className="text-xs text-slate-600 leading-relaxed">
                 Professional graphics, localized captions, and active community management that drive direct inquiries.

@@ -7,9 +7,6 @@ import {
   AlertCircle,
   ChevronRight,
   ArrowRight,
-  Bot,
-  LineChart,
-  Shield,
 } from 'lucide-react';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import { PriceCard } from '@/components/PriceCard';
@@ -65,7 +62,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
           name: 'SEO Services in Pondicherry',
           serviceType: 'Search Engine Optimization',
           description:
-            'SEO from Rs 4,999 a month for Pondicherry, Cuddalore and Villupuram businesses. Countable deliverables, honest timelines, no ranking guarantees.',
+            'Google Maps SEO from Rs 2,999 a month for Pondicherry, Cuddalore and Villupuram businesses. Countable deliverables, honest timelines, no ranking guarantees.',
           provider: {
             '@type': 'Organization',
             name: 'BM TechX',
@@ -81,14 +78,24 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
           ],
           hasOfferCatalog: {
             '@type': 'OfferCatalog',
-            name: 'Monthly SEO Plans',
+            name: 'Google Maps SEO Plans',
             itemListElement: [
               {
                 '@type': 'Offer',
                 itemOffered: {
                   '@type': 'Service',
-                  name: 'Starter SEO Plan',
-                  description: '5 keywords tracked, on-page optimization, Google Business Profile management.',
+                  name: 'Google Maps SEO Starter',
+                  description: 'Profile optimization, services and description setup, 4 Google posts a month, basic keyword optimization, trust signals.',
+                },
+                price: 2999,
+                priceCurrency: 'INR',
+              },
+              {
+                '@type': 'Offer',
+                itemOffered: {
+                  '@type': 'Service',
+                  name: 'Google Maps SEO Growth',
+                  description: 'Everything in Starter plus 8 Google posts a month, review growth strategy, competitor analysis, Q&A and local keyword optimization.',
                 },
                 price: 4999,
                 priceCurrency: 'INR',
@@ -97,20 +104,10 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
                 '@type': 'Offer',
                 itemOffered: {
                   '@type': 'Service',
-                  name: 'Growth SEO Plan',
-                  description: '10 keywords tracked, 4 pages optimized/mo, link outreach, 2 competitors tracked.',
+                  name: 'Google Maps SEO Business',
+                  description: 'Everything in Growth plus citation building, advanced local SEO and weekly optimization.',
                 },
                 price: 8999,
-                priceCurrency: 'INR',
-              },
-              {
-                '@type': 'Offer',
-                itemOffered: {
-                  '@type': 'Service',
-                  name: 'Business SEO Tier',
-                  description: '20 keywords tracked, link outreach, AI visibility panel, fortnightly calls.',
-                },
-                price: 14999,
                 priceCurrency: 'INR',
               },
             ],
@@ -131,11 +128,11 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
   const seoFaqs = [
     {
       q: 'How long does SEO take to show results in India?',
-      a: 'Three to six months for meaningful movement; longer on highly competitive keywords. Local Google Map results can move faster — often four to six weeks — because Google Business Profile signals respond more quickly than national organic algorithms.',
+      a: 'Three to six months for meaningful movement; longer on highly competitive keywords. Local Google Map results can sometimes move sooner than national organic results, but no one can promise a timeline.',
     },
     {
       q: 'Can you guarantee first position on Google?',
-      a: 'No, and neither can anyone else. Search rankings depend on local competition, domain authority, searcher location, and Google’s algorithm updates — several of which are outside anyone’s control. What we commit to is the work: an exact, countable number of optimised pages, technical fixes, articles, citations, and transparent reports every month.',
+      a: 'No, and neither can anyone else. Rankings depend on local competition, your reviews, searcher location and Google’s updates, which no agency controls. What we commit to is the work in your plan: the profile setup, the posts, the review strategy, the competitor check and the optimisation listed on this page.',
     },
     {
       q: 'What is the difference between SEO and Google Ads?',
@@ -146,12 +143,12 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
       a: 'For organic Google search, yes — Google needs high-speed pages to rank. For local map pack results, a properly claimed and active Google Business Profile does substantial work on its own, which is why local GBP optimization is included in every single plan, including Starter.',
     },
     {
-      q: 'Why is there a three-month minimum commitment?',
-      a: 'Because one single month of SEO produces nothing meaningful to show you, and we refuse to take client money for vanity metrics. Three months is the shortest honest engagement required for Google’s crawlers to index, rank, and stabilize commercial positions.',
+      q: 'Is there a minimum commitment?',
+      a: 'Plans are billed monthly. If you pay three months upfront, you save and setup is free. Local results build over weeks and months, so we recommend giving any plan at least three months before judging it.',
     },
     {
       q: 'Do you work with businesses outside Pondicherry?',
-      a: 'Yes — we actively optimize businesses in Cuddalore, Villupuram, Chennai, Madurai, Trichy, and Namakkal. SEO strategy, audits, and content publishing are handled entirely remotely with verified reporting.',
+      a: 'Yes — we actively optimize businesses in Cuddalore, Villupuram, Chennai, Madurai, Trichy, and Namakkal. The work is handled entirely remotely with a monthly report.',
     },
     {
       q: 'Will you work with my direct competitor?',
@@ -168,17 +165,15 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
   ];
 
   const planComparisonRows = [
-    { deliverable: 'Target Keywords Tracked', starter: '5 Keywords', growth: '10 Keywords', business: '20 Keywords' },
-    { deliverable: 'Technical SEO Audit', starter: 'At onboarding', growth: 'At onboarding', business: 'Onboarding + Quarterly' },
-    { deliverable: 'Pages Optimized / Month', starter: '2 Pages', growth: '4 Pages', business: '8 Pages' },
-    { deliverable: 'New Local Content / Month', starter: '1 Article', growth: '2 Articles', business: '4 Authority Pieces' },
-    { deliverable: 'Google Business Profile', starter: '4 Posts / mo', growth: '8 Posts / mo', business: 'Full Weekly Management' },
-    { deliverable: 'Review Generation Engine', starter: 'Setup & Guidance', growth: 'Fully Managed', business: 'Managed + Replies Drafted' },
-    { deliverable: 'Local Citations / Month', starter: '5 (First 3 mos)', growth: '10 Citations', business: '15 Citations' },
-    { deliverable: 'Link & Mention Outreach', starter: '—', growth: '2 Targeted Outreaches', business: '4–6 Targeted Outreaches' },
-    { deliverable: 'Competitors Tracked', starter: '—', growth: '2 Competitors', business: '4 Competitors' },
-    { deliverable: 'AI Visibility Tracking', starter: '—', growth: '—', business: '20 Prompts (ChatGPT/Perplexity)' },
-    { deliverable: 'Performance Reporting', starter: 'Monthly PDF', growth: 'PDF + Review Call', business: 'PDF + Fortnightly Strategy Call' },
+    { deliverable: 'Profile optimization', starter: 'Included', growth: 'Included', business: 'Included' },
+    { deliverable: 'Services and description setup', starter: 'Included', growth: 'Included', business: 'Included' },
+    { deliverable: 'Google posts / month', starter: '4', growth: '8', business: '8' },
+    { deliverable: 'Keyword optimization', starter: 'Basic', growth: 'Q&A and local keywords', business: 'Advanced local SEO' },
+    { deliverable: 'Trust signals: photos, hours, attributes', starter: 'Included', growth: 'Included', business: 'Included' },
+    { deliverable: 'Review growth strategy', starter: '—', growth: 'Included', business: 'Included' },
+    { deliverable: 'Competitor analysis', starter: '—', growth: 'Included', business: 'Included' },
+    { deliverable: 'Citation building', starter: '—', growth: '—', business: 'Included' },
+    { deliverable: 'Weekly optimization', starter: '—', growth: '—', business: 'Included' },
   ];
 
   return (
@@ -220,7 +215,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">
-          SEO at BM TechX starts at <strong className="text-bm-navy-deep font-extrabold">₹4,999 a month plus GST for 5 keywords</strong>, ₹8,999 for 10 keywords, and ₹14,999 for 20 keywords with active link outreach included. Minimum engagement is three months, because nothing meaningful happens in less. We work with businesses in Puducherry, Cuddalore, Villupuram and across Tamil Nadu — and we don’t guarantee first position, because no honest agency can.
+          Google Maps SEO at BM TechX starts at <strong className="text-bm-navy-deep font-extrabold">₹2,999 a month plus GST</strong>, with Growth at ₹4,999 and Business at ₹8,999. It covers your Google Business Profile, posts, review growth and local optimisation, so people nearby find you and call. Pay three months upfront and you save and setup is free. We work with businesses in Puducherry, Cuddalore, Villupuram and across Tamil Nadu, and we do not guarantee first position, because no honest agency can.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
@@ -235,7 +230,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
             to="/pricing/"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-white border border-bm-line hover:border-bm-brand px-5 py-3.5 rounded-xl text-bm-navy transition-colors shadow-sm"
           >
-            <span>Compare Retainer Tiers</span>
+            <span>Compare Plans</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -279,7 +274,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
               <Check className="w-4 h-4 text-emerald-400" /> Free 1-message audit
             </span>
             <span className="flex items-center gap-1.5">
-              <Check className="w-4 h-4 text-emerald-400" /> Based on real Google Search Console data
+              <Check className="w-4 h-4 text-emerald-400" /> Based on your public Google profile
             </span>
             <span className="flex items-center gap-1.5">
               <Check className="w-4 h-4 text-emerald-400" /> No follow-up spam
@@ -297,10 +292,10 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
             Clear Deliverables
           </span>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-bm-navy-deep font-display">
-            Three Monthly Retainer Tiers
+            Three Google Maps SEO Plans
           </h2>
           <p className="text-xs sm:text-sm text-bm-ink-muted">
-            All plans exclude 18% GST. 3-month minimum commitment. Upfront payment discount available.
+            All plans exclude 18% GST. Pay 3 months upfront to save and get free setup.
           </p>
         </div>
 
@@ -321,10 +316,10 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
             <table className="w-full text-left text-xs sm:text-sm">
               <thead className="bg-bm-wash-cool text-bm-navy-deep font-bold border-b border-bm-line-soft">
                 <tr>
-                  <th className="py-3 px-4 font-display">Work Delivered Every Month</th>
-                  <th className="py-3 px-4">Starter (₹4,999)</th>
-                  <th className="py-3 px-4 text-bm-navy font-extrabold">Growth (₹8,999)</th>
-                  <th className="py-3 px-4">Business (₹14,999)</th>
+                  <th className="py-3 px-4 font-display">Work Delivered</th>
+                  <th className="py-3 px-4">Starter (₹2,999)</th>
+                  <th className="py-3 px-4 text-bm-navy font-extrabold">Growth (₹4,999)</th>
+                  <th className="py-3 px-4">Business (₹8,999)</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-bm-line-soft">
@@ -341,50 +336,8 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
           </div>
 
           <p className="text-[11px] text-bm-ink-faint text-center">
-            Three-month minimum commitment on all retainers. Shorter engagements cannot produce verifiable organic rankings.
+            Pay three months upfront to save and get free setup. We do not guarantee any ranking position.
           </p>
-        </div>
-      </section>
-
-      {/* ========================================================= */}
-      {/* BLOCK 4 — WHAT "AI VISIBILITY" MEANS, PLAINLY             */}
-      {/* ========================================================= */}
-      <section className="bg-white rounded-3xl border border-bm-line p-8 sm:p-12 shadow-sm space-y-8">
-        <div className="max-w-3xl space-y-3">
-          <div className="inline-flex items-center gap-2 bg-bm-wash-cool border border-bm-brand-soft/50 px-3 py-1 rounded-full text-xs font-bold text-bm-navy">
-            <Bot className="w-3.5 h-3.5 text-bm-brand" />
-            <span>AI Search Reality</span>
-          </div>
-
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-bm-navy-deep font-display">
-            What “AI Visibility” Means, Plainly
-          </h2>
-
-          <p className="text-sm sm:text-base text-bm-ink leading-relaxed">
-            Your customers increasingly do not just Google and click a blue link. They ask ChatGPT, Perplexity, or Gemini a direct question and read the AI answer — and that answer either names your business or names your competitor instead.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-          <div className="p-6 rounded-2xl bg-bm-wash-cool border border-bm-line-soft space-y-3">
-            <h3 className="text-base font-bold text-bm-navy-deep flex items-center gap-2">
-              <LineChart className="w-4 h-4 text-bm-navy" />
-              What We Actually Track (Business Plan):
-            </h3>
-            <p className="text-xs text-bm-ink leading-relaxed">
-              On our Business plan, we test twenty real buyer search queries across four AI models every month. We log whether your business was cited, whether a link was generated, and exactly which competitor was recommended instead. You receive the complete prompt log.
-            </p>
-          </div>
-
-          <div className="p-6 rounded-2xl bg-bm-wash-warm border border-bm-wash-warm-line space-y-3">
-            <h3 className="text-base font-bold text-bm-navy-deep flex items-center gap-2">
-              <Shield className="w-4 h-4 text-bm-accent-price" />
-              What We Refuse to Do:
-            </h3>
-            <p className="text-xs text-bm-ink leading-relaxed">
-              We will never sell you an inflated "AI SEO Package" as a fake add-on. Google and OpenAI have confirmed publicly that AI answers rely on standard search indexing, clean structured schema, and verifiable citations across the web — which is exactly what our three core plans already deliver.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -411,7 +364,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
             </div>
             <h3 className="text-base font-bold text-bm-navy-deep">Baseline & Audit</h3>
             <p className="text-xs text-bm-ink-muted leading-relaxed">
-              Complete technical audit. Access to your Search Console and Analytics. We export a 90-day baseline before touching anything so there is never an argument about what moved.
+              We review your Google Business Profile and record where you stand today (calls, direction requests, website clicks) so there is never an argument about what moved.
             </p>
           </div>
 
@@ -421,7 +374,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
             </div>
             <h3 className="text-base font-bold text-bm-navy-deep">Foundations & NAP</h3>
             <p className="text-xs text-bm-ink-muted leading-relaxed">
-              Priority technical fixes ship. Google Business Profile optimized with proper categories, hours, and photos. Business NAP standardized across top business directories.
+              Profile optimised with the right categories, services, hours and photos. Name, address and phone made consistent across listings.
             </p>
           </div>
 
@@ -431,7 +384,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
             </div>
             <h3 className="text-base font-bold text-bm-navy-deep">Content & Movement</h3>
             <p className="text-xs text-bm-ink-muted leading-relaxed">
-              Regular content publishing and on-page optimization. Review generation engine kicks in. Initial ranking movements begin showing on lower-difficulty local terms.
+              Regular Google posts and local keyword work. Review growth strategy starts. Early movement can show on less competitive local searches.
             </p>
           </div>
 
@@ -441,7 +394,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
             </div>
             <h3 className="text-base font-bold text-bm-navy-deep">Compounding Leads</h3>
             <p className="text-xs text-bm-ink-muted leading-relaxed">
-              Authority building through link and mention outreach. Deeper topical authority that drives rankings on the competitive keywords that bring real business calls.
+              Continued optimisation based on your monthly numbers. On the Business plan, citation building and weekly optimisation keep improving your local visibility.
             </p>
           </div>
         </div>
@@ -454,7 +407,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
         <div className="max-w-3xl space-y-3">
           <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full text-xs font-bold text-emerald-800">
             <TrendingUp className="w-3.5 h-3.5" />
-            <span>Honest Reporting Standard</span>
+            <span>Honest Reporting</span>
           </div>
 
           <h2 className="text-2xl sm:text-4xl font-extrabold text-bm-navy-deep font-display">
@@ -471,7 +424,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
             <span className="font-mono text-xs font-bold text-bm-navy uppercase tracking-wider">Page 1 Priority</span>
             <h3 className="text-base font-bold text-bm-navy-deep">Countable Deliverables</h3>
             <p className="text-xs text-bm-ink-muted leading-relaxed">
-              Every report itemizes exactly what was completed: articles published, pages optimized, citations submitted, and reviews generated.
+              Every report lists exactly what was completed: posts published, profile changes made and review actions taken.
             </p>
           </div>
 
@@ -559,7 +512,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
           />
           {onOpenQuote && (
             <button
-              onClick={() => onOpenQuote('SEO Growth Plan (₹8,999/mo)')}
+              onClick={() => onOpenQuote('Google Maps SEO Growth (₹4,999/mo)')}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent text-white border border-white/30 hover:bg-white/10 px-6 py-4 rounded-xl text-sm font-semibold transition-colors"
             >
               <span>Request Custom SEO Proposal</span>

@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Share2,
-  Check,
   TrendingUp,
   ChevronRight,
   ArrowRight,
@@ -10,6 +9,7 @@ import {
   BarChart3,
 } from 'lucide-react';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
+import { PriceCard } from '@/components/PriceCard';
 import { ProofBlock } from '@/components/ProofBlock';
 import { NotForBlock } from '@/components/NotForBlock';
 import { FAQ } from '@/components/FAQ';
@@ -62,7 +62,7 @@ export function SocialMediaPage({ onOpenQuote }: SocialMediaPageProps) {
           name: 'Social Media Management in Pondicherry',
           serviceType: 'Social Media Marketing & Management',
           description:
-            'Social media managed from Rs 6,999 a month. Content, posting, replies and reporting that leads with enquiries instead of reach and impressions.',
+            'Instagram managed from Rs 7,999 a month. Content, posting, replies and reporting that leads with enquiries instead of reach and impressions.',
           provider: {
             '@type': 'Organization',
             name: 'BM TechX',
@@ -83,30 +83,30 @@ export function SocialMediaPage({ onOpenQuote }: SocialMediaPageProps) {
                 '@type': 'Offer',
                 itemOffered: {
                   '@type': 'Service',
-                  name: 'Starter SMM',
-                  description: '1 platform, 12 posts, 2 reels/month, comment and DM replies.',
+                  name: 'Starter Instagram management',
+                  description: '6 Reels, 4 carousel posts and 12 Stories a month, comment replies Mon to Sat, monthly report.',
                 },
-                price: 6999,
+                price: 7999,
                 priceCurrency: 'INR',
               },
               {
                 '@type': 'Offer',
                 itemOffered: {
                   '@type': 'Service',
-                  name: 'Growth SMM',
-                  description: '2 platforms, 20 posts, 4 reels/month, 3x/week stories, monthly review call.',
+                  name: 'Growth Instagram management',
+                  description: '10 Reels (1 mobile shoot), 6 carousel posts, 20 Stories, comment and DM replies, 1 local collaboration post, monthly plan and report.',
                 },
-                price: 8999,
+                price: 12999,
                 priceCurrency: 'INR',
               },
               {
                 '@type': 'Offer',
                 itemOffered: {
                   '@type': 'Service',
-                  name: 'Business SMM',
-                  description: '3 platforms, 30 posts, 8 reels/month, daily stories, extended community management.',
+                  name: 'Business Instagram management',
+                  description: '15 Reels (2 mobile shoots), 8 carousel posts, 30 Stories, full inbox management, local Facebook Group posting, Google Maps SEO Starter included, monthly strategy call.',
                 },
-                price: 14999,
+                price: 19999,
                 priceCurrency: 'INR',
               },
             ],
@@ -127,7 +127,7 @@ export function SocialMediaPage({ onOpenQuote }: SocialMediaPageProps) {
   const smmFaqs = [
     {
       q: 'How much does social media management cost in India?',
-      a: 'Ours starts at ₹6,999 a month plus GST for one platform. What varies most between agencies is what is actually produced — always check how many unique posts, how many localized video reels, and who specifically handles inbound comments and direct messages.',
+      a: 'Ours starts at ₹7,999 a month plus GST for Instagram management. What varies most between agencies is what is actually produced — always check how many unique posts, how many localized video reels, and who specifically handles inbound comments and direct messages.',
     },
     {
       q: 'Do you reply to comments and direct messages (DMs)?',
@@ -154,15 +154,6 @@ export function SocialMediaPage({ onOpenQuote }: SocialMediaPageProps) {
     'If nobody on your team can approve content within 48 hours — approval bottlenecks stall content calendars and hurt algorithmic consistency.',
   ];
 
-  const plansComparison = [
-    { deliverable: 'Platforms Managed', starter: '1 Platform (e.g. Instagram)', growth: '2 Platforms (IG + FB)', business: '3 Platforms (IG + FB + LinkedIn)' },
-    { deliverable: 'Posts Per Month', starter: '12 Posts', growth: '20 Posts', business: '30 Posts (Daily)' },
-    { deliverable: 'Original Video Reels', starter: '2 Reels', growth: '4 Reels', business: '8 Reels' },
-    { deliverable: 'Stories Shared', starter: 'Weekly', growth: '3× per week', business: 'Daily Stories' },
-    { deliverable: 'Comment & DM Replies', starter: 'Business hours', growth: 'Business hours', business: 'Extended hours' },
-    { deliverable: 'Content Calendar in Advance', starter: 'Yes', growth: 'Yes', business: 'Yes' },
-    { deliverable: 'Monthly Performance Report', starter: 'Monthly PDF', growth: 'PDF + Review Call', business: 'PDF + Fortnightly Strategy Call' },
-  ];
 
   return (
     <div className="space-y-16 sm:space-y-24 py-12 px-4 sm:px-6 max-w-7xl mx-auto">
@@ -203,7 +194,7 @@ export function SocialMediaPage({ onOpenQuote }: SocialMediaPageProps) {
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">
-          Social media management starts at <strong className="text-bm-navy-deep font-extrabold">₹6,999 a month plus GST</strong>, with Growth at ₹8,999 and Business at ₹14,999. We plan the content, produce it, post it, reply to comments and messages, and report on customer inquiries — not on empty reach. We deliver this where a business asks for it; if what you actually need is leads next week, we’ll point you at{' '}
+          Instagram management starts at <strong className="text-bm-navy-deep font-extrabold">₹7,999 a month plus GST</strong>, with Growth at ₹12,999 and Business at ₹19,999. Pay three months upfront and you save and setup is free. We plan the content, produce it, post it, reply to comments and messages, and report on customer inquiries — not on empty reach. We deliver this where a business asks for it; if what you actually need is leads next week, we’ll point you at{' '}
           <Link to="/services/meta-ads/" className="text-bm-accent-price font-bold hover:underline">
             paid ads →
           </Link>{' '}
@@ -234,131 +225,21 @@ export function SocialMediaPage({ onOpenQuote }: SocialMediaPageProps) {
       <section className="space-y-8">
         <div className="text-center max-w-2xl mx-auto space-y-2">
           <h2 className="text-2xl sm:text-4xl font-extrabold text-bm-navy-deep font-display">
-            Three Monthly Retainer Plans
+            Three Instagram Plans
           </h2>
           <p className="text-xs sm:text-sm text-bm-ink-muted">
-            All prices exclude 18% GST. 3-month minimum commitment. Original shoots quoted separately.
+            All prices exclude 18% GST. Pay 3 months upfront to save and get free setup. Original shoots quoted separately.
           </p>
         </div>
 
-        {/* 3 Pricing Cards */}
+        {/* 3 Pricing Cards (read from pricing.json) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-          {/* Starter Plan */}
-          <div className="bg-white rounded-3xl border border-bm-line p-6 sm:p-8 flex flex-col justify-between shadow-sm space-y-6">
-            <div className="space-y-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-bm-ink-faint font-mono">Starter</span>
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-black text-bm-navy-deep">₹6,999</span>
-                <span className="text-xs text-bm-ink-muted">/ month (+ GST)</span>
-              </div>
-              <p className="text-xs text-bm-ink-muted leading-relaxed">
-                Consistent active baseline for single-platform brands needing clean visuals and prompt DM handling.
-              </p>
-              <ul className="space-y-2.5 text-xs text-bm-ink pt-3 border-t border-bm-line-soft">
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> 1 Primary Platform (Instagram or FB)</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> 12 Custom Posts per month</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> 2 Short-Form Video Reels</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> Weekly Story Updates</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> Business hours comment & DM replies</li>
-              </ul>
-            </div>
-            <WhatsAppCTA
-              src="smm-starter"
-              intent="I want the Starter SMM plan (₹6,999/mo)"
-              label="Choose Starter Plan"
-              className="w-full text-xs py-3 justify-center"
-            />
-          </div>
-
-          {/* Growth Plan (Recommended) */}
-          <div className="bg-white rounded-3xl border-2 border-bm-navy p-6 sm:p-8 flex flex-col justify-between shadow-xl relative space-y-6 scale-[1.02] z-10">
-            <div className="absolute -top-3.5 left-6 bg-bm-navy text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-sm">
-              Most Popular
-            </div>
-            <div className="space-y-4 pt-1">
-              <span className="text-xs font-bold uppercase tracking-wider text-bm-orange font-mono">Growth</span>
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-black text-bm-navy-deep">₹8,999</span>
-                <span className="text-xs text-bm-ink-muted">/ month (+ GST)</span>
-              </div>
-              <p className="text-xs text-bm-ink-muted leading-relaxed">
-                Active multi-channel presence with regular reels and interactive stories to generate customer DMs.
-              </p>
-              <ul className="space-y-2.5 text-xs text-bm-ink pt-3 border-t border-bm-line-soft">
-                <li className="flex items-center gap-2 font-semibold text-emerald-800"><Check className="w-4 h-4 text-emerald-600" /> 2 Platforms (Instagram + Facebook)</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> 20 Custom Posts per month</li>
-                <li className="flex items-center gap-2 font-semibold text-emerald-800"><Check className="w-4 h-4 text-emerald-600" /> 4 Short-Form Video Reels</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> 3× per week Interactive Stories</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> Monthly Report + 30-min strategy call</li>
-              </ul>
-            </div>
-            <WhatsAppCTA
-              src="smm-growth"
-              intent="I want the Growth SMM plan (₹8,999/mo)"
-              label="Choose Growth Plan"
-              variant="primary"
-              className="w-full text-xs py-3 justify-center shadow-md"
-            />
-          </div>
-
-          {/* Business Tier */}
-          <div className="bg-white rounded-3xl border border-bm-line p-6 sm:p-8 flex flex-col justify-between shadow-sm space-y-6">
-            <div className="space-y-4">
-              <span className="text-xs font-bold uppercase tracking-wider text-bm-ink-faint font-mono">Business Tier</span>
-              <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-black text-bm-navy-deep">₹14,999</span>
-                <span className="text-xs text-bm-ink-muted">/ month (+ GST)</span>
-              </div>
-              <p className="text-xs text-bm-ink-muted leading-relaxed">
-                Daily multi-channel content engine with extended community management and fortnightly strategy calls.
-              </p>
-              <ul className="space-y-2.5 text-xs text-bm-ink pt-3 border-t border-bm-line-soft">
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> 3 Platforms (IG + FB + LinkedIn/YouTube)</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> 30 Posts (Daily Publishing)</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> 8 Video Reels per month</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> Daily Active Stories</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> Extended hours DM response</li>
-                <li className="flex items-center gap-2"><Check className="w-4 h-4 text-emerald-600" /> Monthly Report + Fortnightly Strategy Calls</li>
-              </ul>
-            </div>
-            <WhatsAppCTA
-              src="smm-business"
-              intent="I want the Business SMM plan (₹14,999/mo)"
-              label="Choose Business Plan"
-              className="w-full text-xs py-3 justify-center"
-            />
-          </div>
+          <PriceCard id="smm-starter" ctaTag="plan-smm-starter" />
+          <PriceCard id="smm-growth" highlight={true} ctaTag="plan-smm-growth" />
+          <PriceCard id="smm-business" ctaTag="plan-smm-business" />
         </div>
 
-        {/* Detailed Deliverables Table */}
         <div className="bg-white rounded-3xl border border-bm-line p-6 sm:p-8 max-w-5xl mx-auto shadow-sm space-y-6">
-          <h3 className="text-lg font-bold text-bm-navy-deep font-display">
-            Plan Comparison & Specifics
-          </h3>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs sm:text-sm">
-              <thead className="bg-bm-wash-cool text-bm-navy-deep font-bold border-b border-bm-line-soft">
-                <tr>
-                  <th className="py-3 px-4 font-display">Deliverable</th>
-                  <th className="py-3 px-4">Starter (₹6,999)</th>
-                  <th className="py-3 px-4 text-bm-navy font-extrabold">Growth (₹8,999)</th>
-                  <th className="py-3 px-4">Business (₹14,999)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-bm-line-soft">
-                {plansComparison.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-bm-wash-cool/40 transition-colors">
-                    <td className="py-3.5 px-4 font-semibold text-bm-navy-deep">{row.deliverable}</td>
-                    <td className="py-3.5 px-4 text-bm-ink-muted">{row.starter}</td>
-                    <td className="py-3.5 px-4 font-semibold text-emerald-800">{row.growth}</td>
-                    <td className="py-3.5 px-4 font-semibold text-bm-navy">{row.business}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
           <div className="bg-bm-wash-cool p-4 rounded-2xl text-xs text-bm-ink-muted flex items-start gap-2.5">
             <Camera className="w-4 h-4 text-bm-navy shrink-0 mt-0.5" />
             <p>
@@ -473,7 +354,7 @@ export function SocialMediaPage({ onOpenQuote }: SocialMediaPageProps) {
           />
           {onOpenQuote && (
             <button
-              onClick={() => onOpenQuote('Social Media Growth Plan (₹8,999/mo)')}
+              onClick={() => onOpenQuote('Instagram Growth Plan (₹12,999/mo)')}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent text-white border border-white/30 hover:bg-white/10 px-6 py-4 rounded-xl text-sm font-semibold transition-colors"
             >
               <span>Request Social Audit</span>

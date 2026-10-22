@@ -152,8 +152,8 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
     },
     {
       id: 'seo',
-      title: 'Search Engine Optimization (SEO)',
-      price: 'from ₹4,999',
+      title: 'Google Maps SEO',
+      price: 'from ₹2,999',
       billing: '/month',
       turnaround: 'Monthly Retainer',
       path: '/services/seo',
@@ -163,13 +163,12 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       description:
         'Get found on Google Search and Google Maps when customers look for what you sell in Pondicherry and Tamil Nadu. Honest timelines, zero vanity rankings.',
       bullets: [
-        'Starter (₹4,999/mo), Growth (₹8,999/mo), Business (₹14,999/mo)',
+        'Starter (₹2,999/mo), Growth (₹4,999/mo), Business (₹8,999/mo)',
         'Local citation cleanup & Google Business Profile optimization',
-        'AI Overviews and Perplexity search visibility optimization',
-        'Clean technical site audit & speed enhancements',
-        'Transparent monthly reports tracking leads and calls',
+        'Google posts, review growth strategy and competitor analysis',
+        'Pay 3 months upfront to save and get free setup',
       ],
-      ctaIntent: 'I want to check my Google ranking and SEO audit',
+      ctaIntent: 'I want Google Maps SEO for my business',
     },
     {
       id: 'meta-ads',
@@ -194,8 +193,8 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
     },
     {
       id: 'smm',
-      title: 'Social Media Management',
-      price: 'from ₹6,999',
+      title: 'Instagram Management',
+      price: 'from ₹7,999',
       billing: '/month',
       turnaround: 'Monthly Retainer',
       path: '/services/social-media-marketing',
@@ -205,13 +204,13 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       description:
         'Consistent, authentic social presence for your brand. Real photography, localized video content, and proactive DM response management that drives footfall.',
       bullets: [
-        'Starter (₹6,999/mo) & Active (₹12,999/mo) retainers',
-        'Original photo/video shoots on location in Puducherry',
-        '12 to 24 high-engagement posts and reels per month',
-        'DM and comment response management within business hours',
+        'Starter (₹7,999/mo), Growth (₹12,999/mo), Business (₹19,999/mo)',
+        '6 to 15 Reels a month, plus carousel posts and Stories',
+        'Mobile shoots by our team on Growth and Business plans',
+        'Comment replies Mon to Sat; DM management on Growth and Business',
         'Monthly reporting focused on customer messages, not vanity reach',
       ],
-      ctaIntent: 'I need social media management for my brand',
+      ctaIntent: 'I need Instagram management for my brand',
     },
     {
       id: 'whatsapp-automation',
@@ -252,7 +251,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
     {
       stage: 'Clinic, Legal, or Local Service',
       situation: 'Customers search Google when they need you right now',
-      recommendation: 'Local SEO Sprints (from ₹4,999/mo) + Multi-Page Site',
+      recommendation: 'Google Maps SEO (from ₹2,999/mo) + Multi-Page Site',
       path: '/services/seo',
     },
     {
@@ -264,7 +263,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
     {
       stage: 'Restaurant, Cafe, or Boutique',
       situation: 'Need consistent foot traffic and daily visual discovery',
-      recommendation: 'Social Media Management (from ₹6,999/mo)',
+      recommendation: 'Instagram Management (from ₹7,999/mo)',
       path: '/services/social-media-marketing',
     },
   ];
@@ -301,7 +300,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">
-          Six services, every price published. One-time builds start at ₹2,999 and monthly plans at ₹4,999, all excluding 18% GST. Pick the one that matches what you need, or{' '}
+          Six services, every price published. One-time builds start at ₹2,999 and monthly plans at ₹2,999, all excluding 18% GST. Pick the one that matches what you need, or{' '}
           <Link to="/pricing/" className="text-bm-accent-price font-bold hover:underline inline-flex items-center gap-1">
             see every price on one page →
           </Link>

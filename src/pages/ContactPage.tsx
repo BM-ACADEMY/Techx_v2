@@ -190,9 +190,9 @@ export function ContactPage() {
     { value: 'web-single', label: 'Single-Page Website — ₹2,999 (48h SLA)' },
     { value: 'web-multi', label: 'Multi-Page Website — ₹4,999 (5–7 Days)' },
     { value: 'store-basic', label: 'Online Store / Ecommerce — ₹9,999 (No renewal fee)' },
-    { value: 'seo-starter', label: 'Local & Technical SEO — From ₹4,999/month' },
+    { value: 'seo-starter', label: 'Google Maps SEO — From ₹2,999/month' },
     { value: 'ads-standard', label: 'Meta / Facebook Ads — From ₹8,999/month' },
-    { value: 'smm-starter', label: 'Social Media Marketing — From ₹6,999/month' },
+    { value: 'smm-starter', label: 'Instagram Management — From ₹7,999/month' },
     { value: 'quote-whatsapp', label: 'WhatsApp Automation / LeadOS' },
     { value: 'custom-scope', label: 'Not sure — need advice / custom scope' },
   ];

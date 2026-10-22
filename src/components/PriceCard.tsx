@@ -96,6 +96,21 @@ export function PriceCard({
           )}
         </div>
 
+        {/* Pay 3 months upfront */}
+        {!isOneTime && (plan as MonthlyPlan).upfront_3_months && (
+          <div className="p-3 rounded-2xl bg-[#FFE600]/10 border border-dashed border-[#FFE600]/60 space-y-1">
+            <p className="text-xs font-bold text-slate-900">Pay 3 months upfront</p>
+            <p className="text-lg font-black text-[#0A0B0E]">
+              {formatPrice((plan as MonthlyPlan).upfront_3_months!.price)}{' '}
+              <span className="text-[11px] font-normal text-slate-500">+ 18% GST</span>
+            </p>
+            <p className="text-xs font-bold text-emerald-600">
+              Save {formatPrice((plan as MonthlyPlan).upfront_3_months!.save)}
+              {(plan as MonthlyPlan).upfront_3_months!.setup_free ? ' and setup is free' : ''}
+            </p>
+          </div>
+        )}
+
         {/* Inclusions */}
         {plan.includes && plan.includes.length > 0 && (
           <div className="pt-4 border-t border-[#F1F5F9]">

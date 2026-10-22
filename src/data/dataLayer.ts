@@ -95,6 +95,7 @@ export interface MonthlyPlan {
   period: string;
   keywords?: number;
   recommended?: boolean;
+  upfront_3_months?: { price: number; save: number; setup_free: boolean };
   includes?: string[];
   excludes?: string[];
   page: string;

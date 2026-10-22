@@ -34,7 +34,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
 
   const terms = [
     { label: '18% GST', detail: 'Every price above excludes 18% GST. We show the pre-GST figure because that is how official tax invoices are billed.' },
-    { label: 'Minimum Term', detail: '3-month minimum commitment on all monthly retainer plans (SEO, Ads, SMM). Shorter engagements cannot produce a measurable result.' },
+    { label: 'Billing', detail: 'Monthly plans are billed monthly. Pay 3 months upfront on SEO and Instagram plans to save and get free setup.' },
     { label: 'Upfront Discount', detail: 'Paying 3 months in full receives a commercial discount. Part-payment schedules are available under stated norms before work begins.' },
     { label: 'Ad Spend Separation', detail: 'Ad spend is always paid by you directly to Meta or Google. We never take your ad budget into our bank account or add a percentage markup.' },
     { label: 'Shoot Policies', detail: 'Mobile video shoots and professional camera shoots are priced differently. Shoots outside Puducherry are quoted on travel requirement.' },
@@ -57,7 +57,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">
-          There's no "contact us for a quote" row below. Websites start at ₹2,999, online stores are ₹9,999 with no yearly renewal, and monthly plans start at ₹4,999. All prices exclude 18% GST. The only things we don't price here are WhatsApp automation and custom software builds, because they genuinely depend on what you need — and we say so rather than making you find out on a call.
+          There's no "contact us for a quote" row below. Websites start at ₹2,999, online stores are ₹9,999 with no yearly renewal, and monthly plans start at ₹2,999. All prices exclude 18% GST. The only things we don't price here are WhatsApp automation and custom software builds, because they genuinely depend on what you need — and we say so rather than making you find out on a call.
         </p>
       </section>
 
@@ -96,29 +96,29 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
             SEO, Meta Ads & Social Media Management
           </h2>
           <p className="text-sm text-bm-ink-muted">
-            3-month minimum commitment to ensure measurable algorithm and conversion outcomes.
+            Pay 3 months upfront on SEO and Instagram plans to save and get free setup.
           </p>
         </div>
 
         {/* SEO Tiers */}
         <div className="space-y-6">
           <div className="flex items-center justify-between border-b border-bm-line/60 pb-3">
-            <h3 className="text-xl font-bold text-bm-navy-deep">SEO Retainers</h3>
+            <h3 className="text-xl font-bold text-bm-navy-deep">Google Maps SEO</h3>
             <Link to="/services/seo" className="text-xs font-bold text-bm-navy hover:text-bm-terracotta flex items-center gap-1">
               Explore SEO Deliverables <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <PriceCard id="seo-starter" onSelect={() => onOpenQuote && onOpenQuote('SEO Starter (₹4,999/mo)')} />
-            <PriceCard id="seo-growth" highlight={true} onSelect={() => onOpenQuote && onOpenQuote('SEO Growth (₹8,999/mo)')} />
-            <PriceCard id="seo-business" onSelect={() => onOpenQuote && onOpenQuote('SEO Business (₹14,999/mo)')} />
+            <PriceCard id="seo-starter" onSelect={() => onOpenQuote && onOpenQuote('Google Maps SEO Starter (₹2,999/mo)')} />
+            <PriceCard id="seo-growth" highlight={true} onSelect={() => onOpenQuote && onOpenQuote('Google Maps SEO Growth (₹4,999/mo)')} />
+            <PriceCard id="seo-business" onSelect={() => onOpenQuote && onOpenQuote('Google Maps SEO Business (₹8,999/mo)')} />
           </div>
         </div>
 
         {/* Meta Ads & SMM & Combos */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
           <PriceCard id="meta-ads" onSelect={() => onOpenQuote && onOpenQuote('Meta Ads (₹4,999/mo)')} />
-          <PriceCard id="smm-starter" onSelect={() => onOpenQuote && onOpenQuote('Social Media Starter (₹6,999/mo)')} />
+          <PriceCard id="smm-starter" onSelect={() => onOpenQuote && onOpenQuote('Instagram Starter (₹7,999/mo)')} />
           
           {/* Combo Packages Card */}
           <div className="bg-bm-wash-cool border-2 border-bm-navy rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-sm">
