@@ -32,3 +32,5 @@ lighthouse*.json
 
 # Patch files
 *.patch
+.patches
+*.zip
