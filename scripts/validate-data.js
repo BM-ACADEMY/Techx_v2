@@ -54,6 +54,11 @@ try {
     }
   });
 
+  (pricing.extras || []).forEach((x) => {
+    if (!x.id) errors.push('pricing.json: extra plan missing id');
+    if (typeof x.price !== 'number' || x.price <= 0) errors.push(`pricing.json: invalid price on extra ${x.id}`);
+    if (!Array.isArray(x.includes) || x.includes.length === 0) errors.push(`pricing.json: extra ${x.id} has no includes`);
+  });
   console.log(`✓ pricing.json: Validated ${pricing.one_time.length} one-time and ${pricing.monthly.length} monthly plans.`);
 } catch (e) {
   errors.push(`pricing.json read error: ${e.message}`);

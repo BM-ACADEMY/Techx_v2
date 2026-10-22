@@ -101,6 +101,18 @@ export interface MonthlyPlan {
   page: string;
 }
 
+export interface ExtraPlan {
+  id: string;
+  name: string;
+  price: number;
+  unit: 'one-time' | 'month' | 'package';
+  group: string;
+  includes: string[];
+  excludes?: string[];
+  recommended?: boolean;
+  note?: string;
+}
+
 export interface QuoteOnlyPlan {
   id: string;
   name: string;
@@ -116,6 +128,7 @@ export interface PricingData {
   last_updated: string;
   one_time: OneTimePlan[];
   monthly: MonthlyPlan[];
+  extras: ExtraPlan[];
   quote_only: QuoteOnlyPlan[];
 }
 
@@ -203,10 +216,14 @@ export function getMonthlyPlans(): MonthlyPlan[] {
   return pricing.monthly;
 }
 
-export function getPlanById(id: string): OneTimePlan | MonthlyPlan | undefined {
+export function getExtrasByGroup(group: string): ExtraPlan[] {
+  return pricing.extras.filter((x) => x.group === group);
+}
+
+export function getPlanById(id: string): OneTimePlan | MonthlyPlan | ExtraPlan | undefined {
   const oneTime = pricing.one_time.find((p) => p.id === id);
   if (oneTime) return oneTime;
-  return pricing.monthly.find((p) => p.id === id);
+  return pricing.monthly.find((p) => p.id === id) ?? pricing.extras.find((p) => p.id === id);
 }
 
 export function formatPrice(amount: number): string {

@@ -193,6 +193,11 @@ export function ContactPage() {
     { value: 'seo-starter', label: 'Google Maps SEO — From ₹2,999/month' },
     { value: 'ads-standard', label: 'Meta / Facebook Ads — From ₹8,999/month' },
     { value: 'smm-starter', label: 'Instagram Management — From ₹7,999/month' },
+    { value: 'digital-invitation', label: 'Digital Invitation — From ₹999' },
+    { value: 'lead-package', label: 'Verified Leads Package — ₹12,000 / ₹20,000' },
+    { value: 'personal-branding', label: 'Personal Branding — From ₹9,999/month' },
+    { value: 'catering-branding', label: 'Catering Branding — From ₹6,999/month' },
+    { value: 'quick-start', label: 'Quick-Start Add-On — From ₹999' },
     { value: 'quote-whatsapp', label: 'WhatsApp Automation / LeadOS' },
     { value: 'custom-scope', label: 'Not sure — need advice / custom scope' },
   ];

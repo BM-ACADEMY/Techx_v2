@@ -14,6 +14,8 @@ import {
   HelpCircle,
 } from 'lucide-react';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
+import { LANDINGS } from '@/data/landings';
+import { formatPrice, getExtrasByGroup } from '@/data/dataLayer';
 
 interface ServicesPageProps {
   onOpenQuote?: (service?: string) => void;
@@ -401,6 +403,30 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
                   />
                 </div>
               </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* MORE SERVICES (from pricing.json extras)                  */}
+      {/* ========================================================= */}
+      <section className="space-y-8">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-bm-navy-deep font-display">More services</h2>
+          <p className="text-xs sm:text-sm text-bm-ink-muted">Smaller, fixed-price services for events, food businesses, professionals and lead campaigns. All prices exclude 18% GST.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {LANDINGS.map((l) => {
+            const prices = getExtrasByGroup(l.group).map((x) => x.price);
+            const from = prices.length ? Math.min(...prices) : 0;
+            return (
+              <Link key={l.slug} to={`/services/${l.slug}`} className="bg-white rounded-3xl border border-bm-line hover:border-bm-brand p-6 flex flex-col gap-2 shadow-sm transition-colors">
+                <span className="text-xs font-bold uppercase tracking-wider text-bm-ink-faint font-mono">{l.navLabel}</span>
+                <span className="text-2xl font-black text-bm-navy-deep">from {formatPrice(from)}</span>
+                <span className="text-xs text-bm-ink-muted leading-relaxed">{l.answer.split('. ')[0]}.</span>
+                <span className="text-xs font-bold text-bm-navy flex items-center gap-1 pt-1">See plans <ArrowRight className="w-3.5 h-3.5" /></span>
+              </Link>
             );
           })}
         </div>

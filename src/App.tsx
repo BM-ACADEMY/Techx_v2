@@ -31,6 +31,7 @@ const BlogPage = lazy(() => import('@/pages/BlogPage').then(m => ({ default: m.B
 const LocationPage = lazy(() => import('@/pages/LocationPage').then(m => ({ default: m.LocationPage })));
 const BlogPostPage = lazy(() => import('@/pages/BlogPostPage').then(m => ({ default: m.BlogPostPage })));
 const IndustryPage = lazy(() => import('@/pages/IndustryPage').then(m => ({ default: m.IndustryPage })));
+const ServicePage = lazy(() => import('@/pages/ServicePage').then(m => ({ default: m.ServicePage })));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 
 function RouteFallback() {
@@ -87,6 +88,7 @@ export function App() {
               <Route path="/industries/real-estate" element={<RealEstatePage />} />
               <Route path="/work" element={<WorkPage onOpenQuote={handleOpenQuote} />} />
               <Route path="/blog" element={<BlogPage />} />
+              <Route path="/services/:slug" element={<ServicePage />} />
               <Route path="/blog/:slug" element={<BlogPostPage />} />
               <Route path="/industries/:slug" element={<IndustryPage />} />
               <Route path="/locations/:slug" element={<LocationPage />} />

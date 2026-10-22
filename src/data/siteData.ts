@@ -34,6 +34,11 @@ export const SERVICE_OPTIONS: string[] = [
   'Instagram Management — Business (₹19,999/mo)',
   'Meta Ads & Funnels (₹7,499/mo)',
   'WhatsApp Automation System (₹3,999/mo)',
+  'Digital Invitation (from ₹999)',
+  'Verified Leads Package (₹12,000 / ₹20,000)',
+  'Personal Branding (from ₹9,999/mo)',
+  'Catering Branding (from ₹6,999/mo)',
+  'Quick-Start Add-On (from ₹999)',
   'Custom Web Application / Enterprise Software',
 ]
 

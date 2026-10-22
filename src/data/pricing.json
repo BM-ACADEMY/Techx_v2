@@ -257,5 +257,244 @@
       "note": "Mobile shoots and camera shoots priced separately. Outside Puducherry priced on requirement.",
       "autopilot": "ROUTE_TO_HUMAN"
     }
+  ],
+  "extras": [
+    {
+      "id": "invite-basic",
+      "name": "Digital invitation — Image + web link",
+      "price": 999,
+      "unit": "one-time",
+      "group": "digital-invitations",
+      "includes": [
+        "Designed invitation image for WhatsApp sharing",
+        "One-page web invitation with event details",
+        "Google Maps link to the venue",
+        "Tamil, English or both",
+        "One round of corrections"
+      ],
+      "excludes": [
+        "Printing and delivery of physical cards",
+        "Live streaming of the function"
+      ]
+    },
+    {
+      "id": "invite-video",
+      "name": "Digital invitation — Video + web",
+      "price": 1999,
+      "unit": "one-time",
+      "group": "digital-invitations",
+      "includes": [
+        "Everything in Image + web link",
+        "Short video invitation with your photos, text and royalty-free music",
+        "WhatsApp RSVP button on the web invitation",
+        "One round of corrections"
+      ],
+      "excludes": [
+        "Printing and delivery of physical cards",
+        "Live streaming of the function"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "invite-premium",
+      "name": "Digital invitation — Premium custom",
+      "price": 3499,
+      "unit": "one-time",
+      "group": "digital-invitations",
+      "includes": [
+        "Everything in Video + web",
+        "Custom design to your theme and colours",
+        "Bilingual layout (Tamil and English)",
+        "Schedule section for multiple functions",
+        "Photo gallery section",
+        "One round of corrections"
+      ],
+      "excludes": [
+        "Printing and delivery of physical cards",
+        "Live streaming of the function"
+      ]
+    },
+    {
+      "id": "lead-100",
+      "name": "Verified leads — 100 leads",
+      "price": 12000,
+      "unit": "package",
+      "group": "lead-generation",
+      "includes": [
+        "100 phone-verified leads",
+        "Meta Ads campaign built and managed by us",
+        "Leads delivered to your WhatsApp as they arrive",
+        "Lead sheet for your sales team",
+        "Ad spend included in the package price",
+        "Written report at the end"
+      ],
+      "excludes": [
+        "No guarantee of sales, bookings or site visits"
+      ]
+    },
+    {
+      "id": "lead-200",
+      "name": "Verified leads — 200 leads",
+      "price": 20000,
+      "unit": "package",
+      "group": "lead-generation",
+      "includes": [
+        "200 phone-verified leads",
+        "Meta Ads campaign built and managed by us",
+        "Leads delivered to your WhatsApp as they arrive",
+        "Lead sheet for your sales team",
+        "Ad spend included in the package price",
+        "Written report at the end"
+      ],
+      "excludes": [
+        "No guarantee of sales, bookings or site visits"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "pb-starter",
+      "name": "Personal branding — Starter",
+      "price": 9999,
+      "unit": "month",
+      "group": "personal-branding",
+      "includes": [
+        "Positioning and bio for Instagram, LinkedIn and Google profile",
+        "One-page personal website in the first month",
+        "8 posts or carousels a month",
+        "4 Reels a month, edited from your footage (shooting guide and scripts included)",
+        "Monthly performance report"
+      ],
+      "excludes": [
+        "No promise of follower counts, views or client enquiries"
+      ]
+    },
+    {
+      "id": "pb-growth",
+      "name": "Personal branding — Growth",
+      "price": 14999,
+      "unit": "month",
+      "group": "personal-branding",
+      "includes": [
+        "Everything in Starter",
+        "8 Reels a month, including 1 mobile shoot by our team",
+        "8 LinkedIn posts a month",
+        "Monthly content plan and scripts",
+        "Comment and DM replies, Mon to Sat"
+      ],
+      "excludes": [
+        "No promise of follower counts, views or client enquiries"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "pb-authority",
+      "name": "Personal branding — Authority",
+      "price": 24999,
+      "unit": "month",
+      "group": "personal-branding",
+      "includes": [
+        "Everything in Growth",
+        "12 Reels a month, including 2 mobile shoots",
+        "Multi-page personal website",
+        "Monthly strategy call",
+        "Priority delivery"
+      ],
+      "excludes": [
+        "No promise of follower counts, views or client enquiries"
+      ]
+    },
+    {
+      "id": "cb-starter",
+      "name": "Catering branding — Starter",
+      "price": 6999,
+      "unit": "month",
+      "group": "catering-branding",
+      "includes": [
+        "Menu card or catalogue design",
+        "Google Business Profile setup",
+        "WhatsApp catalogue with auto-reply for quotes",
+        "6 posts a month (dishes, events, offers)",
+        "Monthly report"
+      ],
+      "excludes": [
+        "Ad spend",
+        "Food photography with a camera crew (quoted separately)"
+      ]
+    },
+    {
+      "id": "cb-growth",
+      "name": "Catering branding — Growth",
+      "price": 11999,
+      "unit": "month",
+      "group": "catering-branding",
+      "includes": [
+        "Everything in Starter",
+        "6 Reels a month, including 1 mobile shoot at an event or kitchen",
+        "Festival and season offer creatives",
+        "Review collection flow on WhatsApp",
+        "Comment and DM replies, Mon to Sat"
+      ],
+      "excludes": [
+        "Ad spend",
+        "Food photography with a camera crew (quoted separately)"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "cb-business",
+      "name": "Catering branding — Business",
+      "price": 17999,
+      "unit": "month",
+      "group": "catering-branding",
+      "includes": [
+        "Everything in Growth",
+        "10 Reels a month, including 2 mobile shoots",
+        "Event gallery and testimonial posts, with client permission",
+        "Monthly strategy call",
+        "Priority delivery"
+      ],
+      "excludes": [
+        "Ad spend",
+        "Food photography with a camera crew (quoted separately)"
+      ]
+    },
+    {
+      "id": "addon-menu-qr",
+      "name": "Menu QR page",
+      "price": 1999,
+      "unit": "one-time",
+      "group": "add-ons",
+      "includes": [
+        "Mobile-friendly menu page with your dishes and prices",
+        "QR code file for tables and counters",
+        "WhatsApp order button",
+        "Free updates for 30 days"
+      ]
+    },
+    {
+      "id": "addon-wa-catalogue",
+      "name": "WhatsApp catalogue + auto-reply setup",
+      "price": 2999,
+      "unit": "one-time",
+      "group": "add-ons",
+      "includes": [
+        "WhatsApp Business profile setup",
+        "Catalogue with your products or services",
+        "Greeting, away and quick-reply messages",
+        "Labels for new, quoted and confirmed enquiries"
+      ]
+    },
+    {
+      "id": "addon-review-kit",
+      "name": "Review collection kit",
+      "price": 999,
+      "unit": "one-time",
+      "group": "add-ons",
+      "includes": [
+        "Your Google review link and QR code",
+        "Ready-to-send WhatsApp review request message",
+        "Printable QR card design"
+      ]
+    }
   ]
 }
