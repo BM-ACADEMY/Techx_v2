@@ -113,6 +113,18 @@ export interface ExtraPlan {
   note?: string;
 }
 
+export interface ComboItem {
+  id: string;
+  discount?: number;
+}
+
+export interface Combo {
+  id: string;
+  title: string;
+  note: string;
+  items: ComboItem[];
+}
+
 export interface QuoteOnlyPlan {
   id: string;
   name: string;
@@ -129,6 +141,7 @@ export interface PricingData {
   one_time: OneTimePlan[];
   monthly: MonthlyPlan[];
   extras: ExtraPlan[];
+  combos: Combo[];
   quote_only: QuoteOnlyPlan[];
 }
 
@@ -214,6 +227,10 @@ export function getOneTimePlans(): OneTimePlan[] {
 
 export function getMonthlyPlans(): MonthlyPlan[] {
   return pricing.monthly;
+}
+
+export function getComboById(id: string): Combo | undefined {
+  return pricing.combos.find((c) => c.id === id);
 }
 
 export function getExtrasByGroup(group: string): ExtraPlan[] {

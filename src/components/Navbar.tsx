@@ -64,6 +64,9 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
     { label: 'Quick-Start Add-Ons (From ₹999)', href: '/services/quick-start-add-ons' },
     { label: 'Real Estate Marketing', href: '/industries/real-estate' },
     { label: 'Clinic Websites', href: '/industries/clinics' },
+    { label: 'Doctor & Dentist Branding', href: '/industries/doctors-dentists' },
+    { label: 'Professional Branding', href: '/industries/professionals' },
+    { label: 'Coach & Educator Branding', href: '/industries/coaches-educators' },
     { label: 'School Websites', href: '/industries/schools' },
     { label: 'Restaurant & Shop Websites', href: '/industries/restaurants' },
   ];

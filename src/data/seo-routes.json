@@ -168,5 +168,20 @@
     "path": "/services/quick-start-add-ons",
     "title": "Menu QR, WhatsApp Catalogue & Review Kit | BM TechX",
     "description": "Fixed-price quick setups: menu QR page, WhatsApp catalogue with auto-replies and Google review kit, from ₹999."
+  },
+  {
+    "path": "/industries/doctors-dentists",
+    "title": "Personal Branding for Doctors & Dentists | BM TechX",
+    "description": "Factual personal branding for doctors and dentists: profile, website, posts, Reels and Google Maps SEO. Monthly plans at published prices."
+  },
+  {
+    "path": "/industries/professionals",
+    "title": "Branding for Lawyers, CAs & Consultants | BM TechX",
+    "description": "Informational personal branding for lawyers, chartered accountants and consultants, within professional rules. Website, profiles and articles."
+  },
+  {
+    "path": "/industries/coaches-educators",
+    "title": "Personal Branding for Coaches & Educators | BM TechX",
+    "description": "Reels, personal website and optional Meta Ads for coaches, trainers and educators in Tamil Nadu. Monthly plans at published prices."
   }
 ]

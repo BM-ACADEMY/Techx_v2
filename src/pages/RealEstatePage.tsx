@@ -14,6 +14,7 @@ import {
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import { NotForBlock } from '@/components/NotForBlock';
 import { FAQ } from '@/components/FAQ';
+import { ComboCard } from '@/components/ComboCard';
 
 export function RealEstatePage() {
   // SEO Metadata & Schema Injection
@@ -409,6 +410,7 @@ export function RealEstatePage() {
       {/* BLOCK 6 — WHO THIS IS NOT FOR (DISQUALIFIERS)             */}
       {/* ========================================================= */}
       <section>
+        <ComboCard id="combo-real-estate" />
         <NotForBlock items={notForItems} />
       </section>
 

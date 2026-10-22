@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { ArrowRight, Check, ChevronRight, X } from 'lucide-react'
 import { WhatsAppCTA } from '@/components/WhatsAppCTA'
 import { FAQ } from '@/components/FAQ'
+import { ComboCard } from '@/components/ComboCard'
 import { getIndustry, INDUSTRIES } from '@/data/industries'
 import { formatPrice, getPlanById } from '@/data/dataLayer'
 import { NotFoundPage } from '@/pages/NotFoundPage'
@@ -75,6 +76,8 @@ export function IndustryPage() {
           })}
         </div>
       </section>
+
+      {ind.combo && <ComboCard id={ind.combo} />}
 
       <section><FAQ items={ind.faqs} title={`Questions from ${ind.name.toLowerCase()}`} subtitle="Straight answers on price, timing and what we can and cannot promise." /></section>
 

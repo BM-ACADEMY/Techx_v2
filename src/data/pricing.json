@@ -496,5 +496,101 @@
         "Printable QR card design"
       ]
     }
+  ],
+  "combos": [
+    {
+      "id": "combo-clinic",
+      "title": "Clinic starter pack",
+      "note": "A website and Google Maps SEO together. ₹500 off the website when you start both.",
+      "items": [
+        {
+          "id": "web-multi",
+          "discount": 500
+        },
+        {
+          "id": "seo-growth"
+        }
+      ]
+    },
+    {
+      "id": "combo-doctor",
+      "title": "Doctor and dentist branding pack",
+      "note": "Personal branding plus Google Maps SEO for your practice.",
+      "items": [
+        {
+          "id": "pb-growth"
+        },
+        {
+          "id": "seo-starter"
+        }
+      ]
+    },
+    {
+      "id": "combo-professional",
+      "title": "Professional branding pack",
+      "note": "Personal branding with a personal website, plus Google Maps SEO.",
+      "items": [
+        {
+          "id": "pb-starter"
+        },
+        {
+          "id": "seo-starter"
+        }
+      ]
+    },
+    {
+      "id": "combo-coach",
+      "title": "Coach and educator pack",
+      "note": "Personal branding plus Meta Ads management to bring in enquiries.",
+      "items": [
+        {
+          "id": "pb-growth"
+        },
+        {
+          "id": "meta-ads"
+        }
+      ]
+    },
+    {
+      "id": "combo-education",
+      "title": "Admissions pack",
+      "note": "A website and a verified-lead campaign for your admission season. ₹500 off the website when you start both.",
+      "items": [
+        {
+          "id": "web-multi",
+          "discount": 500
+        },
+        {
+          "id": "lead-100"
+        }
+      ]
+    },
+    {
+      "id": "combo-real-estate",
+      "title": "Real estate pack",
+      "note": "Instagram management plus a verified-lead package.",
+      "items": [
+        {
+          "id": "smm-growth"
+        },
+        {
+          "id": "lead-100"
+        }
+      ]
+    },
+    {
+      "id": "combo-food",
+      "title": "Food and catering pack",
+      "note": "Catering branding plus a menu QR page. ₹500 off the menu QR when you start both.",
+      "items": [
+        {
+          "id": "cb-growth"
+        },
+        {
+          "id": "addon-menu-qr",
+          "discount": 500
+        }
+      ]
+    }
   ]
 }

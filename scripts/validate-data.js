@@ -59,6 +59,12 @@ try {
     if (typeof x.price !== 'number' || x.price <= 0) errors.push(`pricing.json: invalid price on extra ${x.id}`);
     if (!Array.isArray(x.includes) || x.includes.length === 0) errors.push(`pricing.json: extra ${x.id} has no includes`);
   });
+  const allIds = new Set([...pricing.one_time, ...pricing.monthly, ...(pricing.extras || [])].map((x) => x.id));
+  (pricing.combos || []).forEach((c) => {
+    c.items.forEach((i) => {
+      if (!allIds.has(i.id)) errors.push(`pricing.json: combo ${c.id} references unknown plan ${i.id}`);
+    });
+  });
   console.log(`✓ pricing.json: Validated ${pricing.one_time.length} one-time and ${pricing.monthly.length} monthly plans.`);
 } catch (e) {
   errors.push(`pricing.json read error: ${e.message}`);

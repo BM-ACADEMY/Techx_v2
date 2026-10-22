@@ -62,6 +62,9 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
               <li><Link to="/services/personal-branding" className="hover:text-[#FFE600] transition-colors">Personal Branding</Link></li>
               <li><Link to="/services/catering-branding" className="hover:text-[#FFE600] transition-colors">Catering Branding</Link></li>
               <li><Link to="/industries/real-estate" className="hover:text-[#FFE600] transition-colors">Real Estate Marketing</Link></li>
+              <li><Link to="/industries/doctors-dentists" className="hover:text-[#FFE600] transition-colors">Doctor & Dentist Branding</Link></li>
+              <li><Link to="/industries/professionals" className="hover:text-[#FFE600] transition-colors">Professional Branding</Link></li>
+              <li><Link to="/industries/coaches-educators" className="hover:text-[#FFE600] transition-colors">Coach & Educator Branding</Link></li>
               <li><Link to="/industries/clinics" className="hover:text-[#FFE600] transition-colors">Clinic Websites</Link></li>
               <li><Link to="/industries/schools" className="hover:text-[#FFE600] transition-colors">School Websites</Link></li>
               <li><Link to="/industries/restaurants" className="hover:text-[#FFE600] transition-colors">Restaurant & Shop Websites</Link></li>

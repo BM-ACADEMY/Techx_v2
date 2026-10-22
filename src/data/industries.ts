@@ -11,6 +11,7 @@ export interface IndustryData {
   needs: string[]
   avoid: string[]
   plans: string[] // pricing.json ids
+  combo?: string // pricing.json combos id
   faqs: { q: string; a: string }[]
 }
 
@@ -37,6 +38,7 @@ export const INDUSTRIES: IndustryData[] = [
       'Patient reviews or names without written permission',
     ],
     plans: ['web-single', 'web-multi', 'seo-starter'],
+    combo: 'combo-clinic',
     faqs: [
       { q: 'Can patients book appointments on the website?', a: 'The simplest and most used method is a WhatsApp or call button. If you need a booking system with slots, tell us, and we will scope and price it separately.' },
       { q: 'Can you write the content about our doctors and treatments?', a: 'Yes, from the details you give us. You approve every line before it goes live, and we avoid claims we cannot support.' },
@@ -66,6 +68,7 @@ export const INDUSTRIES: IndustryData[] = [
       'Fee details that differ from what the office quotes',
     ],
     plans: ['web-multi', 'web-single', 'seo-starter'],
+    combo: 'combo-education',
     faqs: [
       { q: 'Can the site have an admission enquiry form?', a: 'Yes. Enquiries reach you on WhatsApp and are logged, so nothing is lost.' },
       { q: 'Can the content be in Tamil?', a: 'Yes, we can build pages in Tamil, English or both.' },
@@ -95,11 +98,102 @@ export const INDUSTRIES: IndustryData[] = [
       'A site that takes many seconds to load on mobile data',
     ],
     plans: ['web-single', 'store', 'meta-ads'],
+    combo: 'combo-food',
     faqs: [
       { q: 'Can customers order from the website?', a: 'They can order through WhatsApp from any page. If you want a cart and online payment, our online store is the right fit.' },
       { q: 'Can I change the menu or prices?', a: 'Send us the change on WhatsApp and we update it. We can discuss an editing panel if you change items often.' },
       { q: 'Do you take a commission on orders?', a: 'No. Payments go to your own payment gateway account.' },
       { q: 'Can you help with Instagram and Google Maps too?', a: 'Yes. Social media management and local SEO are separate monthly services with published prices.' },
+    ],
+  },
+  {
+    slug: 'doctors-dentists',
+    name: 'Doctors and Dentists',
+    headline: 'Personal Branding for Doctors and Dentists in Puducherry and Tamil Nadu',
+    answer:
+      'Patients look up a doctor before they book: your profile, your Google listing, and what you say about your practice. We build that presence with a clear profile, a personal website, factual posts and Reels, and Google Maps SEO for your clinic. Plans are monthly at published prices, and the content stays factual, as medical advertising rules require.',
+    intro:
+      'Patients choose a doctor on trust. They check Google, read reviews and look at how you explain things. Good branding for a doctor is clear, calm and educational: who you are, what you treat, where you sit and how to book. It is not exaggeration. We follow the advertising rules that apply to medical professionals in India, and we will tell you if a request breaks them.',
+    needs: [
+      'A clear profile with qualifications, specialities and clinic details',
+      'Educational posts and short videos that explain common concerns',
+      'A Google Business Profile that matches your website and signage',
+      'A personal website with appointment booking by call or WhatsApp',
+      'A simple, respectful way to ask patients for Google reviews',
+      'Consistent name, address and phone everywhere you are listed',
+    ],
+    avoid: [
+      'Claims of cures, guaranteed results or being the best',
+      'Before and after photos without written patient consent',
+      'Publishing patient names or cases without permission',
+    ],
+    plans: ['pb-starter', 'pb-growth', 'seo-starter'],
+    combo: 'combo-doctor',
+    faqs: [
+      { q: 'Are you allowed to promote a doctor?', a: 'Medical advertising in India is restricted. We keep everything informational and factual, and we will refuse content that promises cures or compares you with other doctors.' },
+      { q: 'Do I need to appear on camera?', a: 'Short videos of you explaining a topic work well, but we can start with posts and carousels if you prefer.' },
+      { q: 'Can you manage my clinic Google listing too?', a: 'Yes. Google Maps SEO is a separate monthly plan, and the combination is priced in the pack on this page.' },
+      { q: 'Who approves what is published?', a: 'You do. Nothing goes live without your approval.' },
+    ],
+  },
+  {
+    slug: 'professionals',
+    name: 'Consultants and Professional Firms',
+    headline: 'Personal Branding for Lawyers, Chartered Accountants and Consultants',
+    answer:
+      'Clients check a professional online before they call. We build a clear, informational profile on Instagram, LinkedIn and Google, plus a personal website, within the rules your professional body sets. Plans are monthly at published prices. We never promise clients or rankings.',
+    intro:
+      'Lawyers, chartered accountants and many consultants are bound by rules on advertising and solicitation. That means branding for them is about being easy to find and understand, not about promotion. A clear profile, a useful website and articles that explain your area of work help the right clients find you. Please confirm what your Bar Council, ICAI or other body allows, and we will work inside it.',
+    needs: [
+      'A professional profile and bio that states your areas of work plainly',
+      'A personal or firm website with your address, contact details and practice areas',
+      'Informational articles and posts that explain common questions',
+      'A Google Business Profile with correct details',
+      'A LinkedIn presence that is consistent with your website',
+      'Content that follows your professional body’s advertising rules',
+    ],
+    avoid: [
+      'Soliciting clients or advertising where your body forbids it',
+      'Claims about win rates, success or being the best',
+      'Publishing client names or matters without written permission',
+    ],
+    plans: ['pb-starter', 'pb-growth', 'seo-starter'],
+    combo: 'combo-professional',
+    faqs: [
+      { q: 'Can a lawyer have a website and social media?', a: 'Rules differ by profession and change over time. Generally an informational website and professional profile are acceptable, and solicitation is not. Please check with your Bar Council or institute. We will follow what you confirm.' },
+      { q: 'Will you write articles for me?', a: 'We draft informational articles from your input. You review and approve them, and you remain responsible for their content.' },
+      { q: 'Can you guarantee clients from this?', a: 'No. Branding makes you easier to find and trust. It does not guarantee enquiries.' },
+      { q: 'Does the plan include a website?', a: 'Starter includes a one-page personal website in the first month. Authority includes a multi-page website.' },
+    ],
+  },
+  {
+    slug: 'coaches-educators',
+    name: 'Coaches and Educators',
+    headline: 'Personal Branding for Coaches, Trainers and Educators in Tamil Nadu',
+    answer:
+      'Coaches and educators sell trust. We build your presence with a clear message, a personal website, regular Reels and posts, and optional Meta Ads to bring enquiries. Plans are monthly at published prices. We do not promise followers or admissions.',
+    intro:
+      'Parents, students and professionals choose a coach or teacher by watching how they explain things. Short videos that teach one useful idea, a clear page with your batches, fees and contact details, and quick replies on WhatsApp do more than a long list of credentials. We help you show that consistently.',
+    needs: [
+      'A clear message: who you teach, what changes for them, and how',
+      'Short teaching Reels and carousels that show how you explain',
+      'A personal website with courses, timings, fees and an enquiry button',
+      'WhatsApp enquiry handling that replies the same day',
+      'Optional Meta Ads management for batches or seasons',
+      'Student feedback shown only with their permission',
+    ],
+    avoid: [
+      'Result or rank claims you cannot show proof for',
+      'Using students’ photos or names without consent',
+      'Fees on the website that differ from what the office quotes',
+    ],
+    plans: ['pb-starter', 'pb-growth', 'meta-ads'],
+    combo: 'combo-coach',
+    faqs: [
+      { q: 'Do you make the videos or do I?', a: 'On Starter you record using our shooting guide and scripts and we edit. Growth and Authority include mobile shoots by our team.' },
+      { q: 'Can you also run ads for my batch?', a: 'Yes. Meta Ads management is a separate monthly service, and ad spend is paid directly to Meta.' },
+      { q: 'Can the content be in Tamil?', a: 'Yes. We can plan posts and scripts in Tamil, English or both.' },
+      { q: 'Will this guarantee admissions?', a: 'No. We improve how you are seen and how easily people can contact you. Admissions depend on your teaching, your fees and your follow-up.' },
     ],
   },
 ]
