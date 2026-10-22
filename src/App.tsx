@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { MessageSquare, Loader2 } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { TrustFooter } from '@/components/TrustFooter';
+import { FestivalBanner } from '@/components/FestivalBanner';
 import { QuoteModal } from '@/components/QuoteModal';
 import { PrivacyPolicyModal } from '@/components/PrivacyPolicyModal';
 import { ScrollToTop } from '@/components/ScrollToTop';
@@ -72,6 +73,7 @@ export function App() {
 
         {/* Dynamic Route Content */}
         <main className="flex-1 pt-20">
+          <FestivalBanner />
           <Suspense fallback={<RouteFallback />}>
             <Routes>
               <Route path="/" element={<HomePage onOpenQuote={handleOpenQuote} />} />

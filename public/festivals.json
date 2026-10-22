@@ -1,0 +1,69 @@
+{
+  "_note": "Edit on the server, no rebuild needed. Each festival shows automatically from start to end (YYYY-MM-DD, India time) and hides itself after. The greeting always shows. The offer line shows only if offer.enabled is true. An offer must be a BONUS (a free extra, faster delivery, a free add-on), never a lower price than the rate card. Do not write discount, percent off, or rupee amounts in offer text. Eid dates depend on the moon: confirm before the date.",
+  "festivals": [
+    {
+      "id": "deepavali-2026",
+      "name": "Deepavali",
+      "start": "2026-11-05",
+      "end": "2026-11-09",
+      "greeting": "Happy Deepavali from all of us at BM TechX. Wishing you a bright and prosperous year.",
+      "offer": { "enabled": false, "text": "", "cta": "Ask about this week's bonus", "intent": "I saw your Deepavali offer and would like details" }
+    },
+    {
+      "id": "christmas-2026",
+      "name": "Christmas",
+      "start": "2026-12-23",
+      "end": "2026-12-26",
+      "greeting": "Merry Christmas from BM TechX. Wishing you joy and a great year ahead.",
+      "offer": { "enabled": false, "text": "", "cta": "Ask about this week's bonus", "intent": "I saw your Christmas offer and would like details" }
+    },
+    {
+      "id": "new-year-2027",
+      "name": "New Year",
+      "start": "2026-12-30",
+      "end": "2027-01-02",
+      "greeting": "Happy New Year from BM TechX. Here is to a year of steady growth for your business.",
+      "offer": { "enabled": false, "text": "", "cta": "Ask about this week's bonus", "intent": "I saw your New Year offer and would like details" }
+    },
+    {
+      "id": "pongal-2027",
+      "name": "Pongal",
+      "start": "2027-01-12",
+      "end": "2027-01-16",
+      "greeting": "Happy Pongal from BM TechX. Wishing you a harvest of good news for your business.",
+      "offer": { "enabled": false, "text": "", "cta": "Ask about this week's bonus", "intent": "I saw your Pongal offer and would like details" }
+    },
+    {
+      "id": "republic-day-2027",
+      "name": "Republic Day",
+      "start": "2027-01-25",
+      "end": "2027-01-26",
+      "greeting": "Happy Republic Day from BM TechX.",
+      "offer": { "enabled": false, "text": "", "cta": "", "intent": "" }
+    },
+    {
+      "id": "womens-day-2027",
+      "name": "Women's Day",
+      "start": "2027-03-07",
+      "end": "2027-03-08",
+      "greeting": "Happy Women's Day. We are proud to work with women-led businesses.",
+      "offer": { "enabled": false, "text": "", "cta": "Ask about this week's bonus", "intent": "I saw your Women's Day offer and would like details" }
+    },
+    {
+      "id": "eid-al-fitr-2027",
+      "name": "Eid al-Fitr",
+      "start": "2027-03-08",
+      "end": "2027-03-11",
+      "greeting": "Eid Mubarak from BM TechX. Wishing you and your family peace and happiness.",
+      "offer": { "enabled": false, "text": "", "cta": "Ask about this week's bonus", "intent": "I saw your Eid offer and would like details" }
+    },
+    {
+      "id": "tamil-new-year-2027",
+      "name": "Tamil New Year",
+      "start": "2027-04-12",
+      "end": "2027-04-15",
+      "greeting": "Puthandu Vazhthukal from BM TechX. Wishing you a prosperous Tamil New Year.",
+      "offer": { "enabled": false, "text": "", "cta": "Ask about this week's bonus", "intent": "I saw your Tamil New Year offer and would like details" }
+    }
+  ]
+}

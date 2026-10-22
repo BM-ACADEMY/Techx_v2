@@ -110,6 +110,27 @@ if (warnings.length > 0) {
   warnings.forEach((w) => console.log(`  - ${w}`));
 }
 
+// Festival banner: dates must be valid and offers must be bonuses, never price cuts
+try {
+  const fest = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../public/festivals.json'), 'utf8'));
+  const dateRe = /^\d{4}-\d{2}-\d{2}$/;
+  const priceCut = /(%|percent|discount|flat\s*off|\boff\b|\u20B9|rs\.?\s*\d|inr|cheaper|price drop|sale)/i;
+  const ids = new Set();
+  for (const f of fest.festivals || []) {
+    if (!f.id || ids.has(f.id)) errors.push(`festivals.json: missing or duplicate id "${f.id}"`);
+    ids.add(f.id);
+    if (!dateRe.test(f.start) || !dateRe.test(f.end) || f.start > f.end) errors.push(`festivals.json (${f.id}): bad start/end dates`);
+    if (!f.greeting) errors.push(`festivals.json (${f.id}): greeting is empty`);
+    if (f.offer?.enabled) {
+      if (!f.offer.text) errors.push(`festivals.json (${f.id}): offer enabled but text is empty`);
+      if (priceCut.test(f.offer.text || '')) errors.push(`festivals.json (${f.id}): offer text looks like a price cut. Offers must be bonuses (free extra, faster delivery), not discounts.`);
+    }
+  }
+  console.log(`\u2713 festivals.json: ${(fest.festivals || []).length} festivals validated`);
+} catch (e) {
+  errors.push(`festivals.json read error: ${e.message}`);
+}
+
 if (errors.length > 0) {
   console.error(`❌ Validation Failed (${errors.length} errors):`);
   errors.forEach((err) => console.error(`  - ${err}`));
