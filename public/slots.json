@@ -1,0 +1,7 @@
+{
+  "enabled": false,
+  "month": "2026-11",
+  "total": 15,
+  "left": 15,
+  "note": "Edit this file directly on the server (no rebuild needed). Set enabled to true, month to the current month as YYYY-MM, total to the number of new clients you can really take this month, and left to the number still open. If month is not the current month, the banner hides itself, so it can never show stale numbers. Only put numbers here that are true."
+}

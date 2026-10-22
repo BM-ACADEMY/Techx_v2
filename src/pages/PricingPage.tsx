@@ -1,3 +1,4 @@
+import { SlotsBanner } from '@/components/SlotsBanner';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, ArrowRight, Bot, Code, Check } from 'lucide-react';
 import { PriceCard } from '@/components/PriceCard';
@@ -52,6 +53,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
           <span>Single Source of Truth · Fixed Rate Card</span>
         </div>
 
+        <div className="flex justify-center"><SlotsBanner /></div>
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
           Every price. On this page.
         </h1>

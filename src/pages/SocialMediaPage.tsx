@@ -9,6 +9,7 @@ import {
   BarChart3,
 } from 'lucide-react';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
+import { SlotsBanner } from '@/components/SlotsBanner';
 import { PriceCard } from '@/components/PriceCard';
 import { ProofBlock } from '@/components/ProofBlock';
 import { NotForBlock } from '@/components/NotForBlock';
@@ -189,6 +190,7 @@ export function SocialMediaPage({ onOpenQuote }: SocialMediaPageProps) {
           <span>Inquiries Over Vanity Likes · Content, Reels & DM Replies</span>
         </div>
 
+        <div className="flex justify-center"><SlotsBanner /></div>
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
           Social media management in Pondicherry
         </h1>

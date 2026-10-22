@@ -9,6 +9,7 @@ import {
   ArrowRight,
 } from 'lucide-react';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
+import { SlotsBanner } from '@/components/SlotsBanner';
 import { PriceCard } from '@/components/PriceCard';
 import { ProofBlock } from '@/components/ProofBlock';
 import { NotForBlock } from '@/components/NotForBlock';
@@ -210,6 +211,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
           <span>Local & Organic Search Growth · Puducherry & Tamil Nadu</span>
         </div>
 
+        <div className="flex justify-center"><SlotsBanner /></div>
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
           SEO services in Pondicherry
         </h1>

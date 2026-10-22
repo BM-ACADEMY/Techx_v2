@@ -3,6 +3,7 @@ import { ArrowRight, Check, ChevronRight, X } from 'lucide-react'
 import { WhatsAppCTA } from '@/components/WhatsAppCTA'
 import { FAQ } from '@/components/FAQ'
 import { ComboCard } from '@/components/ComboCard'
+import { SlotsBanner } from '@/components/SlotsBanner'
 import { getIndustry, INDUSTRIES } from '@/data/industries'
 import { formatPrice, getPlanById } from '@/data/dataLayer'
 import { NotFoundPage } from '@/pages/NotFoundPage'
@@ -24,6 +25,7 @@ export function IndustryPage() {
       </nav>
 
       <section className="text-center max-w-4xl mx-auto space-y-6">
+        <div className="flex justify-center"><SlotsBanner /></div>
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">{ind.headline}</h1>
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">{ind.answer}</p>
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">

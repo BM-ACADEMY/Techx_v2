@@ -3,6 +3,7 @@ import { ArrowRight, Check, ChevronRight, X } from 'lucide-react'
 import { WhatsAppCTA } from '@/components/WhatsAppCTA'
 import { FAQ } from '@/components/FAQ'
 import { ExtraCard } from '@/components/ExtraCard'
+import { SlotsBanner } from '@/components/SlotsBanner'
 import { getLanding, LANDINGS } from '@/data/landings'
 import { getExtrasByGroup } from '@/data/dataLayer'
 import { NotFoundPage } from '@/pages/NotFoundPage'
@@ -26,6 +27,7 @@ export function ServicePage() {
       </nav>
 
       <section className="text-center max-w-4xl mx-auto space-y-6">
+        <div className="flex justify-center"><SlotsBanner /></div>
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">{page.headline}</h1>
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">{page.answer}</p>
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
