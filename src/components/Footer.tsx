@@ -41,6 +41,7 @@ export const Footer: FC = () => {
               <li><a href="#services" className="hover:text-white transition-colors">Local SEO Sprints</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">Meta Ads Engine</a></li>
               <li><a href="#services" className="hover:text-white transition-colors">WhatsApp Automation</a></li>
+              <li><a href="/blog/" className="hover:text-white transition-colors">Blog</a></li>
             </ul>
           </div>
 

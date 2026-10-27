@@ -26,6 +26,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
     { label: 'Cost Calculator', href: '#calculator' },
     { label: 'Why Custom Code', href: '#comparison' },
     { label: 'FAQs', href: '#faqs' },
+    { label: 'Blog', href: '/blog/' },
   ]
 
   const openWhatsApp = () => {
