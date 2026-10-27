@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { ChevronRight, Clock } from 'lucide-react'
+import { ChevronRight, Clock, Phone } from 'lucide-react'
 import { WhatsAppCTA } from '@/components/WhatsAppCTA'
 import { getPost, POSTS, type Post, type PostImage } from '@/data/posts'
-import { formatPrice, getPlanById } from '@/data/dataLayer'
+import { formatPrice, getPlanById, getSiteConfig } from '@/data/dataLayer'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
 /** Replace {{plan-id}} tokens with the live price from pricing.json. */
@@ -21,7 +21,7 @@ function imgUrl(src: string, w: number): string {
 
 function PostFigure({ image, priority = false }: { image: PostImage; priority?: boolean }) {
   return (
-    <figure className="space-y-1.5">
+    <figure>
       <img
         src={imgUrl(image.src, 1200)}
         srcSet={`${imgUrl(image.src, 600)} 600w, ${imgUrl(image.src, 900)} 900w, ${imgUrl(image.src, 1200)} 1200w`}
@@ -34,18 +34,6 @@ function PostFigure({ image, priority = false }: { image: PostImage; priority?: 
         decoding="async"
         className="w-full aspect-[3/2] object-cover rounded-2xl bg-bm-ink-faint/10"
       />
-      {image.credit && (
-        <figcaption className="text-[11px] text-bm-ink-faint">
-          Photo:{' '}
-          <a href={`${image.credit.url}?utm_source=bmtechx&utm_medium=referral`} target="_blank" rel="nofollow noopener noreferrer" className="underline">
-            {image.credit.name}
-          </a>{' '}
-          on{' '}
-          <a href="https://unsplash.com/?utm_source=bmtechx&utm_medium=referral" target="_blank" rel="nofollow noopener noreferrer" className="underline">
-            Unsplash
-          </a>
-        </figcaption>
-      )}
     </figure>
   )
 }
@@ -102,6 +90,7 @@ export function BlogPostPage() {
   useArticleSchema(post)
   if (!post) return <NotFoundPage />
 
+  const site = getSiteConfig()
   const more = POSTS.filter((p) => p.slug !== post.slug).slice(0, 3)
 
   return (
@@ -199,6 +188,12 @@ export function BlogPostPage() {
             variant="primary"
             className="py-3 px-6"
           />
+          <a
+            href={`tel:+${site.contact.calls.number_e164}`}
+            className="inline-flex items-center gap-2 text-sm font-bold bg-white/10 text-white border border-white/30 px-5 py-3 rounded-xl hover:bg-white/20"
+          >
+            <Phone className="w-4 h-4" /> Call {site.contact.calls.display}
+          </a>
           <Link to={post.related.to} className="inline-flex items-center text-sm font-bold bg-white text-bm-navy-deep px-5 py-3 rounded-xl">
             {post.related.label}
           </Link>

@@ -10,8 +10,8 @@ export const SITE_CONFIG = {
   description:
     'BM TechX builds custom-coded websites, eCommerce stores, SEO and WhatsApp automation at published fixed prices.',
   phones: {
-    whatsapp: '919403892971',
-    whatsappDisplay: '+91 94038 92971',
+    whatsapp: '919944940051',
+    whatsappDisplay: '+91 99449 40051',
     calls: '919944940051',
     callsDisplay: '+91 99449 40051',
   },
