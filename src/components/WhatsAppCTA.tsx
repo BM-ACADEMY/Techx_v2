@@ -25,7 +25,7 @@ export function WhatsAppCTA({
   ...rest
 }: WhatsAppCTAProps) {
   const site = getSiteConfig();
-  const whatsappNumber = site.contact.whatsapp.number_e164 || '919403892971';
+  const whatsappNumber = site.contact.whatsapp.number_e164 || '919944940051';
 
   // Rule 2: [src:...] is always the LAST token in the message
   const prefilledText = `Hi BM TechX — ${intent} [src:${src}]`;

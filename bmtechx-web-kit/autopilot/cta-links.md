@@ -17,7 +17,7 @@ Build this **once**, use it everywhere. Never hand-write a `wa.me` link.
 ```html
 <!-- Usage: <wa-cta src="ecom-page" label="Get the ₹9,999 store"></wa-cta> -->
 <a class="wa-cta"
-   href="https://wa.me/919403892971?text={{ encodeURIComponent(message) }}"
+   href="https://wa.me/919944940051?text={{ encodeURIComponent(message) }}"
    data-src="{{ src }}"
    rel="noopener"
    target="_blank">{{ label }}</a>

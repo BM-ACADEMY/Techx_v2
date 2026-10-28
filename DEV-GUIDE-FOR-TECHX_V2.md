@@ -74,7 +74,7 @@ No price, phone number, address, or proof metric may ever be hardcoded into a te
 - **CIN:** `U62011PY2026PTC009819` (Incorporated 12 September 2026)
 - **Brand Name:** BM TechX
 - **Registered Address:** 78 Lenin Street, Kosapalayam, Puducherry 605013
-- **Primary WhatsApp Number (Outbound/Inbound E.164):** `919403892971` (Display: `+91 94038 92971`)
+- **Primary WhatsApp Number (Outbound/Inbound E.164):** `919944940051` (Display: `+91 99449 40051`)
 - **Primary Call Line:** `919944940051` (Display: `+91 99449 40051`)
 - **Service Areas:** Puducherry, Cuddalore, Villupuram, Chennai, Madurai, Tiruchirappalli, Namakkal
 - **Working Hours:** Mon–Fri 10:00–19:00, Sat 10:00–17:00, Sun Closed (IST)
@@ -487,7 +487,7 @@ Every page injects validated Schema JSON-LD before the closing `</head>`:
 Every WhatsApp link on the site must be constructed using this exact format:
 
 ```
-https://wa.me/919403892971?text=Hi%20BM%20TechX%20%E2%80%94%20{Intent}%20%5Bsrc%3A{Tag}%5D
+https://wa.me/919944940051?text=Hi%20BM%20TechX%20%E2%80%94%20{Intent}%20%5Bsrc%3A{Tag}%5D
 ```
 
 - **Tag placement:** The `[src:...]` token is strictly at the **end** of the message so that if the user edits the introductory text, the tracking tag remains intact.

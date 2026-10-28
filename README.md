@@ -34,7 +34,7 @@
 4. **Head-to-Head Engineering Comparison**:
    - Custom code vs typical bloated WordPress agency benchmark
 5. **Direct Lead Automation**:
-   - Source-tagged WhatsApp CTA links (`wa.me/919403892971`)
+   - Source-tagged WhatsApp CTA links (`wa.me/919944940051`)
    - Interactive modal lead capture with instant team routing
 6. **Compliant Entity & Trust NAP**:
    - Registered under **Afra Ventures Private Limited** (CIN: `U62011PY2026PTC009819`)
@@ -83,7 +83,7 @@ npm run preview
 
 ## 📞 Contact & Support
 
-- **WhatsApp Hotline**: [+91 94038 92971](https://wa.me/919403892971)
+- **WhatsApp Hotline**: [+91 99449 40051](https://wa.me/919944940051)
 - **Direct Calls**: +91 99449 40051
 - **Email**: admin@bmtechx.in
 - **Operating Hours**: Monday – Saturday: 10:00 AM – 7:00 PM IST

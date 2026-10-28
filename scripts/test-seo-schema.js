@@ -90,7 +90,7 @@ if (fs.existsSync(siteJsonPath)) {
   const siteData = JSON.parse(fs.readFileSync(siteJsonPath, 'utf-8'));
   assert(siteData.entity.legal_name === 'Afra Ventures Private Limited', 'Legal Entity matches "Afra Ventures Private Limited"');
   assert(siteData.entity.cin === 'U62011PY2026PTC009819', 'CIN matches official "U62011PY2026PTC009819"');
-  assert(siteData.contact.whatsapp.number_e164 === '919403892971', 'WhatsApp E164 matches "919403892971"');
+  assert(siteData.contact.whatsapp.number_e164 === '919944940051', 'WhatsApp E164 matches "919944940051"');
 }
 
 // Check Injected Schemas Across Key Pages

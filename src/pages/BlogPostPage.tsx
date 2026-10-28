@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { ChevronRight, Clock } from 'lucide-react'
+import { ChevronRight, Clock, Phone } from 'lucide-react'
 import { WhatsAppCTA } from '@/components/WhatsAppCTA'
-import { getPost, POSTS, type Post } from '@/data/posts'
-import { formatPrice, getPlanById } from '@/data/dataLayer'
+import { getPost, POSTS, type Post, type PostImage } from '@/data/posts'
+import { formatPrice, getPlanById, getSiteConfig } from '@/data/dataLayer'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
 /** Replace {{plan-id}} tokens with the live price from pricing.json. */
@@ -12,6 +12,30 @@ function fill(text: string): string {
     const plan = getPlanById(id)
     return plan ? formatPrice(plan.price) : ''
   })
+}
+
+/** Unsplash-style image URL at a given width (keeps any existing query out). */
+function imgUrl(src: string, w: number): string {
+  return `${src.split('?')[0]}?auto=format&fit=crop&w=${w}&q=75`
+}
+
+function PostFigure({ image, priority = false }: { image: PostImage; priority?: boolean }) {
+  return (
+    <figure>
+      <img
+        src={imgUrl(image.src, 1200)}
+        srcSet={`${imgUrl(image.src, 600)} 600w, ${imgUrl(image.src, 900)} 900w, ${imgUrl(image.src, 1200)} 1200w`}
+        sizes="(max-width: 768px) 100vw, 768px"
+        width={1200}
+        height={800}
+        alt={image.alt}
+        loading={priority ? 'eager' : 'lazy'}
+        fetchPriority={priority ? 'high' : 'auto'}
+        decoding="async"
+        className="w-full aspect-[3/2] object-cover rounded-2xl bg-bm-ink-faint/10"
+      />
+    </figure>
+  )
 }
 
 function useArticleSchema(post: Post | undefined) {
@@ -28,7 +52,9 @@ function useArticleSchema(post: Post | undefined) {
           headline: post.title,
           description: post.description,
           datePublished: post.date,
-          dateModified: post.date,
+          dateModified: post.updated ?? post.date,
+          ...(post.hero ? { image: [imgUrl(post.hero.src, 1200)] } : {}),
+          inLanguage: 'en-IN',
           mainEntityOfPage: `https://bmtechx.in/blog/${post.slug}/`,
           author: { '@type': 'Organization', name: 'BM TechX' },
           publisher: { '@type': 'Organization', name: 'BM TechX', url: 'https://bmtechx.in' },
@@ -41,6 +67,16 @@ function useArticleSchema(post: Post | undefined) {
             { '@type': 'ListItem', position: 3, name: post.title, item: `https://bmtechx.in/blog/${post.slug}/` },
           ],
         },
+        ...(post.faqs?.length
+          ? [{
+              '@type': 'FAQPage',
+              mainEntity: post.faqs.map((f) => ({
+                '@type': 'Question',
+                name: f.q,
+                acceptedAnswer: { '@type': 'Answer', text: f.a },
+              })),
+            }]
+          : []),
       ],
     })
     document.head.appendChild(el)
@@ -54,6 +90,7 @@ export function BlogPostPage() {
   useArticleSchema(post)
   if (!post) return <NotFoundPage />
 
+  const site = getSiteConfig()
   const more = POSTS.filter((p) => p.slug !== post.slug).slice(0, 3)
 
   return (
@@ -76,13 +113,51 @@ export function BlogPostPage() {
         </div>
         <h1 className="text-3xl sm:text-5xl font-extrabold text-bm-navy-deep tracking-tight leading-tight">{post.title}</h1>
         <p className="text-base sm:text-lg text-bm-ink-muted leading-relaxed">{post.excerpt}</p>
-        <p className="text-xs text-bm-ink-faint">By the BM TechX team, Puducherry</p>
+        <p className="text-xs text-bm-ink-faint">
+          By the BM TechX team, Puducherry
+          {post.updated && post.updated !== post.date && (
+            <>
+              {' · Updated '}
+              <time dateTime={post.updated}>
+                {new Date(post.updated).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </time>
+            </>
+          )}
+        </p>
+        {post.hero && <PostFigure image={post.hero} priority />}
       </header>
 
       <article className="space-y-4 text-bm-ink">
         {post.blocks.map((b, i) => {
           if ('h' in b) return <h2 key={i} className="text-xl sm:text-2xl font-extrabold text-bm-navy-deep pt-4">{b.h}</h2>
+          if ('h3' in b) return <h3 key={i} className="text-lg sm:text-xl font-bold text-bm-navy-deep pt-2">{b.h3}</h3>
           if ('p' in b) return <p key={i} className="text-sm sm:text-base leading-relaxed">{fill(b.p)}</p>
+          if ('img' in b) return <PostFigure key={i} image={b.img} />
+          if ('cta' in b)
+            return (
+              <div key={i} className="flex justify-center py-2">
+                <WhatsAppCTA src={`blog-${post.slug}`} intent={b.cta.intent} label={b.cta.label} variant="primary" className="py-3 px-6" />
+              </div>
+            )
+          if ('table' in b)
+            return (
+              <div key={i} className="overflow-x-auto rounded-2xl border border-bm-ink-faint/20">
+                <table className="w-full text-left text-xs sm:text-sm">
+                  <thead className="bg-bm-ink-faint/10">
+                    <tr>{b.table.head.map((c) => <th key={c} scope="col" className="px-3 py-2.5 font-bold text-bm-navy-deep">{c}</th>)}</tr>
+                  </thead>
+                  <tbody>
+                    {b.table.rows.map((r) => (
+                      <tr key={r[0]} className="border-t border-bm-ink-faint/20">
+                        {r.map((c, j) => j === 0
+                          ? <th key={j} scope="row" className="px-3 py-2.5 font-semibold align-top">{c}</th>
+                          : <td key={j} className="px-3 py-2.5 align-top">{c}</td>)}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )
           return (
             <ul key={i} className="list-disc pl-5 space-y-2 text-sm sm:text-base leading-relaxed">
               {b.ul.map((li) => <li key={li}>{fill(li)}</li>)}
@@ -90,6 +165,18 @@ export function BlogPostPage() {
           )
         })}
       </article>
+
+      {post.faqs && post.faqs.length > 0 && (
+        <section aria-labelledby="post-faqs" className="space-y-4">
+          <h2 id="post-faqs" className="text-xl sm:text-2xl font-extrabold text-bm-navy-deep">Frequently asked questions</h2>
+          {post.faqs.map((f) => (
+            <div key={f.q} className="space-y-1.5">
+              <h3 className="text-base font-bold text-bm-navy-deep">{f.q}</h3>
+              <p className="text-sm sm:text-base leading-relaxed text-bm-ink">{f.a}</p>
+            </div>
+          ))}
+        </section>
+      )}
 
       <section className="bg-bm-navy-deep text-white p-6 sm:p-8 rounded-3xl space-y-4 text-center">
         <p className="text-lg font-bold">Have a question about your own business?</p>
@@ -101,6 +188,12 @@ export function BlogPostPage() {
             variant="primary"
             className="py-3 px-6"
           />
+          <a
+            href={`tel:+${site.contact.calls.number_e164}`}
+            className="inline-flex items-center gap-2 text-sm font-bold bg-white/10 text-white border border-white/30 px-5 py-3 rounded-xl hover:bg-white/20"
+          >
+            <Phone className="w-4 h-4" /> Call {site.contact.calls.display}
+          </a>
           <Link to={post.related.to} className="inline-flex items-center text-sm font-bold bg-white text-bm-navy-deep px-5 py-3 rounded-xl">
             {post.related.label}
           </Link>
