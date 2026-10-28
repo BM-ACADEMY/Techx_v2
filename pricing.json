@@ -1,0 +1,596 @@
+{
+  "_comment": "SINGLE SOURCE OF TRUTH for every price. The website reads this file. The WhatsApp automation reads this file. They can never disagree. Change a price here and nowhere else.",
+  "_rule": "The autopilot may quote ANY price in this file and NO price outside it. Anything not listed here routes to a human. See autopilot/guardrails.json.",
+  "currency": "INR",
+  "gst_percent": 18,
+  "prices_exclude_gst": true,
+  "last_updated": "2026-10-22",
+  "one_time": [
+    {
+      "id": "web-single",
+      "name": "Single-page website",
+      "price": 2999,
+      "delivery": "48 working hours",
+      "includes": [
+        "One-page custom-coded website",
+        "Domain for year 1",
+        "Server/hosting for year 1",
+        "Mobile responsive",
+        "Enquiry form + WhatsApp button",
+        "Basic on-page SEO setup"
+      ],
+      "excludes": [
+        "Content writing beyond what you supply",
+        "Photography",
+        "Payment gateway",
+        "User logins or accounts"
+      ],
+      "renewal": {
+        "amount": 1999,
+        "period": "year",
+        "from_year": 2,
+        "covers": "Domain + server"
+      },
+      "page": "/services/website-development/"
+    },
+    {
+      "id": "web-multi",
+      "name": "Multi-page website",
+      "price": 4999,
+      "delivery": "5-7 working days",
+      "includes": [
+        "Multi-page custom-coded website",
+        "Domain + server for year 1",
+        "Mobile responsive",
+        "Enquiry forms + WhatsApp button",
+        "On-page SEO setup",
+        "Google Business Profile link-up"
+      ],
+      "excludes": [
+        "Content writing beyond what you supply",
+        "Photography",
+        "Payment gateway"
+      ],
+      "renewal": {
+        "amount": 1999,
+        "period": "year",
+        "from_year": 2,
+        "covers": "Domain + server"
+      },
+      "page": "/services/website-development/"
+    },
+    {
+      "id": "store",
+      "name": "Online store",
+      "price": 9999,
+      "delivery": "7-10 working days",
+      "includes": [
+        "Unlimited products",
+        "Payment gateway integration",
+        "Order management",
+        "Mobile responsive",
+        "WhatsApp order alerts",
+        "On-page SEO setup"
+      ],
+      "excludes": [
+        "Product photography",
+        "Product data entry beyond the first 20 items",
+        "Ad spend"
+      ],
+      "renewal": {
+        "amount": 0,
+        "period": "year",
+        "note": "No yearly renewal fee."
+      },
+      "page": "/services/ecommerce-website/"
+    }
+  ],
+  "monthly": [
+    {
+      "id": "seo-starter",
+      "name": "Google Maps SEO — Starter",
+      "price": 2999,
+      "period": "month",
+      "includes": [
+        "Profile optimization",
+        "Services and description setup",
+        "4 Google posts/month",
+        "Basic keyword optimization",
+        "Trust signals: photos, hours, attributes"
+      ],
+      "page": "/services/seo/",
+      "upfront_3_months": {
+        "price": 7999,
+        "save": 998,
+        "setup_free": true
+      }
+    },
+    {
+      "id": "seo-growth",
+      "name": "Google Maps SEO — Growth",
+      "price": 4999,
+      "period": "month",
+      "recommended": true,
+      "includes": [
+        "Everything in Starter",
+        "8 Google posts/month",
+        "Review growth strategy",
+        "Competitor analysis",
+        "Q&A and local keyword optimization"
+      ],
+      "page": "/services/seo/",
+      "upfront_3_months": {
+        "price": 13499,
+        "save": 1498,
+        "setup_free": true
+      }
+    },
+    {
+      "id": "seo-business",
+      "name": "Google Maps SEO — Business",
+      "price": 8999,
+      "period": "month",
+      "includes": [
+        "Everything in Growth",
+        "Citation building",
+        "Advanced local SEO",
+        "Weekly optimization"
+      ],
+      "page": "/services/seo/",
+      "upfront_3_months": {
+        "price": 24299,
+        "save": 2698,
+        "setup_free": true
+      }
+    },
+    {
+      "id": "meta-ads",
+      "name": "Meta Ads management",
+      "price": 4999,
+      "period": "month",
+      "includes": [
+        "Campaign setup and management",
+        "Creative direction",
+        "Audience building and testing",
+        "Lead delivery to WhatsApp",
+        "Monthly report"
+      ],
+      "excludes": [
+        "Ad spend — always billed separately",
+        "Video production"
+      ],
+      "page": "/services/meta-ads/"
+    },
+    {
+      "id": "smm-starter",
+      "name": "Instagram management — Starter",
+      "price": 7999,
+      "period": "month",
+      "page": "/services/social-media-marketing/",
+      "upfront_3_months": {
+        "price": 21599,
+        "save": 2398,
+        "setup_free": true
+      },
+      "includes": [
+        "6 Reels/month, edited from your footage (we give you a shooting guide and scripts)",
+        "4 carousel posts",
+        "12 Stories",
+        "Captions, hooks and hashtag research",
+        "Profile optimization: bio, highlights, links",
+        "Comment replies, Mon–Sat",
+        "Monthly performance report"
+      ]
+    },
+    {
+      "id": "smm-growth",
+      "name": "Instagram management — Growth",
+      "price": 12999,
+      "period": "month",
+      "page": "/services/social-media-marketing/",
+      "upfront_3_months": {
+        "price": 35099,
+        "save": 3898,
+        "setup_free": true
+      },
+      "includes": [
+        "10 Reels/month, including 1 mobile shoot by our team",
+        "6 carousel posts",
+        "20 Stories: polls, offers, behind-the-scenes",
+        "Reel scripts with strong first-3-second hooks",
+        "Trial Reels tested on new audiences",
+        "Comment and DM replies, enquiries forwarded to your WhatsApp",
+        "1 collaboration post/month with a local partner",
+        "Monthly content plan and report"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "smm-business",
+      "name": "Instagram management — Business",
+      "price": 19999,
+      "period": "month",
+      "page": "/services/social-media-marketing/",
+      "upfront_3_months": {
+        "price": 53999,
+        "save": 5998,
+        "setup_free": true
+      },
+      "includes": [
+        "15 Reels/month, including 2 mobile shoots",
+        "8 carousel posts",
+        "30 Stories",
+        "Full inbox management and monthly lead log",
+        "Posting in relevant local Facebook Groups",
+        "Boost management (ad spend separate)",
+        "Google Maps SEO Starter included, worth ₹2,999/month",
+        "Monthly strategy call and priority delivery"
+      ]
+    },
+    {
+      "id": "combo",
+      "name": "Combo packages",
+      "price_from": 9999,
+      "period": "month",
+      "note": "Website + ads, or SEO + social. Built to requirement from the components above.",
+      "page": "/pricing/"
+    }
+  ],
+  "quote_only": [
+    {
+      "id": "whatsapp-automation",
+      "name": "WhatsApp automation (LeadOS)",
+      "note": "Scoped per business. Pricing shared after a scope call.",
+      "page": "/services/whatsapp-automation/",
+      "autopilot": "ROUTE_TO_HUMAN"
+    },
+    {
+      "id": "custom-build",
+      "name": "Custom software build",
+      "note": "Booking systems, portals, internal tools. Quoted after discovery.",
+      "page": "/work/",
+      "autopilot": "ROUTE_TO_HUMAN"
+    },
+    {
+      "id": "shoot",
+      "name": "Photo & video shoot",
+      "note": "Mobile shoots and camera shoots priced separately. Outside Puducherry priced on requirement.",
+      "autopilot": "ROUTE_TO_HUMAN"
+    }
+  ],
+  "extras": [
+    {
+      "id": "invite-basic",
+      "name": "Digital invitation — Image + web link",
+      "price": 999,
+      "unit": "one-time",
+      "group": "digital-invitations",
+      "includes": [
+        "Designed invitation image for WhatsApp sharing",
+        "One-page web invitation with event details",
+        "Google Maps link to the venue",
+        "Tamil, English or both",
+        "One round of corrections"
+      ],
+      "excludes": [
+        "Printing and delivery of physical cards",
+        "Live streaming of the function"
+      ]
+    },
+    {
+      "id": "invite-video",
+      "name": "Digital invitation — Video + web",
+      "price": 1999,
+      "unit": "one-time",
+      "group": "digital-invitations",
+      "includes": [
+        "Everything in Image + web link",
+        "Short video invitation with your photos, text and royalty-free music",
+        "WhatsApp RSVP button on the web invitation",
+        "One round of corrections"
+      ],
+      "excludes": [
+        "Printing and delivery of physical cards",
+        "Live streaming of the function"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "invite-premium",
+      "name": "Digital invitation — Premium custom",
+      "price": 3499,
+      "unit": "one-time",
+      "group": "digital-invitations",
+      "includes": [
+        "Everything in Video + web",
+        "Custom design to your theme and colours",
+        "Bilingual layout (Tamil and English)",
+        "Schedule section for multiple functions",
+        "Photo gallery section",
+        "One round of corrections"
+      ],
+      "excludes": [
+        "Printing and delivery of physical cards",
+        "Live streaming of the function"
+      ]
+    },
+    {
+      "id": "lead-100",
+      "name": "Verified leads — 100 leads",
+      "price": 12000,
+      "unit": "package",
+      "group": "lead-generation",
+      "includes": [
+        "100 phone-verified leads",
+        "Meta Ads campaign built and managed by us",
+        "Leads delivered to your WhatsApp as they arrive",
+        "Lead sheet for your sales team",
+        "Ad spend included in the package price",
+        "Written report at the end"
+      ],
+      "excludes": [
+        "No guarantee of sales, bookings or site visits"
+      ]
+    },
+    {
+      "id": "lead-200",
+      "name": "Verified leads — 200 leads",
+      "price": 20000,
+      "unit": "package",
+      "group": "lead-generation",
+      "includes": [
+        "200 phone-verified leads",
+        "Meta Ads campaign built and managed by us",
+        "Leads delivered to your WhatsApp as they arrive",
+        "Lead sheet for your sales team",
+        "Ad spend included in the package price",
+        "Written report at the end"
+      ],
+      "excludes": [
+        "No guarantee of sales, bookings or site visits"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "pb-starter",
+      "name": "Personal branding — Starter",
+      "price": 9999,
+      "unit": "month",
+      "group": "personal-branding",
+      "includes": [
+        "Positioning and bio for Instagram, LinkedIn and Google profile",
+        "One-page personal website in the first month",
+        "8 posts or carousels a month",
+        "4 Reels a month, edited from your footage (shooting guide and scripts included)",
+        "Monthly performance report"
+      ],
+      "excludes": [
+        "No promise of follower counts, views or client enquiries"
+      ]
+    },
+    {
+      "id": "pb-growth",
+      "name": "Personal branding — Growth",
+      "price": 14999,
+      "unit": "month",
+      "group": "personal-branding",
+      "includes": [
+        "Everything in Starter",
+        "8 Reels a month, including 1 mobile shoot by our team",
+        "8 LinkedIn posts a month",
+        "Monthly content plan and scripts",
+        "Comment and DM replies, Mon to Sat"
+      ],
+      "excludes": [
+        "No promise of follower counts, views or client enquiries"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "pb-authority",
+      "name": "Personal branding — Authority",
+      "price": 24999,
+      "unit": "month",
+      "group": "personal-branding",
+      "includes": [
+        "Everything in Growth",
+        "12 Reels a month, including 2 mobile shoots",
+        "Multi-page personal website",
+        "Monthly strategy call",
+        "Priority delivery"
+      ],
+      "excludes": [
+        "No promise of follower counts, views or client enquiries"
+      ]
+    },
+    {
+      "id": "cb-starter",
+      "name": "Catering branding — Starter",
+      "price": 6999,
+      "unit": "month",
+      "group": "catering-branding",
+      "includes": [
+        "Menu card or catalogue design",
+        "Google Business Profile setup",
+        "WhatsApp catalogue with auto-reply for quotes",
+        "6 posts a month (dishes, events, offers)",
+        "Monthly report"
+      ],
+      "excludes": [
+        "Ad spend",
+        "Food photography with a camera crew (quoted separately)"
+      ]
+    },
+    {
+      "id": "cb-growth",
+      "name": "Catering branding — Growth",
+      "price": 11999,
+      "unit": "month",
+      "group": "catering-branding",
+      "includes": [
+        "Everything in Starter",
+        "6 Reels a month, including 1 mobile shoot at an event or kitchen",
+        "Festival and season offer creatives",
+        "Review collection flow on WhatsApp",
+        "Comment and DM replies, Mon to Sat"
+      ],
+      "excludes": [
+        "Ad spend",
+        "Food photography with a camera crew (quoted separately)"
+      ],
+      "recommended": true
+    },
+    {
+      "id": "cb-business",
+      "name": "Catering branding — Business",
+      "price": 17999,
+      "unit": "month",
+      "group": "catering-branding",
+      "includes": [
+        "Everything in Growth",
+        "10 Reels a month, including 2 mobile shoots",
+        "Event gallery and testimonial posts, with client permission",
+        "Monthly strategy call",
+        "Priority delivery"
+      ],
+      "excludes": [
+        "Ad spend",
+        "Food photography with a camera crew (quoted separately)"
+      ]
+    },
+    {
+      "id": "addon-menu-qr",
+      "name": "Menu QR page",
+      "price": 1999,
+      "unit": "one-time",
+      "group": "add-ons",
+      "includes": [
+        "Mobile-friendly menu page with your dishes and prices",
+        "QR code file for tables and counters",
+        "WhatsApp order button",
+        "Free updates for 30 days"
+      ]
+    },
+    {
+      "id": "addon-wa-catalogue",
+      "name": "WhatsApp catalogue + auto-reply setup",
+      "price": 2999,
+      "unit": "one-time",
+      "group": "add-ons",
+      "includes": [
+        "WhatsApp Business profile setup",
+        "Catalogue with your products or services",
+        "Greeting, away and quick-reply messages",
+        "Labels for new, quoted and confirmed enquiries"
+      ]
+    },
+    {
+      "id": "addon-review-kit",
+      "name": "Review collection kit",
+      "price": 999,
+      "unit": "one-time",
+      "group": "add-ons",
+      "includes": [
+        "Your Google review link and QR code",
+        "Ready-to-send WhatsApp review request message",
+        "Printable QR card design"
+      ]
+    }
+  ],
+  "combos": [
+    {
+      "id": "combo-clinic",
+      "title": "Clinic starter pack",
+      "note": "A website and Google Maps SEO together. ₹500 off the website when you start both.",
+      "items": [
+        {
+          "id": "web-multi",
+          "discount": 500
+        },
+        {
+          "id": "seo-growth"
+        }
+      ]
+    },
+    {
+      "id": "combo-doctor",
+      "title": "Doctor and dentist branding pack",
+      "note": "Personal branding plus Google Maps SEO for your practice.",
+      "items": [
+        {
+          "id": "pb-growth"
+        },
+        {
+          "id": "seo-starter"
+        }
+      ]
+    },
+    {
+      "id": "combo-professional",
+      "title": "Professional branding pack",
+      "note": "Personal branding with a personal website, plus Google Maps SEO.",
+      "items": [
+        {
+          "id": "pb-starter"
+        },
+        {
+          "id": "seo-starter"
+        }
+      ]
+    },
+    {
+      "id": "combo-coach",
+      "title": "Coach and educator pack",
+      "note": "Personal branding plus Meta Ads management to bring in enquiries.",
+      "items": [
+        {
+          "id": "pb-growth"
+        },
+        {
+          "id": "meta-ads"
+        }
+      ]
+    },
+    {
+      "id": "combo-education",
+      "title": "Admissions pack",
+      "note": "A website and a verified-lead campaign for your admission season. ₹500 off the website when you start both.",
+      "items": [
+        {
+          "id": "web-multi",
+          "discount": 500
+        },
+        {
+          "id": "lead-100"
+        }
+      ]
+    },
+    {
+      "id": "combo-real-estate",
+      "title": "Real estate pack",
+      "note": "Instagram management plus a verified-lead package.",
+      "items": [
+        {
+          "id": "smm-growth"
+        },
+        {
+          "id": "lead-100"
+        }
+      ]
+    },
+    {
+      "id": "combo-food",
+      "title": "Food and catering pack",
+      "note": "Catering branding plus a menu QR page. ₹500 off the menu QR when you start both.",
+      "items": [
+        {
+          "id": "cb-growth"
+        },
+        {
+          "id": "addon-menu-qr",
+          "discount": 500
+        }
+      ]
+    }
+  ]
+}
