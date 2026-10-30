@@ -152,8 +152,8 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#0A0B0E] font-display tracking-tight leading-[1.06]">
-            Fixed-price digital growth for{' '}
-            <span className="text-gradient-mustard">Tamil Nadu businesses</span>
+            Fixed-price digital marketing agency in{' '}
+            <span className="text-gradient-mustard">Pondicherry</span>
           </h1>
 
           <p className="text-base sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">

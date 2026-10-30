@@ -79,7 +79,7 @@ export function BlogPage() {
           <BookOpen className="w-3.5 h-3.5" /> Transparent Engineering & Pricing
         </span>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-bm-navy-deep tracking-tight">
-          Straight answers about digital marketing in India
+          Digital marketing tips for Tamil Nadu businesses: straight answers
         </h1>
         <p className="text-lg text-bm-ink-muted leading-relaxed">
           What things actually cost, how long they actually take, and when not to hire an agency. Written by the team building these sites in Puducherry.

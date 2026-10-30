@@ -181,7 +181,7 @@ export function RealEstatePage() {
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
-          Real estate marketing that delivers verified leads
+          Digital marketing for real estate in Tamil Nadu that delivers verified leads
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">
