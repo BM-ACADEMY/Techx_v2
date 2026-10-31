@@ -104,7 +104,7 @@ export function AboutPage() {
           <Building2 className="w-3.5 h-3.5" /> Incorporated in Puducherry
         </span>
         <h1 className="text-4xl sm:text-5xl font-extrabold text-bm-navy-deep tracking-tight">
-          Who you are actually dealing with
+          Who you are actually dealing with: the BM TechX team in Puducherry
         </h1>
         <p className="text-lg text-bm-ink leading-relaxed">
           BM TechX is a digital agency in Puducherry and a brand of{' '}

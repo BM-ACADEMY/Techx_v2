@@ -55,7 +55,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
 
         <div className="flex justify-center"><SlotsBanner /></div>
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
-          Every price. On this page.
+          Website and digital marketing prices in Pondicherry. Every price, on this page.
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">

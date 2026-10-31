@@ -18,7 +18,7 @@ export const LOCATIONS: LocationData[] = [
   {
     slug: 'puducherry',
     city: 'Puducherry',
-    headline: 'Website development and digital marketing in Puducherry',
+    headline: 'Digital marketing company in Puducherry, with an office you can visit',
     answer:
       'BM TechX is based in Kosapalayam, Puducherry. We build custom-coded websites, online stores, local SEO, Meta Ads and WhatsApp automation at published prices, so a Puducherry business knows the cost before the first call.',
     intro:
