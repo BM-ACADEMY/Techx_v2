@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import { LANDINGS } from '@/data/landings';
+import { LOCATIONS } from '@/data/locations';
 import { formatPrice, getExtrasByGroup } from '@/data/dataLayer';
 
 interface ServicesPageProps {
@@ -116,7 +117,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       price: 'from ₹2,999',
       billing: 'one-time',
       turnaround: '48h – 7 days',
-      path: '/services/website-development',
+      path: '/services/website-development/',
       icon: Globe,
       color: 'border-bm-brand-soft/60 hover:border-bm-brand',
       tag: '48-Hour Turnaround',
@@ -137,7 +138,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       price: '₹9,999',
       billing: 'one-time',
       turnaround: '7–10 days',
-      path: '/services/ecommerce-website',
+      path: '/services/ecommerce-website/',
       icon: ShoppingCart,
       color: 'border-bm-accent-price/40 hover:border-bm-accent-price',
       tag: 'Zero Yearly Renewal Fee',
@@ -158,7 +159,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       price: 'from ₹2,999',
       billing: '/month',
       turnaround: 'Monthly Retainer',
-      path: '/services/seo',
+      path: '/services/seo/',
       icon: Search,
       color: 'border-emerald-300 hover:border-emerald-600',
       tag: 'Countable Deliverables',
@@ -178,7 +179,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       price: 'from ₹8,999',
       billing: '/month',
       turnaround: 'Monthly Retainer',
-      path: '/services/meta-ads',
+      path: '/services/meta-ads/',
       icon: Target,
       color: 'border-indigo-300 hover:border-indigo-600',
       tag: 'Verified Leads to WhatsApp',
@@ -199,7 +200,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       price: 'from ₹7,999',
       billing: '/month',
       turnaround: 'Monthly Retainer',
-      path: '/services/social-media-marketing',
+      path: '/services/social-media-marketing/',
       icon: Share2,
       color: 'border-amber-300 hover:border-amber-600',
       tag: 'Enquiry-Focused',
@@ -220,7 +221,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       price: 'Quoted per scope',
       billing: 'custom setup',
       turnaround: '10–14 days',
-      path: '/services/whatsapp-automation',
+      path: '/services/whatsapp-automation/',
       icon: Bot,
       color: 'border-emerald-400 hover:border-emerald-700',
       tag: 'Autopilot Lead Capture',
@@ -242,31 +243,31 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       stage: 'New Business / Startup',
       situation: 'Need to get online quickly with credibility and search visibility',
       recommendation: 'Single-Page Website (₹2,999) or Multi-Page (₹4,999)',
-      path: '/services/website-development',
+      path: '/services/website-development/',
     },
     {
       stage: 'Retailer / Manufacturer',
       situation: 'Selling physical products and looking to bypass marketplace commissions',
       recommendation: 'Online Store / Ecommerce (₹9,999 fixed, zero renewal)',
-      path: '/services/ecommerce-website',
+      path: '/services/ecommerce-website/',
     },
     {
       stage: 'Clinic, Legal, or Local Service',
       situation: 'Customers search Google when they need you right now',
       recommendation: 'Google Maps SEO (from ₹2,999/mo) + Multi-Page Site',
-      path: '/services/seo',
+      path: '/services/seo/',
     },
     {
       stage: 'Real Estate / High-Ticket',
       situation: 'Need verified customer phone numbers and high volume of site visits',
       recommendation: 'Meta Lead Ads (₹8,999/mo) + WhatsApp LeadOS',
-      path: '/services/meta-ads',
+      path: '/services/meta-ads/',
     },
     {
       stage: 'Restaurant, Cafe, or Boutique',
       situation: 'Need consistent foot traffic and daily visual discovery',
       recommendation: 'Instagram Management (from ₹7,999/mo)',
-      path: '/services/social-media-marketing',
+      path: '/services/social-media-marketing/',
     },
   ];
 
@@ -421,7 +422,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
             const prices = getExtrasByGroup(l.group).map((x) => x.price);
             const from = prices.length ? Math.min(...prices) : 0;
             return (
-              <Link key={l.slug} to={`/services/${l.slug}`} className="bg-white rounded-3xl border border-bm-line hover:border-bm-brand p-6 flex flex-col gap-2 shadow-sm transition-colors">
+              <Link key={l.slug} to={`/services/${l.slug}/`} className="bg-white rounded-3xl border border-bm-line hover:border-bm-brand p-6 flex flex-col gap-2 shadow-sm transition-colors">
                 <span className="text-xs font-bold uppercase tracking-wider text-bm-ink-faint font-mono">{l.navLabel}</span>
                 <span className="text-2xl font-black text-bm-navy-deep">from {formatPrice(from)}</span>
                 <span className="text-xs text-bm-ink-muted leading-relaxed">{l.answer.split('. ')[0]}.</span>
@@ -430,6 +431,28 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
             );
           })}
         </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* AREAS WE SERVE (location pages)                           */}
+      {/* ========================================================= */}
+      <section aria-labelledby="areas-we-serve" className="space-y-6">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <h2 id="areas-we-serve" className="text-2xl sm:text-4xl font-extrabold text-bm-navy-deep font-display">Areas we serve</h2>
+          <p className="text-xs sm:text-sm text-bm-ink-muted">Based in Puducherry, working with businesses across Tamil Nadu. Pick your city to see how we work there.</p>
+        </div>
+        <ul className="flex flex-wrap justify-center gap-3">
+          {LOCATIONS.map((loc) => (
+            <li key={loc.slug}>
+              <Link
+                to={`/locations/${loc.slug}/`}
+                className="inline-flex items-center gap-1.5 bg-white rounded-full border border-bm-line hover:border-bm-brand px-4 py-2 text-sm font-semibold text-bm-navy-deep shadow-sm transition-colors"
+              >
+                {loc.city} <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* ========================================================= */}

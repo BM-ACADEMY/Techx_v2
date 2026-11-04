@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, type ReactNode } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { ChevronRight, Clock, Phone } from 'lucide-react'
 import { WhatsAppCTA } from '@/components/WhatsAppCTA'
@@ -12,6 +12,26 @@ function fill(text: string): string {
     const plan = getPlanById(id)
     return plan ? formatPrice(plan.price) : ''
   })
+}
+
+/** Fills price tokens, then turns [label](/path/) into internal links. */
+function rich(text: string): ReactNode[] {
+  const out: ReactNode[] = []
+  const re = /\[([^\]]+)\]\((\/[^)\s]*)\)/g
+  const t = fill(text)
+  let last = 0
+  let m: RegExpExecArray | null
+  while ((m = re.exec(t))) {
+    if (m.index > last) out.push(t.slice(last, m.index))
+    out.push(
+      <Link key={m.index} to={m[2]} className="font-semibold text-bm-navy underline underline-offset-2 hover:text-bm-navy-deep">
+        {m[1]}
+      </Link>,
+    )
+    last = m.index + m[0].length
+  }
+  if (last < t.length) out.push(t.slice(last))
+  return out
 }
 
 /** Unsplash-style image URL at a given width (keeps any existing query out). */
@@ -98,7 +118,7 @@ export function BlogPostPage() {
       <nav aria-label="Breadcrumb" className="text-xs text-bm-ink-faint">
         <ol className="flex items-center flex-wrap gap-2">
           <li><Link to="/" className="hover:text-bm-navy">Home</Link></li>
-          <li className="flex items-center gap-2"><ChevronRight className="w-3.5 h-3.5 opacity-50" /><Link to="/blog" className="hover:text-bm-navy">Blog</Link></li>
+          <li className="flex items-center gap-2"><ChevronRight className="w-3.5 h-3.5 opacity-50" /><Link to="/blog/" className="hover:text-bm-navy">Blog</Link></li>
           <li className="flex items-center gap-2"><ChevronRight className="w-3.5 h-3.5 opacity-50" /><span className="font-semibold text-bm-ink">{post.tag}</span></li>
         </ol>
       </nav>
@@ -131,7 +151,7 @@ export function BlogPostPage() {
         {post.blocks.map((b, i) => {
           if ('h' in b) return <h2 key={i} className="text-xl sm:text-2xl font-extrabold text-bm-navy-deep pt-4">{b.h}</h2>
           if ('h3' in b) return <h3 key={i} className="text-lg sm:text-xl font-bold text-bm-navy-deep pt-2">{b.h3}</h3>
-          if ('p' in b) return <p key={i} className="text-sm sm:text-base leading-relaxed">{fill(b.p)}</p>
+          if ('p' in b) return <p key={i} className="text-sm sm:text-base leading-relaxed">{rich(b.p)}</p>
           if ('img' in b) return <PostFigure key={i} image={b.img} />
           if ('cta' in b)
             return (
@@ -160,7 +180,7 @@ export function BlogPostPage() {
             )
           return (
             <ul key={i} className="list-disc pl-5 space-y-2 text-sm sm:text-base leading-relaxed">
-              {b.ul.map((li) => <li key={li}>{fill(li)}</li>)}
+              {b.ul.map((li) => <li key={li}>{rich(li)}</li>)}
             </ul>
           )
         })}
@@ -204,7 +224,7 @@ export function BlogPostPage() {
         <h2 className="text-sm font-bold uppercase tracking-wider text-bm-ink-faint">More guides</h2>
         <ul className="space-y-1.5 text-sm">
           {more.map((m) => (
-            <li key={m.slug}><Link to={`/blog/${m.slug}`} className="font-semibold text-bm-navy hover:underline">{m.title}</Link></li>
+            <li key={m.slug}><Link to={`/blog/${m.slug}/`} className="font-semibold text-bm-navy hover:underline">{m.title}</Link></li>
           ))}
         </ul>
       </nav>

@@ -21,7 +21,7 @@ export function ServicePage() {
       <nav aria-label="Breadcrumb" className="text-xs text-bm-ink-muted">
         <ol className="flex items-center space-x-2">
           <li><Link to="/" className="hover:text-bm-navy">Home</Link></li>
-          <li className="flex items-center space-x-2"><ChevronRight className="w-3.5 h-3.5 opacity-50" /><Link to="/services" className="hover:text-bm-navy">Services</Link></li>
+          <li className="flex items-center space-x-2"><ChevronRight className="w-3.5 h-3.5 opacity-50" /><Link to="/services/" className="hover:text-bm-navy">Services</Link></li>
           <li className="flex items-center space-x-2"><ChevronRight className="w-3.5 h-3.5 opacity-50" /><span className="font-semibold text-bm-navy-deep">{page.navLabel}</span></li>
         </ol>
       </nav>
@@ -32,7 +32,7 @@ export function ServicePage() {
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">{page.answer}</p>
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <WhatsAppCTA src={`service-${page.slug}-hero`} intent={`I am interested in ${page.navLabel}.`} label="Ask on WhatsApp" variant="primary" className="text-sm sm:text-base py-3.5 px-6 shadow-md" />
-          <Link to="/pricing" className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-white border border-bm-line hover:border-bm-brand px-5 py-3.5 rounded-xl text-bm-navy shadow-sm">
+          <Link to="/pricing/" className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-white border border-bm-line hover:border-bm-brand px-5 py-3.5 rounded-xl text-bm-navy shadow-sm">
             <span>See all pricing</span><ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -88,7 +88,7 @@ export function ServicePage() {
       <nav aria-label="Related" className="max-w-4xl mx-auto text-center text-xs text-bm-ink-muted flex flex-wrap justify-center gap-x-4 gap-y-1">
         <span>Related:</span>
         {page.related.map((r) => (<Link key={r.to} to={r.to} className="font-bold text-bm-navy hover:underline">{r.label}</Link>))}
-        {others.map((o) => (<Link key={o.slug} to={`/services/${o.slug}`} className="font-bold text-bm-navy hover:underline">{o.navLabel}</Link>))}
+        {others.map((o) => (<Link key={o.slug} to={`/services/${o.slug}/`} className="font-bold text-bm-navy hover:underline">{o.navLabel}</Link>))}
       </nav>
     </div>
   )

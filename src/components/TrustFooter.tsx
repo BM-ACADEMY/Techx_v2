@@ -18,7 +18,9 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
           <div className="lg:col-span-5 space-y-4">
             <Link to="/" className="flex items-center gap-2 inline-flex group" aria-label="BM TechX Home">
               <img
-                src="/logo.png"
+                src="/logo.webp"
+                width={364}
+                height={108}
                 alt="BM TechX Official Logo"
                 className="h-8 sm:h-9 w-auto object-contain transition-transform group-hover:scale-105"
               />
@@ -52,22 +54,22 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
               Solutions
             </h4>
             <ul className="space-y-2 text-xs text-[#CBD5E1]">
-              <li><Link to="/services/website-development" className="hover:text-[#FFE600] transition-colors">Website Development</Link></li>
-              <li><Link to="/services/ecommerce-website" className="hover:text-[#FFE600] transition-colors">eCommerce Stores</Link></li>
-              <li><Link to="/services/seo" className="hover:text-[#FFE600] transition-colors">Local SEO Sprints</Link></li>
-              <li><Link to="/services/meta-ads" className="hover:text-[#FFE600] transition-colors">Meta Ads Engine</Link></li>
-              <li><Link to="/services/whatsapp-automation" className="hover:text-[#FFE600] transition-colors">WhatsApp Automation</Link></li>
-              <li><Link to="/services/digital-invitations" className="hover:text-[#FFE600] transition-colors">Digital Invitations</Link></li>
-              <li><Link to="/services/lead-generation" className="hover:text-[#FFE600] transition-colors">Verified Leads</Link></li>
-              <li><Link to="/services/personal-branding" className="hover:text-[#FFE600] transition-colors">Personal Branding</Link></li>
-              <li><Link to="/services/catering-branding" className="hover:text-[#FFE600] transition-colors">Catering Branding</Link></li>
-              <li><Link to="/industries/real-estate" className="hover:text-[#FFE600] transition-colors">Real Estate Marketing</Link></li>
-              <li><Link to="/industries/doctors-dentists" className="hover:text-[#FFE600] transition-colors">Doctor & Dentist Branding</Link></li>
-              <li><Link to="/industries/professionals" className="hover:text-[#FFE600] transition-colors">Professional Branding</Link></li>
-              <li><Link to="/industries/coaches-educators" className="hover:text-[#FFE600] transition-colors">Coach & Educator Branding</Link></li>
-              <li><Link to="/industries/clinics" className="hover:text-[#FFE600] transition-colors">Clinic Websites</Link></li>
-              <li><Link to="/industries/schools" className="hover:text-[#FFE600] transition-colors">School Websites</Link></li>
-              <li><Link to="/industries/restaurants" className="hover:text-[#FFE600] transition-colors">Restaurant & Shop Websites</Link></li>
+              <li><Link to="/services/website-development/" className="hover:text-[#FFE600] transition-colors">Website Development</Link></li>
+              <li><Link to="/services/ecommerce-website/" className="hover:text-[#FFE600] transition-colors">eCommerce Stores</Link></li>
+              <li><Link to="/services/seo/" className="hover:text-[#FFE600] transition-colors">Local SEO Sprints</Link></li>
+              <li><Link to="/services/meta-ads/" className="hover:text-[#FFE600] transition-colors">Meta Ads Engine</Link></li>
+              <li><Link to="/services/whatsapp-automation/" className="hover:text-[#FFE600] transition-colors">WhatsApp Automation</Link></li>
+              <li><Link to="/services/digital-invitations/" className="hover:text-[#FFE600] transition-colors">Digital Invitations</Link></li>
+              <li><Link to="/services/lead-generation/" className="hover:text-[#FFE600] transition-colors">Verified Leads</Link></li>
+              <li><Link to="/services/personal-branding/" className="hover:text-[#FFE600] transition-colors">Personal Branding</Link></li>
+              <li><Link to="/services/catering-branding/" className="hover:text-[#FFE600] transition-colors">Catering Branding</Link></li>
+              <li><Link to="/industries/real-estate/" className="hover:text-[#FFE600] transition-colors">Real Estate Marketing</Link></li>
+              <li><Link to="/industries/doctors-dentists/" className="hover:text-[#FFE600] transition-colors">Doctor & Dentist Branding</Link></li>
+              <li><Link to="/industries/professionals/" className="hover:text-[#FFE600] transition-colors">Professional Branding</Link></li>
+              <li><Link to="/industries/coaches-educators/" className="hover:text-[#FFE600] transition-colors">Coach & Educator Branding</Link></li>
+              <li><Link to="/industries/clinics/" className="hover:text-[#FFE600] transition-colors">Clinic Websites</Link></li>
+              <li><Link to="/industries/schools/" className="hover:text-[#FFE600] transition-colors">School Websites</Link></li>
+              <li><Link to="/industries/restaurants/" className="hover:text-[#FFE600] transition-colors">Restaurant & Shop Websites</Link></li>
             </ul>
           </div>
 
@@ -81,7 +83,7 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
                 <li key={area} className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FFE600]" />
                   {['puducherry','cuddalore','villupuram','chennai','madurai','tiruchirappalli','namakkal'].includes(area.toLowerCase()) ? (
-                    <Link to={`/locations/${area.toLowerCase()}`} className="hover:text-[#FFE600] transition-colors">{area}</Link>
+                    <Link to={`/locations/${area.toLowerCase()}/`} className="hover:text-[#FFE600] transition-colors">{area}</Link>
                   ) : (
                     <span>{area}</span>
                   )}
@@ -144,10 +146,10 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
           </div>
 
           <div className="flex items-center gap-4">
-            <Link to="/about" className="hover:text-[#FFE600] transition-colors">About Team</Link>
-            <Link to="/pricing" className="hover:text-[#FFE600] transition-colors">Pricing</Link>
-            <Link to="/contact" className="hover:text-[#FFE600] transition-colors">Contact</Link>
-            <Link to="/blog" className="hover:text-[#FFE600] transition-colors">Blog</Link>
+            <Link to="/about/" className="hover:text-[#FFE600] transition-colors">About Team</Link>
+            <Link to="/pricing/" className="hover:text-[#FFE600] transition-colors">Pricing</Link>
+            <Link to="/contact/" className="hover:text-[#FFE600] transition-colors">Contact</Link>
+            <Link to="/blog/" className="hover:text-[#FFE600] transition-colors">Blog</Link>
             {onOpenPrivacy && (
               <button type="button" onClick={onOpenPrivacy} className="hover:text-[#FFE600] transition-colors underline underline-offset-2">
                 Privacy Policy

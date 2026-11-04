@@ -19,7 +19,7 @@ export function IndustryPage() {
       <nav aria-label="Breadcrumb" className="text-xs text-bm-ink-muted">
         <ol className="flex items-center space-x-2">
           <li><Link to="/" className="hover:text-bm-navy">Home</Link></li>
-          <li className="flex items-center space-x-2"><ChevronRight className="w-3.5 h-3.5 opacity-50" /><Link to="/services" className="hover:text-bm-navy">Services</Link></li>
+          <li className="flex items-center space-x-2"><ChevronRight className="w-3.5 h-3.5 opacity-50" /><Link to="/services/" className="hover:text-bm-navy">Services</Link></li>
           <li className="flex items-center space-x-2"><ChevronRight className="w-3.5 h-3.5 opacity-50" /><span className="font-semibold text-bm-navy-deep">{ind.name}</span></li>
         </ol>
       </nav>
@@ -30,7 +30,7 @@ export function IndustryPage() {
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">{ind.answer}</p>
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <WhatsAppCTA src={`industry-${ind.slug}-hero`} intent={`I run a business in this category: ${ind.name}. Please send me a quote.`} label="Get a quote on WhatsApp" variant="primary" className="text-sm sm:text-base py-3.5 px-6 shadow-md" />
-          <Link to="/pricing" className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-white border border-bm-line hover:border-bm-brand px-5 py-3.5 rounded-xl text-bm-navy shadow-sm">
+          <Link to="/pricing/" className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-white border border-bm-line hover:border-bm-brand px-5 py-3.5 rounded-xl text-bm-navy shadow-sm">
             <span>See all pricing</span><ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -66,7 +66,7 @@ export function IndustryPage() {
             const plan = getPlanById(id)
             if (!plan) return null
             return (
-              <Link key={id} to="/pricing" className="bg-white rounded-3xl border border-bm-line hover:border-bm-brand p-6 flex flex-col gap-2 shadow-sm">
+              <Link key={id} to="/pricing/" className="bg-white rounded-3xl border border-bm-line hover:border-bm-brand p-6 flex flex-col gap-2 shadow-sm">
                 <span className="text-xs font-bold uppercase tracking-wider text-bm-ink-faint font-mono">{plan.name}</span>
                 <span className="text-3xl font-black text-bm-navy-deep">
                   {formatPrice(plan.price)}
@@ -93,8 +93,8 @@ export function IndustryPage() {
 
       <nav aria-label="Other industries" className="max-w-4xl mx-auto text-center text-xs text-bm-ink-muted space-x-4">
         <span>Also see:</span>
-        <Link to="/industries/real-estate" className="font-bold text-bm-navy hover:underline">Real Estate</Link>
-        {others.map((o) => (<Link key={o.slug} to={`/industries/${o.slug}`} className="font-bold text-bm-navy hover:underline">{o.name}</Link>))}
+        <Link to="/industries/real-estate/" className="font-bold text-bm-navy hover:underline">Real Estate</Link>
+        {others.map((o) => (<Link key={o.slug} to={`/industries/${o.slug}/`} className="font-bold text-bm-navy hover:underline">{o.name}</Link>))}
       </nav>
     </div>
   )
