@@ -52,8 +52,8 @@ export const LANDINGS: Landing[] = [
       { q: 'How long does it take?', a: 'We agree the delivery time with you in writing when you confirm the order, based on the plan and how soon your function is.' },
     ],
     related: [
-      { label: 'Website development', to: '/services/website-development' },
-      { label: 'See all pricing', to: '/pricing' },
+      { label: 'Website development', to: '/services/website-development/' },
+      { label: 'See all pricing', to: '/pricing/' },
     ],
   },
   {
@@ -91,8 +91,8 @@ export const LANDINGS: Landing[] = [
       { q: 'Do you work outside Puducherry?', a: 'Yes. We run campaigns for businesses across Tamil Nadu, including Madurai, Tiruchirappalli and Namakkal.' },
     ],
     related: [
-      { label: 'Meta Ads management', to: '/services/meta-ads' },
-      { label: 'Real estate marketing', to: '/industries/real-estate' },
+      { label: 'Meta Ads management', to: '/services/meta-ads/' },
+      { label: 'Real estate marketing', to: '/industries/real-estate/' },
     ],
   },
   {
@@ -129,8 +129,8 @@ export const LANDINGS: Landing[] = [
       { q: 'How soon will I see results?', a: 'Presence builds gradually. We report what was published and how people responded each month. We do not promise a number.' },
     ],
     related: [
-      { label: 'Instagram management', to: '/services/social-media-marketing' },
-      { label: 'Website development', to: '/services/website-development' },
+      { label: 'Instagram management', to: '/services/social-media-marketing/' },
+      { label: 'Website development', to: '/services/website-development/' },
     ],
   },
   {
@@ -166,8 +166,8 @@ export const LANDINGS: Landing[] = [
       { q: 'Is ad spend included?', a: 'No. If you want ads, Meta Ads management is a separate service and you pay Meta directly.' },
     ],
     related: [
-      { label: 'Instagram management', to: '/services/social-media-marketing' },
-      { label: 'Google Maps SEO', to: '/services/seo' },
+      { label: 'Instagram management', to: '/services/social-media-marketing/' },
+      { label: 'Google Maps SEO', to: '/services/seo/' },
     ],
   },
   {
@@ -199,8 +199,8 @@ export const LANDINGS: Landing[] = [
       { q: 'Will the review kit guarantee reviews?', a: 'No. It makes it easy for happy customers to leave one. Never pay for or write fake reviews, as Google can remove them.' },
     ],
     related: [
-      { label: 'Google Maps SEO', to: '/services/seo' },
-      { label: 'WhatsApp automation', to: '/services/whatsapp-automation' },
+      { label: 'Google Maps SEO', to: '/services/seo/' },
+      { label: 'WhatsApp automation', to: '/services/whatsapp-automation/' },
     ],
   },
 ]

@@ -301,7 +301,7 @@ export function AboutPage() {
             <h3 className="text-lg font-bold text-bm-navy-deep">We publish prices.</h3>
             <p className="text-sm text-bm-ink-muted leading-relaxed">
               Every single price is listed publicly on{' '}
-              <Link to="/pricing" className="text-bm-navy font-bold underline hover:text-bm-orange">
+              <Link to="/pricing/" className="text-bm-navy font-bold underline hover:text-bm-orange">
                 one page
               </Link>
               . You will never be quoted based on how big your office is or how much money you look like you have.

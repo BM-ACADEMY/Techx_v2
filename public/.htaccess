@@ -41,6 +41,13 @@ RewriteRule ^[^/]+\.html$ /services/ [L,R=301]
 # 3. Folders that are not pages
 RewriteRule ^(locations|industries)/?$ /services/ [L,R=301]
 
+# 3b. Pages are folders: add the missing trailing slash (permanent), so
+#     /services/seo and /services/seo/ never compete. Matches the canonicals.
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+)$ https://bmtechx.in/$1/ [L,R=301]
+
 # 4. Any other path that is not a real file or folder: serve the app (it shows its own 404)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

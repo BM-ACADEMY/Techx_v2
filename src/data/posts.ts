@@ -44,14 +44,14 @@ export const POSTS: Post[] = [
     date: '2026-10-21',
     excerpt:
       'A plain breakdown of what a single-page site, a multi-page site and an online store cost, and the questions to ask any agency before you pay.',
-    related: { label: 'See website development services', to: '/services/website-development' },
+    related: { label: 'See all published prices', to: '/pricing/' },
     blocks: [
-      { p: 'Quotes for the same website can differ by ten times. This guide explains what drives the price so you can compare quotes properly. The prices below are the ones we publish on our pricing page. All prices exclude 18% GST.' },
+      { p: 'Quotes for the same website can differ by ten times. This guide explains what drives the price so you can compare quotes properly. The prices below are the ones we publish on our [pricing page](/pricing/). All prices exclude 18% GST.' },
       { h: 'What we charge' },
       { ul: [
-        'Single-page website: {{web-single}}, delivered in 48 working hours.',
+        '[Single-page website](/services/website-development/): {{web-single}}, delivered in 48 working hours.',
         'Multi-page website: {{web-multi}}, delivered in 5 to 7 working days.',
-        'Online store: {{store}}, delivered in 7 to 10 working days.',
+        '[Online store](/services/ecommerce-website/): {{store}}, delivered in 7 to 10 working days.',
       ] },
       { h: 'Which one do you need?' },
       { p: 'A single page is enough when you need to be found, show what you do and get enquiries on WhatsApp or phone: a tutor, a clinic, a salon, a small contractor. A multi-page site suits a business with several services that each deserve their own page, because each page can appear in Google for its own search. An online store is for businesses that want to take orders and payments online.' },
@@ -66,7 +66,7 @@ export const POSTS: Post[] = [
       { h: 'Where the extra cost usually hides' },
       { p: 'Cheap quotes often leave out the domain, hosting, a contact form that actually reaches you, or the second year renewal. Expensive quotes often include meetings, project managers and custom features you may not need. Ask for a line-by-line list and remove what you will not use.' },
       { h: 'A note on honesty' },
-      { p: 'A website does not bring customers by itself. It gives people who already hear about you somewhere to check you out, and it lets Google show you to people searching for what you sell. If you also want to be found on Google Maps and in search, that is a separate monthly service, and you can see its price on the pricing page.' },
+      { p: 'A website does not bring customers by itself. It gives people who already hear about you somewhere to check you out, and it lets Google show you to people searching for what you sell. If you also want to be found on Google Maps and in search, that is a separate monthly [local SEO service](/services/seo/), and you can see its price on the pricing page.' },
     ],
   },
   {
@@ -85,7 +85,7 @@ export const POSTS: Post[] = [
       alt: 'Laptop displaying the WordPress logo, representing the WordPress vs custom-coded website decision',
       credit: { name: 'Deng Xiang', url: 'https://unsplash.com/@dengxiangs' },
     },
-    related: { label: 'See website development services', to: '/services/website-development' },
+    related: { label: 'See website development services', to: '/services/website-development/' },
     blocks: [
       { p: 'Neither option wins in every category. The right choice for a business in Pondicherry, Cuddalore, Villupuram, Dindivanam or anywhere in Tamil Nadu depends on what the website actually needs to do. This guide compares both approaches so you can decide before you invest.' },
       { h: 'WordPress vs custom-coded website: comparison table' },
@@ -253,7 +253,7 @@ export const POSTS: Post[] = [
         'WhatsApp enquiry integration',
         'Website performance and conversion improvements',
       ] },
-      { p: 'Whether you are launching your first business website or improving an existing one, start with a clear plan, a realistic budget and the features your customers actually need. You can compare our published website packages on the pricing page, starting at {{web-single}}.' },
+      { p: 'Whether you are launching your first business website or improving an existing one, start with a clear plan, a realistic budget and the features your customers actually need. You can compare our published [website development packages](/services/website-development/) on the [pricing page](/pricing/), starting at {{web-single}}.' },
 
       { h: 'Final thoughts' },
       { p: 'The WordPress vs custom-coded website debate is not about one universal winner. WordPress can be a practical, flexible choice for many small businesses. Custom development gives more control when requirements are specialised. Both need good design, security, performance work and ongoing maintenance. Identify your goals and the features you genuinely need before you spend money.' },
@@ -276,9 +276,9 @@ export const POSTS: Post[] = [
     date: '2026-10-21',
     excerpt:
       'The steps that matter on Google Maps: a complete profile, consistent details, real photos, real reviews. No tricks, no guaranteed positions.',
-    related: { label: 'See local SEO services', to: '/services/seo' },
+    related: { label: 'See local SEO services', to: '/services/seo/' },
     blocks: [
-      { p: 'When someone searches for a service near them, Google often shows a map with three or four businesses first. Your Google Business Profile decides whether you are in that list. Nobody can guarantee a position, but a few habits improve your chances.' },
+      { p: 'When someone searches for a service near them, Google often shows a map with three or four businesses first. Your [Google Business Profile](/services/seo/) decides whether you are in that list. Nobody can guarantee a position, but a few habits improve your chances.' },
       { h: '1. Claim and complete your profile' },
       { ul: [
         'Choose the most accurate primary category for what you do.',
@@ -300,7 +300,7 @@ export const POSTS: Post[] = [
       { h: '5. Post updates' },
       { p: 'A short weekly post about a new product, an offer or a tip shows the profile is active. Add a call or WhatsApp button to the post.' },
       { h: 'What to expect' },
-      { p: 'Maps visibility builds over weeks and months, depends on your competition, and cannot be guaranteed. Measure calls, direction requests and website clicks in your profile insights rather than chasing one exact position. If you would like us to handle this for you, our local SEO plans start at {{seo-starter}} per month.' },
+      { p: 'Maps visibility builds over weeks and months, depends on your competition, and cannot be guaranteed. Measure calls, direction requests and website clicks in your profile insights rather than chasing one exact position. If you would like us to handle this for you, our [local SEO plans](/services/seo/) start at {{seo-starter}} per month.' },
     ],
   },
   {
@@ -313,7 +313,7 @@ export const POSTS: Post[] = [
     date: '2026-10-21',
     excerpt:
       'Ten things to set up in the free WhatsApp Business app so enquiries are answered quickly and nothing gets lost.',
-    related: { label: 'See WhatsApp automation', to: '/services/whatsapp-automation' },
+    related: { label: 'See WhatsApp automation', to: '/services/whatsapp-automation/' },
     blocks: [
       { p: 'Most local businesses get their enquiries on WhatsApp. The free WhatsApp Business app already has tools that save time. Set these up before you think about paid automation.' },
       { h: 'The checklist' },
@@ -336,7 +336,7 @@ export const POSTS: Post[] = [
         'Reply quickly. A slow reply is the main reason enquiries go cold.',
       ] },
       { h: 'When to go beyond the app' },
-      { p: 'If you receive more enquiries than your team can answer, or you want leads logged automatically in a sheet and routed to the right person, that is where an automation system helps. WhatsApp automation is priced after a short scope call, and we will tell you honestly if the free app is enough for you.' },
+      { p: 'If you receive more enquiries than your team can answer, or you want leads logged automatically in a sheet and routed to the right person, that is where an automation system helps. [WhatsApp automation](/services/whatsapp-automation/) is priced after a short scope call, and we will tell you honestly if the free app is enough for you.' },
     ],
   },
   {
@@ -349,7 +349,7 @@ export const POSTS: Post[] = [
     date: '2026-10-21',
     excerpt:
       'The pages and details a local clinic, school or shop website needs so visitors find what they came for and contact you.',
-    related: { label: 'See website development services', to: '/services/website-development' },
+    related: { label: 'See website development services', to: '/services/website-development/' },
     blocks: [
       { p: 'Visitors to a local business website want a few things quickly: what you do, where you are, when you are open and how to reach you. Use this checklist to see what is missing.' },
       { h: 'For every business' },
@@ -378,12 +378,13 @@ export const POSTS: Post[] = [
       { h: 'Shops and restaurants' },
       { ul: [
         'Products or menu with prices.',
-        'Ways to order: call, WhatsApp or online store.',
+        'Ways to order: call, WhatsApp or an [online store](/services/ecommerce-website/).',
         'Delivery area and timings.',
         'Photos that match what customers actually receive.',
       ] },
       { h: 'Next step' },
-      { p: 'Most of these businesses are well served by a single-page site at {{web-single}} or a multi-page site at {{web-multi}}. Send us what you have on WhatsApp and we will tell you which fits.' },
+      { p: 'See what we build for [clinics](/industries/clinics/), [schools and coaching centres](/industries/schools/) and [restaurants and shops](/industries/restaurants/).' },
+      { p: 'Most of these businesses are well served by a [single-page site](/services/website-development/) at {{web-single}} or a multi-page site at {{web-multi}}. Send us what you have on WhatsApp and we will tell you which fits.' },
     ],
   },
 ]

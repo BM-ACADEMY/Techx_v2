@@ -167,7 +167,7 @@ export function BlogPage() {
               <div className="pt-5 border-t border-bm-line/60 mt-6 flex items-center justify-between">
                 <p className="text-[11px] text-bm-ink-faint">BM TechX · {new Date(post.date).toLocaleDateString('en-IN', { month: 'long', year: 'numeric' })}</p>
                 <Link
-                  to={`/blog/${post.slug}`}
+                  to={`/blog/${post.slug}/`}
                   className="text-xs font-bold text-bm-terracotta hover:underline flex items-center gap-1"
                 >
                   Read article <ArrowRight className="w-3 h-3" />
