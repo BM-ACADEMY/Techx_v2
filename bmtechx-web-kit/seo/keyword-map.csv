@@ -39,3 +39,4 @@ tier,query,intent,target_url,page_type,trigger,priority,volume_verified,notes
 6,bm techx pondicherry,brand,/,home,6,P1,NO,
 6,bm techx reviews,brand,/work/,proof,6,P2,NO,
 6,bm techx pricing,brand,/pricing/,pricing,2,P1,NO,
+3,diwali marketing ideas for small business,informational,/blog/diwali-marketing-checklist-local-business/,blog,,P2,NO,Seasonal. Refresh each October before Deepavali.
