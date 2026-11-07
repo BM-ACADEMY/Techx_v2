@@ -35,6 +35,87 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: 'diwali-marketing-checklist-local-business',
+    title: 'Diwali Marketing Checklist for Local Businesses in Puducherry',
+    description:
+      'What a shop, bakery or service business in Puducherry and Tamil Nadu can do before, during and after Diwali on Google Maps, WhatsApp and Instagram.',
+    tag: 'Festive marketing',
+    readTime: '6 min read',
+    date: '2026-11-07',
+    excerpt:
+      'Six things you can still fix the day before Deepavali, how to use WhatsApp during the rush without annoying customers, and the after-festival week most businesses skip.',
+    hero: {
+      src: 'https://images.unsplash.com/photo-1602305361939-806b254e9f47',
+      alt: 'A lit clay diya for Diwali, the festival of lights',
+      credit: { name: 'Sonika Agarwal', url: 'https://unsplash.com/@sonika_agarwal' },
+    },
+    related: { label: 'See quick-start add-ons for local businesses', to: '/services/quick-start-add-ons/' },
+    blocks: [
+      { p: 'Diwali, or Deepavali as most of Tamil Nadu calls it, is one of the busiest weeks of the year for sweet shops, bakeries, textile and jewellery stores, electronics dealers and gift sellers in Puducherry. Many last-minute buyers decide where to go from Google Maps and place their order on WhatsApp.' },
+      { p: 'This checklist is split into three parts: what you can still do in a day, how to handle the festival rush, and what to do in the week after, so that next season starts earlier and easier.' },
+      { h: 'If Diwali is tomorrow: six things you can still do today' },
+      { ul: [
+        'Set special opening hours for the festival days in your Google Business Profile, so nobody drives to a closed shutter.',
+        'Add a Google Business Profile post with one photo, your offer and a call or WhatsApp button.',
+        'Put your festive items, sweet boxes and gift hampers in your WhatsApp catalogue with clear prices.',
+        'Save quick replies for the questions you will get fifty times: price, availability, last order time and delivery area.',
+        'Update your WhatsApp away message with festival timings and when you will reply.',
+        'Pin an Instagram post or story with the offer, your timings and your location.',
+      ] },
+      { p: 'If your Google listing is not set up yet, our guide on [getting customers from Google Maps](/blog/get-customers-from-google-maps/) walks through it step by step.' },
+      { h: 'Write an offer people understand in one line' },
+      { p: 'During the festival, customers compare quickly. An offer should say what it is, what it costs, until when, and how to order, without a page of conditions.' },
+      { table: {
+        head: ['Hard to act on', 'Easy to act on'],
+        rows: [
+          ['Grand Diwali sale! Up to 50% off*', 'Kaju katli 500 g box ₹450, today and tomorrow only'],
+          ['Contact us for festive offers', 'WhatsApp "Box" to order. Last pickup 9 PM'],
+          ['Free delivery available', 'Free delivery within 5 km on orders above ₹1,000'],
+        ],
+      } },
+      { p: 'Only promise what you can deliver. If stock is limited, say so plainly. That avoids angry messages on the busiest day.' },
+      { h: 'Use WhatsApp the right way during the rush' },
+      { ul: [
+        'Message only people who have bought from you or asked to hear from you. Never buy number lists.',
+        'Broadcast lists in the WhatsApp Business app reach only contacts who have saved your number, so ask regular customers to save it.',
+        'Keep one person responsible for replies during peak hours, and use labels such as New order, Paid and Delivered.',
+        'Send one clear offer message, not five reminders. Too many messages get your number blocked or reported.',
+      ] },
+      { p: 'Our [WhatsApp Business setup checklist](/blog/whatsapp-business-setup-checklist/) covers the free app settings. If you want it done for you, the [WhatsApp catalogue and auto-reply setup](/services/quick-start-add-ons/) is a fixed {{addon-wa-catalogue}}.' },
+      { cta: { label: 'Ask about a quick WhatsApp setup', intent: 'I read the Diwali marketing checklist and want help setting up my WhatsApp catalogue and replies.' } },
+      { h: 'Send greetings that people actually open' },
+      { p: 'A festival greeting works best when it is short, personal and separate from your offer. A two-line wish from the owner in Tamil and English, with your shop name, feels warmer than a poster full of prices. Send the offer as a different message, only to people who want it.' },
+      { p: 'If you are planning an event around the festival, such as a store opening or a family function, our [digital invitations](/services/digital-invitations/) start at {{invite-basic}}.' },
+      { h: 'Facebook and Instagram ads: small radius, one offer' },
+      { p: 'If you advertise on Meta during the festival, keep it simple: one offer, a 5 to 15 km radius around the shop, and WhatsApp as the button so enquiries land where you already reply. New campaigns usually need a few days before delivery settles, so starting the night before rarely gives a fair test. Start two to three weeks ahead next time.' },
+      { p: 'We manage [Facebook and Instagram ads](/services/meta-ads/) from {{meta-ads}} a month, with your ad spend paid directly to Meta. Results depend on your offer, budget and competition, so no agency can promise a fixed number of orders.' },
+      { h: 'After Diwali: the week most businesses skip' },
+      { ul: [
+        'Send a short thank-you message to customers who ordered. No new offer, just thanks.',
+        'Ask happy customers for a Google review with a direct review link. Do not offer discounts or gifts in return; Google does not allow incentives for reviews.',
+        'Note which products sold out, which questions came again and again, and whether orders came from Maps, WhatsApp or Instagram.',
+        'Save the customers who agreed to hear from you, with their consent, for the next festival.',
+        'Write down what to fix before Karthigai Deepam, Christmas, New Year and Pongal.',
+      ] },
+      { p: 'Our [review collection kit](/services/quick-start-add-ons/) ({{addon-review-kit}}) gives you a review link, QR card and message templates to make asking easy.' },
+      { h: 'Plan the next festival season in advance' },
+      { p: 'The businesses that do well in festival weeks usually prepare a month earlier. A simple plan for next season:' },
+      { ul: [
+        'Six weeks before: a [single-page website](/services/website-development/) from {{web-single}} or an [online store](/services/ecommerce-website/) at {{store}} with your gift catalogue, if you do not have one yet.',
+        'All year: keep your Google Business Profile active with photos and posts. [Google Maps SEO](/services/seo/) starts at {{seo-starter}} a month.',
+        'Four weeks before: a content plan for Instagram with product photos and Reels. See [social media management](/services/social-media-marketing/).',
+        'Two to three weeks before: start ads, if you use them, and set up WhatsApp quick replies.',
+      ] },
+      { cta: { label: 'Plan your next festival season with us', intent: 'I read the Diwali marketing checklist and want help planning for the next festival season.' } },
+    ],
+    faqs: [
+      { q: 'Can I show special Diwali timings on Google Maps?', a: 'Yes. In your Google Business Profile you can add special hours for specific dates. Customers see them on Google Search and Maps on those days, and your regular hours stay unchanged.' },
+      { q: 'Can I send a WhatsApp broadcast to all my customers?', a: 'Broadcast lists in the WhatsApp Business app only reach people who have saved your number. Message only customers who bought from you or agreed to hear from you, and keep it to one clear message.' },
+      { q: 'Can I give a discount in exchange for a Google review?', a: 'No. Google does not allow incentives for reviews. Ask every customer the same way, with a direct link, and reply politely to every review you receive.' },
+      { q: 'Is it too late to start ads the day before Diwali?', a: 'It is usually too late to judge fairly, because new campaigns often need a few days to settle. For the next festival, start two to three weeks ahead with one clear offer and a small radius.' },
+    ],
+  },
+  {
     slug: 'website-cost-puducherry',
     title: 'How Much Does a Website Cost in Puducherry? (Published Prices, 2026)',
     description:
