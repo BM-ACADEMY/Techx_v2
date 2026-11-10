@@ -95,12 +95,15 @@ if (fs.existsSync(siteJsonPath)) {
 
 // Check Injected Schemas Across Key Pages
 const pagesToCheck = [
-  { file: 'src/pages/HomePage.tsx', schemas: ['ProfessionalService', 'FAQPage', 'WebSite'] },
+  { file: 'src/pages/HomePage.tsx', schemas: ['FAQPage', 'WebSite'] },
+  { file: 'src/lib/schema.ts', schemas: ['ProfessionalService', 'Service', 'BreadcrumbList'] },
   { file: 'src/pages/AboutPage.tsx', schemas: ['Organization', 'BreadcrumbList'] },
   { file: 'src/pages/WebsiteDevPage.tsx', schemas: ['Service', 'BreadcrumbList', 'FAQPage'] },
   { file: 'src/pages/EcommercePage.tsx', schemas: ['Service', 'BreadcrumbList', 'FAQPage'] },
   { file: 'src/pages/SeoPage.tsx', schemas: ['Service', 'BreadcrumbList', 'FAQPage'] },
-  { file: 'src/pages/WhatsAppAutomationPage.tsx', schemas: ['Service', 'BreadcrumbList'] },
+  { file: 'src/pages/WhatsAppAutomationPage.tsx', schemas: ['Service', 'BreadcrumbList', 'FAQPage'] },
+  { file: 'src/pages/MetaAdsPage.tsx', schemas: ['Service', 'BreadcrumbList', 'FAQPage'] },
+  { file: 'src/pages/SocialMediaPage.tsx', schemas: ['Service', 'BreadcrumbList', 'FAQPage'] },
   { file: 'src/pages/BlogPage.tsx', schemas: ['Blog', 'BlogPosting'] },
   { file: 'src/components/FAQ.tsx', schemas: ['FAQPage'] },
 ];
@@ -129,6 +132,40 @@ pagesToCheck.forEach(({ file, schemas }) => {
     warn(`File ${file} does not exist for schema check.`);
   }
 });
+
+// LocalBusiness: Home + Contact must use the shared builder, and the static copy in
+// index.html must match site.json (one phone, one street, one set of hours).
+console.log('\n--- 3b. LOCALBUSINESS CONSISTENCY (SEO tasks 14-16) ---');
+{
+  const read = (f) => fs.readFileSync(path.join(rootDir, f), 'utf-8');
+  const site = JSON.parse(read('src/data/site.json'));
+  const home = read('src/pages/HomePage.tsx');
+  const contact = read('src/pages/ContactPage.tsx');
+  const svc = read('src/pages/ServicePage.tsx');
+  const indexHtml = read('index.html');
+
+  assert(site.gbp && site.gbp.telephone && site.gbp.street, 'site.json has gbp.telephone and gbp.street');
+  assert(home.includes('localBusinessSchema()') && !home.includes("'ProfessionalService'"), 'HomePage uses shared localBusinessSchema() (no hardcoded copy)');
+  assert(contact.includes('localBusinessSchema()') && !contact.includes("'ProfessionalService'"), 'ContactPage uses shared localBusinessSchema() (no hardcoded copy)');
+  assert(svc.includes('serviceSchema(') && svc.includes('breadcrumbSchema(') && svc.includes('<FAQ'), 'ServicePage (/services/:slug) has Service, BreadcrumbList and FAQPage');
+
+  const ld = JSON.parse(indexHtml.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
+  assert(ld['@id'] === 'https://bmtechx.in/#localbusiness', 'index.html LocalBusiness shares @id with page-level node');
+  assert(ld.telephone === site.gbp.telephone, 'index.html telephone matches site.json gbp.telephone');
+  assert(ld.address.streetAddress === site.gbp.street, 'index.html street matches site.json gbp.street');
+  const h = site.contact.hours;
+  const ohs = [].concat(ld.openingHoursSpecification);
+  const findDay = (d) => ohs.find((o) => [].concat(o.dayOfWeek).includes(d));
+  const asRange = (o) => (o ? `${o.opens}-${o.closes}` : 'closed');
+  assert(asRange(findDay('Monday')) === h.mon_fri, `index.html Mon-Fri hours match site.json (${h.mon_fri})`);
+  assert(asRange(findDay('Saturday')) === h.sat, `index.html Saturday hours match site.json (${h.sat})`);
+  assert(asRange(findDay('Sunday')) === h.sun, `index.html Sunday hours match site.json (${h.sun})`);
+  const kit = JSON.parse(read('bmtechx-web-kit/seo/schema/localbusiness.json'));
+  const kitSat = kit.openingHoursSpecification.find((o) => [].concat(o.dayOfWeek).includes('Saturday'));
+  assert(asRange(kitSat) === h.sat, 'web-kit localbusiness.json Saturday hours match site.json');
+  if (!site.gbp.verified) warn('site.json gbp.verified is false: confirm phone, street and map pin against the Google Business Profile before deploy');
+  if (site.gbp.latitude == null) warn('site.json gbp.latitude/longitude empty: map pin (geo) is omitted until copied from the Google Business Profile');
+}
 
 // Check Team Anchors on About Page
 const aboutPath = path.join(rootDir, 'src', 'pages', 'AboutPage.tsx');

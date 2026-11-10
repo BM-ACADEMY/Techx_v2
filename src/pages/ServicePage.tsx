@@ -7,12 +7,35 @@ import { SlotsBanner } from '@/components/SlotsBanner'
 import { getLanding, LANDINGS } from '@/data/landings'
 import { getExtrasByGroup } from '@/data/dataLayer'
 import { NotFoundPage } from '@/pages/NotFoundPage'
+import { useJsonLd, breadcrumbSchema, serviceSchema } from '@/lib/schema'
 
 export function ServicePage() {
   const { slug = '' } = useParams()
   const page = getLanding(slug)
+  const plans = page ? getExtrasByGroup(page.group) : []
+
+  // Service + Breadcrumb schema (FAQPage is injected by the <FAQ> component below).
+  // Offer prices come from pricing.json via getExtrasByGroup, never typed by hand.
+  useJsonLd(
+    'service-landing-schema',
+    page
+      ? [
+          breadcrumbSchema([
+            { name: 'Services', path: '/services/' },
+            { name: page.navLabel, path: `/services/${page.slug}/` },
+          ]),
+          serviceSchema({
+            path: `/services/${page.slug}/`,
+            name: page.headline,
+            serviceType: page.navLabel,
+            description: page.answer,
+            offers: plans.map((p) => ({ name: p.name, price: p.price })),
+          }),
+        ]
+      : null,
+  )
+
   if (!page) return <NotFoundPage />
-  const plans = getExtrasByGroup(page.group)
   const cols = plans.length >= 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'
   const others = LANDINGS.filter((l) => l.slug !== page.slug)
 

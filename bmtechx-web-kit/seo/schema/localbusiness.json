@@ -1,5 +1,5 @@
 {
-  "_comment": "Home and /contact/ only. The address and telephone MUST match the Google Business Profile character for character — that is the whole point of this markup. Do not deploy while nap is PENDING in data/site.json.",
+  "_comment": "REFERENCE ONLY. Live markup is built by src/lib/schema.ts from src/data/site.json (gbp + contact.hours). Home and /contact/ only. The address and telephone MUST match the Google Business Profile character for character — that is the whole point of this markup. Do not deploy while nap is PENDING in data/site.json.",
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "@id": "https://bmtechx.in/#localbusiness",
@@ -25,15 +25,9 @@
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
       "opens": "10:00",
       "closes": "19:00"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": "Saturday",
-      "opens": "10:00",
-      "closes": "17:00"
     }
   ],
   "areaServed": [

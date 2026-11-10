@@ -28,16 +28,19 @@
     <meta name="twitter:description" content="Websites from ₹2,999, local SEO, Meta Ads and WhatsApp automation for Pondicherry businesses at published prices. Message us for a free written quote." />
     <meta name="twitter:image" content="https://bmtechx.in/og-image.png" />
 
-    <!-- Structured data: business identity only (no ratings or reviews) -->
+    <!-- Structured data: business identity only (no ratings or reviews).
+         Static copy for crawlers that skip JS. Keep telephone, street and hours identical
+         to src/data/site.json (gbp + contact.hours); the test:seo script checks this. -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
+      "@id": "https://bmtechx.in/#localbusiness",
       "name": "BM TechX",
       "legalName": "Afra Ventures Private Limited",
       "url": "https://bmtechx.in/",
       "description": "Custom-coded websites, eCommerce stores, local SEO, Meta Ads and WhatsApp automation at published fixed prices for Tamil Nadu and Puducherry businesses.",
-      "telephone": "+919944940051",
+      "telephone": "+91 99449 40051",
       "email": "admin@bmtechx.in",
       "taxID": "34ABGCA7083D1ZS",
       "address": {

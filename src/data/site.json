@@ -34,6 +34,16 @@
     "phone": "PENDING"
   },
 
+  "gbp": {
+    "_status": "VERIFY BEFORE DEPLOY. Open the BM TechX Google Business Profile and copy phone, street and map pin here character for character, then set verified to true. LocalBusiness schema on Home and Contact reads ONLY from this block (src/lib/schema.ts). Hours come from contact.hours below and must also match the GBP hours.",
+    "verified": false,
+    "telephone": "+91 99449 40051",
+    "street": "78 Lenin Street, Kosapalayam",
+    "latitude": null,
+    "longitude": null,
+    "maps_url": "https://share.google/oIMfvUhRdde6sUpcV"
+  },
+
   "contact": {
     "whatsapp": {
       "number_e164": "919944940051",

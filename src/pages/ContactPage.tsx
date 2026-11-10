@@ -15,6 +15,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import { getSiteConfig } from '@/data/dataLayer';
 import { buildWhatsAppUrl, isValidIndianMobile, openWhatsApp, sendLead } from '@/lib/whatsapp';
+import { localBusinessSchema } from '@/lib/schema';
 
 export function ContactPage() {
   const site = getSiteConfig();
@@ -62,38 +63,8 @@ export function ContactPage() {
           description:
             'Message us on WhatsApp and get a written scope and price before you pay anything. Based in Puducherry, working across Tamil Nadu.',
         },
-        {
-          '@type': 'ProfessionalService',
-          '@id': 'https://bmtechx.in/#localbusiness',
-          name: 'BM TechX',
-          url: 'https://bmtechx.in',
-          telephone: site.contact.calls.display,
-          priceRange: '₹₹',
-          address: {
-            '@type': 'PostalAddress',
-            streetAddress: site.entity.registered_address.street,
-            addressLocality: site.entity.registered_address.locality,
-            addressRegion: site.entity.registered_address.region,
-            postalCode: site.entity.registered_address.postal_code,
-            addressCountry: site.entity.registered_address.country,
-          },
-          openingHoursSpecification: [
-            {
-              '@type': 'OpeningHoursSpecification',
-              dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-              opens: '10:00',
-              closes: '19:00',
-            },
-          ],
-          areaServed: [
-            { '@type': 'City', name: 'Puducherry' },
-            { '@type': 'City', name: 'Cuddalore' },
-            { '@type': 'City', name: 'Villupuram' },
-            { '@type': 'City', name: 'Chennai' },
-            { '@type': 'City', name: 'Madurai' },
-          ],
-          knowsLanguage: ['en', 'ta'],
-        },
+        // LocalBusiness: phone, address, map pin and hours all come from site.json
+        localBusinessSchema(),
       ],
     };
 

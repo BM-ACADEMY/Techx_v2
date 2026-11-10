@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -21,6 +20,7 @@ import { CaseStudyCard } from '@/components/CaseStudyCard';
 import { NotForBlock } from '@/components/NotForBlock';
 import { FAQ } from '@/components/FAQ';
 import { getSiteConfig } from '@/data/dataLayer';
+import { useJsonLd, localBusinessSchema } from '@/lib/schema';
 
 interface HomePageProps {
   onOpenQuote?: (service?: string) => void;
@@ -29,78 +29,18 @@ interface HomePageProps {
 export function HomePage({ onOpenQuote }: HomePageProps) {
   const site = getSiteConfig();
 
-  useEffect(() => {
-
-    const homeSchema = {
-      '@context': 'https://schema.org',
-      '@graph': [
-        {
-          '@type': 'WebSite',
-          '@id': 'https://bmtechx.in/#website',
-          'url': 'https://bmtechx.in/',
-          'name': 'BM TechX',
-          'description': 'Fixed-price digital growth for Tamil Nadu businesses',
-          'publisher': { '@id': 'https://bmtechx.in/#organization' },
-        },
-        {
-          '@type': 'ProfessionalService',
-          '@id': 'https://bmtechx.in/#localbusiness',
-          'name': 'BM TechX',
-          'image': 'https://bmtechx.in/og-image.png',
-          'url': 'https://bmtechx.in',
-          'telephone': '+91-99449-40051',
-          'priceRange': '₹₹',
-          'parentOrganization': { '@id': 'https://bmtechx.in/#organization' },
-          'address': {
-            '@type': 'PostalAddress',
-            'streetAddress': '78 Lenin Street, Kosapalayam',
-            'addressLocality': 'Puducherry',
-            'addressRegion': 'Puducherry',
-            'postalCode': '605013',
-            'addressCountry': 'IN',
-          },
-          'geo': {
-            '@type': 'GeoCoordinates',
-            'latitude': 11.9338,
-            'longitude': 79.8297,
-          },
-          'openingHoursSpecification': [
-            {
-              '@type': 'OpeningHoursSpecification',
-              'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-              'opens': '10:00',
-              'closes': '19:00',
-            },
-            {
-              '@type': 'OpeningHoursSpecification',
-              'dayOfWeek': 'Saturday',
-              'opens': '10:00',
-              'closes': '17:00',
-            },
-          ],
-          'areaServed': [
-            { '@type': 'City', 'name': 'Puducherry' },
-            { '@type': 'City', 'name': 'Cuddalore' },
-            { '@type': 'City', 'name': 'Villupuram' },
-            { '@type': 'City', 'name': 'Chennai' },
-            { '@type': 'City', 'name': 'Madurai' },
-          ],
-          'knowsLanguage': ['en', 'ta'],
-        },
-      ],
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'home-schema';
-    script.text = JSON.stringify(homeSchema);
-    document.head.appendChild(script);
-
-    return () => {
-      const existing = document.getElementById('home-schema');
-      if (existing) existing.remove();
-    };
-  }, []);
+  useJsonLd('home-schema', [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://bmtechx.in/#website',
+      'url': 'https://bmtechx.in/',
+      'name': 'BM TechX',
+      'description': 'Fixed-price digital growth for Tamil Nadu businesses',
+      'publisher': { '@id': 'https://bmtechx.in/#organization' },
+    },
+    // LocalBusiness: phone, address, map pin and hours all come from site.json
+    localBusinessSchema(),
+  ]);
 
   const homeFaqItems = [
     {
