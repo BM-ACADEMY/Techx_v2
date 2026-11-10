@@ -194,7 +194,7 @@ export function MetaAdsPage({ onOpenQuote }: MetaAdsPageProps) {
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
-          Facebook and Instagram ads that bring enquiries
+          Facebook and Instagram ads agency in Pondicherry that brings enquiries
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">

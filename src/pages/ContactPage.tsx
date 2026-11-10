@@ -217,7 +217,7 @@ export function ContactPage() {
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
-          Talk to us on WhatsApp
+          Contact BM TechX in Puducherry: talk to us on WhatsApp
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">

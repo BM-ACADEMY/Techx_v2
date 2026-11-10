@@ -15,6 +15,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const path = location.pathname.replace(/\/+$/, '') || '/';
   const site = getSiteConfig();
 
   useEffect(() => {
@@ -50,25 +51,25 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
   };
 
   const services = [
-    { label: 'All Services Overview', href: '/services' },
-    { label: 'Website Development (₹2,999)', href: '/services/website-development' },
-    { label: 'eCommerce Store (₹9,999)', href: '/services/ecommerce-website' },
-    { label: 'Google Maps SEO (From ₹2,999/mo)', href: '/services/seo' },
-    { label: 'Meta & Facebook Ads (₹4,999/mo)', href: '/services/meta-ads' },
-    { label: 'Instagram Management (From ₹7,999/mo)', href: '/services/social-media-marketing' },
-    { label: 'WhatsApp Automation (LeadOS)', href: '/services/whatsapp-automation' },
-    { label: 'Digital Invitations (From ₹999)', href: '/services/digital-invitations' },
-    { label: 'Verified Leads (From ₹12,000)', href: '/services/lead-generation' },
-    { label: 'Personal Branding (From ₹9,999/mo)', href: '/services/personal-branding' },
-    { label: 'Catering & Food Branding (From ₹6,999/mo)', href: '/services/catering-branding' },
-    { label: 'Quick-Start Add-Ons (From ₹999)', href: '/services/quick-start-add-ons' },
-    { label: 'Real Estate Marketing', href: '/industries/real-estate' },
-    { label: 'Clinic Websites', href: '/industries/clinics' },
-    { label: 'Doctor & Dentist Branding', href: '/industries/doctors-dentists' },
-    { label: 'Professional Branding', href: '/industries/professionals' },
-    { label: 'Coach & Educator Branding', href: '/industries/coaches-educators' },
-    { label: 'School Websites', href: '/industries/schools' },
-    { label: 'Restaurant & Shop Websites', href: '/industries/restaurants' },
+    { label: 'All Services Overview', href: '/services/' },
+    { label: 'Website Development (₹2,999)', href: '/services/website-development/' },
+    { label: 'eCommerce Store (₹9,999)', href: '/services/ecommerce-website/' },
+    { label: 'Google Maps SEO (From ₹2,999/mo)', href: '/services/seo/' },
+    { label: 'Meta & Facebook Ads (₹4,999/mo)', href: '/services/meta-ads/' },
+    { label: 'Instagram Management (From ₹7,999/mo)', href: '/services/social-media-marketing/' },
+    { label: 'WhatsApp Automation (LeadOS)', href: '/services/whatsapp-automation/' },
+    { label: 'Digital Invitations (From ₹999)', href: '/services/digital-invitations/' },
+    { label: 'Verified Leads (From ₹12,000)', href: '/services/lead-generation/' },
+    { label: 'Personal Branding (From ₹9,999/mo)', href: '/services/personal-branding/' },
+    { label: 'Catering & Food Branding (From ₹6,999/mo)', href: '/services/catering-branding/' },
+    { label: 'Quick-Start Add-Ons (From ₹999)', href: '/services/quick-start-add-ons/' },
+    { label: 'Real Estate Marketing', href: '/industries/real-estate/' },
+    { label: 'Clinic Websites', href: '/industries/clinics/' },
+    { label: 'Doctor & Dentist Branding', href: '/industries/doctors-dentists/' },
+    { label: 'Professional Branding', href: '/industries/professionals/' },
+    { label: 'Coach & Educator Branding', href: '/industries/coaches-educators/' },
+    { label: 'School Websites', href: '/industries/schools/' },
+    { label: 'Restaurant & Shop Websites', href: '/industries/restaurants/' },
   ];
 
   return (
@@ -85,7 +86,9 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
         <Link to="/" className="flex items-center gap-3 group" aria-label="BM TechX Home">
           <span className="bg-[#0A0B0E] rounded-xl px-3 py-1.5 flex items-center shadow-sm transition-transform duration-300 group-hover:-rotate-1 group-hover:scale-105">
           <img
-            src="/logo.png"
+            src="/logo.webp"
+            width={364}
+            height={108}
             alt="BM TechX Official Logo"
             className="h-6 sm:h-7 w-auto object-contain"
           />
@@ -106,7 +109,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
           <Link
             to="/"
             className={`hover:text-black transition-colors py-1 ${
-              location.pathname === '/' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
+              path === '/' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Home
@@ -153,45 +156,45 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
           </div>
 
           <Link
-            to="/pricing"
+            to="/pricing/"
             className={`hover:text-black transition-colors py-1 ${
-              location.pathname === '/pricing' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
+              path === '/pricing' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Pricing
           </Link>
 
           <Link
-            to="/work"
+            to="/work/"
             className={`hover:text-black transition-colors py-1 ${
-              location.pathname === '/work' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
+              path === '/work' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Our Work
           </Link>
 
           <Link
-            to="/about"
+            to="/about/"
             className={`hover:text-black transition-colors py-1 ${
-              location.pathname === '/about' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
+              path === '/about' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             About
           </Link>
 
           <Link
-            to="/blog"
+            to="/blog/"
             className={`hover:text-black transition-colors py-1 ${
-              location.pathname === '/blog' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
+              path === '/blog' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Blog
           </Link>
 
           <Link
-            to="/contact"
+            to="/contact/"
             className={`hover:text-black transition-colors py-1 ${
-              location.pathname === '/contact' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
+              path === '/contact' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
             }`}
           >
             Contact
@@ -256,19 +259,19 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
               </Link>
             ))}
           </div>
-          <Link to="/pricing" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
+          <Link to="/pricing/" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             Pricing Plans (from ₹2,999)
           </Link>
-          <Link to="/work" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
+          <Link to="/work/" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             Our Work / Case Studies
           </Link>
-          <Link to="/about" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
+          <Link to="/about/" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             About BM TechX
           </Link>
-          <Link to="/blog" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
+          <Link to="/blog/" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             Blog & Guides
           </Link>
-          <Link to="/contact" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
+          <Link to="/contact/" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             Contact & WhatsApp
           </Link>
 

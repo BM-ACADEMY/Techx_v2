@@ -46,7 +46,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
           '@type': 'ProfessionalService',
           '@id': 'https://bmtechx.in/#localbusiness',
           'name': 'BM TechX',
-          'image': 'https://bmtechx.in/assets/office.jpg',
+          'image': 'https://bmtechx.in/og-image.png',
           'url': 'https://bmtechx.in',
           'telephone': '+91-99449-40051',
           'priceRange': '₹₹',
@@ -169,8 +169,8 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
           </div>
 
           <h1 className="hero-in text-[2.4rem] leading-[1.05] sm:text-6xl lg:text-7xl font-extrabold text-[#0A0B0E] font-display" style={{ ['--d' as string]: '120ms' }}>
-            Fixed-price digital growth for{' '}
-            <span className="text-gradient-mustard">Tamil Nadu businesses</span>
+            Fixed-price digital marketing agency in{' '}
+            <span className="text-gradient-mustard">Pondicherry</span>
           </h1>
 
           <p className="hero-in text-base sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed" style={{ ['--d' as string]: '260ms' }}>
@@ -191,7 +191,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
               size="lg"
               className="w-full sm:w-auto text-base font-extrabold rounded-2xl border-2 border-black hover:border-black text-black bg-white hover:bg-black hover:text-white transition-all shadow-sm"
             >
-              <Link to="/pricing">See all prices →</Link>
+              <Link to="/pricing/">See all prices →</Link>
             </Button>
           </div>
 
@@ -278,7 +278,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
               </p>
             </div>
             <Link
-              to="/pricing"
+              to="/pricing/"
               className="text-xs font-bold text-black hover:underline inline-flex items-center gap-1"
             >
               View Full Rate Card <ArrowRight className="w-3.5 h-3.5" />
@@ -305,7 +305,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
 
               <div className="pt-4 mt-4 border-t border-[#E2E8F0]">
                 <Link
-                  to="/services/website-development"
+                  to="/services/website-development/"
                   className="text-xs font-bold text-black hover:text-slate-700 flex items-center justify-between"
                 >
                   <span>Explore Website Specs</span>
@@ -336,7 +336,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
 
               <div className="pt-4 mt-4 border-t border-[#F1F5F9]">
                 <Link
-                  to="/services/ecommerce-website"
+                  to="/services/ecommerce-website/"
                   className="text-xs font-bold text-black hover:text-slate-700 flex items-center justify-between"
                 >
                   <span>Explore eCommerce Specs</span>
@@ -367,7 +367,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
 
               <div className="pt-4 mt-4 border-t border-[#E2E8F0]">
                 <Link
-                  to="/services/seo"
+                  to="/services/seo/"
                   className="text-xs font-bold text-black hover:text-slate-700 flex items-center justify-between"
                 >
                   <span>Explore SEO Tiers</span>
@@ -473,7 +473,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
               </p>
             </div>
             <Link
-              to="/services/website-development"
+              to="/services/website-development/"
               className="mt-4 pt-4 border-t border-[#F1F5F9] text-xs font-bold text-black hover:text-slate-600 flex items-center justify-between"
             >
               <span>Explore Website Specs</span>
@@ -498,7 +498,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
               </p>
             </div>
             <Link
-              to="/services/ecommerce-website"
+              to="/services/ecommerce-website/"
               className="mt-4 pt-4 border-t border-[#F1F5F9] text-xs font-bold text-black hover:text-slate-600 flex items-center justify-between"
             >
               <span>Explore Store Specs</span>
@@ -523,7 +523,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
               </p>
             </div>
             <Link
-              to="/services/seo"
+              to="/services/seo/"
               className="mt-4 pt-4 border-t border-[#F1F5F9] text-xs font-bold text-black hover:text-slate-600 flex items-center justify-between"
             >
               <span>Explore SEO Plans</span>
@@ -548,7 +548,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
               </p>
             </div>
             <Link
-              to="/services/meta-ads"
+              to="/services/meta-ads/"
               className="mt-4 pt-4 border-t border-[#F1F5F9] text-xs font-bold text-black hover:text-slate-600 flex items-center justify-between"
             >
               <span>Explore Meta Ads</span>
@@ -573,7 +573,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
               </p>
             </div>
             <Link
-              to="/services/social-media-marketing"
+              to="/services/social-media-marketing/"
               className="mt-4 pt-4 border-t border-[#F1F5F9] text-xs font-bold text-black hover:text-slate-600 flex items-center justify-between"
             >
               <span>Explore Social Plans</span>
@@ -598,7 +598,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
               </p>
             </div>
             <Link
-              to="/services/whatsapp-automation"
+              to="/services/whatsapp-automation/"
               className="mt-4 pt-4 border-t border-[#F1F5F9] text-xs font-bold text-black hover:text-slate-600 flex items-center justify-between"
             >
               <span>Explore Automation</span>
@@ -779,7 +779,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
               size="lg"
               className="w-full sm:w-auto text-base font-extrabold rounded-2xl bg-transparent border-2 border-white text-white hover:bg-white hover:text-black transition-all"
             >
-              <Link to="/pricing">See all prices →</Link>
+              <Link to="/pricing/">See all prices →</Link>
             </Button>
           </div>
         </div>

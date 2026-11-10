@@ -7,10 +7,10 @@ import { formatPrice, getPlanById } from '@/data/dataLayer'
 import { NotFoundPage } from '@/pages/NotFoundPage'
 
 const SERVICES = [
-  { id: 'web-single', label: 'Single-page website', to: '/services/website-development', note: 'Delivered in 48 working hours' },
-  { id: 'web-multi', label: 'Multi-page website', to: '/services/website-development', note: '5 to 7 working days' },
-  { id: 'store', label: 'Online store', to: '/services/ecommerce-website', note: 'No software renewal fee' },
-  { id: 'seo-starter', label: 'Local SEO', to: '/services/seo', note: 'Per month' },
+  { id: 'web-single', label: 'Single-page website', to: '/services/website-development/', note: 'Delivered in 48 working hours' },
+  { id: 'web-multi', label: 'Multi-page website', to: '/services/website-development/', note: '5 to 7 working days' },
+  { id: 'store', label: 'Online store', to: '/services/ecommerce-website/', note: 'No software renewal fee' },
+  { id: 'seo-starter', label: 'Local SEO', to: '/services/seo/', note: 'Per month' },
 ] as const
 
 export function LocationPage() {
@@ -29,7 +29,7 @@ export function LocationPage() {
           </li>
           <li className="flex items-center space-x-2">
             <ChevronRight className="w-3.5 h-3.5 opacity-50" />
-            <Link to="/services" className="hover:text-bm-navy transition-colors">Services</Link>
+            <Link to="/services/" className="hover:text-bm-navy transition-colors">Services</Link>
           </li>
           <li className="flex items-center space-x-2">
             <ChevronRight className="w-3.5 h-3.5 opacity-50" />
@@ -58,7 +58,7 @@ export function LocationPage() {
             className="text-sm sm:text-base py-3.5 px-6 shadow-md"
           />
           <Link
-            to="/pricing"
+            to="/pricing/"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-white border border-bm-line hover:border-bm-brand px-5 py-3.5 rounded-xl text-bm-navy transition-colors shadow-sm"
           >
             <span>See all pricing</span>
@@ -107,7 +107,7 @@ export function LocationPage() {
         </div>
         <p className="text-center text-xs text-bm-ink-muted">
           Meta Ads, social media and WhatsApp automation are on the{' '}
-          <Link to="/pricing" className="font-bold text-bm-navy hover:underline">pricing page</Link>.
+          <Link to="/pricing/" className="font-bold text-bm-navy hover:underline">pricing page</Link>.
         </p>
       </section>
 
@@ -167,7 +167,7 @@ export function LocationPage() {
       <nav aria-label="Other locations" className="max-w-4xl mx-auto text-center text-xs text-bm-ink-muted space-x-4">
         <span>We also serve:</span>
         {others.map((o) => (
-          <Link key={o.slug} to={`/locations/${o.slug}`} className="font-bold text-bm-navy hover:underline">
+          <Link key={o.slug} to={`/locations/${o.slug}/`} className="font-bold text-bm-navy hover:underline">
             {o.city}
           </Link>
         ))}

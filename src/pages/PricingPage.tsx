@@ -55,7 +55,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
 
         <div className="flex justify-center"><SlotsBanner /></div>
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
-          Every price. On this page.
+          Website and digital marketing prices in Pondicherry. Every price, on this page.
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">
@@ -106,7 +106,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
         <div className="space-y-6">
           <div className="flex items-center justify-between border-b border-bm-line/60 pb-3">
             <h3 className="text-xl font-bold text-bm-navy-deep">Google Maps SEO</h3>
-            <Link to="/services/seo" className="text-xs font-bold text-bm-navy hover:text-bm-terracotta flex items-center gap-1">
+            <Link to="/services/seo/" className="text-xs font-bold text-bm-navy hover:text-bm-terracotta flex items-center gap-1">
               Explore SEO Deliverables <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -204,7 +204,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
             <p className="text-xs sm:text-sm text-bm-ink-muted leading-relaxed">
               Depends on conversation volume and how much business logic the bot needs to handle (menu branching, CRM syncing, order handling). Quoted accurately after a 20-minute discovery call.
             </p>
-            <Link to="/services/whatsapp-automation" className="text-xs font-bold text-bm-navy hover:text-bm-terracotta inline-flex items-center gap-1 pt-2">
+            <Link to="/services/whatsapp-automation/" className="text-xs font-bold text-bm-navy hover:text-bm-terracotta inline-flex items-center gap-1 pt-2">
               Learn about WhatsApp Automation <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -217,7 +217,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
             <p className="text-xs sm:text-sm text-bm-ink-muted leading-relaxed">
               Booking systems, client portals, internal ERP tools, and custom database integrations. Every business workflow is unique, so we quote strictly based on verified milestones.
             </p>
-            <Link to="/work" className="text-xs font-bold text-bm-navy hover:text-bm-terracotta inline-flex items-center gap-1 pt-2">
+            <Link to="/work/" className="text-xs font-bold text-bm-navy hover:text-bm-terracotta inline-flex items-center gap-1 pt-2">
               View Custom Code Case Studies <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>

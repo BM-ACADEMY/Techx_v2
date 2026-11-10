@@ -65,19 +65,19 @@ export function WorkPage({ onOpenQuote }: WorkPageProps) {
               '@type': 'Article',
               position: 1,
               headline: 'Real Estate Multi-City Lead Generation (500 Verified Leads)',
-              url: 'https://bmtechx.in/work/real-estate-multi-city/',
+              url: 'https://bmtechx.in/work/#real-estate-multi-city',
             },
             {
               '@type': 'Article',
               position: 2,
               headline: 'Boutique Villa SEO in Pondicherry (Growth Plan)',
-              url: 'https://bmtechx.in/work/pondicherry-villa-seo/',
+              url: 'https://bmtechx.in/work/#pondicherry-villa-seo',
             },
             {
               '@type': 'Article',
               position: 3,
               headline: 'Custom Hotel Room Booking Platform',
-              url: 'https://bmtechx.in/work/hotel-booking-system/',
+              url: 'https://bmtechx.in/work/#hotel-booking-system',
             },
           ],
         },
@@ -232,7 +232,7 @@ export function WorkPage({ onOpenQuote }: WorkPageProps) {
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
-          What we have actually delivered
+          Website, SEO and ads work we have actually delivered
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">
@@ -304,7 +304,8 @@ export function WorkPage({ onOpenQuote }: WorkPageProps) {
             return (
               <div
                 key={study.id}
-                className="bg-white rounded-3xl border border-bm-line p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-bm-brand-soft transition-all space-y-6"
+                id={study.id}
+                className="scroll-mt-28 bg-white rounded-3xl border border-bm-line p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-bm-brand-soft transition-all space-y-6"
               >
                 <div className="space-y-4">
                   {/* Category & City */}

@@ -35,6 +35,87 @@ export interface Post {
 
 export const POSTS: Post[] = [
   {
+    slug: 'diwali-marketing-checklist-local-business',
+    title: 'Diwali Marketing Checklist for Local Businesses in Puducherry',
+    description:
+      'What a shop, bakery or service business in Puducherry and Tamil Nadu can do before, during and after Diwali on Google Maps, WhatsApp and Instagram.',
+    tag: 'Festive marketing',
+    readTime: '6 min read',
+    date: '2026-11-07',
+    excerpt:
+      'Six things you can still fix the day before Deepavali, how to use WhatsApp during the rush without annoying customers, and the after-festival week most businesses skip.',
+    hero: {
+      src: 'https://images.unsplash.com/photo-1602305361939-806b254e9f47',
+      alt: 'A lit clay diya for Diwali, the festival of lights',
+      credit: { name: 'Sonika Agarwal', url: 'https://unsplash.com/@sonika_agarwal' },
+    },
+    related: { label: 'See quick-start add-ons for local businesses', to: '/services/quick-start-add-ons/' },
+    blocks: [
+      { p: 'Diwali, or Deepavali as most of Tamil Nadu calls it, is one of the busiest weeks of the year for sweet shops, bakeries, textile and jewellery stores, electronics dealers and gift sellers in Puducherry. Many last-minute buyers decide where to go from Google Maps and place their order on WhatsApp.' },
+      { p: 'This checklist is split into three parts: what you can still do in a day, how to handle the festival rush, and what to do in the week after, so that next season starts earlier and easier.' },
+      { h: 'If Diwali is tomorrow: six things you can still do today' },
+      { ul: [
+        'Set special opening hours for the festival days in your Google Business Profile, so nobody drives to a closed shutter.',
+        'Add a Google Business Profile post with one photo, your offer and a call or WhatsApp button.',
+        'Put your festive items, sweet boxes and gift hampers in your WhatsApp catalogue with clear prices.',
+        'Save quick replies for the questions you will get fifty times: price, availability, last order time and delivery area.',
+        'Update your WhatsApp away message with festival timings and when you will reply.',
+        'Pin an Instagram post or story with the offer, your timings and your location.',
+      ] },
+      { p: 'If your Google listing is not set up yet, our guide on [getting customers from Google Maps](/blog/get-customers-from-google-maps/) walks through it step by step.' },
+      { h: 'Write an offer people understand in one line' },
+      { p: 'During the festival, customers compare quickly. An offer should say what it is, what it costs, until when, and how to order, without a page of conditions.' },
+      { table: {
+        head: ['Hard to act on', 'Easy to act on'],
+        rows: [
+          ['Grand Diwali sale! Up to 50% off*', 'Kaju katli 500 g box ₹450, today and tomorrow only'],
+          ['Contact us for festive offers', 'WhatsApp "Box" to order. Last pickup 9 PM'],
+          ['Free delivery available', 'Free delivery within 5 km on orders above ₹1,000'],
+        ],
+      } },
+      { p: 'Only promise what you can deliver. If stock is limited, say so plainly. That avoids angry messages on the busiest day.' },
+      { h: 'Use WhatsApp the right way during the rush' },
+      { ul: [
+        'Message only people who have bought from you or asked to hear from you. Never buy number lists.',
+        'Broadcast lists in the WhatsApp Business app reach only contacts who have saved your number, so ask regular customers to save it.',
+        'Keep one person responsible for replies during peak hours, and use labels such as New order, Paid and Delivered.',
+        'Send one clear offer message, not five reminders. Too many messages get your number blocked or reported.',
+      ] },
+      { p: 'Our [WhatsApp Business setup checklist](/blog/whatsapp-business-setup-checklist/) covers the free app settings. If you want it done for you, the [WhatsApp catalogue and auto-reply setup](/services/quick-start-add-ons/) is a fixed {{addon-wa-catalogue}}.' },
+      { cta: { label: 'Ask about a quick WhatsApp setup', intent: 'I read the Diwali marketing checklist and want help setting up my WhatsApp catalogue and replies.' } },
+      { h: 'Send greetings that people actually open' },
+      { p: 'A festival greeting works best when it is short, personal and separate from your offer. A two-line wish from the owner in Tamil and English, with your shop name, feels warmer than a poster full of prices. Send the offer as a different message, only to people who want it.' },
+      { p: 'If you are planning an event around the festival, such as a store opening or a family function, our [digital invitations](/services/digital-invitations/) start at {{invite-basic}}.' },
+      { h: 'Facebook and Instagram ads: small radius, one offer' },
+      { p: 'If you advertise on Meta during the festival, keep it simple: one offer, a 5 to 15 km radius around the shop, and WhatsApp as the button so enquiries land where you already reply. New campaigns usually need a few days before delivery settles, so starting the night before rarely gives a fair test. Start two to three weeks ahead next time.' },
+      { p: 'We manage [Facebook and Instagram ads](/services/meta-ads/) from {{meta-ads}} a month, with your ad spend paid directly to Meta. Results depend on your offer, budget and competition, so no agency can promise a fixed number of orders.' },
+      { h: 'After Diwali: the week most businesses skip' },
+      { ul: [
+        'Send a short thank-you message to customers who ordered. No new offer, just thanks.',
+        'Ask happy customers for a Google review with a direct review link. Do not offer discounts or gifts in return; Google does not allow incentives for reviews.',
+        'Note which products sold out, which questions came again and again, and whether orders came from Maps, WhatsApp or Instagram.',
+        'Save the customers who agreed to hear from you, with their consent, for the next festival.',
+        'Write down what to fix before Karthigai Deepam, Christmas, New Year and Pongal.',
+      ] },
+      { p: 'Our [review collection kit](/services/quick-start-add-ons/) ({{addon-review-kit}}) gives you a review link, QR card and message templates to make asking easy.' },
+      { h: 'Plan the next festival season in advance' },
+      { p: 'The businesses that do well in festival weeks usually prepare a month earlier. A simple plan for next season:' },
+      { ul: [
+        'Six weeks before: a [single-page website](/services/website-development/) from {{web-single}} or an [online store](/services/ecommerce-website/) at {{store}} with your gift catalogue, if you do not have one yet.',
+        'All year: keep your Google Business Profile active with photos and posts. [Google Maps SEO](/services/seo/) starts at {{seo-starter}} a month.',
+        'Four weeks before: a content plan for Instagram with product photos and Reels. See [social media management](/services/social-media-marketing/).',
+        'Two to three weeks before: start ads, if you use them, and set up WhatsApp quick replies.',
+      ] },
+      { cta: { label: 'Plan your next festival season with us', intent: 'I read the Diwali marketing checklist and want help planning for the next festival season.' } },
+    ],
+    faqs: [
+      { q: 'Can I show special Diwali timings on Google Maps?', a: 'Yes. In your Google Business Profile you can add special hours for specific dates. Customers see them on Google Search and Maps on those days, and your regular hours stay unchanged.' },
+      { q: 'Can I send a WhatsApp broadcast to all my customers?', a: 'Broadcast lists in the WhatsApp Business app only reach people who have saved your number. Message only customers who bought from you or agreed to hear from you, and keep it to one clear message.' },
+      { q: 'Can I give a discount in exchange for a Google review?', a: 'No. Google does not allow incentives for reviews. Ask every customer the same way, with a direct link, and reply politely to every review you receive.' },
+      { q: 'Is it too late to start ads the day before Diwali?', a: 'It is usually too late to judge fairly, because new campaigns often need a few days to settle. For the next festival, start two to three weeks ahead with one clear offer and a small radius.' },
+    ],
+  },
+  {
     slug: 'website-cost-puducherry',
     title: 'How Much Does a Website Cost in Puducherry? (Published Prices, 2026)',
     description:
@@ -44,14 +125,14 @@ export const POSTS: Post[] = [
     date: '2026-10-21',
     excerpt:
       'A plain breakdown of what a single-page site, a multi-page site and an online store cost, and the questions to ask any agency before you pay.',
-    related: { label: 'See website development services', to: '/services/website-development' },
+    related: { label: 'See all published prices', to: '/pricing/' },
     blocks: [
-      { p: 'Quotes for the same website can differ by ten times. This guide explains what drives the price so you can compare quotes properly. The prices below are the ones we publish on our pricing page. All prices exclude 18% GST.' },
+      { p: 'Quotes for the same website can differ by ten times. This guide explains what drives the price so you can compare quotes properly. The prices below are the ones we publish on our [pricing page](/pricing/). All prices exclude 18% GST.' },
       { h: 'What we charge' },
       { ul: [
-        'Single-page website: {{web-single}}, delivered in 48 working hours.',
+        '[Single-page website](/services/website-development/): {{web-single}}, delivered in 48 working hours.',
         'Multi-page website: {{web-multi}}, delivered in 5 to 7 working days.',
-        'Online store: {{store}}, delivered in 7 to 10 working days.',
+        '[Online store](/services/ecommerce-website/): {{store}}, delivered in 7 to 10 working days.',
       ] },
       { h: 'Which one do you need?' },
       { p: 'A single page is enough when you need to be found, show what you do and get enquiries on WhatsApp or phone: a tutor, a clinic, a salon, a small contractor. A multi-page site suits a business with several services that each deserve their own page, because each page can appear in Google for its own search. An online store is for businesses that want to take orders and payments online.' },
@@ -66,7 +147,7 @@ export const POSTS: Post[] = [
       { h: 'Where the extra cost usually hides' },
       { p: 'Cheap quotes often leave out the domain, hosting, a contact form that actually reaches you, or the second year renewal. Expensive quotes often include meetings, project managers and custom features you may not need. Ask for a line-by-line list and remove what you will not use.' },
       { h: 'A note on honesty' },
-      { p: 'A website does not bring customers by itself. It gives people who already hear about you somewhere to check you out, and it lets Google show you to people searching for what you sell. If you also want to be found on Google Maps and in search, that is a separate monthly service, and you can see its price on the pricing page.' },
+      { p: 'A website does not bring customers by itself. It gives people who already hear about you somewhere to check you out, and it lets Google show you to people searching for what you sell. If you also want to be found on Google Maps and in search, that is a separate monthly [local SEO service](/services/seo/), and you can see its price on the pricing page.' },
     ],
   },
   {
@@ -85,7 +166,7 @@ export const POSTS: Post[] = [
       alt: 'Laptop displaying the WordPress logo, representing the WordPress vs custom-coded website decision',
       credit: { name: 'Deng Xiang', url: 'https://unsplash.com/@dengxiangs' },
     },
-    related: { label: 'See website development services', to: '/services/website-development' },
+    related: { label: 'See website development services', to: '/services/website-development/' },
     blocks: [
       { p: 'Neither option wins in every category. The right choice for a business in Pondicherry, Cuddalore, Villupuram, Dindivanam or anywhere in Tamil Nadu depends on what the website actually needs to do. This guide compares both approaches so you can decide before you invest.' },
       { h: 'WordPress vs custom-coded website: comparison table' },
@@ -253,7 +334,7 @@ export const POSTS: Post[] = [
         'WhatsApp enquiry integration',
         'Website performance and conversion improvements',
       ] },
-      { p: 'Whether you are launching your first business website or improving an existing one, start with a clear plan, a realistic budget and the features your customers actually need. You can compare our published website packages on the pricing page, starting at {{web-single}}.' },
+      { p: 'Whether you are launching your first business website or improving an existing one, start with a clear plan, a realistic budget and the features your customers actually need. You can compare our published [website development packages](/services/website-development/) on the [pricing page](/pricing/), starting at {{web-single}}.' },
 
       { h: 'Final thoughts' },
       { p: 'The WordPress vs custom-coded website debate is not about one universal winner. WordPress can be a practical, flexible choice for many small businesses. Custom development gives more control when requirements are specialised. Both need good design, security, performance work and ongoing maintenance. Identify your goals and the features you genuinely need before you spend money.' },
@@ -276,9 +357,9 @@ export const POSTS: Post[] = [
     date: '2026-10-21',
     excerpt:
       'The steps that matter on Google Maps: a complete profile, consistent details, real photos, real reviews. No tricks, no guaranteed positions.',
-    related: { label: 'See local SEO services', to: '/services/seo' },
+    related: { label: 'See local SEO services', to: '/services/seo/' },
     blocks: [
-      { p: 'When someone searches for a service near them, Google often shows a map with three or four businesses first. Your Google Business Profile decides whether you are in that list. Nobody can guarantee a position, but a few habits improve your chances.' },
+      { p: 'When someone searches for a service near them, Google often shows a map with three or four businesses first. Your [Google Business Profile](/services/seo/) decides whether you are in that list. Nobody can guarantee a position, but a few habits improve your chances.' },
       { h: '1. Claim and complete your profile' },
       { ul: [
         'Choose the most accurate primary category for what you do.',
@@ -300,7 +381,7 @@ export const POSTS: Post[] = [
       { h: '5. Post updates' },
       { p: 'A short weekly post about a new product, an offer or a tip shows the profile is active. Add a call or WhatsApp button to the post.' },
       { h: 'What to expect' },
-      { p: 'Maps visibility builds over weeks and months, depends on your competition, and cannot be guaranteed. Measure calls, direction requests and website clicks in your profile insights rather than chasing one exact position. If you would like us to handle this for you, our local SEO plans start at {{seo-starter}} per month.' },
+      { p: 'Maps visibility builds over weeks and months, depends on your competition, and cannot be guaranteed. Measure calls, direction requests and website clicks in your profile insights rather than chasing one exact position. If you would like us to handle this for you, our [local SEO plans](/services/seo/) start at {{seo-starter}} per month.' },
     ],
   },
   {
@@ -313,7 +394,7 @@ export const POSTS: Post[] = [
     date: '2026-10-21',
     excerpt:
       'Ten things to set up in the free WhatsApp Business app so enquiries are answered quickly and nothing gets lost.',
-    related: { label: 'See WhatsApp automation', to: '/services/whatsapp-automation' },
+    related: { label: 'See WhatsApp automation', to: '/services/whatsapp-automation/' },
     blocks: [
       { p: 'Most local businesses get their enquiries on WhatsApp. The free WhatsApp Business app already has tools that save time. Set these up before you think about paid automation.' },
       { h: 'The checklist' },
@@ -336,7 +417,7 @@ export const POSTS: Post[] = [
         'Reply quickly. A slow reply is the main reason enquiries go cold.',
       ] },
       { h: 'When to go beyond the app' },
-      { p: 'If you receive more enquiries than your team can answer, or you want leads logged automatically in a sheet and routed to the right person, that is where an automation system helps. WhatsApp automation is priced after a short scope call, and we will tell you honestly if the free app is enough for you.' },
+      { p: 'If you receive more enquiries than your team can answer, or you want leads logged automatically in a sheet and routed to the right person, that is where an automation system helps. [WhatsApp automation](/services/whatsapp-automation/) is priced after a short scope call, and we will tell you honestly if the free app is enough for you.' },
     ],
   },
   {
@@ -349,7 +430,7 @@ export const POSTS: Post[] = [
     date: '2026-10-21',
     excerpt:
       'The pages and details a local clinic, school or shop website needs so visitors find what they came for and contact you.',
-    related: { label: 'See website development services', to: '/services/website-development' },
+    related: { label: 'See website development services', to: '/services/website-development/' },
     blocks: [
       { p: 'Visitors to a local business website want a few things quickly: what you do, where you are, when you are open and how to reach you. Use this checklist to see what is missing.' },
       { h: 'For every business' },
@@ -378,12 +459,13 @@ export const POSTS: Post[] = [
       { h: 'Shops and restaurants' },
       { ul: [
         'Products or menu with prices.',
-        'Ways to order: call, WhatsApp or online store.',
+        'Ways to order: call, WhatsApp or an [online store](/services/ecommerce-website/).',
         'Delivery area and timings.',
         'Photos that match what customers actually receive.',
       ] },
       { h: 'Next step' },
-      { p: 'Most of these businesses are well served by a single-page site at {{web-single}} or a multi-page site at {{web-multi}}. Send us what you have on WhatsApp and we will tell you which fits.' },
+      { p: 'See what we build for [clinics](/industries/clinics/), [schools and coaching centres](/industries/schools/) and [restaurants and shops](/industries/restaurants/).' },
+      { p: 'Most of these businesses are well served by a [single-page site](/services/website-development/) at {{web-single}} or a multi-page site at {{web-multi}}. Send us what you have on WhatsApp and we will tell you which fits.' },
     ],
   },
 ]

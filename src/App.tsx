@@ -99,12 +99,12 @@ export function App() {
 
               {/* Legacy 301 Client-Side Single-Hop Redirects */}
               <Route path="/index.html" element={<Navigate to="/" replace />} />
-              <Route path="/pricing.html" element={<Navigate to="/pricing" replace />} />
-              <Route path="/services.html" element={<Navigate to="/services" replace />} />
-              <Route path="/about.html" element={<Navigate to="/about" replace />} />
-              <Route path="/contact.html" element={<Navigate to="/contact" replace />} />
-              <Route path="/services/ecommerce" element={<Navigate to="/services/ecommerce-website" replace />} />
-              <Route path="/blog/seo-services-pondicherry.html" element={<Navigate to="/services/seo" replace />} />
+              <Route path="/pricing.html" element={<Navigate to="/pricing/" replace />} />
+              <Route path="/services.html" element={<Navigate to="/services/" replace />} />
+              <Route path="/about.html" element={<Navigate to="/about/" replace />} />
+              <Route path="/contact.html" element={<Navigate to="/contact/" replace />} />
+              <Route path="/services/ecommerce" element={<Navigate to="/services/ecommerce-website/" replace />} />
+              <Route path="/blog/seo-services-pondicherry.html" element={<Navigate to="/services/seo/" replace />} />
 
               <Route path="*" element={<NotFoundPage />} />
             </Routes>

@@ -181,7 +181,7 @@ export function RealEstatePage() {
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
-          Real estate marketing that delivers verified leads
+          Digital marketing for real estate in Tamil Nadu that delivers verified leads
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">
@@ -197,7 +197,7 @@ export function RealEstatePage() {
             className="text-sm sm:text-base py-3.5 px-6 shadow-md"
           />
           <Link
-            to="/work/real-estate-multi-city/"
+            to="/work/#real-estate-multi-city"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold bg-white border border-bm-line hover:border-bm-brand px-5 py-3.5 rounded-xl text-bm-navy transition-colors shadow-sm"
           >
             <span>Read 500-Lead Case Study</span>
@@ -256,7 +256,7 @@ export function RealEstatePage() {
             *Client name available under written NDA or fallback "Residential plots developer, Madurai".
           </span>
           <Link
-            to="/work/real-estate-multi-city/"
+            to="/work/#real-estate-multi-city"
             className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 hover:text-emerald-300 self-start sm:self-auto"
           >
             <span>Explore Complete Multi-District Case Study →</span>
