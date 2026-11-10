@@ -7,6 +7,7 @@ import { FestivalBanner } from '@/components/FestivalBanner';
 import { QuoteModal } from '@/components/QuoteModal';
 import { PrivacyPolicyModal } from '@/components/PrivacyPolicyModal';
 import { ScrollToTop } from '@/components/ScrollToTop';
+import { ScrollReveal } from '@/components/ScrollReveal';
 import { RouteSeo } from '@/components/RouteSeo';
 import { StickyMobileCTA } from '@/components/StickyMobileCTA';
 import { DEFAULT_SERVICE } from '@/data/siteData';
@@ -66,13 +67,14 @@ export function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <ScrollReveal />
       <RouteSeo />
-      <div className="min-h-screen bg-[#F8F9FA] text-[#0A0B0E] flex flex-col selection:bg-[#FFE600] selection:text-black font-body antialiased">
+      <div className="min-h-screen w-full max-w-full overflow-x-clip bg-[#F8F9FA] text-[#0A0B0E] flex flex-col selection:bg-[#FFE600] selection:text-black font-body antialiased">
         {/* Sitewide Sticky Header */}
         <Navbar onOpenQuote={handleOpenQuote} />
 
         {/* Dynamic Route Content */}
-        <main className="flex-1 pt-20">
+        <main className="flex-1 min-w-0 w-full pt-20">
           <FestivalBanner />
           <Suspense fallback={<RouteFallback />}>
             <Routes>

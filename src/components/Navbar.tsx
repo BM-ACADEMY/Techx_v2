@@ -83,11 +83,13 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Brand Official Logo */}
         <Link to="/" className="flex items-center gap-3 group" aria-label="BM TechX Home">
+          <span className="bg-[#0A0B0E] rounded-xl px-3 py-1.5 flex items-center shadow-sm transition-transform duration-300 group-hover:-rotate-1 group-hover:scale-105">
           <img
             src="/logo.png"
             alt="BM TechX Official Logo"
-            className="h-8 sm:h-9 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+            className="h-6 sm:h-7 w-auto object-contain"
           />
+          </span>
           <div className="hidden sm:flex flex-col">
             <span className="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-wider bg-black text-[#FFE600] border border-black w-fit">
               v2.0 · Tamil Nadu

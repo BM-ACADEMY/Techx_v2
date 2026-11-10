@@ -137,36 +137,53 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
   ];
 
   return (
-    <div className="space-y-16 sm:space-y-24 pb-16">
+    <div className="space-y-16 sm:space-y-28 pb-16 w-full min-w-0">
       {/* ========================================================= */}
       {/* BLOCK 1 — HERO WITH AMBIENT MUSTARD GLOW                  */}
       {/* ========================================================= */}
       <section className="relative pt-12 sm:pt-20 pb-12 px-4 sm:px-6 max-w-7xl mx-auto overflow-hidden">
-        {/* Ambient Subtle Radial Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(255,230,0,0.20),transparent_70%)] pointer-events-none blur-2xl" />
+        {/* Animated aurora + grid backdrop */}
+        <div className="hero-grid" aria-hidden="true" />
+        <div className="aurora aurora-a w-72 h-72 sm:w-[420px] sm:h-[420px] -top-24 left-[8%]" aria-hidden="true" />
+        <div className="aurora aurora-b w-60 h-60 sm:w-[340px] sm:h-[340px] top-10 right-[6%]" aria-hidden="true" />
+        <div className="aurora aurora-c w-52 h-52 sm:w-[280px] sm:h-[280px] bottom-0 left-[38%]" aria-hidden="true" />
+
+        {/* Floating proof chips (desktop) */}
+        <div className="hidden lg:block absolute left-6 top-44 hero-in" style={{ ['--d' as string]: '900ms' }}>
+          <div className="float-slow bg-white/90 backdrop-blur border border-[#E2E8F0] rounded-2xl px-4 py-3 shadow-lg flex items-center gap-3">
+            <Zap className="w-5 h-5 fill-[#FFE600] text-black" />
+            <div className="text-left leading-tight"><p className="text-sm font-bold font-display">48 hours</p><p className="text-[11px] text-slate-500">to go live</p></div>
+          </div>
+        </div>
+        <div className="hidden lg:block absolute right-6 top-60 hero-in" style={{ ['--d' as string]: '1100ms' }}>
+          <div className="float-slower bg-white/90 backdrop-blur border border-[#E2E8F0] rounded-2xl px-4 py-3 shadow-lg flex items-center gap-3">
+            <ShieldCheck className="w-5 h-5 text-emerald-600" />
+            <div className="text-left leading-tight"><p className="text-sm font-bold font-display">From ₹2,999</p><p className="text-[11px] text-slate-500">fixed, no surprises</p></div>
+          </div>
+        </div>
 
         <div className="relative text-center max-w-4xl mx-auto space-y-6">
-          <div className="inline-flex items-center gap-2 bg-white border border-[#E2E8F0] px-4 py-1.5 rounded-full text-xs font-bold text-[#0A0B0E] shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-[#FFE600] animate-ping"></span>
-            <span>Puducherry & Tamil Nadu · Fixed Prices on the Page</span>
+          <div className="hero-in inline-flex items-center gap-2 bg-white border border-[#E2E8F0] px-4 py-1.5 rounded-full text-xs font-bold text-[#0A0B0E] shadow-sm max-w-full">
+            <span className="relative flex h-2 w-2 shrink-0"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFE600]"></span><span className="relative inline-flex h-2 w-2 rounded-full bg-[#FFB800]"></span></span>
+            <span className="truncate">Puducherry & Tamil Nadu · Fixed Prices on the Page</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[#0A0B0E] font-display tracking-tight leading-[1.06]">
+          <h1 className="hero-in text-[2.4rem] leading-[1.05] sm:text-6xl lg:text-7xl font-extrabold text-[#0A0B0E] font-display" style={{ ['--d' as string]: '120ms' }}>
             Fixed-price digital growth for{' '}
             <span className="text-gradient-mustard">Tamil Nadu businesses</span>
           </h1>
 
-          <p className="text-base sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="hero-in text-base sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed" style={{ ['--d' as string]: '260ms' }}>
             Websites, ads, SEO and WhatsApp automation — priced on this page, delivered on the date we commit to. Built in Puducherry, working across Tamil Nadu.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+          <div className="hero-in flex flex-col sm:flex-row items-center justify-center gap-4 pt-2" style={{ ['--d' as string]: '400ms' }}>
             <WhatsAppCTA
               src="home-hero"
               intent="I'd like to know more about your services"
               label="Message us on WhatsApp"
               size="lg"
-              className="w-full sm:w-auto shadow-md"
+              className="w-full sm:w-auto shadow-md btn-shine"
             />
             <Button
               asChild
@@ -178,7 +195,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
             </Button>
           </div>
 
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-semibold text-slate-600">
+          <div className="hero-in pt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-semibold text-slate-600" style={{ ['--d' as string]: '540ms' }}>
             <span className="flex items-center gap-1.5">
               <Zap className="w-3.5 h-3.5 text-black fill-[#FFE600]" /> 48-Hour Web Delivery
             </span>
@@ -197,7 +214,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
       {/* ========================================================= */}
       {/* INFINITE MARQUEE TICKER BANNER                            */}
       {/* ========================================================= */}
-      <div className="w-full overflow-hidden border-y border-[#E2E8F0] bg-white py-3.5 shadow-sm">
+      <div className="w-full max-w-full overflow-hidden border-y border-[#E2E8F0] bg-white py-3.5 shadow-sm marquee-mask" data-no-reveal>
         <div className="animate-marquee whitespace-nowrap flex items-center gap-8 text-xs font-black uppercase tracking-widest text-slate-700">
           <span className="flex items-center gap-2 text-[#0A0B0E]">
             <span className="text-black font-extrabold bg-[#FFE600] px-1.5 py-0.5 rounded text-[10px]">✦</span> 48-Hour Rapid Delivery

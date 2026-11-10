@@ -78,8 +78,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        display: ["'Syne'", "'Space Grotesk'", "system-ui", "sans-serif"],
-        body: ["'Outfit'", "'Plus Jakarta Sans'", "system-ui", "sans-serif"],
+        display: ["'Bricolage Grotesque'", "'Outfit'", "system-ui", "sans-serif"],
+        serif: ["'Instrument Serif'", "Georgia", "serif"],
+        body: ["'Outfit'", "system-ui", "sans-serif"],
         mono: ["'JetBrains Mono'", "'DejaVu Sans Mono'", "ui-monospace", "monospace"],
       },
       keyframes: {
