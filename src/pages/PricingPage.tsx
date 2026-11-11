@@ -6,6 +6,29 @@ import { ShieldCheck, ArrowRight, Bot, Code, Check } from 'lucide-react';
 import { PriceCard } from '@/components/PriceCard';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import { FAQ } from '@/components/FAQ';
+import { EmailCTA } from '@/components/EmailCTA';
+import { formatPrice, getPlanById } from '@/data/dataLayer';
+
+const fromPrice = (ids: string[]): number =>
+  Math.min(...ids.map((id) => getPlanById(id)?.price ?? Number.POSITIVE_INFINITY));
+
+const MORE_SERVICES: { title: string; blurb: string; href: string; ids: string[]; unit: string }[] = [
+  { title: 'Digital invitations', blurb: 'Wedding, nikah and event invitations as one WhatsApp link.', href: '/services/digital-invitations/', ids: ['invite-basic'], unit: 'one-time' },
+  { title: 'Verified leads', blurb: 'Phone-verified leads to WhatsApp. Ad spend included in the pack.', href: '/services/lead-generation/', ids: ['lead-100'], unit: 'per pack' },
+  { title: 'Personal branding', blurb: 'For doctors, professionals, coaches and founders.', href: '/services/personal-branding/', ids: ['pb-starter'], unit: 'per month' },
+  { title: 'Catering and food branding', blurb: 'Menu catalogue, Google profile and Reels for caterers.', href: '/services/catering-branding/', ids: ['cb-starter'], unit: 'per month' },
+  { title: 'Quick-start add-ons', blurb: 'Menu QR, WhatsApp catalogue and review kit.', href: '/services/quick-start-add-ons/', ids: ['addon-menu-qr', 'addon-wa-catalogue', 'addon-review-kit'], unit: 'one-time' },
+];
+
+const PACK_PAGES: { label: string; href: string }[] = [
+  { label: 'Clinics', href: '/industries/clinics/' },
+  { label: 'Doctors and dentists', href: '/industries/doctors-dentists/' },
+  { label: 'Professionals', href: '/industries/professionals/' },
+  { label: 'Coaches and educators', href: '/industries/coaches-educators/' },
+  { label: 'Schools', href: '/industries/schools/' },
+  { label: 'Restaurants', href: '/industries/restaurants/' },
+  { label: 'Real estate', href: '/industries/real-estate/' },
+];
 
 interface PricingPageProps {
   onOpenQuote?: (service?: string) => void;
@@ -52,10 +75,16 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
       {/* ========================================================= */}
       <PageHero visual={<PriceVisual />}>
         <div className="inline-flex items-center gap-2 bg-bm-wash-cool border border-bm-brand-soft px-3.5 py-1.5 rounded-full text-xs font-bold text-bm-navy">
-          <span>Single Source of Truth · Fixed Rate Card</span>
+          <span>Fixed Rate Card · Published Prices</span>
         </div>
 
         <div className="flex justify-center"><SlotsBanner /></div>
+        <div className="flex justify-center">
+          <a href="#more-services" className="inline-flex items-center gap-2 text-xs font-bold bg-white/10 text-white border border-white/25 px-3.5 py-1.5 rounded-full hover:border-[#FFE600]">
+            <span>New: digital invitations, verified leads, personal branding and add-ons</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </a>
+        </div>
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
           Website and digital marketing prices in Pondicherry. Every price, on this page.
         </h1>
@@ -150,6 +179,46 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
                 className="w-full py-4 text-sm"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================= */}
+      {/* MORE SERVICES + PACKS BY BUSINESS TYPE                    */}
+      {/* ========================================================= */}
+      <section id="more-services" className="space-y-8 scroll-mt-28" aria-label="More Services and Packs">
+        <div className="text-center max-w-2xl mx-auto space-y-2">
+          <span className="inline-block text-xs font-bold uppercase tracking-wider bg-amber-100 text-amber-900 border border-amber-300 px-3 py-1 rounded-full">New services</span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-bm-navy-deep font-display">More ways we can help</h2>
+          <p className="text-sm sm:text-base text-bm-ink-muted">Each service has its own page with full inclusions. All prices exclude 18% GST.</p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {MORE_SERVICES.map((m) => (
+            <Link key={m.href} to={m.href} className="group bg-white border border-bm-line rounded-3xl p-6 shadow-sm hover:border-bm-navy hover:shadow-lg transition flex flex-col justify-between gap-4">
+              <div className="space-y-2">
+                <h3 className="text-lg font-bold text-bm-navy-deep">{m.title}</h3>
+                <p className="text-sm text-bm-ink-muted leading-relaxed">{m.blurb}</p>
+              </div>
+              <div className="flex items-end justify-between border-t border-bm-line-soft pt-3">
+                <div>
+                  <span className="text-xs text-bm-ink-faint">From </span>
+                  <span className="text-2xl font-black text-bm-navy-deep">{formatPrice(fromPrice(m.ids))}</span>
+                  <span className="text-xs text-bm-ink-muted"> {m.unit}</span>
+                </div>
+                <ArrowRight className="w-4 h-4 text-bm-navy group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="bg-bm-wash-cool border border-bm-brand-soft rounded-3xl p-6 sm:p-8 text-center space-y-4">
+          <h3 className="text-lg sm:text-xl font-bold text-bm-navy-deep">Starter packs by business type</h3>
+          <p className="text-sm text-bm-ink-muted max-w-2xl mx-auto">Ready-made combinations for your kind of business, with the pack price shown on each page.</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {PACK_PAGES.map((p) => (
+              <Link key={p.href} to={p.href} className="text-xs sm:text-sm font-bold text-bm-navy bg-white border border-bm-line px-4 py-2 rounded-full hover:border-bm-navy">
+                {p.label}
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -254,6 +323,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
               size="lg"
             />
           </div>
+          <EmailCTA src="pricing-email" subject="Pricing" tone="light" />
         </div>
       </section>
     </div>

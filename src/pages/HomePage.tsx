@@ -24,7 +24,7 @@ import { getSiteConfig } from '@/data/dataLayer';
 import {
   SectionHead,
   Showcase,
-  LighthousePanel,
+  BrowserBuild,
   WhatsAppPhone,
   GrowthChart,
   StatBand,
@@ -77,15 +77,9 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
           'openingHoursSpecification': [
             {
               '@type': 'OpeningHoursSpecification',
-              'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+              'dayOfWeek': ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
               'opens': '10:00',
               'closes': '19:00',
-            },
-            {
-              '@type': 'OpeningHoursSpecification',
-              'dayOfWeek': 'Saturday',
-              'opens': '10:00',
-              'closes': '17:00',
             },
           ],
           'areaServed': [
@@ -273,7 +267,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
                 Core Fixed-Price Packages
               </span>
               <p className="text-xs text-slate-500 mt-1">
-                Prices read from single source of truth. Excludes 18% GST.
+                Fixed prices. Excludes 18% GST.
               </p>
             </div>
             <Link
@@ -387,7 +381,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
             <Sparkles className="w-3.5 h-3.5 text-black" /> Direct Entity Summary
           </div>
           <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed">
-            BM TechX is a digital marketing agency in Pondicherry that publishes its prices. We build custom-coded websites from ₹2,999, online stores from ₹9,999, and run SEO, Meta ads and social media on monthly plans from ₹4,999 — for businesses in Puducherry, Cuddalore, Villupuram and across Tamil Nadu. You can see every price before you talk to anyone.
+            BM TechX is a digital marketing agency in Pondicherry that publishes its prices. We build custom-coded websites from ₹2,999, online stores from ₹9,999, and run SEO, Meta ads and social media on monthly plans from ₹2,999 — for businesses in Puducherry, Cuddalore, Villupuram and across Tamil Nadu. You can see every price before you talk to anyone.
           </p>
         </div>
       </section>
@@ -429,10 +423,10 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
-                Customer Rating
+                Delivery Promise
               </p>
-              <p className="text-sm font-bold text-[#0A0B0E]">5.0 ★ Client Satisfaction</p>
-              <p className="text-xs text-slate-600">Pondicherry & Tamil Nadu</p>
+              <p className="text-sm font-bold text-[#0A0B0E]">Date and price in writing</p>
+              <p className="text-xs text-slate-600">Before you pay anything</p>
             </div>
           </div>
         </div>
@@ -468,7 +462,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
                 Custom-coded, live in 48 hours, from ₹2,999.
               </p>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Zero slow WordPress themes. Loads in under 2 seconds on 4G mobile networks across Tamil Nadu.
+                Zero slow WordPress themes. Built to open quickly on mobile networks across Tamil Nadu.
               </p>
             </div>
             <Link
@@ -620,11 +614,11 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
         <Showcase
           eyebrow="Custom websites"
           title="A website that loads before they blink"
-          body="No slow WordPress themes. We hand-code every page in React so it opens fast on a 4G phone in Cuddalore as well as in Chennai."
+          body="No slow WordPress themes. We hand-code every page in React so it opens quickly on mobile phones in Cuddalore as well as in Chennai."
           points={['Live in 48 working hours from ₹2,999', 'Mobile-first, SEO-ready from day one', 'Domain and server included for year one']}
           cta="See website packages"
           to="/services/website-development"
-          visual={<LighthousePanel />}
+          visual={<div className="glass-card p-5 sm:p-7"><BrowserBuild /></div>}
         />
 
         <Showcase

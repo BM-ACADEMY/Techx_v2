@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowRight, Check, ChevronRight, MapPin } from 'lucide-react'
+import { EmailCTA } from '@/components/EmailCTA'
 import { WhatsAppCTA } from '@/components/WhatsAppCTA'
 import { FAQ } from '@/components/FAQ'
 import { getLocation, LOCATIONS } from '@/data/locations'
@@ -162,6 +163,7 @@ export function LocationPage() {
             className="w-full sm:w-auto text-base py-4 px-8 justify-center shadow-lg"
           />
         </div>
+        <EmailCTA src={`location-${loc.slug}-email`} subject={`Business in ${loc.city}`} />
       </section>
 
       <nav aria-label="Other locations" className="max-w-4xl mx-auto text-center text-xs text-bm-ink-muted space-x-4">

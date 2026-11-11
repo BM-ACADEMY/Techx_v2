@@ -475,11 +475,10 @@ export function ContactVisual() {
           <div className="font-display font-bold text-white text-lg">WhatsApp us</div>
           <div className="text-xs text-slate-400">First reply within minutes</div>
         </div>
-        <span className="ml-auto live-pill"><i /> Online</span>
       </div>
       <a href="tel:+919944940051" className={link} style={d(300)}>
         <span className="w-11 h-11 rounded-xl bg-white/10 text-[#FFE600] flex items-center justify-center shrink-0"><Phone className="w-5 h-5" /></span>
-        <div className="leading-tight"><div className="font-display font-bold text-white">+91 99449 40051</div><div className="text-[11px] text-slate-400">Mon–Fri 10–7 · Sat 10–5</div></div>
+        <div className="leading-tight"><div className="font-display font-bold text-white">+91 99449 40051</div><div className="text-[11px] text-slate-400">Mon–Sat 10–7</div></div>
       </a>
       <a href="mailto:admin@bmtechx.in" className={link} style={d(450)}>
         <span className="w-11 h-11 rounded-xl bg-white/10 text-[#FFE600] flex items-center justify-center shrink-0"><Mail className="w-5 h-5" /></span>

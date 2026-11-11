@@ -1,5 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
 import { ArrowRight, Check, ChevronRight, X } from 'lucide-react'
+import { EmailCTA } from '@/components/EmailCTA'
 import { WhatsAppCTA } from '@/components/WhatsAppCTA'
 import { FAQ } from '@/components/FAQ'
 import { ComboCard } from '@/components/ComboCard'
@@ -89,6 +90,7 @@ export function IndustryPage() {
         <div className="flex justify-center">
           <WhatsAppCTA src={`industry-${ind.slug}-footer`} intent={`I run a business in this category: ${ind.name}. Please send me a quote.`} label="Message us on WhatsApp" variant="primary" className="w-full sm:w-auto text-base py-4 px-8 justify-center shadow-lg" />
         </div>
+        <EmailCTA src={`industry-${ind.slug}-email`} subject={ind.name} />
       </section>
 
       <nav aria-label="Other industries" className="max-w-4xl mx-auto text-center text-xs text-bm-ink-muted space-x-4">

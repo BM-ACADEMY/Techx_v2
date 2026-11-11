@@ -4,6 +4,7 @@ import { MessageSquare, Loader2 } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { TrustFooter } from '@/components/TrustFooter';
 import { FestivalBanner } from '@/components/FestivalBanner';
+import { AutoQuotePrompt } from '@/components/AutoQuotePrompt';
 import { QuoteModal } from '@/components/QuoteModal';
 import { PrivacyPolicyModal } from '@/components/PrivacyPolicyModal';
 import { ScrollToTop } from '@/components/ScrollToTop';
@@ -69,6 +70,7 @@ export function App() {
       <ScrollToTop />
       <ScrollReveal />
       <RouteSeo />
+      <AutoQuotePrompt isBusy={isQuoteOpen || isPrivacyOpen} onOpen={() => handleOpenQuote()} />
       <div className="min-h-screen w-full max-w-full overflow-x-clip bg-[#F8F9FA] text-[#0A0B0E] flex flex-col selection:bg-[#FFE600] selection:text-black font-body antialiased">
         {/* Sitewide Sticky Header */}
         <Navbar onOpenQuote={handleOpenQuote} />

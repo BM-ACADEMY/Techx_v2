@@ -146,7 +146,7 @@ export function ProofBlock({ id, variant = 'inline', className, onSelect }: Proo
           ))}
         </div>
         <div className="text-xs font-bold text-[#0A0B0E]">
-          <span>{item.value || '5.0 ★'}</span>
+          <span>{item.value}</span>
           <span className="text-slate-500 font-normal ml-1">({item.label || 'Google Reviews'})</span>
         </div>
       </div>

@@ -193,7 +193,7 @@ export function ContactPage() {
     { value: 'web-multi', label: 'Multi-Page Website — ₹4,999 (5–7 Days)' },
     { value: 'store-basic', label: 'Online Store / Ecommerce — ₹9,999 (No renewal fee)' },
     { value: 'seo-starter', label: 'Google Maps SEO — From ₹2,999/month' },
-    { value: 'ads-standard', label: 'Meta / Facebook Ads — From ₹8,999/month' },
+    { value: 'ads-standard', label: 'Meta / Facebook Ads — From ₹4,999/month' },
     { value: 'smm-starter', label: 'Instagram Management — From ₹7,999/month' },
     { value: 'digital-invitation', label: 'Digital Invitation — From ₹999' },
     { value: 'lead-package', label: 'Verified Leads Package — ₹12,000 / ₹20,000' },
@@ -215,7 +215,7 @@ export function ContactPage() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
-          <span>WhatsApp-Native Agency · Reply in &lt; 15 Mins During Work Hours</span>
+          <span>WhatsApp-Native Agency · Reply in 5–15 Mins During Work Hours</span>
         </div>
 
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">
@@ -223,7 +223,7 @@ export function ContactPage() {
         </h1>
 
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">
-          The fastest way to reach us is WhatsApp — message any hour and you will get a first reply within minutes. Tell us what you sell and what you need, and we will send back a written scope and a price before you pay anything.
+          The fastest way to reach us is WhatsApp — message any hour and you will usually get a first reply in 5–15 minutes during working hours. Tell us what you sell and what you need, and we will send back a written scope and a price before you pay anything.
         </p>
 
       </PageHero>
@@ -233,8 +233,7 @@ export function ContactPage() {
           <div className="relative z-10 space-y-5">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold text-emerald-300 border border-white/15">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Engineering & Delivery Leads Online
+                Mon–Sat, 10 AM to 7 PM
               </div>
               <span className="text-xs text-bm-brand-soft font-mono">Puducherry HQ</span>
             </div>
@@ -424,7 +423,7 @@ export function ContactPage() {
             <ul className="space-y-2.5 text-xs text-bm-ink">
               <li className="flex items-start gap-2">
                 <span className="font-bold text-bm-navy mt-0.5">•</span>
-                <span><strong>30-Minute SLA:</strong> First review response within 30 minutes during standard business hours.</span>
+                <span><strong>5–15 Minute Reply:</strong> First response within 5 to 15 minutes during working hours (Mon–Sat, 10 AM to 7 PM).</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="font-bold text-bm-navy mt-0.5">•</span>
@@ -450,7 +449,7 @@ export function ContactPage() {
                   Message Received!
                 </h3>
                 <p className="text-sm text-bm-ink-muted max-w-md mx-auto leading-relaxed">
-                  Thank you, <strong>{formState.name || 'there'}</strong>. Our team in Puducherry will review your requirements and reach out via WhatsApp/Call within 30 minutes during working hours.
+                  Thank you, <strong>{formState.name || 'there'}</strong>. Our team in Puducherry will review your requirements and reach out via WhatsApp or call within 5–15 minutes during working hours (Mon–Sat, 10 AM to 7 PM).
                 </p>
               </div>
 
@@ -654,7 +653,7 @@ export function ContactPage() {
             </div>
             <h3 className="text-base font-bold text-bm-navy-deep">First Reply in Minutes</h3>
             <p className="text-xs text-bm-ink-muted leading-relaxed">
-              You get a direct reply within minutes on WhatsApp, or within one working hour if you submitted via the inquiry form.
+              You get a reply in 5–15 minutes during working hours (Mon–Sat, 10 AM to 7 PM), whether you message us on WhatsApp or use the inquiry form.
             </p>
           </div>
 

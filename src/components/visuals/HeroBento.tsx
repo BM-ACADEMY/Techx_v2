@@ -1,5 +1,5 @@
 import { useEffect, useState, type CSSProperties } from 'react';
-import { MapPin, MessageSquare, Zap } from 'lucide-react';
+import { MapPin, MessageSquare, ShieldCheck, Zap } from 'lucide-react';
 import { BrowserBuild } from './Visuals';
 import { prefersReducedMotion } from './hooks';
 
@@ -98,11 +98,11 @@ export function HeroBento() {
 
       <Tile className="col-span-2 flex items-center justify-between gap-4" delay={750}>
         <div>
-          <span className="tile-label flex items-center gap-1"><Zap className="w-3 h-3 fill-[#FFE600] text-[#FFE600]" /> Speed</span>
-          <div className="mt-2 font-display font-bold text-white text-base">Lighthouse mobile score</div>
-          <div className="text-[11px] text-slate-400 mt-0.5">Custom-coded, no slow plugins</div>
+          <span className="tile-label flex items-center gap-1"><Zap className="w-3 h-3 fill-[#FFE600] text-[#FFE600]" /> Included</span>
+          <div className="mt-2 font-display font-bold text-white text-base">Domain, SSL and hosting</div>
+          <div className="text-[11px] text-slate-400 mt-0.5">Year 1 included in every website price</div>
         </div>
-        <MiniRing />
+        <ShieldCheck className="w-9 h-9 text-[#FFE600] shrink-0" />
       </Tile>
     </div>
   );

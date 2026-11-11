@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { PageHero } from '@/components/visuals/PageHero';
 import { HubVisual } from '@/components/visuals/PageVisuals';
 import { ArrowRight, Check, ChevronRight, X } from 'lucide-react'
+import { EmailCTA } from '@/components/EmailCTA'
 import { WhatsAppCTA } from '@/components/WhatsAppCTA'
 import { FAQ } from '@/components/FAQ'
 import { ExtraCard } from '@/components/ExtraCard'
@@ -85,6 +86,7 @@ export function ServicePage() {
         <div className="flex justify-center">
           <WhatsAppCTA src={`service-${page.slug}-footer`} intent={`I am interested in ${page.navLabel}. Please send details.`} label="Message us on WhatsApp" variant="primary" className="w-full sm:w-auto text-base py-4 px-8 justify-center shadow-lg" />
         </div>
+        <EmailCTA src={`service-${page.slug}-email`} subject={page.navLabel} />
       </section>
 
       <nav aria-label="Related" className="max-w-4xl mx-auto text-center text-xs text-bm-ink-muted flex flex-wrap justify-center gap-x-4 gap-y-1">
