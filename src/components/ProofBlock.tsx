@@ -29,12 +29,12 @@ export function ProofBlock({ id, variant = 'inline', className, onSelect }: Proo
       return null;
     }
     return (
-      <div className="p-4 sm:p-5 border-2 border-dashed border-[#FFE600]/40 bg-[#FFE600]/5 rounded-2xl text-[#FFE600] my-4 text-xs font-mono space-y-1 select-none">
-        <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[#FFE600]">
+      <div className="p-4 sm:p-5 border-2 border-dashed border-[#0A0B0E]/30 bg-[#FFE600]/15 rounded-2xl text-[#0A0B0E] my-4 text-xs font-mono space-y-1 select-none">
+        <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[#0A0B0E]">
           <Sparkles className="w-3.5 h-3.5" />
           <span>EMPTY PROOF SLOT: {item.id} ({item.type})</span>
         </div>
-        <p className="text-[#CBD5E1] font-sans text-xs">
+        <p className="text-slate-700 font-sans text-xs">
           {item._placeholder_text || item._needs || 'Slot waiting for data / verification.'}
         </p>
       </div>

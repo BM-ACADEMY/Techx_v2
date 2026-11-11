@@ -74,35 +74,24 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E2E8F0] py-3'
-          : 'bg-[#F8F9FA]/85 backdrop-blur-sm border-b border-[#E2E8F0]/70 py-4'
-      }`}
+      className="fixed top-0 left-0 right-0 z-40 px-2 sm:px-4 pt-2 sm:pt-3 pointer-events-none"
       role="banner"
     >
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Brand Official Logo */}
-        <Link to="/" className="flex items-center gap-3 group" aria-label="BM TechX Home">
-          <span className="bg-[#0A0B0E] rounded-xl px-3 py-1.5 flex items-center shadow-sm transition-transform duration-300 group-hover:-rotate-1 group-hover:scale-105">
+      <div className={`nav-bar pointer-events-auto max-w-7xl mx-auto flex items-stretch gap-1.5 transition-all duration-300 ${scrolled ? 'nav-bar-scrolled' : ''}`}>
+        {/* Brand logo tab */}
+        <Link to="/" className="nav-logo group" aria-label="BM TechX Home">
           <img
             src="/logo.webp"
             width={364}
             height={108}
             alt="BM TechX Official Logo"
-            className="h-6 sm:h-7 w-auto object-contain"
+            className="h-6 sm:h-7 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
-          </span>
-          <div className="hidden sm:flex flex-col">
-            <span className="px-1.5 py-0.5 rounded text-[9px] font-extrabold uppercase tracking-wider bg-black text-[#FFE600] border border-black w-fit">
-              v2.0 · Tamil Nadu
-            </span>
-          </div>
         </Link>
 
         {/* Desktop Nav Links */}
         <nav
-          className="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700"
+          className="nav-panel hidden md:flex flex-1 items-center justify-around gap-2 px-8 text-[13.5px] font-medium text-slate-800"
           role="navigation"
           aria-label="Main Navigation"
         >
@@ -202,30 +191,24 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
         </nav>
 
         {/* Quick CTA Actions */}
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden lg:flex items-stretch gap-2 pl-1">
           <button
             onClick={openWhatsApp}
-            className="flex items-center gap-1.5 text-xs font-semibold text-[#10B981] hover:text-[#059669] px-3 py-2 rounded-xl hover:bg-emerald-50 transition-colors focus:ring-2 focus:ring-[#10B981]/30 focus:outline-none"
+            className="hidden 2xl:flex items-center gap-1.5 text-xs font-semibold text-[#10B981] hover:text-[#059669] px-3 py-2 rounded-xl hover:bg-emerald-50 transition-colors focus:ring-2 focus:ring-[#10B981]/30 focus:outline-none"
             aria-label="Contact BM TechX on WhatsApp"
           >
             <MessageSquare className="w-3.5 h-3.5" />
             <span>{site.contact.whatsapp.display}</span>
           </button>
 
-          <Button
-            onClick={() => onOpenQuote()}
-            variant="default"
-            size="default"
-            className="text-xs font-extrabold shadow-md gap-1.5 bg-[#FFE600] hover:bg-[#FFD000] text-black rounded-xl border border-black/10"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-black" />
-            Get Instant Quote
-            <ArrowUpRight className="w-3.5 h-3.5 opacity-70" />
-          </Button>
+          <button type="button" onClick={() => onOpenQuote()} className="slant-cta" aria-label="Get an instant quote">
+            <span className="slant-cta-main"><Sparkles className="w-3.5 h-3.5" /> Get Instant Quote</span>
+            <span className="slant-cta-arrow"><ArrowUpRight className="w-4 h-4" /></span>
+          </button>
         </div>
 
         {/* Mobile Menu Hamburger */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex items-center gap-2 md:hidden ml-auto pr-1">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2.5 rounded-xl border border-[#E2E8F0] bg-white hover:bg-[#F8F9FA] text-black focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30 shadow-sm"
@@ -240,7 +223,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden bg-white border-b border-[#E2E8F0] px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-150"
+          className="md:hidden pointer-events-auto mt-2 bg-white border border-[#E2E8F0] px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-150"
           role="dialog"
           aria-label="Mobile Navigation Menu"
         >

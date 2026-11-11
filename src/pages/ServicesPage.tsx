@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { PageHero } from '@/components/visuals/PageHero';
+import { HubVisual } from '@/components/visuals/PageVisuals';
 import {
   Globe,
   ShoppingCart,
@@ -293,7 +295,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
       {/* ========================================================= */}
       {/* BLOCK 1 — H1 + ANSWER FIRST                              */}
       {/* ========================================================= */}
-      <section className="text-center max-w-4xl mx-auto space-y-6">
+      <PageHero visual={<HubVisual />}>
         <div className="inline-flex items-center gap-2 bg-bm-wash-cool border border-bm-brand-soft px-3.5 py-1.5 rounded-full text-xs font-bold text-bm-navy">
           <span>Digital Growth Services · Puducherry & Tamil Nadu</span>
         </div>
@@ -308,7 +310,7 @@ export function ServicesPage({ onOpenQuote }: ServicesPageProps) {
             see every price on one page →
           </Link>
         </p>
-      </section>
+      </PageHero>
 
       {/* ========================================================= */}
       {/* BLOCK 2 — 6 SERVICE CARDS GRID                            */}

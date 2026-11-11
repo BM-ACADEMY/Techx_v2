@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PageHero } from '@/components/visuals/PageHero';
+import { WorkVisual } from '@/components/visuals/PageVisuals';
 import {
   Briefcase,
   MapPin,
@@ -225,7 +227,7 @@ export function WorkPage({ onOpenQuote }: WorkPageProps) {
       {/* ========================================================= */}
       {/* BLOCK 1 — H1 + ANSWER FIRST                              */}
       {/* ========================================================= */}
-      <section className="text-center max-w-4xl mx-auto space-y-6">
+      <PageHero visual={<WorkVisual />}>
         <div className="inline-flex items-center gap-2 bg-bm-wash-cool border border-bm-brand-soft px-3.5 py-1.5 rounded-full text-xs font-bold text-bm-navy">
           <Briefcase className="w-3.5 h-3.5 text-bm-orange" />
           <span>Verified Client Case Studies · Real Numbers Only</span>
@@ -292,7 +294,7 @@ export function WorkPage({ onOpenQuote }: WorkPageProps) {
             Custom Booking Software
           </button>
         </div>
-      </section>
+      </PageHero>
 
       {/* ========================================================= */}
       {/* BLOCK 2 — CASE STUDY CARDS GRID                           */}

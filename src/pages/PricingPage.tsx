@@ -1,5 +1,7 @@
 import { SlotsBanner } from '@/components/SlotsBanner';
 import { Link } from 'react-router-dom';
+import { PageHero } from '@/components/visuals/PageHero';
+import { PriceVisual } from '@/components/visuals/PageVisuals';
 import { ShieldCheck, ArrowRight, Bot, Code, Check } from 'lucide-react';
 import { PriceCard } from '@/components/PriceCard';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
@@ -48,7 +50,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
       {/* ========================================================= */}
       {/* BLOCK 1 — H1 + ANSWER FIRST                              */}
       {/* ========================================================= */}
-      <section className="text-center max-w-4xl mx-auto space-y-6 pt-4">
+      <PageHero visual={<PriceVisual />}>
         <div className="inline-flex items-center gap-2 bg-bm-wash-cool border border-bm-brand-soft px-3.5 py-1.5 rounded-full text-xs font-bold text-bm-navy">
           <span>Single Source of Truth · Fixed Rate Card</span>
         </div>
@@ -61,7 +63,7 @@ export function PricingPage({ onOpenQuote }: PricingPageProps) {
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">
           There's no "contact us for a quote" row below. Websites start at ₹2,999, online stores are ₹9,999 with no yearly renewal, and monthly plans start at ₹2,999. All prices exclude 18% GST. The only things we don't price here are WhatsApp automation and custom software builds, because they genuinely depend on what you need — and we say so rather than making you find out on a call.
         </p>
-      </section>
+      </PageHero>
 
       {/* ========================================================= */}
       {/* BLOCK 2 — ONE-TIME BUILDS                                */}

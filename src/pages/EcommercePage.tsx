@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { PageHero } from '@/components/visuals/PageHero';
+import { StoreVisual } from '@/components/visuals/PageVisuals';
 import {
   ShoppingCart,
   Check,
@@ -207,7 +209,7 @@ export function EcommercePage({ onOpenQuote }: EcommercePageProps) {
       {/* ========================================================= */}
       {/* BLOCK 1 — H1 + ANSWER FIRST                              */}
       {/* ========================================================= */}
-      <section className="text-center max-w-4xl mx-auto space-y-6">
+      <PageHero visual={<StoreVisual />}>
         <div className="inline-flex items-center gap-2 bg-bm-wash-cool border border-bm-brand-soft px-3.5 py-1.5 rounded-full text-xs font-bold text-bm-navy">
           <ShoppingCart className="w-3.5 h-3.5 text-bm-orange" />
           <span>Independent D2C Store · Unlimited Products · Zero Monthly Rent</span>
@@ -237,7 +239,7 @@ export function EcommercePage({ onOpenQuote }: EcommercePageProps) {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-      </section>
+      </PageHero>
 
       {/* ========================================================= */}
       {/* BLOCK 2 — THE "NO-RENEWAL" POINT (MAJOR DIFFERENTIATOR)   */}

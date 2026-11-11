@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { PageHero } from '@/components/visuals/PageHero';
+import { AboutVisual } from '@/components/visuals/PageVisuals';
 import { 
   ShieldCheck, 
   Users, 
@@ -99,7 +101,7 @@ export function AboutPage() {
       </nav>
 
       {/* BLOCK 1: H1 + ANSWER FIRST */}
-      <div className="text-center max-w-3xl mx-auto space-y-4">
+      <PageHero visual={<AboutVisual />}>
         <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-bm-orange bg-bm-orange/10 px-3.5 py-1 rounded-full">
           <Building2 className="w-3.5 h-3.5" /> Incorporated in Puducherry
         </span>
@@ -115,7 +117,7 @@ export function AboutPage() {
           </code>
           . We build custom-coded websites, run SEO and Meta ads, and automate WhatsApp for businesses across Tamil Nadu. We publish our prices, we commit to dates, and the domain we register is always in your name.
         </p>
-      </div>
+      </PageHero>
 
       {/* BLOCK 2: WHY WE PUT THE REGISTRATION ON THE PAGE (Trigger 1: I've been cheated before) */}
       <section className="bg-white rounded-2xl border-2 border-bm-line/80 p-8 shadow-sm space-y-6">

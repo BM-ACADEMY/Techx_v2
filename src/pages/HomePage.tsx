@@ -21,6 +21,16 @@ import { CaseStudyCard } from '@/components/CaseStudyCard';
 import { NotForBlock } from '@/components/NotForBlock';
 import { FAQ } from '@/components/FAQ';
 import { getSiteConfig } from '@/data/dataLayer';
+import {
+  SectionHead,
+  Showcase,
+  LighthousePanel,
+  WhatsAppPhone,
+  GrowthChart,
+  StatBand,
+  TechMarquee,
+} from '@/components/visuals/Visuals';
+import { HeroBento, RotatingWord } from '@/components/visuals/HeroBento';
 
 interface HomePageProps {
   onOpenQuote?: (service?: string) => void;
@@ -141,72 +151,61 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
       {/* ========================================================= */}
       {/* BLOCK 1 — HERO WITH AMBIENT MUSTARD GLOW                  */}
       {/* ========================================================= */}
-      <section className="relative pt-12 sm:pt-20 pb-12 px-4 sm:px-6 max-w-7xl mx-auto overflow-hidden">
-        {/* Animated aurora + grid backdrop */}
-        <div className="hero-grid" aria-hidden="true" />
-        <div className="aurora aurora-a w-72 h-72 sm:w-[420px] sm:h-[420px] -top-24 left-[8%]" aria-hidden="true" />
-        <div className="aurora aurora-b w-60 h-60 sm:w-[340px] sm:h-[340px] top-10 right-[6%]" aria-hidden="true" />
-        <div className="aurora aurora-c w-52 h-52 sm:w-[280px] sm:h-[280px] bottom-0 left-[38%]" aria-hidden="true" />
+      <section className="px-3 sm:px-6 max-w-[88rem] mx-auto pt-3 sm:pt-5">
+        <div className="hero-dark relative overflow-hidden rounded-[1.75rem] sm:rounded-[2.5rem] bg-[#0A0B0E] px-5 sm:px-12 lg:px-16 py-10 sm:py-16 lg:py-20">
+          <div className="hero-dots" aria-hidden="true" />
+          <div className="aurora aurora-a w-[420px] h-[420px] -top-40 -left-32 !opacity-30" aria-hidden="true" />
+          <div className="aurora aurora-c w-[380px] h-[380px] -bottom-40 right-0 !opacity-20" aria-hidden="true" />
 
-        {/* Floating proof chips (desktop) */}
-        <div className="hidden lg:block absolute left-6 top-44 hero-in" style={{ ['--d' as string]: '900ms' }}>
-          <div className="float-slow bg-white/90 backdrop-blur border border-[#E2E8F0] rounded-2xl px-4 py-3 shadow-lg flex items-center gap-3">
-            <Zap className="w-5 h-5 fill-[#FFE600] text-black" />
-            <div className="text-left leading-tight"><p className="text-sm font-bold font-display">48 hours</p><p className="text-[11px] text-slate-500">to go live</p></div>
-          </div>
-        </div>
-        <div className="hidden lg:block absolute right-6 top-60 hero-in" style={{ ['--d' as string]: '1100ms' }}>
-          <div className="float-slower bg-white/90 backdrop-blur border border-[#E2E8F0] rounded-2xl px-4 py-3 shadow-lg flex items-center gap-3">
-            <ShieldCheck className="w-5 h-5 text-emerald-600" />
-            <div className="text-left leading-tight"><p className="text-sm font-bold font-display">From ₹2,999</p><p className="text-[11px] text-slate-500">fixed, no surprises</p></div>
-          </div>
-        </div>
+          <div className="relative grid lg:grid-cols-[1.1fr_1fr] gap-12 lg:gap-10 items-center">
+            <div className="space-y-6 text-center lg:text-left">
+              <div className="hero-in inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-semibold text-slate-200 max-w-full">
+                <span className="relative flex h-2 w-2 shrink-0"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFE600]"></span><span className="relative inline-flex h-2 w-2 rounded-full bg-[#FFE600]"></span></span>
+                <span className="truncate">Puducherry & Tamil Nadu · Fixed prices on the page</span>
+              </div>
 
-        <div className="relative text-center max-w-4xl mx-auto space-y-6">
-          <div className="hero-in inline-flex items-center gap-2 bg-white border border-[#E2E8F0] px-4 py-1.5 rounded-full text-xs font-bold text-[#0A0B0E] shadow-sm max-w-full">
-            <span className="relative flex h-2 w-2 shrink-0"><span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFE600]"></span><span className="relative inline-flex h-2 w-2 rounded-full bg-[#FFB800]"></span></span>
-            <span className="truncate">Puducherry & Tamil Nadu · Fixed Prices on the Page</span>
-          </div>
+              <h1 className="hero-in text-[2.3rem] leading-[1.06] sm:text-6xl xl:text-[4.2rem] font-extrabold text-white font-display" style={{ ['--d' as string]: '120ms' }}>
+                Fixed-price digital marketing agency in{' '}
+                <span className="text-gradient-mustard">Pondicherry</span>
+              </h1>
 
-          <h1 className="hero-in text-[2.4rem] leading-[1.05] sm:text-6xl lg:text-7xl font-extrabold text-[#0A0B0E] font-display" style={{ ['--d' as string]: '120ms' }}>
-            Fixed-price digital marketing agency in{' '}
-            <span className="text-gradient-mustard">Pondicherry</span>
-          </h1>
+              <p className="hero-in font-display text-xl sm:text-3xl font-bold text-slate-300" style={{ ['--d' as string]: '240ms' }}>
+                We build{' '}
+                <span className="text-[#FFE600]">
+                  <RotatingWord words={['websites', 'online stores', 'Google rankings', 'WhatsApp bots', 'Meta ad leads']} />
+                </span>
+              </p>
 
-          <p className="hero-in text-base sm:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed" style={{ ['--d' as string]: '260ms' }}>
-            Websites, ads, SEO and WhatsApp automation — priced on this page, delivered on the date we commit to. Built in Puducherry, working across Tamil Nadu.
-          </p>
+              <p className="hero-in text-base sm:text-lg text-slate-400 max-w-xl mx-auto lg:mx-0 leading-relaxed" style={{ ['--d' as string]: '340ms' }}>
+                Priced on this page, delivered on the date we commit to. Built in Puducherry, working across Tamil Nadu.
+              </p>
 
-          <div className="hero-in flex flex-col sm:flex-row items-center justify-center gap-4 pt-2" style={{ ['--d' as string]: '400ms' }}>
-            <WhatsAppCTA
-              src="home-hero"
-              intent="I'd like to know more about your services"
-              label="Message us on WhatsApp"
-              size="lg"
-              className="w-full sm:w-auto shadow-md btn-shine"
-            />
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="w-full sm:w-auto text-base font-extrabold rounded-2xl border-2 border-black hover:border-black text-black bg-white hover:bg-black hover:text-white transition-all shadow-sm"
-            >
-              <Link to="/pricing/">See all prices →</Link>
-            </Button>
-          </div>
+              <div className="hero-in flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-1" style={{ ['--d' as string]: '440ms' }}>
+                <WhatsAppCTA
+                  src="home-hero"
+                  intent="I'd like to know more about your services"
+                  label="Message us on WhatsApp"
+                  size="lg"
+                  className="w-full sm:w-auto btn-shine"
+                />
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto text-base font-extrabold rounded-2xl border-2 border-white/80 text-white bg-transparent hover:bg-[#FFE600] hover:border-[#FFE600] hover:text-black transition-all"
+                >
+                  <Link to="/pricing">See all prices →</Link>
+                </Button>
+              </div>
 
-          <div className="hero-in pt-4 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-semibold text-slate-600" style={{ ['--d' as string]: '540ms' }}>
-            <span className="flex items-center gap-1.5">
-              <Zap className="w-3.5 h-3.5 text-black fill-[#FFE600]" /> 48-Hour Web Delivery
-            </span>
-            <span className="text-[#E2E8F0]">•</span>
-            <span className="flex items-center gap-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" /> MCA Registered Entity
-            </span>
-            <span className="text-[#E2E8F0]">•</span>
-            <span className="flex items-center gap-1.5">
-              <Check className="w-3.5 h-3.5 text-black" /> Prices Include Year 1 Server
-            </span>
+              <div className="hero-in flex flex-wrap items-center justify-center lg:justify-start gap-x-6 gap-y-2 pt-4 text-xs font-semibold text-slate-400" style={{ ['--d' as string]: '560ms' }}>
+                <span className="flex items-center gap-1.5"><Zap className="w-3.5 h-3.5 text-[#FFE600] fill-[#FFE600]" /> 48-hour web delivery</span>
+                <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> MCA registered entity</span>
+                <span className="flex items-center gap-1.5"><Check className="w-3.5 h-3.5 text-[#FFE600]" /> Year 1 server included</span>
+              </div>
+            </div>
+
+            <HeroBento />
           </div>
         </div>
       </section>
@@ -457,7 +456,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Service 1 */}
-          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between spot">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-[#F8F9FA] text-black border border-[#E2E8F0] flex items-center justify-center">
                 <Layers className="w-5 h-5 text-black" />
@@ -482,7 +481,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
           </div>
 
           {/* Service 2 */}
-          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between spot">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center">
                 <ShoppingBag className="w-5 h-5" />
@@ -507,7 +506,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
           </div>
 
           {/* Service 3 */}
-          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between spot">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-cyan-50 text-cyan-700 border border-cyan-200 flex items-center justify-center">
                 <Search className="w-5 h-5" />
@@ -532,7 +531,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
           </div>
 
           {/* Service 4 */}
-          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between spot">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 border border-amber-200 flex items-center justify-center">
                 <Target className="w-5 h-5" />
@@ -557,7 +556,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
           </div>
 
           {/* Service 5 */}
-          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between spot">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center justify-center">
                 <Share2 className="w-5 h-5" />
@@ -582,7 +581,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
           </div>
 
           {/* Service 6 */}
-          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between">
+          <div className="bg-white p-6 sm:p-7 rounded-2xl border border-[#E2E8F0] hover:border-black/30 transition-all shadow-sm flex flex-col justify-between spot">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center">
                 <Bot className="w-5 h-5" />
@@ -609,6 +608,53 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
       </section>
 
       {/* ========================================================= */}
+      {/* SHOWCASE — animated IT solution visuals                   */}
+      {/* ========================================================= */}
+      <section className="px-4 sm:px-6 max-w-7xl mx-auto space-y-20 sm:space-y-28" aria-label="IT Solutions Showcase">
+        <SectionHead
+          eyebrow="What we build"
+          title={<>IT solutions that <span className="mark">actually work</span> for local business</>}
+          sub="From the first line of code to the first customer message — all of it built in-house."
+        />
+
+        <Showcase
+          eyebrow="Custom websites"
+          title="A website that loads before they blink"
+          body="No slow WordPress themes. We hand-code every page in React so it opens fast on a 4G phone in Cuddalore as well as in Chennai."
+          points={['Live in 48 working hours from ₹2,999', 'Mobile-first, SEO-ready from day one', 'Domain and server included for year one']}
+          cta="See website packages"
+          to="/services/website-development"
+          visual={<LighthousePanel />}
+        />
+
+        <Showcase
+          reverse
+          eyebrow="WhatsApp automation"
+          title="Reply to every enquiry in two minutes — even at 11pm"
+          body="Our LeadOS assistant qualifies the lead, answers the common questions and drops the details straight into your Google Sheet."
+          points={['Instant replies in Tamil and English', 'Leads synced to Google Sheets', 'Follow-ups over the next few days, automatically']}
+          cta="Explore automation"
+          to="/services/whatsapp-automation"
+          visual={<WhatsAppPhone />}
+        />
+
+        <Showcase
+          eyebrow="SEO and Meta Ads"
+          title="Be found when people nearby search for what you sell"
+          body="Google Maps SEO and Facebook and Instagram ads that send people to a call or a WhatsApp message — and we report enquiries, not vanity likes."
+          points={['Google Business Profile optimisation', 'Ads that lead straight to WhatsApp', 'Monthly report of real enquiries']}
+          cta="See SEO and ads plans"
+          to="/services/seo"
+          visual={<GrowthChart />}
+        />
+
+        <div className="space-y-5">
+          <p className="text-center text-xs font-bold uppercase tracking-[0.25em] text-slate-500">Built with</p>
+          <TechMarquee />
+        </div>
+      </section>
+
+      {/* ========================================================= */}
       {/* BLOCK 6 — WHY US (The 4 Contrast Points)                 */}
       {/* ========================================================= */}
       <section className="px-4 sm:px-6 max-w-7xl mx-auto space-y-10" aria-label="Why Choose BM TechX">
@@ -622,7 +668,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-3 shadow-sm hover:shadow-md hover:border-black/30 transition-all">
+          <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-3 shadow-sm hover:shadow-md hover:border-black/30 transition-all spot">
             <div className="text-3xl font-black text-black font-display flex items-center justify-between">
               <span>01</span>
               <span className="w-2 h-2 rounded-full bg-[#FFE600]" />
@@ -633,7 +679,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-3 shadow-sm hover:shadow-md hover:border-black/30 transition-all">
+          <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-3 shadow-sm hover:shadow-md hover:border-black/30 transition-all spot">
             <div className="text-3xl font-black text-black font-display flex items-center justify-between">
               <span>02</span>
               <span className="w-2 h-2 rounded-full bg-[#FFE600]" />
@@ -644,7 +690,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-3 shadow-sm hover:shadow-md hover:border-black/30 transition-all">
+          <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-3 shadow-sm hover:shadow-md hover:border-black/30 transition-all spot">
             <div className="text-3xl font-black text-black font-display flex items-center justify-between">
               <span>03</span>
               <span className="w-2 h-2 rounded-full bg-[#FFE600]" />
@@ -655,7 +701,7 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-3 shadow-sm hover:shadow-md hover:border-black/30 transition-all">
+          <div className="bg-white p-6 rounded-2xl border border-[#E2E8F0] space-y-3 shadow-sm hover:shadow-md hover:border-black/30 transition-all spot">
             <div className="text-3xl font-black text-black font-display flex items-center justify-between">
               <span>04</span>
               <span className="w-2 h-2 rounded-full bg-[#FFE600]" />
@@ -666,6 +712,10 @@ export function HomePage({ onOpenQuote }: HomePageProps) {
             </p>
           </div>
         </div>
+      </section>
+
+      <section className="px-4 sm:px-6 max-w-7xl mx-auto" aria-label="BM TechX in numbers">
+        <StatBand />
       </section>
 
       {/* ========================================================= */}

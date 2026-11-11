@@ -38,7 +38,12 @@ export function ScrollReveal() {
     let first = true;
     const tag = () => {
       document.querySelectorAll<HTMLElement>(SELECTOR).forEach((el) => {
-        if (el.dataset.reveal !== undefined || el.closest('[data-no-reveal]')) return;
+        if (el.closest('[data-no-reveal]')) return;
+        // Already tagged (effect re-ran): make sure it is observed again, never left hidden
+        if (el.dataset.reveal !== undefined) {
+          if (!el.classList.contains('is-visible')) io.observe(el);
+          return;
+        }
         // Skip first screen of hero (it has its own entrance animation) and fixed/sticky bits
         if (el.closest('.hero-in, header, [role="dialog"]')) return;
         // Above-the-fold content on first paint uses the hero entrance instead
@@ -63,9 +68,18 @@ export function ScrollReveal() {
       cancelAnimationFrame(raf);
       raf = requestAnimationFrame(() => {
         const h = root.scrollHeight - window.innerHeight;
+        root.style.setProperty('--sy', String(Math.round(window.scrollY)));
         if (barRef.current) barRef.current.style.transform = `scaleX(${h > 0 ? window.scrollY / h : 0})`;
       });
     };
+    const onMove = (e: PointerEvent) => {
+      const el = (e.target as HTMLElement | null)?.closest?.('.spot') as HTMLElement | null;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      el.style.setProperty('--my', `${e.clientY - r.top}px`);
+    };
+    window.addEventListener('pointermove', onMove, { passive: true });
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
@@ -73,6 +87,7 @@ export function ScrollReveal() {
       io.disconnect();
       mo.disconnect();
       window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('pointermove', onMove);
       cancelAnimationFrame(raf);
       root.classList.remove('js-reveal');
     };

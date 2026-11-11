@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { PageHero } from '@/components/visuals/PageHero';
+import { ContactVisual } from '@/components/visuals/PageVisuals';
 import {
   Phone,
   MapPin,
@@ -207,7 +209,7 @@ export function ContactPage() {
       {/* ========================================================= */}
       {/* BLOCK 1 — H1 + ANSWER FIRST + PRIMARY WHATSAPP HERO       */}
       {/* ========================================================= */}
-      <section className="text-center max-w-4xl mx-auto space-y-6 pt-4">
+      <PageHero visual={<ContactVisual />}>
         <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-3.5 py-1.5 rounded-full text-xs font-bold text-emerald-800">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -224,6 +226,8 @@ export function ContactPage() {
           The fastest way to reach us is WhatsApp — message any hour and you will get a first reply within minutes. Tell us what you sell and what you need, and we will send back a written scope and a price before you pay anything.
         </p>
 
+      </PageHero>
+      <section className="max-w-3xl mx-auto">
         {/* Primary Hero WhatsApp Action Card */}
         <div className="bg-gradient-to-br from-bm-navy-deep via-bm-brand to-[#08182b] text-white p-6 sm:p-10 rounded-3xl shadow-2xl relative overflow-hidden border border-bm-brand-soft/30 max-w-3xl mx-auto text-left">
           <div className="relative z-10 space-y-5">

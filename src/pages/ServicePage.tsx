@@ -1,4 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
+import { PageHero } from '@/components/visuals/PageHero';
+import { HubVisual } from '@/components/visuals/PageVisuals';
 import { ArrowRight, Check, ChevronRight, X } from 'lucide-react'
 import { WhatsAppCTA } from '@/components/WhatsAppCTA'
 import { FAQ } from '@/components/FAQ'
@@ -26,7 +28,7 @@ export function ServicePage() {
         </ol>
       </nav>
 
-      <section className="text-center max-w-4xl mx-auto space-y-6">
+      <PageHero visual={<HubVisual />}>
         <div className="flex justify-center"><SlotsBanner /></div>
         <h1 className="text-4xl sm:text-6xl font-extrabold text-bm-navy-deep font-display tracking-tight">{page.headline}</h1>
         <p className="text-base sm:text-xl text-bm-ink font-medium leading-relaxed max-w-3xl mx-auto bg-white border border-bm-line p-6 sm:p-8 rounded-3xl shadow-sm">{page.answer}</p>
@@ -36,7 +38,7 @@ export function ServicePage() {
             <span>See all pricing</span><ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-      </section>
+      </PageHero>
 
       <section className="max-w-4xl mx-auto space-y-4">
         <h2 className="text-2xl sm:text-4xl font-extrabold text-bm-navy-deep font-display">Why it matters</h2>

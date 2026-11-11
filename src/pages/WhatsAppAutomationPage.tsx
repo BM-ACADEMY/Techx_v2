@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PageHero } from '@/components/visuals/PageHero';
+import { WhatsAppPhone } from '@/components/visuals/PageVisuals';
 import gsap from 'gsap';
 import {
   Bot,
@@ -391,7 +393,7 @@ export function WhatsAppAutomationPage({ onOpenQuote }: WhatsAppAutomationPagePr
   const currentScenario = DEMO_SCENARIOS[activeScenarioIdx];
 
   return (
-    <div className="space-y-16 sm:space-y-24 py-12 px-4 sm:px-6 max-w-7xl mx-auto overflow-hidden">
+    <div className="space-y-16 sm:space-y-24 py-12 px-4 sm:px-6 max-w-7xl mx-auto">
       {/* ========================================================= */}
       {/* BREADCRUMB                                                */}
       {/* ========================================================= */}
@@ -418,7 +420,7 @@ export function WhatsAppAutomationPage({ onOpenQuote }: WhatsAppAutomationPagePr
       {/* ========================================================= */}
       {/* BLOCK 1 — H1 + ANSWER FIRST + TECH RADAR BADGE            */}
       {/* ========================================================= */}
-      <section ref={heroRef} className="text-center max-w-4xl mx-auto space-y-6">
+      <PageHero innerRef={heroRef} visual={<WhatsAppPhone />}>
         <div 
           ref={badgeRef} 
           className="inline-flex items-center gap-2 bg-emerald-950/80 text-emerald-300 border border-emerald-500/30 px-4 py-1.5 rounded-full text-xs font-mono font-bold shadow-lg backdrop-blur-md"
@@ -485,7 +487,7 @@ export function WhatsAppAutomationPage({ onOpenQuote }: WhatsAppAutomationPagePr
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-      </section>
+      </PageHero>
 
       {/* ========================================================= */}
       {/* GSAP TECH FEATURE 1: LIVE INTERACTIVE BOT SIMULATOR       */}

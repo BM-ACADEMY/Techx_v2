@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { PageHero } from '@/components/visuals/PageHero';
+import { AdsVisual } from '@/components/visuals/PageVisuals';
 import {
   Target,
   AlertCircle,
@@ -187,7 +189,7 @@ export function MetaAdsPage({ onOpenQuote }: MetaAdsPageProps) {
       {/* ========================================================= */}
       {/* BLOCK 1 — H1 + ANSWER FIRST                              */}
       {/* ========================================================= */}
-      <section className="text-center max-w-4xl mx-auto space-y-6">
+      <PageHero visual={<AdsVisual />}>
         <div className="inline-flex items-center gap-2 bg-bm-wash-cool border border-bm-brand-soft px-3.5 py-1.5 rounded-full text-xs font-bold text-bm-navy">
           <Target className="w-3.5 h-3.5 text-bm-orange" />
           <span>Real-Time Leads to WhatsApp · Zero Agency Ad Spend Markup</span>
@@ -217,7 +219,7 @@ export function MetaAdsPage({ onOpenQuote }: MetaAdsPageProps) {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-      </section>
+      </PageHero>
 
       {/* ========================================================= */}
       {/* BLOCK 2 — HOW THE MONEY WORKS (FEE VS AD SPEND)          */}

@@ -1,5 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { PageHero } from '@/components/visuals/PageHero';
+import { SeoVisual } from '@/components/visuals/PageVisuals';
 import {
   Search,
   Check,
@@ -205,7 +207,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
       {/* ========================================================= */}
       {/* BLOCK 1 — H1 + ANSWER FIRST                              */}
       {/* ========================================================= */}
-      <section className="text-center max-w-4xl mx-auto space-y-6">
+      <PageHero visual={<SeoVisual />}>
         <div className="inline-flex items-center gap-2 bg-bm-wash-cool border border-bm-brand-soft px-3.5 py-1.5 rounded-full text-xs font-bold text-bm-navy">
           <Search className="w-3.5 h-3.5 text-bm-orange" />
           <span>Local & Organic Search Growth · Puducherry & Tamil Nadu</span>
@@ -236,7 +238,7 @@ export function SeoPage({ onOpenQuote }: SeoPageProps) {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-      </section>
+      </PageHero>
 
       {/* ========================================================= */}
       {/* BLOCK 2 — THE HIGH-INTENT COMPETITOR AUDIT BLOCK          */}
