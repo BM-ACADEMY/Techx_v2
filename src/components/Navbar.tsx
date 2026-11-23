@@ -51,6 +51,16 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
     return () => document.removeEventListener('mousedown', handleClick);
   }, [moreDropdownOpen]);
 
+  // While the phone menu is open, the page behind it must not scroll; the menu scrolls on its own instead.
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [mobileMenuOpen]);
+
   // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -311,7 +321,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
         <div
-          className="md:hidden pointer-events-auto mt-2 bg-white border border-[#E2E8F0] px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-150"
+          className="md:hidden pointer-events-auto mt-2 bg-white border border-[#E2E8F0] px-4 pt-3 pb-6 space-y-3 shadow-xl animate-in slide-in-from-top-2 duration-150 max-h-[calc(100dvh-6rem)] overflow-y-auto overscroll-contain"
           role="dialog"
           aria-label="Mobile Navigation Menu"
         >
