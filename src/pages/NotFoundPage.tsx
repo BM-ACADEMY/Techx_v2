@@ -22,9 +22,9 @@ export function NotFoundPage() {
   const destinations = [
     { name: 'Website Development (48h)', path: '/services/website-development', icon: Globe, price: 'from ₹2,999' },
     { name: 'eCommerce Stores', path: '/services/ecommerce-website', icon: ShoppingBag, price: '₹9,999 flat' },
-    { name: 'SEO & Google Maps Rank', path: '/services/seo', icon: Search, price: '₹7,499/mo' },
-    { name: 'Meta & Instagram Ads', path: '/services/meta-ads', icon: Megaphone, price: '₹7,499/mo' },
-    { name: 'WhatsApp Sales Autopilot', path: '/services/whatsapp-automation', icon: Bot, price: '₹3,999/mo' },
+    { name: 'SEO & Google Maps Rank', path: '/services/seo', icon: Search, price: 'from ₹2,999/mo' },
+    { name: 'Meta & Instagram Ads', path: '/services/meta-ads', icon: Megaphone, price: '₹4,999/mo' },
+    { name: 'WhatsApp Sales Autopilot', path: '/services/whatsapp-automation', icon: Bot, price: 'Price on request' },
     { name: 'Master Pricing Table', path: '/pricing', icon: CreditCard, price: 'All published' },
     { name: 'About & Company Registration', path: '/about', icon: Building2, price: 'Afra Ventures' },
   ];

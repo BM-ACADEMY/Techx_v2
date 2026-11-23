@@ -11,7 +11,11 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
   const site = getSiteConfig();
 
   return (
-    <footer className="bg-[#050608] text-[#F8FAFC] pt-16 pb-12 border-t border-[#232636]" role="contentinfo">
+    <footer
+      className="bg-[#050608] text-[#F8FAFC] pt-16 pb-12 border-t border-[#232636] max-md:[&_li_a]:inline-block max-md:[&_li_a]:py-1.5 max-md:[&_.footer-bottom_a]:py-2.5 max-md:[&_.footer-bottom_button]:py-2.5"
+      role="contentinfo"
+    >
+      {/* On phones the footer links get extra top/bottom padding so each one is an easy thumb tap (about 30px or more). */}
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#232636]">
           {/* Company Identity */}
@@ -111,7 +115,7 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
                   href={`https://wa.me/${site.contact.whatsapp.number_e164}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-emerald-400 transition-colors"
+                  className="hover:text-emerald-400 transition-colors max-md:py-2"
                 >
                   WhatsApp: {site.contact.whatsapp.display}
                 </a>
@@ -120,7 +124,7 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
                 <Phone className="w-4 h-4 text-[#FFE600] shrink-0" />
                 <a
                   href={`tel:+${site.contact.calls.number_e164}`}
-                  className="hover:text-[#FFE600] transition-colors"
+                  className="hover:text-[#FFE600] transition-colors max-md:py-2"
                 >
                   Direct: {site.contact.calls.display}
                 </a>
@@ -129,7 +133,7 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
                 <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
                 <a
                   href="mailto:admin@bmtechx.in"
-                  className="hover:text-cyan-400 transition-colors"
+                  className="hover:text-cyan-400 transition-colors max-md:py-2"
                 >
                   admin@bmtechx.in
                 </a>
@@ -145,7 +149,7 @@ export const TrustFooter: FC<TrustFooterProps> = ({ onOpenPrivacy }) => {
             <span>© 2026 {site.entity.legal_name}. {site.policy.gst_note}</span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="footer-bottom flex flex-wrap items-center justify-center gap-x-4">
             <Link to="/about/" className="hover:text-[#FFE600] transition-colors">About Team</Link>
             <Link to="/pricing/" className="hover:text-[#FFE600] transition-colors">Pricing</Link>
             <Link to="/contact/" className="hover:text-[#FFE600] transition-colors">Contact</Link>

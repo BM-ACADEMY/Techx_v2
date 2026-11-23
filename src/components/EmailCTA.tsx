@@ -13,7 +13,7 @@ export function EmailCTA({ src, subject, tone = 'dark' }: { src: string; subject
   return (
     <p className={`text-xs sm:text-sm ${muted} text-center mt-3`}>
       Prefer email?{' '}
-      <a href={href} className={`font-bold underline underline-offset-2 ${link}`}>
+      <a href={href} className={`inline-block py-2 font-bold underline underline-offset-2 ${link}`}>
         Write to {email}
       </a>
       . We reply within one working day.

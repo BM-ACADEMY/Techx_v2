@@ -739,3 +739,8 @@ main :is(div, section, article):is(.rounded-2xl, .rounded-3xl):has(> :is([class~
   clip-path: none; border-radius: 1rem;
 }
 main :is(div, section, article):is(.rounded-2xl, .rounded-3xl):has(> :is([class~="-top-1"], [class~="-top-1.5"], [class~="-top-2"], [class~="-top-2.5"], [class~="-top-3"], [class~="-top-3.5"], [class~="-top-4"], [class~="-top-5"], [class~="-top-px"]))::after { display: none; }
+
+/* Phones: breadcrumb links get a taller tap area (the text stays the same size) */
+@media (max-width: 767px) {
+  nav[aria-label="Breadcrumb"] a { display: inline-block; padding-block: 8px; }
+}
