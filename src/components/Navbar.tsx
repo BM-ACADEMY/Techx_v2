@@ -186,6 +186,25 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
             Our Work
           </Link>
 
+          {/* About and Blog sit in the bar on wide screens (xl and up); below that they move into More */}
+          <Link
+            to="/about/"
+            className={`hidden xl:block hover:text-black transition-colors py-1 ${
+              path === '/about' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
+            }`}
+          >
+            About
+          </Link>
+
+          <Link
+            to="/blog/"
+            className={`hidden xl:block hover:text-black transition-colors py-1 ${
+              path === '/blog' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
+            }`}
+          >
+            Blog
+          </Link>
+
           <Link
             to="/contact/"
             className={`hover:text-black transition-colors py-1 ${
@@ -195,10 +214,19 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
             Contact
           </Link>
 
-          {/* More dropdown: About, Blog and Portfolio */}
+          <a
+            href={PORTFOLIO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden xl:flex items-center gap-1 hover:text-black transition-colors py-1"
+          >
+            Portfolio <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+          </a>
+
+          {/* More dropdown (smaller screens only): About, Blog and Portfolio */}
           <div
             ref={moreRef}
-            className="relative"
+            className="relative xl:hidden"
             onMouseEnter={() => setMoreDropdownOpen(true)}
             onMouseLeave={() => setMoreDropdownOpen(false)}
           >
