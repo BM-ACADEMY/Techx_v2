@@ -13,7 +13,9 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [moreDropdownOpen, setMoreDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const moreRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const path = location.pathname.replace(/\/+$/, '') || '/';
   const site = getSiteConfig();
@@ -31,6 +33,7 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setServicesDropdownOpen(false);
+        setMoreDropdownOpen(false);
         setMobileMenuOpen(false);
       }
     };
@@ -38,11 +41,32 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Close the More menu when clicking anywhere outside it (needed for touch screens, where there is no hover)
+  useEffect(() => {
+    if (!moreDropdownOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) setMoreDropdownOpen(false);
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [moreDropdownOpen]);
+
   // Close menus on route change
   useEffect(() => {
     setMobileMenuOpen(false);
     setServicesDropdownOpen(false);
+    setMoreDropdownOpen(false);
   }, [location.pathname]);
+
+  const PORTFOLIO_URL = 'https://portfolio-of.bmtechx.in/';
+
+  // Items under "More" in the desktop bar. Portfolio is a separate site, so it opens in a new tab.
+  const moreLinks = [
+    { label: 'About', href: '/about/' },
+    { label: 'Blog', href: '/blog/' },
+    { label: 'Portfolio', href: PORTFOLIO_URL, external: true },
+  ];
+  const moreActive = path === '/about' || path === '/blog';
 
   const openWhatsApp = () => {
     openWhatsAppChat(
@@ -163,24 +187,6 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
           </Link>
 
           <Link
-            to="/about/"
-            className={`hover:text-black transition-colors py-1 ${
-              path === '/about' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
-            }`}
-          >
-            About
-          </Link>
-
-          <Link
-            to="/blog/"
-            className={`hover:text-black transition-colors py-1 ${
-              path === '/blog' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
-            }`}
-          >
-            Blog
-          </Link>
-
-          <Link
             to="/contact/"
             className={`hover:text-black transition-colors py-1 ${
               path === '/contact' ? 'text-black font-extrabold border-b-2 border-[#FFE600]' : ''
@@ -188,6 +194,60 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
           >
             Contact
           </Link>
+
+          {/* More dropdown: About, Blog and Portfolio */}
+          <div
+            ref={moreRef}
+            className="relative"
+            onMouseEnter={() => setMoreDropdownOpen(true)}
+            onMouseLeave={() => setMoreDropdownOpen(false)}
+          >
+            <button
+              onClick={() => setMoreDropdownOpen(!moreDropdownOpen)}
+              aria-expanded={moreDropdownOpen}
+              aria-haspopup="true"
+              className={`hover:text-black transition-colors py-1 flex items-center gap-1 focus:outline-none focus:ring-2 focus:ring-[#FFE600]/30 rounded-md px-1.5 ${
+                moreActive ? 'text-black font-extrabold' : ''
+              }`}
+            >
+              More <ChevronDown className={`w-3.5 h-3.5 opacity-60 transition-transform ${moreDropdownOpen ? 'rotate-180' : ''}`} />
+            </button>
+
+            {moreDropdownOpen && (
+              <div
+                className="absolute top-full right-0 w-48 bg-white border border-[#E2E8F0] rounded-2xl shadow-xl py-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                role="menu"
+                aria-label="More pages"
+              >
+                {moreLinks.map((item) =>
+                  item.external ? (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      role="menuitem"
+                      onClick={() => setMoreDropdownOpen(false)}
+                      className="flex items-center justify-between px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-[#F8F9FA] hover:text-black transition-colors focus:bg-[#F8F9FA] focus:outline-none"
+                    >
+                      {item.label} <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      role="menuitem"
+                      className={`block px-4 py-2 text-xs font-semibold hover:bg-[#F8F9FA] hover:text-black transition-colors focus:bg-[#F8F9FA] focus:outline-none ${
+                        path === item.href.replace(/\/+$/, '') ? 'text-black font-extrabold' : 'text-slate-700'
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  )
+                )}
+              </div>
+            )}
+          </div>
         </nav>
 
         {/* Quick CTA Actions */}
@@ -257,6 +317,15 @@ export const Navbar: FC<NavbarProps> = ({ onOpenQuote }) => {
           <Link to="/contact/" className="block py-2 text-sm font-bold text-black border-b border-[#F1F5F9]">
             Contact & WhatsApp
           </Link>
+          <a
+            href={PORTFOLIO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => setMobileMenuOpen(false)}
+            className="flex items-center justify-between py-2 text-sm font-bold text-black border-b border-[#F1F5F9]"
+          >
+            Portfolio <ArrowUpRight className="w-4 h-4 opacity-60" />
+          </a>
 
           <Button
             onClick={() => {
